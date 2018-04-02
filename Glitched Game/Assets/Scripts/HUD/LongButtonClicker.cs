@@ -47,6 +47,7 @@ public class LongButtonClicker : MonoBehaviour, IButtonInteract, IPointerDownHan
 	public void OnPointerUp(PointerEventData eventData)
 	{
 		pointerDown = false;
+		Reset();
 	}
 #endregion
 
