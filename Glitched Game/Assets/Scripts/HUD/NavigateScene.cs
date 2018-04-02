@@ -19,6 +19,11 @@ public class NavigateScene : MonoBehaviour
 			ibuttonInteract.OnInteract += HUDInteractHandler;
 		}
 	}
+
+	private void OnDestroy()
+	{
+		ibuttonInteract.OnInteract -= HUDInteractHandler;
+	}
 #endregion
 
 	private void HUDInteractHandler()
