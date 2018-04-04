@@ -17,14 +17,6 @@ public class Health : MonoBehaviour, IHealth
 	{
 		OnHPPctChanged(healthInHits);
 	}
-
-	private void Update()
-	{
-		if (Input.GetButtonDown("Fire2"))
-		{
-			TakeDamage(5);
-		}
-	}
 #endregion
 
 	public void TakeDamage(int amount)
