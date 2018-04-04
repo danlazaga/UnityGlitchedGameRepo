@@ -38,7 +38,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		currentWeaponIndex++;
 
-		if (currentWeaponIndex >= 3)
+		if (currentWeaponIndex >= 2)
 		{
 			currentWeaponIndex = 0;
 		}
@@ -65,10 +65,6 @@ public class WeaponManager : MonoBehaviour
 
 			case 1:
 				iWeapon = gameObject.AddComponent<FireSpearLauncher>();
-				break;
-
-			case 2:
-				iWeapon = gameObject.AddComponent<FrostSpearLauncher>();
 				break;
 		}
 

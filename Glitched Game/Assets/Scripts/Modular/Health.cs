@@ -21,7 +21,6 @@ public class Health : MonoBehaviour, IHealth
 
 	public void TakeDamage(int amount)
 	{
-
 		healthInHits -= amount;
 
 		OnHPPctChanged(healthInHits);

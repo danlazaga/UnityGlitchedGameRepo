@@ -4,6 +4,8 @@ public class WeaponBehavior { }
 
 public abstract class Ballistics : MonoBehaviour
 {
+	protected Transform firePoint;
+
 	protected Vector3 BallisticVelocity(Vector3 origin, Vector3 destination, float angle)
 	{
 		Vector3 dir = destination - origin; // get Target Direction
@@ -22,7 +24,6 @@ public abstract class Ballistics : MonoBehaviour
 
 public class DefaultSpearLauncher : Ballistics, IWeapon
 {
-	Transform firePoint;
 	float angle;
 
 	public void Initialize(Transform firePoint, float angle)
@@ -33,15 +34,14 @@ public class DefaultSpearLauncher : Ballistics, IWeapon
 
 	public void Shoot(Vector3 destination)
 	{
-		GameObject cannonBall = Instantiate(Resources.Load("Prefabs/CannonBall", typeof(GameObject)), 
-												firePoint.position, Quaternion.identity)as GameObject;
+		GameObject cannonBall = Instantiate(Resources.Load("Prefabs/CannonBall", typeof(GameObject)),
+			firePoint.position, Quaternion.identity)as GameObject;
 		cannonBall.GetComponent<Rigidbody>().velocity = BallisticVelocity(firePoint.position, destination, angle);
 	}
 }
 
 public class FireSpearLauncher : Ballistics, IWeapon
 {
-	Transform firePoint;
 	float fireForce = 600;
 
 	public void Initialize(Transform firePoint, float Angle)
@@ -56,20 +56,5 @@ public class FireSpearLauncher : Ballistics, IWeapon
 		bullet.transform.position = firePoint.position;
 		bullet.transform.rotation = firePoint.rotation;
 		bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * fireForce);
-	}
-}
-
-public class FrostSpearLauncher : Ballistics, IWeapon
-{
-	Transform firePoint;
-
-	public void Initialize(Transform firePoint, float Angle)
-	{
-		this.firePoint = firePoint;
-	}
-
-	public void Shoot(Vector3 destination)
-	{
-
 	}
 }
