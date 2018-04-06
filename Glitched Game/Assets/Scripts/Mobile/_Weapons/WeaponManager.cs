@@ -18,7 +18,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		SwitchWeapon(0);
 
-		playerInput = GetComponent<PlayerInput>();
+		playerInput = gameObject.GetRequiredComponent<PlayerInput>();
 
 		if (playerInput != null)
 		{
