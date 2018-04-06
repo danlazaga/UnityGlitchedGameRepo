@@ -5,23 +5,35 @@ using UnityEngine;
 
 public class EnemyAttackState :CustomConstructor<EnemyStateController>, IState
 {
-    public EnemyAttackState(EnemyStateController controller) : base(controller)
-    {
+    private Transform _target;
 
+    public EnemyAttackState(EnemyStateController controller, Transform target) : base(controller)
+    {
+        _target = target;
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        Debug.Log("Enemy Attacking");
+        controller.NavAgent.isStopped = true;
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        Debug.Log("Exiting Attack State");
+        controller.NavAgent.isStopped = false;
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (controller.hasShield && _target == controller.player)
+        {
+            controller.FSM.ChangeState(new EnemyChaseGateState(controller));
+        }
+        else if(!controller.hasShield && _target == controller.gate)
+        {
+            controller.FSM.ChangeState(new EnemyChasePState(controller));
+        }
+      
     }
 }

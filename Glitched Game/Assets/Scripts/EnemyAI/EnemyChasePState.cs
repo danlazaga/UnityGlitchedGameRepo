@@ -5,22 +5,41 @@ using UnityEngine;
 
 public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
 {
+    
+
     public EnemyChasePState(EnemyStateController controller) : base(controller)
     {
+        
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        if(controller.player != null)
+        {
+            controller.NavAgent.SetDestination(controller.player.position);
+        }
+
+        Debug.Log("Chasing PLayer");
+        
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        Debug.Log("Exit Player Chase state");
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if(CheckDistance(controller.transform, controller.player) <= 5f) // attack Range
+        {
+            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.player.transform));
+        }
+
+        if (controller.hasShield)
+        {
+            controller.FSM.ChangeState(new EnemyChaseGateState(controller));
+        }
     }
+
+
 }

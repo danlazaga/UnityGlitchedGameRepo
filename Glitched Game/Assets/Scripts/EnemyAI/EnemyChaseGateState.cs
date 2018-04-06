@@ -7,20 +7,34 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 {
     public EnemyChaseGateState(EnemyStateController controller) : base(controller)
     {
+
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        Debug.Log("Approaching Gate");
+        if(controller.gate != null)
+        {
+            controller.NavAgent.SetDestination(controller.gate.position);
+        }
+       
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        Debug.Log("Exiting Gate Chase State");
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (CheckDistance(controller.transform, controller.gate) <= 2f) // attack Range
+        {
+            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.gate.transform));
+        }
+
+        if (!controller.hasShield)
+        {
+            controller.FSM.ChangeState(new EnemyChasePState(controller));
+        }
     }
 }

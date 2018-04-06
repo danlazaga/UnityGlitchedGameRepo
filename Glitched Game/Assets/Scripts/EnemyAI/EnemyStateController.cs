@@ -7,14 +7,18 @@ public class EnemyStateController : StateController
 {
     [Header("Targets")]
     public Transform player;
-    public Transform[] gates;
+    public Transform gate;
 
-    private GameObject boss;
+   // public GameObject boss;
+
+    // testing bool if boss has shield
+    [Header("Testing Bool")]
+    public bool hasShield;
 
 
     private void Start()
     {
-        FSM.ChangeState(new EnemyIdleState(this));
+        FSM.ChangeState(new EnemyChasePState(this));
     }
 
     public override void Update()

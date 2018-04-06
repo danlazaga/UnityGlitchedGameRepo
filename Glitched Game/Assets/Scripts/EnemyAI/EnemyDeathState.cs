@@ -7,11 +7,12 @@ public class EnemyDeathState : CustomConstructor<EnemyStateController>, IState
 {
     public EnemyDeathState(EnemyStateController controller) : base(controller)
     {
+
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.NavAgent.isStopped = true;
     }
 
     public void OnStateExit()
