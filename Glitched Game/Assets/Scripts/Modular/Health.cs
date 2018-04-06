@@ -21,6 +21,9 @@ public class Health : MonoBehaviour, IHealth
 
 	public void TakeDamage(int amount)
 	{
+		if (amount <= 0)
+			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
+
 		healthInHits -= amount;
 
 		OnHPPctChanged(healthInHits);
