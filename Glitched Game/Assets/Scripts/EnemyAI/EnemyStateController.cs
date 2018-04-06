@@ -12,7 +12,6 @@ public class EnemyStateController : StateController
    // public GameObject boss;
 
     // testing bool if boss has shield
-    [Header("Testing Bool")]
     public bool hasShield;
 
 
