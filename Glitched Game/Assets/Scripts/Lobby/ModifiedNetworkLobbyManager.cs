@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 {
+#region  Variable & Instance
 	[Space(10)]
 	[SerializeField] string sceneName;
 
@@ -17,11 +18,14 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 			return instance;
 		}
 	}
+#endregion
 
+#region Unity Methods 
 	void Awake()
 	{
 		instance = this;
 	}
+#endregion
 
 	public void StartHostModified()
 	{
