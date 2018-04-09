@@ -246,6 +246,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114988157793431180, guid: 155ca3be37291594e92a6abe422ac3c6,
+        type: 2}
+      propertyPath: turretYRotMin
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114988157793431180, guid: 155ca3be37291594e92a6abe422ac3c6,
+        type: 2}
+      propertyPath: turretYRotMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114988157793431180, guid: 155ca3be37291594e92a6abe422ac3c6,
+        type: 2}
+      propertyPath: turretXRotMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114988157793431180, guid: 155ca3be37291594e92a6abe422ac3c6,
+        type: 2}
+      propertyPath: turretXRotMin
+      value: -30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 155ca3be37291594e92a6abe422ac3c6, type: 2}
   m_IsPrefabParent: 0
