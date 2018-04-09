@@ -5,22 +5,38 @@ using UnityEngine;
 
 public class BossShieldState : CustomConstructor<BossStateController>, IState
 {
+    float shieldTime;
+    float maxShieldTime;
+
+
+
     public BossShieldState(BossStateController controller) : base(controller)
     {
+        shieldTime = 0;
+        maxShieldTime = 10f;
+
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.hasShield = true;
+        controller.attacks = 0;
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        controller.hasShield = false;
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+       if(controller.hasShield)
+        {
+            shieldTime += Time.deltaTime;
+            if(shieldTime >= maxShieldTime)
+            {
+                controller.FSM.ChangeState(new BossDisableState(controller));
+            }
+        }
     }
 }

@@ -3,24 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDoubleSlamState : CustomConstructor<BossIdleState>, IState
+public class BossDoubleSlamState : CustomConstructor<BossStateController>, IState
 {
-    public BossDoubleSlamState(BossIdleState controller) : base(controller)
+    public BossDoubleSlamState(BossStateController controller) : base(controller)
     {
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.attacks++;
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (controller.attacks >= controller.maxAttacks + 1)
+        {
+            controller.FSM.ChangeState(new BossShieldState(controller));
+        }
+        else
+        {
+            controller.FSM.ChangeState(new BossIdleState(controller));
+        }
     }
 }

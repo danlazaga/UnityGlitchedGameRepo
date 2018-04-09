@@ -12,16 +12,25 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        // play Animation
+        Debug.Log(" Left Slam");
+        controller.attacks++;
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (controller.attacks >= controller.maxAttacks + 1)
+        {
+            controller.FSM.ChangeState(new BossShieldState(controller));
+        }
+        else
+        {
+            controller.FSM.ChangeState(new BossIdleState(controller));
+        }
     }
 }
