@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class PlayerInput : MonoBehaviour
 #region Unity Methods	
 	void Update()
 	{
-		Horizontal = Input.GetAxis("Horizontal");
-		Vertical = Input.GetAxis("Vertical");
+		Horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+		Vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
 		if (Input.GetButtonDown("Fire1"))
 		{
