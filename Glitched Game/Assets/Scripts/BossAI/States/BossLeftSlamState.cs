@@ -24,7 +24,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 
     public void OnUpdate()
     {
-        if (controller.attacks >= controller.maxAttacks + 1)
+        if (controller.attacks >= controller.maxAttacks + 2)
         {
             controller.FSM.ChangeState(new BossShieldState(controller));
         }

@@ -13,7 +13,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     public BossShieldState(BossStateController controller) : base(controller)
     {
         shieldTime = 0;
-        maxShieldTime = 10f;
+        maxShieldTime = 2f;
 
     }
 
@@ -21,6 +21,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     {
         controller.hasShield = true;
         controller.attacks = 0;
+        Debug.Log("Shield Active");
     }
 
     public void OnStateExit()
@@ -35,7 +36,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
             shieldTime += Time.deltaTime;
             if(shieldTime >= maxShieldTime)
             {
-                controller.FSM.ChangeState(new BossDisableState(controller));
+                controller.FSM.ChangeState(new BossIdleState(controller));
             }
         }
     }

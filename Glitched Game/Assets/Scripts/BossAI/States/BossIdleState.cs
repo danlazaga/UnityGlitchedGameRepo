@@ -33,7 +33,7 @@ public class BossIdleState : CustomConstructor<BossStateController>, IState
             {
                 controller.idleMode = false;
                 SelectAction(Randomize(0, controller.maxAttacks));
-                controller.idleMode = false;
+              
                 controller.idleTime = 0;
             }
         }
@@ -53,14 +53,16 @@ public class BossIdleState : CustomConstructor<BossStateController>, IState
                 controller.FSM.ChangeState(new BossRightSlamState(controller));
                 break;
             case 2:
-                Debug.Log("Bullet Rain Attack");
+                //Debug.Log("Double Slam Attack");
+                controller.FSM.ChangeState(new BossDoubleSlamState(controller));
                 break;
             case 3:
-                Debug.Log("Double Slam Attack");
+                //Debug.Log("Laser Attack");
+                controller.FSM.ChangeState(new BossLaserState(controller));
                 break;
             case 4:
-                
-                Debug.Log("Laser Attack");
+                Debug.Log("Bullet Rain Attack");
+                controller.FSM.ChangeState(new BossBulletRainState(controller));
                 break;
           
 

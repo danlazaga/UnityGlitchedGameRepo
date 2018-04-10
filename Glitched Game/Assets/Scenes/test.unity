@@ -817,6 +817,7 @@ GameObject:
   - component: {fileID: 1321518798}
   - component: {fileID: 1321518797}
   - component: {fileID: 1321518796}
+  - component: {fileID: 1321518803}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -839,7 +840,7 @@ MonoBehaviour:
   maxIdleTime: 5
   idleMode: 0
   attacks: 0
-  maxAttacks: 0
+  maxAttacks: 1
   hasShield: 0
   health: 100
   slamAttacks:
@@ -955,3 +956,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1321518803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321518795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3527faa06de9d44e8c1d8ff82bdc683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100

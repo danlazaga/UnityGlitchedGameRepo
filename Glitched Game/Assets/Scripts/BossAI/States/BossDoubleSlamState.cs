@@ -12,6 +12,7 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
     public void OnStateEnter()
     {
         controller.attacks++;
+        Debug.Log("Double Slam");
     }
 
     public void OnStateExit()
@@ -21,7 +22,7 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
 
     public void OnUpdate()
     {
-        if (controller.attacks >= controller.maxAttacks + 1)
+        if (controller.attacks >= controller.maxAttacks + 2)
         {
             controller.FSM.ChangeState(new BossShieldState(controller));
         }

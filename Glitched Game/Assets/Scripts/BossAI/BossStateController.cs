@@ -24,16 +24,24 @@ public class BossStateController : StateController
     //public bool onDoubleSlam;
     //public bool onLaserAttack;
 
+    private TestHealth bossHealth;
 
     private void Start()
     {
-        maxAttacks = 2;
-        FSM.ChangeState(new BossIdleState(this));
+        bossHealth = GetComponent<TestHealth>();
+
+        bossHealth.UnlockDoubleSlam += UnlockDoubleSlam;
+        bossHealth.UnlockLaser += UnlockLaserAttack;
+
+        maxAttacks = 1;
+        FSM.ChangeState(new BossDisableState(this));
     }
 
     public override void Update()
     {
         FSM.StateUpdate();
+
+      
     }
 
     // check health script, if health is less than 60%
@@ -56,12 +64,18 @@ public class BossStateController : StateController
     void UnlockDoubleSlam()
     {
         //onDoubleSlam = true; 
-        maxAttacks = 4;
+        Debug.Log("Unlock DoubleSlam");
+        maxAttacks = 2;
+        bossHealth.UnlockDoubleSlam -= UnlockDoubleSlam;
+       
+
     }
 
     void UnlockLaserAttack()
     {
         // onLaserAttack = true;
-        maxAttacks = 5;
+        Debug.Log("Unlock Laser Attack");
+        maxAttacks = 3;
+        bossHealth.UnlockLaser -= UnlockLaserAttack;
     }
 }

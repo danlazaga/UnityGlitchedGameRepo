@@ -20,8 +20,13 @@ public abstract class CustomConstructor<T>
 
     public int Randomize(int min, int max)
     {
-        int rand = Random.Range(min, max);
+        //var fMin = (float)min;
+        //var fMax = (float)max;
+
+        var rand = Random.Range(min, max +1);
         return rand;
+        //var value = (int)rand;  
+        //return value;
     }
 }
 

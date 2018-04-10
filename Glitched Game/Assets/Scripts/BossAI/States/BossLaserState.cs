@@ -12,16 +12,24 @@ public class BossLaserState : CustomConstructor<BossStateController>, IState
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.attacks++;
+        Debug.Log("Laser Attack");
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (controller.attacks >= controller.maxAttacks + 2)
+        {
+            controller.FSM.ChangeState(new BossShieldState(controller));
+        }
+        else
+        {
+            controller.FSM.ChangeState(new BossIdleState(controller));
+        }
     }
 }
