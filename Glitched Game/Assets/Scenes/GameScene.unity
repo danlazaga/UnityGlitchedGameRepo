@@ -462,7 +462,7 @@ MonoBehaviour:
   turret: {fileID: 0}
   turretYRotMin: -30
   turretYRotMax: 30
-  turretXRotMin: -30
+  turretXRotMin: -10
   turretXRotMax: 30
 --- !u!114 &918133078
 MonoBehaviour:

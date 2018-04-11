@@ -42,7 +42,7 @@ public class TurretMovement : MonoBehaviour {
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, turretYRot, transform.eulerAngles.z);
 
 
-        turretXRot += playerInput.Vertical * rotSpeed * Time.deltaTime;
+        turretXRot -= playerInput.Vertical * rotSpeed * Time.deltaTime;
 
         turretXRot = Mathf.Clamp(turretXRot, turretXRotMin, turretXRotMax);
 
