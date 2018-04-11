@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 11400004}
   - component: {fileID: 11400002}
   m_Layer: 5
-  m_Name: JumpButton
+  m_Name: FireButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bf3be603548374ca46f521a3aa7fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Jump
+  Name: Fire1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,7 +403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.78, y: 0.01}
   m_AnchorMax: {x: 0.99, y: 0.15}
-  m_AnchoredPosition: {x: 0, y: 72}
+  m_AnchoredPosition: {x: -258, y: 72}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22400006
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 114714874350873054}
   - component: {fileID: 114159651414563254}
   m_Layer: 5
-  m_Name: JumpButton (1)
+  m_Name: SwitchWeaponButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bf3be603548374ca46f521a3aa7fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Jump
+  Name: Switch
 --- !u!114 &114207148901975006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,7 +688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.78, y: 0.29875}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -6.500244, y: 3.5}
+  m_AnchoredPosition: {x: -6.500244, y: -48}
   m_SizeDelta: {x: -13, y: -49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224971880925173524

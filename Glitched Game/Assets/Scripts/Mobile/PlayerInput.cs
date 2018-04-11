@@ -18,10 +18,18 @@ public class PlayerInput : MonoBehaviour
 		Horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
 		Vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-		if (CrossPlatformInputManager.GetButtonDown("Jump"))
+		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
+			Debug.Log("Fire");
 			if(OnFire != null) OnFire();
 		}
+
+		if(CrossPlatformInputManager.GetButtonDown("Switch"))
+		{
+			Debug.Log("Switch Weapon");
+			if(OnSwitchWeapon != null) OnSwitchWeapon();
+		}
+
 	}
 #endregion
 }
