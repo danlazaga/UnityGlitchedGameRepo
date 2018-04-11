@@ -6,8 +6,6 @@ public class WeaponManager : MonoBehaviour
 {
 #region Variables
 	[SerializeField] Transform firePoint;
-	[Range(10f, 80f)]
-	[SerializeField] private float angle = 45f;
 	IWeapon iWeapon;
 	PlayerInput playerInput;
 	int currentWeaponIndex;
@@ -38,7 +36,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		currentWeaponIndex++;
 
-		if (currentWeaponIndex >= 2)
+		if (currentWeaponIndex >= 1)
 		{
 			currentWeaponIndex = 0;
 		}
@@ -46,9 +44,11 @@ public class WeaponManager : MonoBehaviour
 		SwitchWeapon(currentWeaponIndex);
 	}
 
-	void HandleFire(Vector3 destination)
+	void HandleFire()
 	{
-		iWeapon.Shoot(destination);
+		iWeapon.Shoot();
+
+		// Debug.Log("Shoot");
 	}
 
 	void SwitchWeapon(int index)
@@ -60,14 +60,10 @@ public class WeaponManager : MonoBehaviour
 		switch (index)
 		{
 			case 0:
-				iWeapon = gameObject.AddComponent<DefaultSpearLauncher>();
-				break;
-
-			case 1:
-				iWeapon = gameObject.AddComponent<FireSpearLauncher>();
+				iWeapon = gameObject.AddComponent<DefaultBullet>();
 				break;
 		}
 
-		iWeapon.Initialize(firePoint, angle);
+		iWeapon.Initialize(firePoint);
 	}
 }

@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
 	public float Horizontal { get; private set; }
 	public float Vertical { get; private set; }
 
-	public event Action<Vector3> OnFire = delegate(Vector3 v) { };
+	public event Action OnFire = delegate { };
 	public event Action OnSwitchWeapon = delegate { };
 #endregion
 
@@ -18,21 +18,9 @@ public class PlayerInput : MonoBehaviour
 		Horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
 		Vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-		if (Input.GetButtonDown("Fire1"))
+		if (CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			RaycastHit hitInfo;
-
-			if (Physics.Raycast(ray, out hitInfo))
-			{
-				if (OnFire != null) { OnFire(hitInfo.point); }
-			}
-		}
-
-		if(Input.GetButtonDown("Jump"))
-		{
-			if(OnSwitchWeapon != null) OnSwitchWeapon();
+			if(OnFire != null) OnFire();
 		}
 	}
 #endregion
