@@ -20,14 +20,12 @@ public class PlayerInput : MonoBehaviour
 
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
-			Debug.Log("Fire");
-			if(OnFire != null) OnFire();
+			if (OnFire != null)OnFire();
 		}
 
-		if(CrossPlatformInputManager.GetButtonDown("Switch"))
+		if (CrossPlatformInputManager.GetButtonDown("Switch"))
 		{
-			Debug.Log("Switch Weapon");
-			if(OnSwitchWeapon != null) OnSwitchWeapon();
+			if (OnSwitchWeapon != null)OnSwitchWeapon();
 		}
 
 	}

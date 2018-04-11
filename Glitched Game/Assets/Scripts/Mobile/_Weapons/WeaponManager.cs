@@ -36,7 +36,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		currentWeaponIndex++;
 
-		if (currentWeaponIndex >= 1)
+		if (currentWeaponIndex >= 2)
 		{
 			currentWeaponIndex = 0;
 		}
@@ -47,8 +47,6 @@ public class WeaponManager : MonoBehaviour
 	void HandleFire()
 	{
 		iWeapon.Shoot();
-
-		// Debug.Log("Shoot");
 	}
 
 	void SwitchWeapon(int index)
@@ -61,6 +59,10 @@ public class WeaponManager : MonoBehaviour
 		{
 			case 0:
 				iWeapon = gameObject.AddComponent<DefaultBullet>();
+				break;
+
+			case 1:
+				iWeapon = gameObject.AddComponent<ShieldBreakerBullet>();
 				break;
 		}
 
