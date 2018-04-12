@@ -3,32 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IHealth
+public class Health : MonoBehaviour, IHealthHandler
 {
 
-#region Variables
-	[SerializeField] private int healthInHits = 100;
+    #region Variables
+    public float maxHealth = 100f;
+    private float health;
+
+
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
-#endregion
 
-#region Unity Methods
-	private void Start()
+
+    public delegate void OnHitHPCheck();
+
+    public event OnHitHPCheck UnlockDoubleSlam;
+    public event OnHitHPCheck UnlockLaser;
+
+    #endregion
+
+    #region Unity Methods
+    private void Start()
 	{
-		OnHPPctChanged(healthInHits);
+        health = maxHealth;
 	}
 #endregion
 
-	public void TakeDamage(int amount)
+	public void TakeDamage(int damage)
 	{
-		if (amount <= 0)
-			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
+		if (damage <= 0)
+			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + damage);
 
-		healthInHits -= amount;
+        health -= damage;
 
-		OnHPPctChanged(healthInHits);
 
-		if (healthInHits <= 0)
+        if (health <= (maxHealth * 0.6))
+        {
+            if (UnlockDoubleSlam != null)
+            {
+                UnlockDoubleSlam();
+            }
+        }
+
+        if (health <= (maxHealth * 0.5))
+        {
+            if (UnlockLaser != null)
+            {
+                UnlockLaser();
+            }
+        }
+
+
+        if (health <= 0)
 			OnDied();
 
 	}

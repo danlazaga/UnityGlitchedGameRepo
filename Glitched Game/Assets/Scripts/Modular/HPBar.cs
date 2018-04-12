@@ -10,9 +10,9 @@ public class HPBar : MonoBehaviour
 #region Unity Methods
 	private void Awake()
 	{
-		if (GetComponentInParent<IHealth>()!= null)
+		if (GetComponentInParent<IHealthHandler>()!= null)
 		{
-			GetComponentInParent<IHealth>().OnHPPctChanged += HandleHPPctChanged;
+			GetComponentInParent<IHealthHandler>().OnHPPctChanged += HandleHPPctChanged;
 		}
 	}
 #endregion

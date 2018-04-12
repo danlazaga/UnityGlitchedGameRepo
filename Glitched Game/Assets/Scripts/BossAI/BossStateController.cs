@@ -9,14 +9,18 @@ public class BossStateController : StateController
     public float idleTime;
     public float maxIdleTime;
     public bool idleMode;
+
+    // attack counter
     public int attacks;
+
+    //attack pool/max index
     public int maxAttacks;
 
     public bool hasShield;
-    public float health;
+ 
 
     // Attacks
-    public GameObject[] slamAttacks;
+   // public GameObject[] slamAttacks;
     public GameObject laserAttack;
     public GameObject bulletRain;
 
@@ -24,11 +28,11 @@ public class BossStateController : StateController
     //public bool onDoubleSlam;
     //public bool onLaserAttack;
 
-    private TestHealth bossHealth;
+    private Health bossHealth;
 
     private void Start()
     {
-        bossHealth = GetComponent<TestHealth>();
+        bossHealth = GetComponent<Health>();
 
         bossHealth.UnlockDoubleSlam += UnlockDoubleSlam;
         bossHealth.UnlockLaser += UnlockLaserAttack;
