@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 public class ModifiedNetworkLobbyManager : NetworkLobbyManager
@@ -8,6 +6,12 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 #region  Variable & Instance
 	[Space(10)]
 	[SerializeField] string sceneName;
+
+	[Space(10)]
+	public Color[] colorArray;
+
+	[Space(10)]
+	[HideInInspector] public int currentPlayerColor = 0; 
 
 	private static ModifiedNetworkLobbyManager instance;
 
@@ -39,9 +43,9 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 		Debug.Log("Host Started!");
 	}
 
-	public void JoinGame(string networkAdressString)
+	public void JoinGame(/*string networkAdressString*/)
 	{
-		networkAddress = networkAdressString;
+		//networkAddress = networkAdressString;
 
 		StartClient();
 	}
@@ -49,7 +53,7 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	public override void OnStartClient(NetworkClient client)
 	{
 		base.OnStartClient(client);
-
+	
 		Debug.Log("Connected!");
 	}
 
@@ -57,4 +61,4 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	{
 		ServerChangeScene(sceneName);
 	}
-}
+}	
