@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerInput))]
-public class TurretMovement : MonoBehaviour
+public class TurretMovement : NetworkBehaviour
 {
 
     [SerializeField] float rotSpeed;
@@ -19,6 +20,8 @@ public class TurretMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!isLocalPlayer) return;
+
         yRot += playerInput.Horizontal * rotSpeed * Time.deltaTime;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z);
 
