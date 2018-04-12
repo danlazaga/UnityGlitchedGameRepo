@@ -24,7 +24,7 @@ public class LobbyPlayerList : MonoBehaviour
 		if (_playerList.Contains(player))
 			return;
 
-		ChangePlayerColor(player);
+		//ChangePlayerColor(player);
 
 		_playerList.Add(player);
 
@@ -36,12 +36,12 @@ public class LobbyPlayerList : MonoBehaviour
 		}
 	}
 
-    void ChangePlayerColor(LobbyPlayer player)
-	{
-		player.gameObject.GetComponent<Image> ().color = ModifiedNetworkLobbyManager
-			.Instance
-			.colorArray [ModifiedNetworkLobbyManager.Instance.currentPlayerColor];
+    // void ChangePlayerColor(LobbyPlayer player)
+	// {
+	// 	player.gameObject.GetComponent<Image> ().color = ModifiedNetworkLobbyManager
+	// 		.Instance
+	// 		.colorArray [ModifiedNetworkLobbyManager.Instance.currentPlayerColor];
 
-		ModifiedNetworkLobbyManager.Instance.currentPlayerColor++;
-	}
+	// 	ModifiedNetworkLobbyManager.Instance.currentPlayerColor++;
+	// }
 }
