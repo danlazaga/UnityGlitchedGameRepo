@@ -3,6 +3,6 @@
 
 public interface IWeapon
 {
-	void Initialize(Transform firePoint, float angle);
-	void Shoot(Vector3 destination);
+	void Initialize(Transform firePoint);
+	void Shoot();
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -7,32 +8,26 @@ public class PlayerInput : MonoBehaviour
 	public float Horizontal { get; private set; }
 	public float Vertical { get; private set; }
 
-	public event Action<Vector3> OnFire = delegate(Vector3 v) { };
+	public event Action OnFire = delegate { };
 	public event Action OnSwitchWeapon = delegate { };
 #endregion
 
 #region Unity Methods	
 	void Update()
 	{
-		Horizontal = Input.GetAxis("Horizontal");
-		Vertical = Input.GetAxis("Vertical");
+		Horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+		Vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-		if (Input.GetButtonDown("Fire1"))
+		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			RaycastHit hitInfo;
-
-			if (Physics.Raycast(ray, out hitInfo))
-			{
-				if (OnFire != null) { OnFire(hitInfo.point); }
-			}
+			if (OnFire != null)OnFire();
 		}
 
-		if(Input.GetButtonDown("Jump"))
+		if (CrossPlatformInputManager.GetButtonDown("Switch"))
 		{
-			if(OnSwitchWeapon != null) OnSwitchWeapon();
+			if (OnSwitchWeapon != null)OnSwitchWeapon();
 		}
+
 	}
 #endregion
 }
