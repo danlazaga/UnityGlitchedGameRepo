@@ -13,7 +13,7 @@ public class LobbyPlayer : NetworkLobbyPlayer
 	{
 		lobbyPlayerList = FindObjectOfType<LobbyPlayerList>();
 	}
-
+	
 	public override void OnClientEnterLobby()
 	{
 		base.OnClientEnterLobby();

@@ -10,15 +10,13 @@ public class LobbyUIHandler : NetworkBehaviour
 
 	[SerializeField] Button lobbyButton;
 
-	//[SerializeField] Button clientTestButton;
+	[SerializeField] InputField ipAddressInputField;
 
 	[SerializeField] Button readyButton;
 
 	[SerializeField] Button startButton;
 
 	int readyChecker;
-
-	//string networkToJoin;
 #endregion
 
 #region Unity Methods
@@ -29,11 +27,6 @@ public class LobbyUIHandler : NetworkBehaviour
 			lobbyButton.onClick.AddListener(()=> OnServerAddPlayer());
 		}
 
-		// if (clientTestButton != null)
-		// {
-		// 	clientTestButton.onClick.AddListener(()=> OnClientAddTest());
-		// }
-
 		if (readyButton != null)
 		{
 			readyButton.onClick.AddListener(()=> OnReadyButton());
@@ -43,26 +36,24 @@ public class LobbyUIHandler : NetworkBehaviour
 		{
 			startButton.onClick.AddListener(()=> OnStartGame());
 		}
+
+#if UNITY_ANDROID
+		ipAddressInputField.gameObject.SetActive(true);
+#else 
+		ipAddressInputField.gameObject.SetActive(false);
+#endif
 	}
 #endregion
 
 	private void OnServerAddPlayer()
 	{
 #if UNITY_ANDROID
-		ModifiedNetworkLobbyManager.Instance.JoinGame(networkToJoin);
-		print(networkToJoin);
+		ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
+		print(ipAddressInputField.text);
 #else
 		ModifiedNetworkLobbyManager.Instance.StartHostModified();
 #endif
-		//Testing Purposes
-		//ModifiedNetworkLobbyManager.Instance.StartHostModified();
 	}
-	//Testing Purposes
-	// private void OnClientAddTest()
-	// {
-	// 	ModifiedNetworkLobbyManager.Instance.JoinGame( /*networkToJoin*/ );
-	// 	// 	print(networkToJoin);
-	// }
 
 	private void OnReadyButton()
 	{

@@ -43,9 +43,9 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 		Debug.Log("Host Started!");
 	}
 
-	public void JoinGame(/*string networkAdressString*/)
+	public void JoinGame(string networkAdressString)
 	{
-		//networkAddress = networkAdressString;
+		networkAddress = networkAdressString;
 
 		StartClient();
 	}
