@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityEngine.Networking;
 
-public class PlayerInput : NetworkBehaviour
+public class PlayerInput : MonoBehaviour
 {
 #region Variables
 	public float Horizontal { get; private set; }
@@ -15,15 +14,9 @@ public class PlayerInput : NetworkBehaviour
 
 #region Unity Methods	
 
-	public override void OnStartLocalPlayer ()
-	{
-		GetComponentInChildren<MeshRenderer> ().material.color = Color.green;
-	}
 
 	void Update()
 	{
-		if(!isLocalPlayer) return;
-
 		Horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
 		Vertical = CrossPlatformInputManager.GetAxis("Vertical");
 

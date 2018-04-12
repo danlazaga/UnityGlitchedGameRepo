@@ -58,11 +58,11 @@ public class WeaponManager : MonoBehaviour
 		switch (index)
 		{
 			case 0:
-				iWeapon = gameObject.AddComponent<DefaultBullet>();
+				iWeapon = gameObject.AddComponent<DefaultLauncher>();
 				break;
 
 			case 1:
-				iWeapon = gameObject.AddComponent<ShieldBreakerBullet>();
+				iWeapon = gameObject.AddComponent<ShieldBreakerLauncher>();
 				break;
 		}
 

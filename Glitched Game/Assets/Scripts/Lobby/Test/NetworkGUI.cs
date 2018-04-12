@@ -22,17 +22,24 @@ public class NetworkGUI : MonoBehaviour
 		}
 	}
 
-    private void OnStartButton()
-    {
+	private void Start()
+	{
+		startHostButton.gameObject.SetActive(true);
+		joinGameButton.gameObject.SetActive(true);
+		ipInputField.gameObject.SetActive(true);
+	}
+
+	private void OnStartButton()
+	{
 		NetworkManagerModified.ManagerInstance.StartHostModified();
 		CloseUI();
-    }
+	}
 
-    private void OnJoinGame()
-    {
+	private void OnJoinGame()
+	{
 		NetworkManagerModified.ManagerInstance.JoinGame(ipInputField.text);
 		CloseUI();
-    }
+	}
 
 	void CloseUI()
 	{
