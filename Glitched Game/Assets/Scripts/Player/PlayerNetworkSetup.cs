@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 [System.Serializable]
 public class ToggleEvent : UnityEvent<bool> { }
 
-public class MobilePlayer : NetworkBehaviour
+public class PlayerNetworkSetup : NetworkBehaviour
 {
 #region Variables
 	[SerializeField] ToggleEvent onToggleShared;

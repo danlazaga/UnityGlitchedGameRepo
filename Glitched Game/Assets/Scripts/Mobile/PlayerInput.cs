@@ -25,11 +25,10 @@ public class PlayerInput : MonoBehaviour
 			if (OnFire != null)OnFire();
 		}
 
-		if (CrossPlatformInputManager.GetButtonDown("Switch"))
+		if (CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
 			if (OnSwitchWeapon != null)OnSwitchWeapon();
 		}
-
 	}
 #endregion
 }

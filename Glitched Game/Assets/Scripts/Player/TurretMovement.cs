@@ -8,7 +8,7 @@ public class TurretMovement : MonoBehaviour
 {
     [SerializeField] float rotSpeed;
     [Space(10)]
-    [SerializeField] RangedFloat turretXRot;
+    [SerializeField] RangedFloat yRotRange;
     float yRot, xRot;
     PlayerInput playerInput;
 
@@ -19,11 +19,29 @@ public class TurretMovement : MonoBehaviour
 
     private void Update()
     {
-        yRot += playerInput.Horizontal * rotSpeed * Time.deltaTime;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z);
+        xRot = playerInput.Horizontal * rotSpeed * Time.deltaTime;
+        yRot = -playerInput.Vertical * rotSpeed * Time.deltaTime;
 
-        xRot -= playerInput.Vertical * rotSpeed * Time.deltaTime;
-        xRot = Mathf.Clamp(xRot, turretXRot.minValue, turretXRot.maxValue);
-        transform.eulerAngles = new Vector3(xRot, transform.eulerAngles.y, transform.eulerAngles.z);
+        // yRot = ClampAngle(yRot, yRotRange.minValue, yRotRange.maxValue);
+
+        // Quaternion rotation = Quaternion.Euler(yRot, xRot, 0);
+        // transform.rotation = rotation;
+
+        transform.Rotate(yRot, xRot, 0);
+    }
+
+    private float ClampAngle(float angle, float min, float max)
+    {
+        if (angle < -360)
+        {
+            angle += 360;
+        }
+
+        if (angle > 360)
+        {
+            angle -= 360;
+        }
+
+        return Mathf.Clamp(angle, min, max);
     }
 }

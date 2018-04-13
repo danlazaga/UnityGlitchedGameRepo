@@ -51,7 +51,7 @@ public class LobbyUIHandler : NetworkBehaviour
 		//ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
 		print(ipAddressInputField.text);
 #else
-		ModifiedNetworkLobbyManager.Instance.StartHostModified();
+		//ModifiedNetworkLobbyManager.Instance.StartHostModified();
 #endif
 	}
 
