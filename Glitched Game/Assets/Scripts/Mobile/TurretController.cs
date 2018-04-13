@@ -20,11 +20,8 @@ public class TurretController : MonoBehaviour
 
     private void Update()
     {
-        float yRot = CrossPlatformInputManager.GetAxis("Horizontal");
-        float xRot = CrossPlatformInputManager.GetAxis("Vertical");
+        turretLook.LookRotation(transform, turret);
         GetButtonInput();
-
-        turretLook.LookRotation(transform, turret, xRot, yRot);
     }
 
     void GetButtonInput()

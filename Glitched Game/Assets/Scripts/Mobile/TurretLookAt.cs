@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 [System.Serializable]
 public class TurretLookAt
@@ -17,10 +18,13 @@ public class TurretLookAt
 		turretTargetRot = turret.localRotation;
 	}
 
-	public void LookRotation(Transform baseTurret, Transform turret, float xRot, float yRot)
+	public void LookRotation(Transform baseTurret, Transform turret)
 	{
-		baseRot *= Quaternion.Euler(0f, yRot * YSensitivity, 0f);
-		turretTargetRot *= Quaternion.Euler(-xRot * XSensitivity, 0, 0f);
+		float yRot = CrossPlatformInputManager.GetAxis("Horizontal")* YSensitivity;
+		float xRot = CrossPlatformInputManager.GetAxis("Vertical")* XSensitivity;
+
+		baseRot *= Quaternion.Euler(0f, yRot, 0f);
+		turretTargetRot *= Quaternion.Euler(-xRot, 0, 0f);
 
 		turretTargetRot = ClampRotationAroundXAxis(turretTargetRot);
 
