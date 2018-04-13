@@ -8,10 +8,12 @@ public class ToggleEvent : UnityEvent<bool> { }
 public class PlayerNetworkSetup : NetworkBehaviour
 {
 #region Variables
+	GameObject mainCamera;
+	[SerializeField] MeshRenderer playerMesh;
+	[Space(25)]
 	[SerializeField] ToggleEvent onToggleShared;
 	[SerializeField] ToggleEvent onToggleLocal;
 	[SerializeField] ToggleEvent onToggleRemote;
-	[SerializeField] GameObject mainCamera;
 
 #endregion
 
@@ -26,7 +28,7 @@ public class PlayerNetworkSetup : NetworkBehaviour
 
 	public override void OnStartLocalPlayer()
 	{
-		GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+		playerMesh.material.color = Color.green;
 	}
 
 #endregion

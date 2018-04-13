@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(TurretController))]
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
 	[SerializeField] Transform firePoint;
 	IWeapon iWeapon;
-	PlayerInput playerInput;
+	TurretController turretController;
 	int currentWeaponIndex;
 #endregion
 
@@ -16,19 +17,22 @@ public class WeaponManager : MonoBehaviour
 	{
 		SwitchWeapon(0);
 
-		playerInput = gameObject.GetRequiredComponent<PlayerInput>();
+		turretController = gameObject.GetRequiredComponent<TurretController>();
+	}
 
-		if (playerInput != null)
+	private void OnEnable()
+	{
+		if (turretController != null)
 		{
-			playerInput.OnFire += HandleFire;
-			playerInput.OnSwitchWeapon += HandleSwitchWeapon;
+			turretController.OnFire += HandleFire;
+			turretController.OnSwitchWeapon += HandleSwitchWeapon;
 		}
 	}
 
 	private void OnDestroy()
 	{
-		playerInput.OnFire -= HandleFire;
-		playerInput.OnSwitchWeapon -= HandleSwitchWeapon;
+		turretController.OnFire -= HandleFire;
+		turretController.OnSwitchWeapon -= HandleSwitchWeapon;
 	}
 #endregion
 
