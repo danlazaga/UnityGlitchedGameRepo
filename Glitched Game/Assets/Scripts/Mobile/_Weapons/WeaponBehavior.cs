@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
 public class WeaponBehavior { }
 
-public abstract class Ballistics : MonoBehaviour
+public abstract class Ballistics : NetworkBehaviour
 {
 	protected Transform firePoint;
 }
 
-public class DefaultBullet : Ballistics, IWeapon
+public class DefaultLauncher : Ballistics, IWeapon
 {
 
 	public void Initialize(Transform firePoint)
@@ -21,7 +22,7 @@ public class DefaultBullet : Ballistics, IWeapon
 	}
 }
 
-public class ShieldBreakerBullet : Ballistics, IWeapon
+public class ShieldBreakerLauncher : Ballistics, IWeapon
 {
 	public void Initialize(Transform firePoint)
 	{

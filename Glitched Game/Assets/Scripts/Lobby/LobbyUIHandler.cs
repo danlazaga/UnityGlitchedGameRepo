@@ -48,10 +48,10 @@ public class LobbyUIHandler : NetworkBehaviour
 	private void OnServerAddPlayer()
 	{
 #if UNITY_ANDROID
-		ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
+		//ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
 		print(ipAddressInputField.text);
 #else
-		ModifiedNetworkLobbyManager.Instance.StartHostModified();
+		//ModifiedNetworkLobbyManager.Instance.StartHostModified();
 #endif
 	}
 
@@ -72,7 +72,7 @@ public class LobbyUIHandler : NetworkBehaviour
 
 	private void OnStartGame()
 	{
-		ModifiedNetworkLobbyManager.Instance.ChangeScene();
+		//ModifiedNetworkLobbyManager.Instance.ChangeScene();
 	}
 
 	void FindLobbyPlayers()
