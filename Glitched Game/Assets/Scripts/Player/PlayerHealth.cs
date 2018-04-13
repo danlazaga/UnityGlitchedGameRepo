@@ -1,21 +1,24 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerHealth : MonoBehaviour, IHealth
+public class PlayerHealth : NetworkBehaviour, IHealth
 {
 
 #region Variables
-	[SerializeField] private int healthInHits = 100;
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
+
+	[SerializeField] int maxHealth = 3;
+	[SyncVar(hook = "OnHealthChanged")] int health;
 #endregion
 
 #region Unity Methods
-	private void Start()
+
+	[ServerCallback]
+	void OnEnable()
 	{
-		OnHPPctChanged(healthInHits);
+		health = maxHealth;
 	}
 #endregion
 
@@ -24,12 +27,26 @@ public class PlayerHealth : MonoBehaviour, IHealth
 		if (amount <= 0)
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
 
-		healthInHits -= amount;
+		if (health <= 0)return;
 
-		OnHPPctChanged(healthInHits);
+		health -= amount;
 
-		if (healthInHits <= 0)
+		OnHPPctChanged(health);
+
+		if (health <= 0)
 			OnDied();
+	}
 
+	[ClientRpc]
+	void RpcTakeDamage()
+	{
+
+	}
+
+	void OnHealthChanged(int value)
+	{
+		health = value;
+		if (isLocalPlayer)
+			PlayerHUD.Instance.SetHealth(value);
 	}
 }
