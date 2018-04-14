@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [System.Serializable]
 public class ObjectPoolItem
@@ -92,6 +93,12 @@ public class ObjectPool : Singleton<ObjectPool>
         obj.SetActive(false);
         pooledObjects.Add(obj);
         return obj;
+    }
+
+    public void ReturnToPool(GameObject obj)
+    {
+        obj.SetActive(false);
+        NetworkServer.UnSpawn(obj);
     }
 
 }

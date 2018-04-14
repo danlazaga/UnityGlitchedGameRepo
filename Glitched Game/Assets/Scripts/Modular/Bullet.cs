@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class Bullet : NetworkBehaviour
+public class Bullet : MonoBehaviour
 {
 #region Variables
 	[SerializeField] float damage = 25f;
@@ -18,13 +17,7 @@ public class Bullet : NetworkBehaviour
 			health.TakeDamage(damage);
 		}
 
-		ReturnToPool();
-	}
-
-	void ReturnToPool()
-	{
-		gameObject.SetActive(false);
-		NetworkServer.UnSpawn(this.gameObject);
+		ObjectPool.Instance.ReturnToPool(this.gameObject);
 	}
 #endregion
 }

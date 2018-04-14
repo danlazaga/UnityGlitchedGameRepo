@@ -42,8 +42,7 @@ public class DefaultLauncher : Ballistics, IWeapon
 	public IEnumerator Destroy(GameObject go, float timer)
 	{
 		yield return new WaitForSeconds(timer);
-		go.SetActive(false);
-		NetworkServer.UnSpawn(go);
+		ObjectPool.Instance.ReturnToPool(go);
 	}
 
 }
