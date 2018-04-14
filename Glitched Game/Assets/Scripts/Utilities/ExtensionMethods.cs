@@ -22,6 +22,11 @@ public static class ExtensionMethods
         }
     }
 
+    public static void SetTransformPoint(this GameObject actor, Transform spawnPoint)
+    {
+        actor.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+    }
+
     public static T AddComponent<T>(this Component component)where T : Component
     {
         return component.gameObject.AddComponent<T>();

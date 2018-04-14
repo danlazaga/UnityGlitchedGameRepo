@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Networking;
 
 public class WeaponBehavior { }
@@ -7,14 +7,16 @@ public class WeaponBehavior { }
 public abstract class Ballistics : NetworkBehaviour
 {
 	protected Transform firePoint;
+	protected float fireForce;
 }
 
 public class DefaultLauncher : Ballistics, IWeapon
 {
 
-	public void Initialize(Transform firePoint)
+	public void Initialize(Transform firePoint, float fireForce)
 	{
 		this.firePoint = firePoint;
+		this.fireForce = fireForce;
 	}
 
 	public void Shoot()
@@ -25,11 +27,13 @@ public class DefaultLauncher : Ballistics, IWeapon
 	[Command]
 	void CmdShoot()
 	{
-		var bullet = BulletPool.Instance.GetPooledObject(firePoint.position);
-		bullet.GetComponent<Rigidbody>().velocity = transform.forward * 6;
+		var bullet = ObjectPool.Instance.GetPooledObject("DefaultBullet");
+		bullet.SetTransformPoint(firePoint);
+		bullet.SetActive(true);
+		bullet.GetComponent<Rigidbody>().velocity = transform.forward * fireForce;
 
 		// spawn bullet on client, custom spawn handler will be called
-		NetworkServer.Spawn(bullet, BulletPool.Instance.assetId);
+		NetworkServer.Spawn(bullet);
 
 		// when the bullet is destroyed on the server it is automatically destroyed on clients
 		StartCoroutine(Destroy(bullet, 2.0f));
@@ -37,18 +41,19 @@ public class DefaultLauncher : Ballistics, IWeapon
 
 	public IEnumerator Destroy(GameObject go, float timer)
 	{
-	    yield return new WaitForSeconds(timer);
-	    BulletPool.Instance.UnSpawnObject(go);
-	    NetworkServer.UnSpawn(go);
+		yield return new WaitForSeconds(timer);
+		go.SetActive(false);
+		NetworkServer.UnSpawn(go);
 	}
 
 }
 
 public class ShieldBreakerLauncher : Ballistics, IWeapon
 {
-	public void Initialize(Transform firePoint)
+	public void Initialize(Transform firePoint, float fireForce)
 	{
 		this.firePoint = firePoint;
+		this.fireForce = fireForce;
 	}
 
 	public void Shoot()

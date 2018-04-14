@@ -23,7 +23,7 @@ public class Bullet : NetworkBehaviour
 
 	void ReturnToPool()
 	{
-		BulletPool.Instance.UnSpawnObject(this.gameObject);
+		gameObject.SetActive(false);
 		NetworkServer.UnSpawn(this.gameObject);
 	}
 #endregion

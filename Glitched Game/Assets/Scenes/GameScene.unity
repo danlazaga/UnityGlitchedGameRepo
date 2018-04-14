@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 1505415184}
   - component: {fileID: 1505415185}
   m_Layer: 0
-  m_Name: BulletPool
+  m_Name: ObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,14 +491,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505415183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4fe10add5a194768ad68b89292da17c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2deab2866c164b44a847654dcf4b2396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldExpand: 1
+  rootPoolName: '[Pooled Objects]'
+  itemsToPool:
+  - objectToPool: {fileID: 1436584195794914, guid: de37c7d472d5b4dcf9661a02775b84c7,
+      type: 2}
+    poolName: Bullets
+    amountToPool: 20
+    shouldExpand: 1
   pooledObjects: []
-  objectToPool: {fileID: 1436584195794914, guid: de37c7d472d5b4dcf9661a02775b84c7,
-    type: 2}
-  amountToPool: 20
 --- !u!1001 &1643137661
 Prefab:
   m_ObjectHideFlags: 0

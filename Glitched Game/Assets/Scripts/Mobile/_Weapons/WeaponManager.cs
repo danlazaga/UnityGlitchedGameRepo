@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
+	[SerializeField] float fireForce = 6f;
 	[SerializeField] Transform firePoint;
 	IWeapon iWeapon;
 	TurretController turretController;
@@ -70,6 +71,6 @@ public class WeaponManager : MonoBehaviour
 				break;
 		}
 
-		iWeapon.Initialize(firePoint);
+		iWeapon.Initialize(firePoint, fireForce);
 	}
 }

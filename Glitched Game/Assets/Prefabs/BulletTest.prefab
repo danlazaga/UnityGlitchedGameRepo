@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114350279469418572}
   m_Layer: 0
   m_Name: BulletTest
-  m_TagString: Untagged
+  m_TagString: DefaultBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
