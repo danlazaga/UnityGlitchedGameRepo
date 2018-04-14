@@ -24,7 +24,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	}
 #endregion
 
-	public void SetHealth(int value)
+	public void SetHealth(float value)
 	{
 		
 	}

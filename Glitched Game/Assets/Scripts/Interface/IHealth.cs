@@ -5,5 +5,5 @@ public interface IHealth
 {
 	event Action<float> OnHPPctChanged;
 	event Action OnDied;
-	void TakeDamage(int amount);
+	void TakeDamage(float amount);
 }

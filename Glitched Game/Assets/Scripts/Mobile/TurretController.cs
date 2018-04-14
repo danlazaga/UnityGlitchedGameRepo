@@ -20,8 +20,13 @@ public class TurretController : MonoBehaviour
 
     private void Update()
     {
-        turretLook.LookRotation(transform, turret);
+        RotateTurret();
         GetButtonInput();
+    }
+
+    void RotateTurret()
+    {
+        turretLook.LookRotation(transform, turret);
     }
 
     void GetButtonInput()

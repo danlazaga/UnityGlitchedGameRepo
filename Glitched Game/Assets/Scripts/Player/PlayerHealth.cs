@@ -9,8 +9,8 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
 
-	[SerializeField] int maxHealth = 3;
-	[SyncVar(hook = "OnHealthChanged")] int health;
+	[SerializeField] float maxHealth = 3;
+	[SyncVar(hook = "OnHealthChanged")] float health;
 #endregion
 
 #region Unity Methods
@@ -22,7 +22,7 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	}
 #endregion
 
-	public void TakeDamage(int amount)
+	public void TakeDamage(float amount)
 	{
 		if (amount <= 0)
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
@@ -43,7 +43,7 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 
 	}
 
-	void OnHealthChanged(int value)
+	void OnHealthChanged(float value)
 	{
 		health = value;
 		if (isLocalPlayer)

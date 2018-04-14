@@ -7,7 +7,7 @@ public class Health : MonoBehaviour, IHealth
 {
 
 #region Variables
-	[SerializeField] private int healthInHits = 100;
+	[SerializeField] private float healthInHits = 100;
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
 #endregion
@@ -19,7 +19,7 @@ public class Health : MonoBehaviour, IHealth
 	}
 #endregion
 
-	public void TakeDamage(int amount)
+	public void TakeDamage(float amount)
 	{
 		if (amount <= 0)
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
