@@ -326,7 +326,8 @@ MonoBehaviour:
     gameSceneTwoSource: {fileID: 0}
     gamescenThreeSource: {fileID: 0}
     uiAudioSource: {fileID: 0}
-  audioSnapshotProperties: {fileID: 0}
+  audioSnapshotProperties: {fileID: 11400000, guid: 938a371bdf1da04489564457e0bac074,
+    type: 2}
   bpmFadeInSpeed: 128
   volume:
     minValue: 0.9166667

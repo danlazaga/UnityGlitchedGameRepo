@@ -3,6 +3,6 @@
 
 public interface IWeapon
 {
-	void Initialize(Transform firePoint, float fireForce);
+	void Initialize(TurretWeaponEffects turretEffects, Transform firePoint, float fireForce);
 	void Shoot();
 }

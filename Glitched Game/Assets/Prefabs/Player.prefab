@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4555768358785116}
+  - component: {fileID: 114061761806993388}
   m_Layer: 0
   m_Name: TurretGuns
   m_TagString: Untagged
@@ -337,6 +338,19 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1497364101052454}
   m_Enabled: 1
+--- !u!114 &114061761806993388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065578169486098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf2beb14ad4ed240b28a43efcf6e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 0}
+  weaponAudio: {fileID: 0}
 --- !u!114 &114144131091456370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -469,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireForce: 6
   firePoint: {fileID: 4957073624265420}
+  turretEffects: {fileID: 114061761806993388}
 --- !u!114 &114645508122155090
 MonoBehaviour:
   m_ObjectHideFlags: 1

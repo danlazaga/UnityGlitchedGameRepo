@@ -6,6 +6,7 @@ public class WeaponBehavior { }
 
 public abstract class Ballistics : NetworkBehaviour
 {
+	protected TurretWeaponEffects turretEffects;
 	protected Transform firePoint;
 	protected float fireForce;
 }
@@ -13,8 +14,9 @@ public abstract class Ballistics : NetworkBehaviour
 public class DefaultLauncher : Ballistics, IWeapon
 {
 
-	public void Initialize(Transform firePoint, float fireForce)
+	public void Initialize(TurretWeaponEffects turretEffects, Transform firePoint, float fireForce)
 	{
+		this.turretEffects = turretEffects;
 		this.firePoint = firePoint;
 		this.fireForce = fireForce;
 	}
@@ -37,6 +39,14 @@ public class DefaultLauncher : Ballistics, IWeapon
 
 		// when the bullet is destroyed on the server it is automatically destroyed on clients
 		StartCoroutine(Destroy(bullet, 5.0f));
+
+		//RpcProcessShotEffects();
+	}
+
+	[ClientRpc]
+	void RpcProcessShotEffects()
+	{
+		turretEffects.PlayShotEffects();
 	}
 
 	public IEnumerator Destroy(GameObject go, float timer)
@@ -49,8 +59,9 @@ public class DefaultLauncher : Ballistics, IWeapon
 
 public class ShieldBreakerLauncher : Ballistics, IWeapon
 {
-	public void Initialize(Transform firePoint, float fireForce)
+	public void Initialize(TurretWeaponEffects turretEffects, Transform firePoint, float fireForce)
 	{
+		this.turretEffects = turretEffects;
 		this.firePoint = firePoint;
 		this.fireForce = fireForce;
 	}

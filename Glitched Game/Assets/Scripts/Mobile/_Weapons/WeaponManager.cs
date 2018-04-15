@@ -8,6 +8,8 @@ public class WeaponManager : MonoBehaviour
 #region Variables
 	[SerializeField] float fireForce = 6f;
 	[SerializeField] Transform firePoint;
+	[Space(10)]
+	[SerializeField] TurretWeaponEffects turretEffects;
 	IWeapon iWeapon;
 	TurretController turretController;
 	int currentWeaponIndex;
@@ -71,6 +73,6 @@ public class WeaponManager : MonoBehaviour
 				break;
 		}
 
-		iWeapon.Initialize(firePoint, fireForce);
+		iWeapon.Initialize(turretEffects, firePoint, fireForce);
 	}
 }
