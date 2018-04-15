@@ -6,23 +6,33 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class TurretController : MonoBehaviour
 {
+#region Variables
     [SerializeField] Transform turret;
     [Space(10)]
     [SerializeField] TurretLookAt turretLook;
 
     public event Action OnFire = delegate { };
     public event Action OnSwitchWeapon = delegate { };
+#endregion
 
-    private void Awake()
+
+#region Unity Methods
+    void Awake()
     {
         turretLook.Init(transform, turret);
     }
 
-    private void Update()
+    void Start()
+    {
+        PlayerHUD.Instance.Initialize();
+    }
+
+    void Update()
     {
         RotateTurret();
         GetButtonInput();
     }
+#endregion
 
     void RotateTurret()
     {

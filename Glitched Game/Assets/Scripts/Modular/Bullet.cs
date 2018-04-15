@@ -3,7 +3,7 @@
 public class Bullet : MonoBehaviour
 {
 #region Variables
-	[SerializeField] float damage = 25f;
+	[SerializeField] float damage = 1f;
 #endregion
 
 #region Unity Methods

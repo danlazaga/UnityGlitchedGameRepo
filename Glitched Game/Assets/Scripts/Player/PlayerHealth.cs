@@ -22,25 +22,37 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	}
 #endregion
 
+	[Server]
 	public void TakeDamage(float amount)
 	{
+		bool died = false;
+
 		if (amount <= 0)
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
 
-		if (health <= 0)return;
+		if (health <= 0)
+			return;
 
 		health -= amount;
 
 		OnHPPctChanged(health);
 
-		if (health <= 0)
-			OnDied();
+		died = health <= 0;
+
+		RpcTakeDamage(died);
 	}
 
 	[ClientRpc]
-	void RpcTakeDamage()
+	void RpcTakeDamage(bool died)
 	{
+		//Insert hit display effect
+		// if (isLocalPlayer)
+		// {
 
+		// }
+
+		if (died)
+			OnDied();
 	}
 
 	void OnHealthChanged(float value)

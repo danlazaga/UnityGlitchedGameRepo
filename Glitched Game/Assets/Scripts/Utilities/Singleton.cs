@@ -38,7 +38,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         instance = null;
     }

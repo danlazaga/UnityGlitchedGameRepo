@@ -36,7 +36,7 @@ public class DefaultLauncher : Ballistics, IWeapon
 		NetworkServer.Spawn(bullet);
 
 		// when the bullet is destroyed on the server it is automatically destroyed on clients
-		StartCoroutine(Destroy(bullet, 2.0f));
+		StartCoroutine(Destroy(bullet, 5.0f));
 	}
 
 	public IEnumerator Destroy(GameObject go, float timer)
