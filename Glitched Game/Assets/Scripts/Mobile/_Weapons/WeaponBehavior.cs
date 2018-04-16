@@ -8,65 +8,97 @@ public abstract class Ballistics : NetworkBehaviour
 {
 	protected TurretWeaponEffects turretEffects;
 	protected Transform firePoint;
-	protected float fireForce;
+	protected float weaponRange;
+	protected LineRenderer laserLine;
+	protected WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
+
 }
 
 public class DefaultLauncher : Ballistics, IWeapon
 {
 
-	public void Initialize(TurretWeaponEffects turretEffects, Transform firePoint, float fireForce)
+	public void Initialize(TurretWeaponEffects turretEffects, LineRenderer laserLine, Transform firePoint,
+		float weaponRange)
 	{
 		this.turretEffects = turretEffects;
+		this.laserLine = laserLine;
 		this.firePoint = firePoint;
-		this.fireForce = fireForce;
+		this.weaponRange = weaponRange;
 	}
 
-	public void Shoot()
+	public void Shoot(Vector3 origin, Vector3 direction)
 	{
-		CmdShoot();
+		CmdShoot(origin, direction);
 	}
 
 	[Command]
-	void CmdShoot()
+	void CmdShoot(Vector3 origin, Vector3 direction)
 	{
-		var bullet = ObjectPool.Instance.GetPooledObject("DefaultBullet");
-		bullet.SetTransformPoint(firePoint);
-		bullet.SetActive(true);
-		bullet.GetComponent<Rigidbody>().velocity = transform.forward * fireForce;
+		RaycastHit hit;
+		Ray ray = new Ray(origin, direction);
 
-		// spawn bullet on client, custom spawn handler will be called
-		NetworkServer.Spawn(bullet);
+		Debug.DrawRay(origin, direction * weaponRange, Color.green, 0.07f);
 
-		// when the bullet is destroyed on the server it is automatically destroyed on clients
-		StartCoroutine(Destroy(bullet, 5.0f));
+		bool result = Physics.Raycast(ray, out hit, weaponRange);
 
-		//RpcProcessShotEffects();
+		if (result)
+		{
+			var enemy = hit.transform.GetComponent<IHealth>();
+
+			if (enemy != null)
+				enemy.TakeDamage(1);
+		}
+		
+		RpcDrawLine(result, origin, direction, hit.point);
+		RpcProcessShotEffects(result, hit.point);
 	}
 
 	[ClientRpc]
-	void RpcProcessShotEffects()
+	void RpcProcessShotEffects(bool playImpact, Vector3 point)
 	{
-		turretEffects.PlayShotEffects();
+		//turretEffects.PlayShotEffects();
+
+		//if (playImpact)
+		//turretEffects.PlayImpactEffect(point);
 	}
 
-	public IEnumerator Destroy(GameObject go, float timer)
+	[ClientRpc]
+	void RpcDrawLine(bool result, Vector3 origin, Vector3 direction, Vector3 hit)
 	{
-		yield return new WaitForSeconds(timer);
-		ObjectPool.Instance.ReturnToPool(go);
+		StartCoroutine(StartDrawLine(result, origin, direction, hit));
 	}
 
+	private IEnumerator StartDrawLine(bool result, Vector3 origin, Vector3 direction, Vector3 hit)
+	{
+		laserLine.enabled = true;
+
+		laserLine.SetPosition(0, firePoint.position);
+
+		if (result)
+		{
+			laserLine.SetPosition(1, hit);
+		}
+		else
+		{
+			laserLine.SetPosition(1, origin + (direction * weaponRange));
+		}
+		yield return shotDuration;
+		laserLine.enabled = false;
+	}
 }
 
 public class ShieldBreakerLauncher : Ballistics, IWeapon
 {
-	public void Initialize(TurretWeaponEffects turretEffects, Transform firePoint, float fireForce)
+	public void Initialize(TurretWeaponEffects turretEffects, LineRenderer laserLine, Transform firePoint,
+		float weaponRange)
 	{
 		this.turretEffects = turretEffects;
+		this.laserLine = laserLine;
 		this.firePoint = firePoint;
-		this.fireForce = fireForce;
+		this.weaponRange = weaponRange;
 	}
 
-	public void Shoot()
+	public void Shoot(Vector3 origin, Vector3 direction)
 	{
 
 	}
