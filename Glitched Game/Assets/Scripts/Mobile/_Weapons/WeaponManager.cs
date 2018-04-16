@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(TurretController))]
-public class WeaponManager : NetworkBehaviour
+public class WeaponManager : MonoBehaviour
 {
 #region Variables
 	[SerializeField] float weaponRange;
