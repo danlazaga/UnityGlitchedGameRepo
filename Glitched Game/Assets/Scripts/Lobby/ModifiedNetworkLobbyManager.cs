@@ -1,64 +1,64 @@
-﻿// using UnityEngine;
-// using UnityEngine.Networking;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
-// public class ModifiedNetworkLobbyManager : NetworkLobbyManager
-// {
-// #region  Variable & Instance
-// 	[Space(10)]
-// 	[SerializeField] string sceneName;
+public class ModifiedNetworkLobbyManager : NetworkLobbyManager
+{
+#region  Variable & Instance
+	[Space(10)]
+	[SerializeField] string sceneName;
 
-// 	[Space(10)]
-// 	public Color[] colorArray;
+	[Space(10)]
+	public Color[] colorArray;
 
-// 	[Space(10)]
-// 	[HideInInspector] public int currentPlayerColor = 0; 
+	[Space(10)]
+	[HideInInspector] public int currentPlayerColor = 0; 
 
-// 	private static ModifiedNetworkLobbyManager instance;
+	private static ModifiedNetworkLobbyManager instance;
 
-// 	public static ModifiedNetworkLobbyManager Instance
-// 	{
-// 		get
-// 		{
-// 			return instance;
-// 		}
-// 	}
-// #endregion
+	public static ModifiedNetworkLobbyManager Instance
+	{
+		get
+		{
+			return instance;
+		}
+	}
+#endregion
 
-// #region Unity Methods 
-// 	void Awake()
-// 	{
-// 		instance = this;
-// 	}
-// #endregion
+#region Unity Methods 
+	void Awake()
+	{
+		instance = this;
+	}
+#endregion
 
-// 	public void StartHostModified()
-// 	{
-// 		StartHost();
-// 	}
+	public void StartHostModified()
+	{
+		StartHost();
+	}
 
-// 	public override void OnStartHost()
-// 	{
-// 		base.OnStartHost();
+	public override void OnStartHost()
+	{
+		base.OnStartHost();
 
-// 		Debug.Log("Host Started!");
-// 	}
+		Debug.Log("Host Started!");
+	}
 
-// 	public void JoinGame(string networkAdressString)
-// 	{
-// 		networkAddress = networkAdressString;
+	public void JoinGame(string networkAdressString)
+	{
+		networkAddress = networkAdressString;
 
-// 		StartClient();
-// 	}
+		StartClient();
+	}
 
-// 	public override void OnStartClient(NetworkClient client)
-// 	{
-// 		base.OnStartClient(client);
+	public override void OnStartClient(NetworkClient client)
+	{
+		base.OnStartClient(client);
 	
-// 		Debug.Log("Connected!");
-// 	}
+		Debug.Log("Connected!");
+	}
 
-// 	public void ChangeScene()
-// 	{
-// 		ServerChangeScene(sceneName);
-// 	}
-// }	
+	public void ChangeScene()
+	{
+		ServerChangeScene(sceneName);
+	}
+}	

@@ -32,11 +32,6 @@ public class LobbyUIHandler : NetworkBehaviour
 			readyButton.onClick.AddListener(()=> OnReadyButton());
 		}
 
-		if (startButton != null)
-		{
-			startButton.onClick.AddListener(()=> OnStartGame());
-		}
-
 #if UNITY_ANDROID
 		ipAddressInputField.gameObject.SetActive(true);
 #else 
@@ -48,10 +43,9 @@ public class LobbyUIHandler : NetworkBehaviour
 	private void OnServerAddPlayer()
 	{
 #if UNITY_ANDROID
-		//ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
-		print(ipAddressInputField.text);
+		ModifiedNetworkLobbyManager.Instance.JoinGame(ipAddressInputField.text);
 #else
-		//ModifiedNetworkLobbyManager.Instance.StartHostModified();
+		ModifiedNetworkLobbyManager.Instance.StartHostModified();
 #endif
 	}
 
@@ -61,18 +55,11 @@ public class LobbyUIHandler : NetworkBehaviour
 		readyButton.gameObject.SetActive(false);
 		FindLobbyPlayers();
 
-		if (lobbyPlayerList._playerList.Count >= 2 && readyChecker == lobbyPlayerList._playerList.Count)
-		{
-			if (NetworkServer.connections.Count > 0)
-			{
-				startButton.gameObject.SetActive(true);
-			}
-		}
-	}
-
-	private void OnStartGame()
-	{
-		//ModifiedNetworkLobbyManager.Instance.ChangeScene();
+		// if (lobbyPlayerList._playerList.Count >= 2 && readyChecker == lobbyPlayerList._playerList.Count)
+		// {
+		// 	ModifiedNetworkLobbyManager.Instance.ChangeScene();
+		// 	Debug.Log("Success!");
+		// }
 	}
 
 	void FindLobbyPlayers()
@@ -81,9 +68,15 @@ public class LobbyUIHandler : NetworkBehaviour
 		{
 			LobbyPlayer player = lobbyPlayerList._playerList[i].GetComponent<LobbyPlayer>();
 
-			if (player.hasAuthority)
+			if (player.isLocalPlayer)
 			{
 				player.GetComponent<NetworkHUDBridge>().PostMessage(player.gameObject);
+
+				if (NetworkServer.connections.Count > 0)
+				{
+					startButton.gameObject.SetActive(true);
+					print ("Host Start Button Success!");
+				}
 			}
 		}
 	}
