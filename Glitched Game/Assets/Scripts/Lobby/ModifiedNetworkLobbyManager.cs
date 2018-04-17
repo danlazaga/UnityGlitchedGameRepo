@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 {
 #region  Variable & Instance
-	[SerializeField] string sceneName;
 	[Space(10)]
 	public LobbyTopPanel topPanel;
 	public RectTransform mainMenuPanel;
@@ -181,7 +180,7 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 
 	public void ChangeScene()
 	{
-		ServerChangeScene(sceneName);
+		ServerChangeScene(playScene);
 	}
 
 	public void SetServerInfo(string status, string host)
