@@ -10,7 +10,6 @@ public class LobbyPlayerList : Singleton<LobbyPlayerList>
 	public List<LobbyPlayer> _playerList = new List<LobbyPlayer>();
 	[SerializeField] Transform vrPlayerTransform;
 	[SerializeField] Transform mobilePlayersTransform;
-	
 
 	private void Awake()
 	{
@@ -40,10 +39,15 @@ public class LobbyPlayerList : Singleton<LobbyPlayerList>
 		}
 	}
 
+	public void RemovePlayer(LobbyPlayer player)
+	{
+		_playerList.Remove(player);
+	}
+
 	void ChangePlayerColor(LobbyPlayer player)
 	{
-		player.gameObject.GetComponent<Image> ().color = ModifiedNetworkLobbyManager.Instance.colorArray[ModifiedNetworkLobbyManager.Instance.currentPlayerColor];
+		player.gameObject.GetComponent<Image>().color = ModifiedNetworkLobbyManager.Instance.colorArray[ModifiedNetworkLobbyManager.Instance.currentPlayerColor];
 
-		ModifiedNetworkLobbyManager.Instance.currentPlayerColor++; 
+		ModifiedNetworkLobbyManager.Instance.currentPlayerColor++;
 	}
 }
