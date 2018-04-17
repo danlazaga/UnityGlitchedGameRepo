@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
+using UnityEngine.Networking.Types;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -135,7 +135,6 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 			topPanel.isInGame = true;
 			topPanel.ToggleVisibility(false);
 		}
-
 	}
 
 	//------ Client Callback
@@ -220,6 +219,7 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 
 	public delegate void BackButtonDelegate();
 	public BackButtonDelegate backDelegate;
+
 	public void GoBackButton()
 	{
 		backDelegate();

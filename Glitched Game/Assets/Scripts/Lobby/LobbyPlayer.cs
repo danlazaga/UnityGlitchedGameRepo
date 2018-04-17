@@ -8,6 +8,7 @@ public class LobbyPlayer : NetworkLobbyPlayer
 	public Button readyButton;
 	static Color TransparentColor = new Color(0, 0, 0, 0);
 
+
 	public override void OnClientEnterLobby()
 	{
 		base.OnClientEnterLobby();
@@ -97,5 +98,10 @@ public class LobbyPlayer : NetworkLobbyPlayer
 	public void OnReadyClicked()
 	{
 		SendReadyToBeginMessage();
+	}
+
+	private void OnDestroy()
+	{
+		LobbyPlayerList.Instance.RemovePlayer(this);
 	}
 }
