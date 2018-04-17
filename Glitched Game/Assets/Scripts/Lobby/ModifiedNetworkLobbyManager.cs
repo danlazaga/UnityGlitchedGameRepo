@@ -52,7 +52,6 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	{
 		base.OnStartHost();
 		ChangeTo(lobbyPanel);
-		startButton.gameObject.SetActive(true);
 		SetServerInfo("Hosting", networkAddress);
 		Debug.Log("Host Started!");
 	}
@@ -112,6 +111,24 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	{
 		base.OnClientDisconnect(conn);
 		ChangeTo(mainMenuPanel);
+	}
+
+	public override void OnLobbyServerPlayersReady()
+	{
+		bool allready = true;
+		for (int i = 0; i < lobbySlots.Length; ++i)
+		{
+			if (lobbySlots[i] != null)
+				allready &= lobbySlots[i].readyToBegin;
+		}
+
+		if (allready)
+		{
+			if (NetworkServer.connections.Count > 0)
+			{
+				startButton.gameObject.SetActive(true);
+			}
+		}
 	}
 #endregion
 
