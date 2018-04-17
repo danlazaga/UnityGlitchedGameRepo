@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LobbyPlayerList : MonoBehaviour
+public class LobbyPlayerList : Singleton<LobbyPlayerList>
 {
 #region Variables
 	public List<LobbyPlayer> _playerList = new List<LobbyPlayer>();
-
 	[SerializeField] Transform vrPlayerTransform;
-
 	[SerializeField] Transform mobilePlayersTransform;
+	
+	private void Awake()
+	{
+		instance = this;
+	}
 #endregion
 
 	public void AddPlayer(LobbyPlayer player)
