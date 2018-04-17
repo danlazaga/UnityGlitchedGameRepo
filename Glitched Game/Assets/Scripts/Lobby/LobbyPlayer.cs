@@ -9,10 +9,4 @@ public class LobbyPlayer : NetworkLobbyPlayer
 	{
 		LobbyPlayerList.Instance.AddPlayer(this);
 	}
-
-	public void OnPlayerReady()
-	{
-		print("ready flag working");
-		SendReadyToBeginMessage();
-	}
 }
