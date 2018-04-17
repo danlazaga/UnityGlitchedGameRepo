@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Networking.Types;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,10 +9,14 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 #region  Variable & Instance
 	[SerializeField] string sceneName;
 	[Space(10)]
+	public LobbyTopPanel topPanel;
 	public RectTransform mainMenuPanel;
 	public RectTransform lobbyPanel;
 	public RectTransform startButton;
+
 	public Button backButton;
+	public Text statusInfo;
+	public Text hostInfo;
 	RectTransform currentPanel;
 	LobbyHook lobbyHooks;
 	[Space(10)]
@@ -38,6 +43,8 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	{
 		lobbyHooks = GetComponent<LobbyHook>();
 		currentPanel = mainMenuPanel;
+		backButton.gameObject.SetActive(false);
+		SetServerInfo("Offline", "None");
 	}
 
 	// ---------- Server Callback
@@ -46,6 +53,7 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 		base.OnStartHost();
 		ChangeTo(lobbyPanel);
 		startButton.gameObject.SetActive(true);
+		SetServerInfo("Hosting", networkAddress);
 		Debug.Log("Host Started!");
 	}
 
@@ -65,21 +73,25 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 	{
 		if (SceneManager.GetSceneAt(0).name == lobbyScene)
 		{
-			ChangeTo(lobbyPanel);
+			if (topPanel.isInGame)
+			{
+				ChangeTo(lobbyPanel);
+
+			}
+			else
+			{
+				ChangeTo(mainMenuPanel);
+			}
+			topPanel.ToggleVisibility(true);
+			topPanel.isInGame = false;
 		}
 		else
 		{
 			ChangeTo(null);
+			topPanel.isInGame = true;
+			topPanel.ToggleVisibility(false);
 		}
 
-		if (currentPanel != mainMenuPanel)
-		{
-			backButton.gameObject.SetActive(true);
-		}
-		else
-		{
-			backButton.gameObject.SetActive(false);
-		}
 	}
 
 	//------ Client Callback
@@ -88,16 +100,38 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 		base.OnClientConnect(conn);
 
 		Debug.Log("Client Joined");
+
 		if (!NetworkServer.active)
-		{
+		{ //only to do on pure client (not self hosting client)
 			ChangeTo(lobbyPanel);
+			SetServerInfo("Client", networkAddress);
 		}
+	}
+
+	public override void OnClientDisconnect(NetworkConnection conn)
+	{
+		base.OnClientDisconnect(conn);
+		ChangeTo(mainMenuPanel);
 	}
 #endregion
 
 	public void ChangeScene()
 	{
 		ServerChangeScene(sceneName);
+	}
+
+	public void SetServerInfo(string status, string host)
+	{
+		statusInfo.text = status;
+		hostInfo.text = host;
+	}
+
+	public delegate void BackButtonDelegate();
+	public BackButtonDelegate backDelegate;
+	public void GoBackButton()
+	{
+		backDelegate();
+		topPanel.isInGame = false;
 	}
 
 	public void ChangeTo(RectTransform newPanel)
@@ -113,5 +147,15 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 		}
 
 		currentPanel = newPanel;
+
+		if (currentPanel != mainMenuPanel)
+		{
+			backButton.gameObject.SetActive(true);
+		}
+		else
+		{
+			backButton.gameObject.SetActive(false);
+			SetServerInfo("Offline", "None");
+		}
 	}
 }
