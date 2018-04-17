@@ -15,6 +15,8 @@ public class LobbyMenu : MonoBehaviour
 #region Unity Methods
 	private void OnEnable()
 	{
+		lobbyManager.topPanel.ToggleVisibility(true);
+
 		ipInput.onEndEdit.RemoveAllListeners();
 		ipInput.onEndEdit.AddListener(onEndEditIP);
 	}
@@ -31,6 +33,8 @@ public class LobbyMenu : MonoBehaviour
 
 		lobbyManager.networkAddress = ipInput.text;
 		lobbyManager.StartClient();
+
+		lobbyManager.backDelegate = lobbyManager.StopClientClbk;
 	}
 
 	void onEndEditIP(string text)
