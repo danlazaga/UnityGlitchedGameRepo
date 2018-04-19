@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 4440026836443800}
   - component: {fileID: 114655222303959162}
   - component: {fileID: 114053779817064086}
+  - component: {fileID: 114361851910080162}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: localhost
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -348,6 +349,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1331599146944952}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114361851910080162}
+        m_MethodName: PickHero
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -446,6 +458,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114361851910080162}
+        m_MethodName: PickHero
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114360882314138862
@@ -454,7 +477,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1832168595938206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -481,6 +504,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Enter text...
+--- !u!114 &114361851910080162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865074444170742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c390047e68043bc438f3dc6fac4f615f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114653428708032924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,14 +568,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1,
-    type: 2}
+  m_PlayerPrefab: {fileID: 0}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1436584195794914, guid: de37c7d472d5b4dcf9661a02775b84c7, type: 2}
+  - {fileID: 1038539673024452, guid: d1e69a2556e3a2444bf0f87e2d903ca1, type: 2}
+  - {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -597,6 +631,10 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  characters:
+  - {fileID: 1038539673024452, guid: d1e69a2556e3a2444bf0f87e2d903ca1, type: 2}
+  - {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
+  chosenCharacter: 0
 --- !u!114 &114737957396378554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -656,7 +694,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: localhost
 --- !u!114 &114832102828639836
 MonoBehaviour:
   m_ObjectHideFlags: 1
