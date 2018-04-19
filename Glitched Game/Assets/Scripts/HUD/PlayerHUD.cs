@@ -9,6 +9,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 #region Variables
 	[SerializeField] Text healthValue;
 	[SerializeField] GameObject healthValueObj;
+	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] Image reticule;
 	string stringFormat = "{0:#,###0}";
 #endregion
@@ -39,8 +40,12 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	public void Initialize()
 	{
-		 reticule.enabled = true;
-		 healthValueObj.SetActive(true);
+		reticule.enabled = true;
+		healthValueObj.SetActive(true);
+		 
+#if UNITY_ANDROID || UNITY_IOS
+		mobileControllerObj.SetActive(true);
+#endif
 	}
 
 	public void SetHealth(float value)

@@ -23,6 +23,7 @@ public class NetworkHUD : MonoBehaviour
 	public void OnClientJoin()
 	{
 		networkManager.networkAddress = ipInput.text;
+		
 		networkManager.StartClient();
 	}
 
