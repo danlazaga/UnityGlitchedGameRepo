@@ -2,32 +2,18 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class WeaponBehavior { }
-
-public abstract class WeaponLauncher : NetworkBehaviour
-{
-	protected TurretWeaponEffects turretEffects;
-	protected Transform firePoint;
-	protected float weaponRange;
-	protected LineRenderer laserLine;
-	protected Camera fpsCam;
-	protected WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
-}
-
 public class DefaultLauncher : WeaponLauncher, IWeapon
 {
-	public void Initialize(WeaponManager weaponManager)
-	{
-		this.turretEffects = weaponManager.turretEffects;
-		this.laserLine = weaponManager.laserLine;
-		this.firePoint = weaponManager.firePoint;
-		this.weaponRange = weaponManager.weaponRange;
-		this.fpsCam = weaponManager.fpsCam;
-	}
+	[Header ("Rail Gun Properties")]
+	[SerializeField] float weaponRange;
+	[SerializeField] LineRenderer laserLine;
+	[SerializeField] Camera fpsCam;
+	[SerializeField] WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
 	public void Shoot()
 	{
 		CmdShoot();
+		Debug.Log("Default Launcher");
 	}
 
 	[Command]
@@ -85,23 +71,5 @@ public class DefaultLauncher : WeaponLauncher, IWeapon
 		}
 		yield return shotDuration;
 		laserLine.enabled = false;
-	}
-}
-
-public class ShieldBreakerLauncher : WeaponLauncher, IWeapon
-{
-
-	public void Initialize(WeaponManager weaponManager)
-	{
-		this.turretEffects = weaponManager.turretEffects;
-		this.laserLine = weaponManager.laserLine;
-		this.firePoint = weaponManager.firePoint;
-		this.weaponRange = weaponManager.weaponRange;
-		this.fpsCam = weaponManager.fpsCam;
-	}
-
-	public void Shoot()
-	{
-
 	}
 }

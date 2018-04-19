@@ -8,22 +8,20 @@ using UnityStandardAssets.CrossPlatformInput;
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
-	public float weaponRange;
-	public Transform firePoint;
-	[Space(10)]
-	public TurretWeaponEffects turretEffects;
-	public LineRenderer laserLine;
-	public Camera fpsCam;
 	IWeapon iWeapon;
 	TurretController turretController;
+	DefaultLauncher defaultLauncher;
+	ShieldBreakerLauncher shieldBreakerLauncher;
 	int currentWeaponIndex;
 #endregion
 
 #region Unity Methods
 	private void Awake()
 	{
-		SwitchWeapon(0);
+		defaultLauncher = gameObject.GetRequiredComponent<DefaultLauncher>();
+		shieldBreakerLauncher = gameObject.GetRequiredComponent<ShieldBreakerLauncher>();
 		turretController = gameObject.GetRequiredComponent<TurretController>();
+		SwitchWeapon(0);
 	}
 
 	private void OnEnable()
@@ -42,6 +40,7 @@ public class WeaponManager : MonoBehaviour
 	}
 #endregion
 
+#region Callbacks
 	void HandleSwitchWeapon()
 	{
 		currentWeaponIndex++;
@@ -58,24 +57,19 @@ public class WeaponManager : MonoBehaviour
 	{
 		iWeapon.Shoot();
 	}
+#endregion
 
 	void SwitchWeapon(int index)
 	{
-		Component c = gameObject.GetComponent<IWeapon>()as Component;
-
-		if (c != null) { Destroy(c); }
-
 		switch (index)
 		{
 			case 0:
-				iWeapon = gameObject.AddComponent<DefaultLauncher>();
+				iWeapon = defaultLauncher;
 				break;
 
 			case 1:
-				iWeapon = gameObject.AddComponent<ShieldBreakerLauncher>();
+				iWeapon = shieldBreakerLauncher;
 				break;
 		}
-
-		iWeapon.Initialize(this);
 	}
 }
