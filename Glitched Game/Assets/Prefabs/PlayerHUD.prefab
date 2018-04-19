@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1854073068090280
 GameObject:
   m_ObjectHideFlags: 1
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: {fileID: 114546647955481212}
+  healthValueObj: {fileID: 1633705390706896}
   reticule: {fileID: 114157332549112252}
 --- !u!114 &114676469956499320
 MonoBehaviour:
