@@ -8,7 +8,7 @@ public class ChoosePlayerType : MonoBehaviour
 #region Unity Methods
 	public void PickHero(int hero)
 	{
-		NetworkManager.singleton.GetComponent<ModifiedNetworkManager>().chosenCharacter = hero;
+		ModifiedNetworkManager.Instance.chosenCharacter = hero;
 	}
 #endregion
 }
