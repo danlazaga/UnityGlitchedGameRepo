@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(TurretController))]
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
-	[SerializeField] float weaponRange;
-	[SerializeField] Transform firePoint;
+	public float weaponRange;
+	public Transform firePoint;
 	[Space(10)]
-	[SerializeField] TurretWeaponEffects turretEffects;
-	[SerializeField] LineRenderer laserLine;
-	[SerializeField] Camera fpsCam;
+	public TurretWeaponEffects turretEffects;
+	public LineRenderer laserLine;
+	public Camera fpsCam;
 	IWeapon iWeapon;
 	TurretController turretController;
-
 	int currentWeaponIndex;
 #endregion
 
@@ -56,8 +56,7 @@ public class WeaponManager : MonoBehaviour
 
 	void HandleFire()
 	{
-		Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-		iWeapon.Shoot(rayOrigin, fpsCam.transform.forward);
+		iWeapon.Shoot();
 	}
 
 	void SwitchWeapon(int index)
@@ -77,6 +76,6 @@ public class WeaponManager : MonoBehaviour
 				break;
 		}
 
-		iWeapon.Initialize(turretEffects, laserLine, firePoint, weaponRange);
+		iWeapon.Initialize(this);
 	}
 }

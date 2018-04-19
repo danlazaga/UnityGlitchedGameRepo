@@ -4,40 +4,41 @@ using UnityEngine.Networking;
 
 public class WeaponBehavior { }
 
-public abstract class Ballistics : NetworkBehaviour
+public abstract class WeaponLauncher : NetworkBehaviour
 {
 	protected TurretWeaponEffects turretEffects;
 	protected Transform firePoint;
 	protected float weaponRange;
 	protected LineRenderer laserLine;
+	protected Camera fpsCam;
 	protected WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
-
 }
 
-public class DefaultLauncher : Ballistics, IWeapon
+public class DefaultLauncher : WeaponLauncher, IWeapon
 {
-
-	public void Initialize(TurretWeaponEffects turretEffects, LineRenderer laserLine, Transform firePoint,
-		float weaponRange)
+	public void Initialize(WeaponManager weaponManager)
 	{
-		this.turretEffects = turretEffects;
-		this.laserLine = laserLine;
-		this.firePoint = firePoint;
-		this.weaponRange = weaponRange;
+		this.turretEffects = weaponManager.turretEffects;
+		this.laserLine = weaponManager.laserLine;
+		this.firePoint = weaponManager.firePoint;
+		this.weaponRange = weaponManager.weaponRange;
+		this.fpsCam = weaponManager.fpsCam;
 	}
 
-	public void Shoot(Vector3 origin, Vector3 direction)
+	public void Shoot()
 	{
-		CmdShoot(origin, direction);
+		CmdShoot();
 	}
 
 	[Command]
-	void CmdShoot(Vector3 origin, Vector3 direction)
+	void CmdShoot()
 	{
-		RaycastHit hit;
-		Ray ray = new Ray(origin, direction);
+		Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
-		Debug.DrawRay(origin, direction * weaponRange, Color.green, 0.07f);
+		RaycastHit hit;
+		Ray ray = new Ray(rayOrigin, fpsCam.transform.forward);
+
+		Debug.DrawRay(rayOrigin, fpsCam.transform.forward * weaponRange, Color.green, 0.07f);
 
 		bool result = Physics.Raycast(ray, out hit, weaponRange);
 
@@ -48,18 +49,18 @@ public class DefaultLauncher : Ballistics, IWeapon
 			if (enemy != null)
 				enemy.TakeDamage(1);
 		}
-		
-		RpcDrawLine(result, origin, direction, hit.point);
+
+		RpcDrawLine(result, rayOrigin, fpsCam.transform.forward, hit.point);
 		RpcProcessShotEffects(result, hit.point);
 	}
 
 	[ClientRpc]
 	void RpcProcessShotEffects(bool playImpact, Vector3 point)
 	{
-		//turretEffects.PlayShotEffects();
+		turretEffects.PlayShotEffects();
 
-		//if (playImpact)
-		//turretEffects.PlayImpactEffect(point);
+		if (playImpact)
+			turretEffects.PlayImpactEffect(point);
 	}
 
 	[ClientRpc]
@@ -87,18 +88,19 @@ public class DefaultLauncher : Ballistics, IWeapon
 	}
 }
 
-public class ShieldBreakerLauncher : Ballistics, IWeapon
+public class ShieldBreakerLauncher : WeaponLauncher, IWeapon
 {
-	public void Initialize(TurretWeaponEffects turretEffects, LineRenderer laserLine, Transform firePoint,
-		float weaponRange)
+
+	public void Initialize(WeaponManager weaponManager)
 	{
-		this.turretEffects = turretEffects;
-		this.laserLine = laserLine;
-		this.firePoint = firePoint;
-		this.weaponRange = weaponRange;
+		this.turretEffects = weaponManager.turretEffects;
+		this.laserLine = weaponManager.laserLine;
+		this.firePoint = weaponManager.firePoint;
+		this.weaponRange = weaponManager.weaponRange;
+		this.fpsCam = weaponManager.fpsCam;
 	}
 
-	public void Shoot(Vector3 origin, Vector3 direction)
+	public void Shoot()
 	{
 
 	}

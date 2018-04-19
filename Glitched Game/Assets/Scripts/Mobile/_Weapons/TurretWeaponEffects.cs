@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +12,15 @@ public class TurretWeaponEffects : MonoBehaviour
 
 	public void PlayShotEffects()
 	{
-		muzzleFlash.Stop(true);
-		muzzleFlash.Play(true);
+		Debug.Log("Player Shot Effects");
+		// muzzleFlash.Stop(true);
+		// muzzleFlash.Play(true);
 		
-		SoundManager.Instance.PlayShot(weaponAudio);
+		// SoundManager.Instance.PlayShot(weaponAudio);
 	}
+
+    public void PlayImpactEffect(Vector3 point)
+    {
+        Debug.Log("Player Impact Effect");
+    }
 }
