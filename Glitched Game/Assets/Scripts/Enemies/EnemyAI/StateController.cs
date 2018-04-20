@@ -35,6 +35,7 @@ public abstract class StateController : MonoBehaviour {
 
     public AIStateMachine FSM;
     private NavMeshAgent navAgent;
+    private Animator _animator;
 
     public NavMeshAgent NavAgent
     {
@@ -49,9 +50,23 @@ public abstract class StateController : MonoBehaviour {
         }
     }
 
+    public Animator Animator
+    {
+        get
+        {
+            return _animator;
+        }
+
+        set
+        {
+            _animator = value;
+        }
+    }
+
     public virtual void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
         FSM = new AIStateMachine(this);
     }
 

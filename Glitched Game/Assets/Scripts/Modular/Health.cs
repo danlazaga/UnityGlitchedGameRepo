@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,8 +32,7 @@ public class Health : MonoBehaviour, IHealthHandler
 
 	public void TakeDamage(int damage)
 	{
-		if (damage <= 0)
-			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + damage);
+		
 
         health -= damage;
 

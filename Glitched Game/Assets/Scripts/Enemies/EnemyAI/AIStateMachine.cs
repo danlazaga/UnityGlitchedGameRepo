@@ -12,6 +12,12 @@ public interface IState
 
 
 }
+
+public interface IStateAttacks
+{
+    void CheckAttackSequence();
+    void CheckCurrentAttackDuration();
+}
 public class AIStateMachine {
 
     private StateController _controller;
