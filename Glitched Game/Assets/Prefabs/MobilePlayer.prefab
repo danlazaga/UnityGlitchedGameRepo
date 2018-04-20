@@ -497,7 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b552f4446750d440e8b69bcb121ef5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchers: []
+  launchers:
+  - {fileID: 114711589183252620}
+  - {fileID: 114443167661474282}
 --- !u!114 &114645508122155090
 MonoBehaviour:
   m_ObjectHideFlags: 1
