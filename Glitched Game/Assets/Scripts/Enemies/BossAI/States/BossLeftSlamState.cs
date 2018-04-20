@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class BossLeftSlamState : CustomConstructor<BossStateController>, IState, IStateAttacks
 {
+    float attackDuration;
+    bool startAttack;
+
     public BossLeftSlamState(BossStateController controller) : base(controller)
     {
-
+        attackDuration = 5f;
+        startAttack = true;
     }
 
     public void OnStateEnter()
@@ -26,6 +30,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState,
     public void OnUpdate()
     {
         CheckAttackSequence();
+        CheckCurrentAttackDuration();
     }
 
     public void CheckAttackSequence()
@@ -34,14 +39,19 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState,
         {
             controller.FSM.ChangeState(new BossShieldState(controller));
         }
-        else
-        {
-            controller.FSM.ChangeState(new BossIdleState(controller));
-        }
+        
     }
 
     public void CheckCurrentAttackDuration()
     {
        // if current attack duration is over go back to idle
+       if(startAttack)
+       {
+            attackDuration -= Time.deltaTime;
+            if(attackDuration <= 0)
+            {
+                controller.FSM.ChangeState(new BossIdleState(controller));
+            }
+       }
     }
 }
