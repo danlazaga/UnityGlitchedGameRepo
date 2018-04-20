@@ -8,18 +8,15 @@ using UnityStandardAssets.CrossPlatformInput;
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
+	[SerializeField] WeaponLauncher[] launchers;
 	IWeapon iWeapon;
 	TurretController turretController;
-	DefaultLauncher defaultLauncher;
-	ShieldBreakerLauncher shieldBreakerLauncher;
 	int currentWeaponIndex;
 #endregion
 
 #region Unity Methods
 	private void Awake()
 	{
-		defaultLauncher = gameObject.GetRequiredComponent<DefaultLauncher>();
-		shieldBreakerLauncher = gameObject.GetRequiredComponent<ShieldBreakerLauncher>();
 		turretController = gameObject.GetRequiredComponent<TurretController>();
 		SwitchWeapon(0);
 	}
@@ -45,7 +42,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		currentWeaponIndex++;
 
-		if (currentWeaponIndex >= 2)
+		if (currentWeaponIndex >= launchers.Length)
 		{
 			currentWeaponIndex = 0;
 		}
@@ -61,15 +58,6 @@ public class WeaponManager : MonoBehaviour
 
 	void SwitchWeapon(int index)
 	{
-		switch (index)
-		{
-			case 0:
-				iWeapon = defaultLauncher;
-				break;
-
-			case 1:
-				iWeapon = shieldBreakerLauncher;
-				break;
-		}
+		iWeapon = launchers[index];
 	}
 }

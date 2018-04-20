@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretWeaponEffects : MonoBehaviour
+public class WeaponEffects : MonoBehaviour
 {
 #region Variables
 	[SerializeField] ParticleSystem muzzleFlash;

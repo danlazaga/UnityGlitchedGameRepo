@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ShieldBreakerLauncher : WeaponLauncher, IWeapon
+public class ShieldBreakerLauncher : WeaponLauncher
 {
-	public void Shoot()
+	public override void Shoot()
 	{
 		CmdShoot();
 		Debug.Log("ShieldBreaker Launcher");
@@ -20,6 +20,6 @@ public class ShieldBreakerLauncher : WeaponLauncher, IWeapon
 	[ClientRpc]
 	void RpcProcessShotEffects()
 	{
-		turretEffects.PlayShotEffects();
+		weaponEffects.PlayShotEffects();
 	}
 }
