@@ -1,15 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Networking.Match;
+using UnityEngine.Networking.Types;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 {
+#region  Variable & Instance
 	[Space(10)]
-	[SerializeField] string sceneName;
+	public LobbyTopPanel topPanel;
+	public RectTransform mainMenuPanel;
+	public RectTransform lobbyPanel;
+	public RectTransform startButton;
+
+	public Button backButton;
+	public Text statusInfo;
+	public Text hostInfo;
+	RectTransform currentPanel;
+
+	[HideInInspector]
+	public bool _isMatchmaking = false;
+	protected bool _disconnectServer = false;
+	protected ulong _currentMatchID;
+	LobbyHook lobbyHooks;
+	[Space(10)]
+	public Color[] colorArray;
+	[HideInInspector] public int currentPlayerColor = 0;
 
 	private static ModifiedNetworkLobbyManager instance;
-
 	public static ModifiedNetworkLobbyManager Instance
 	{
 		get
@@ -17,40 +36,219 @@ public class ModifiedNetworkLobbyManager : NetworkLobbyManager
 			return instance;
 		}
 	}
+#endregion
 
+#region Unity Methods 
 	void Awake()
 	{
 		instance = this;
 	}
 
-	public void StartHostModified()
+	void Start()
 	{
-		StartHost();
+		lobbyHooks = GetComponent<LobbyHook>();
+		currentPanel = mainMenuPanel;
+		backButton.gameObject.SetActive(false);
+		SetServerInfo("Offline", "None");
 	}
 
+	// ---------- Server Callback
 	public override void OnStartHost()
 	{
 		base.OnStartHost();
 
+		ChangeTo(lobbyPanel);
+		backDelegate = StopHostClbk;
+		SetServerInfo("Hosting", networkAddress);
 		Debug.Log("Host Started!");
 	}
 
-	public void JoinGame(string networkAdressString)
+	public override void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
 	{
-		networkAddress = networkAdressString;
-
-		StartClient();
+		base.OnMatchCreate(success, extendedInfo, matchInfo);
+		_currentMatchID = (System.UInt64)matchInfo.networkId;
 	}
 
-	public override void OnStartClient(NetworkClient client)
+	public override void OnDestroyMatch(bool success, string extendedInfo)
 	{
-		base.OnStartClient(client);
-
-		Debug.Log("Connected!");
+		base.OnDestroyMatch(success, extendedInfo);
+		if (_disconnectServer)
+		{
+			StopMatchMaker();
+			StopHost();
+		}
 	}
+
+	public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer)
+	{
+		//This hook allows you to apply state data from the lobby-player to the game-player
+		//just subclass "LobbyHook" and add it to the lobby object.
+		Debug.Log("Player Data Hooked");
+
+		if (lobbyHooks)
+			lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
+
+		return true;
+	}
+
+	public override void OnLobbyClientSceneChanged(NetworkConnection conn)
+	{
+		if (SceneManager.GetSceneAt(0).name == lobbyScene)
+		{
+			if (topPanel.isInGame)
+			{
+				ChangeTo(lobbyPanel);
+				if (_isMatchmaking)
+				{
+					if (conn.playerControllers[0].unetView.isServer)
+					{
+						backDelegate = StopHostClbk;
+					}
+					else
+					{
+						backDelegate = StopClientClbk;
+					}
+				}
+				else
+				{
+					if (conn.playerControllers[0].unetView.isClient)
+					{
+						backDelegate = StopHostClbk;
+					}
+					else
+					{
+						backDelegate = StopClientClbk;
+					}
+				}
+			}
+			else
+			{
+				ChangeTo(mainMenuPanel);
+			}
+
+			topPanel.ToggleVisibility(true);
+			topPanel.isInGame = false;
+		}
+		else
+		{
+			ChangeTo(null);
+			topPanel.isInGame = true;
+			topPanel.ToggleVisibility(false);
+		}
+	}
+
+	//------ Client Callback
+	public override void OnClientConnect(NetworkConnection conn)
+	{
+		base.OnClientConnect(conn);
+
+		Debug.Log("Client Joined");
+
+		if (!NetworkServer.active)
+		{ //only to do on pure client (not self hosting client)
+			ChangeTo(lobbyPanel);
+			backDelegate = StopClientClbk;
+			SetServerInfo("Client", networkAddress);
+		}
+	}
+
+	public override void OnClientDisconnect(NetworkConnection conn)
+	{
+		base.OnClientDisconnect(conn);
+		ChangeTo(mainMenuPanel);
+	}
+
+	public override void OnLobbyServerPlayersReady()
+	{
+		bool allready = true;
+		for (int i = 0; i < lobbySlots.Length; ++i)
+		{
+			if (lobbySlots[i] != null)
+				allready &= lobbySlots[i].readyToBegin;
+		}
+
+		if (allready)
+		{
+			if (NetworkServer.connections.Count > 0)
+			{
+				startButton.gameObject.SetActive(true);
+			}
+		}
+	}
+#endregion
 
 	public void ChangeScene()
 	{
-		ServerChangeScene(sceneName);
+		ServerChangeScene(playScene);
+	}
+
+	public void SetServerInfo(string status, string host)
+	{
+		statusInfo.text = status;
+		hostInfo.text = host;
+	}
+
+	public void StopHostClbk()
+	{
+		if (_isMatchmaking)
+		{
+			matchMaker.DestroyMatch((NetworkID)_currentMatchID, 0, OnDestroyMatch);
+			_disconnectServer = true;
+		}
+		else
+		{
+			StopHost();
+		}
+
+		Debug.Log("Stop host callback");
+
+		ChangeTo(mainMenuPanel);
+	}
+
+	public void StopClientClbk()
+	{
+		StopClient();
+
+		if (_isMatchmaking)
+		{
+			StopMatchMaker();
+		}
+
+		ChangeTo(mainMenuPanel);
+	}
+
+	public delegate void BackButtonDelegate();
+	public BackButtonDelegate backDelegate;
+
+	public void GoBackButton()
+	{
+		backDelegate();
+		topPanel.isInGame = false;
+	}
+
+	public void ChangeTo(RectTransform newPanel)
+	{
+		if (currentPanel != null)
+		{
+			currentPanel.gameObject.SetActive(false);
+		}
+
+		if (newPanel != null)
+		{
+			newPanel.gameObject.SetActive(true);
+		}
+
+		currentPanel = newPanel;
+
+		if (currentPanel != mainMenuPanel)
+		{
+			backButton.gameObject.SetActive(true);
+		}
+		else
+		{
+			backButton.gameObject.SetActive(false);
+			_isMatchmaking = false;
+			SetServerInfo("Offline", "None");
+		}
 	}
 }

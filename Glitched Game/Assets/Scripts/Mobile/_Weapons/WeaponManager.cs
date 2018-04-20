@@ -1,39 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(TurretController))]
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
-	[SerializeField] Transform firePoint;
-	[Range(10f, 80f)]
-	[SerializeField] private float angle = 45f;
 	IWeapon iWeapon;
-	PlayerInput playerInput;
+	TurretController turretController;
+	DefaultLauncher defaultLauncher;
+	ShieldBreakerLauncher shieldBreakerLauncher;
 	int currentWeaponIndex;
 #endregion
 
 #region Unity Methods
 	private void Awake()
 	{
+		defaultLauncher = gameObject.GetRequiredComponent<DefaultLauncher>();
+		shieldBreakerLauncher = gameObject.GetRequiredComponent<ShieldBreakerLauncher>();
+		turretController = gameObject.GetRequiredComponent<TurretController>();
 		SwitchWeapon(0);
+	}
 
-		playerInput = gameObject.GetRequiredComponent<PlayerInput>();
-
-		if (playerInput != null)
+	private void OnEnable()
+	{
+		if (turretController != null)
 		{
-			playerInput.OnFire += HandleFire;
-			playerInput.OnSwitchWeapon += HandleSwitchWeapon;
+			turretController.OnSwitchWeapon += HandleSwitchWeapon;
+			turretController.OnFire += HandleFire;
 		}
 	}
 
 	private void OnDestroy()
 	{
-		playerInput.OnFire -= HandleFire;
-		playerInput.OnSwitchWeapon -= HandleSwitchWeapon;
+		turretController.OnSwitchWeapon -= HandleSwitchWeapon;
+		turretController.OnFire -= HandleFire;
 	}
 #endregion
 
+#region Callbacks
 	void HandleSwitchWeapon()
 	{
 		currentWeaponIndex++;
@@ -46,28 +53,23 @@ public class WeaponManager : MonoBehaviour
 		SwitchWeapon(currentWeaponIndex);
 	}
 
-	void HandleFire(Vector3 destination)
+	void HandleFire()
 	{
-		iWeapon.Shoot(destination);
+		iWeapon.Shoot();
 	}
+#endregion
 
 	void SwitchWeapon(int index)
 	{
-		Component c = gameObject.GetComponent<IWeapon>()as Component;
-
-		if (c != null) { Destroy(c); }
-
 		switch (index)
 		{
 			case 0:
-				iWeapon = gameObject.AddComponent<DefaultSpearLauncher>();
+				iWeapon = defaultLauncher;
 				break;
 
 			case 1:
-				iWeapon = gameObject.AddComponent<FireSpearLauncher>();
+				iWeapon = shieldBreakerLauncher;
 				break;
 		}
-
-		iWeapon.Initialize(firePoint, angle);
 	}
 }

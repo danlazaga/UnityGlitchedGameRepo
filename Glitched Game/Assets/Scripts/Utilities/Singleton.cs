@@ -11,7 +11,7 @@
 /// </summary>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T instance;
+    protected static T instance;
 
     public static T Instance
     {
@@ -38,7 +38,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         instance = null;
     }

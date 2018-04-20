@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[System.Serializable]
+public class AudioSourceProperties
+{
+    public AudioSource menuSource;
+    public AudioSource gameSceneOneSource;
+    public AudioSource gameSceneTwoSource;
+    public AudioSource gamescenThreeSource;
+    public AudioSource uiAudioSource;
+}
+
 public class SoundManager : Singleton<SoundManager>
 {
     protected SoundManager() { }
 
-    [System.Serializable]
-    public class AudioSourceProperties
-    {
-        public AudioSource menuSource;
-        public AudioSource gameSceneOneSource;
-        public AudioSource gameSceneTwoSource;
-        public AudioSource gamescenThreeSource;
-        public AudioSource uiAudioSource;
-    }
-
 #region Variables
     [SerializeField] AudioSourceProperties audioSourceProperties;
-    [Space (10)]
+    [Space(10)]
     [SerializeField] AudioSnapshotProperties audioSnapshotProperties;
 
-    [Header ("Cross Fade Properties")]
+    [Header("Cross Fade Properties")]
     [SerializeField] float bpmFadeInSpeed = 128;
 
     [Header("Randomizer Properties")]
@@ -44,6 +44,11 @@ public class SoundManager : Singleton<SoundManager>
     public void PlayBGM(int Scene)
     {
 
+    }
+
+    public void PlayShot(AudioSource source)
+    {
+        RandomizeSfx(source, source.clip);
     }
 
     public void PlayButtonClick()
