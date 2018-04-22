@@ -26,11 +26,11 @@ public class EnemyAttackState :CustomConstructor<EnemyStateController>, IState
 
     public void OnUpdate()
     {
-        if (controller.hasShield && _target == controller.player)
+        if (controller.Boss.hasShield && _target == controller.player)
         {
             controller.FSM.ChangeState(new EnemyChaseGateState(controller));
         }
-        else if(!controller.hasShield && _target == controller.gate)
+        else if(!controller.Boss.hasShield && _target == controller.gate)
         {
             controller.FSM.ChangeState(new EnemyChasePState(controller));
         }

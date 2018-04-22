@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IHealthHandler
+public class Health : MonoBehaviour, IHealth
 {
 
     #region Variables
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour, IHealthHandler
 	}
 #endregion
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(float damage)
 	{
 		
 

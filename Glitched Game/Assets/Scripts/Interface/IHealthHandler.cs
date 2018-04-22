@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-public interface IHealthHandler
+public interface IHealth
 {
 	event Action<float> OnHPPctChanged;
 	event Action OnDied;
-	void TakeDamage(int damage);
+	void TakeDamage(float amount);
 }

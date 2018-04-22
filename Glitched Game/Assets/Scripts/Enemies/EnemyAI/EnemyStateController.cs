@@ -9,14 +9,15 @@ public class EnemyStateController : StateController
     public Transform player;
     public Transform gate;
 
-   // public GameObject boss;
+    // public GameObject boss;
 
     // testing bool if boss has shield
-    public bool hasShield;
+    public BossStateController Boss { get; set; }
 
 
     private void Start()
     {
+        Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
     }
 

@@ -32,7 +32,7 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
             controller.FSM.ChangeState(new EnemyAttackState(controller, controller.gate.transform));
         }
 
-        if (!controller.hasShield)
+        if (!controller.Boss.hasShield)
         {
             controller.FSM.ChangeState(new EnemyChasePState(controller));
         }

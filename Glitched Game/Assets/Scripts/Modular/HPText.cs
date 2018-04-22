@@ -11,9 +11,9 @@ public class HPText : MonoBehaviour
 #region Unity Methods
 	private void Awake()
 	{
-		if (GetComponentInParent<IHealthHandler>()!= null)
+		if (GetComponentInParent<IHealth>()!= null)
 		{
-			GetComponentInParent<IHealthHandler>().OnHPPctChanged += HandleHPPctChanged;
+			GetComponentInParent<IHealth>().OnHPPctChanged += HandleHPPctChanged;
 		}
 	}
 #endregion
