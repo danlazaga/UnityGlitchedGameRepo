@@ -20,6 +20,7 @@ public class Health : MonoBehaviour, IHealth
 
     public event OnHitHPCheck UnlockDoubleSlam;
     public event OnHitHPCheck UnlockLaser;
+    public event OnHitHPCheck UnlockMissile;
 
     #endregion
 
@@ -50,6 +51,14 @@ public class Health : MonoBehaviour, IHealth
             if (UnlockLaser != null)
             {
                 UnlockLaser();
+            }
+        }
+
+        if(health <= (maxHealth * 0.4))
+        {
+            if(UnlockMissile != null)
+            {
+                UnlockMissile();
             }
         }
 

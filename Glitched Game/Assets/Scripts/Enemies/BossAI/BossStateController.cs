@@ -26,8 +26,9 @@ public class BossStateController : StateController
     {
         bossHealth = GetComponent<Health>();
 
-        bossHealth.UnlockDoubleSlam += UnlockDoubleSlam;
+        bossHealth.UnlockDoubleSlam += UnlockDoubleSlamAttack;
         bossHealth.UnlockLaser += UnlockLaserAttack;
+        bossHealth.UnlockMissile += UnlockMissileAttack;
 
         maxAttacks = 1;
         FSM.ChangeState(new BossDisableState(this));
@@ -39,12 +40,12 @@ public class BossStateController : StateController
     }
 
    
-    void UnlockDoubleSlam()
+    void UnlockDoubleSlamAttack()
     {
         //onDoubleSlam = true; 
         Debug.Log("Unlock DoubleSlam");
         maxAttacks = 2;
-        bossHealth.UnlockDoubleSlam -= UnlockDoubleSlam;
+        bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
        
 
     }
@@ -55,5 +56,13 @@ public class BossStateController : StateController
         Debug.Log("Unlock Laser Attack");
         maxAttacks = 3;
         bossHealth.UnlockLaser -= UnlockLaserAttack;
+    }
+
+    void UnlockMissileAttack()
+    {
+        Debug.Log("Unlock Laser Attack");
+        maxAttacks = 4;
+        bossHealth.UnlockMissile -= UnlockMissileAttack;
+
     }
 }
