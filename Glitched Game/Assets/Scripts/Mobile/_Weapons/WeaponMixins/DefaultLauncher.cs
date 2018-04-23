@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class DefaultLauncher : WeaponLauncher
 {
-	[Header ("Rail Gun Properties")]
+	[Header("Rail Gun Properties")]
 	[SerializeField] float weaponRange;
 	[SerializeField] LineRenderer laserLine;
 	[SerializeField] Camera fpsCam;
@@ -36,7 +36,7 @@ public class DefaultLauncher : WeaponLauncher
 				enemy.TakeDamage(1);
 		}
 
-		RpcDrawLine(result, rayOrigin, fpsCam.transform.forward, hit.point);
+		RpcDrawLine(result, rayOrigin, hit.point);
 		RpcProcessShotEffects(result, hit.point);
 	}
 
@@ -50,15 +50,8 @@ public class DefaultLauncher : WeaponLauncher
 	}
 
 	[ClientRpc]
-	void RpcDrawLine(bool result, Vector3 origin, Vector3 direction, Vector3 hit)
+	void RpcDrawLine(bool result, Vector3 origin, Vector3 hit)
 	{
-		StartCoroutine(StartDrawLine(result, origin, direction, hit));
-	}
-
-	private IEnumerator StartDrawLine(bool result, Vector3 origin, Vector3 direction, Vector3 hit)
-	{
-		laserLine.enabled = true;
-
 		laserLine.SetPosition(0, firePoint.position);
 
 		if (result)
@@ -67,8 +60,15 @@ public class DefaultLauncher : WeaponLauncher
 		}
 		else
 		{
-			laserLine.SetPosition(1, origin + (direction * weaponRange));
+			laserLine.SetPosition(1, origin + (fpsCam.transform.forward * weaponRange));
 		}
+
+		StartCoroutine(StartDrawLine());
+	}
+
+	private IEnumerator StartDrawLine()
+	{
+		laserLine.enabled = true;
 		yield return shotDuration;
 		laserLine.enabled = false;
 	}
