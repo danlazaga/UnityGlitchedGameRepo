@@ -20,11 +20,11 @@ public class BossStateController : StateController
     public GameObject laserAttack;
     public GameObject bulletRain;
 
-    private Health bossHealth;
+    private BossHealth bossHealth;
 
     private void Start()
     {
-        bossHealth = GetComponent<Health>();
+        bossHealth = GetComponent<BossHealth>();
 
         bossHealth.UnlockDoubleSlam += UnlockDoubleSlamAttack;
         bossHealth.UnlockLaser += UnlockLaserAttack;
@@ -47,7 +47,6 @@ public class BossStateController : StateController
         maxAttacks = 2;
         bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
        
-
     }
 
     void UnlockLaserAttack()
