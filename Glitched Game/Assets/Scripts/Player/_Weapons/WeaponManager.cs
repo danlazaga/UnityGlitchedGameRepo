@@ -4,40 +4,35 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
-[RequireComponent(typeof(TurretController))]
 public class WeaponManager : MonoBehaviour
 {
 #region Variables
 	[SerializeField] WeaponLauncher[] launchers;
 	IWeapon iWeapon;
-	TurretController turretController;
 	int currentWeaponIndex;
 #endregion
 
 #region Unity Methods
 	private void Awake()
 	{
-		turretController = gameObject.GetRequiredComponent<TurretController>();
 		SwitchWeapon(0);
 	}
 
-	private void OnEnable()
+	private void Update()
 	{
-		if (turretController != null)
+		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
-			turretController.OnSwitchWeapon += HandleSwitchWeapon;
-			turretController.OnFire += HandleFire;
+			Shoot();
 		}
-	}
 
-	private void OnDestroy()
-	{
-		turretController.OnSwitchWeapon -= HandleSwitchWeapon;
-		turretController.OnFire -= HandleFire;
+		if (CrossPlatformInputManager.GetButtonDown("Jump"))
+		{
+			HandleSwitchWeapon();
+		}
 	}
 #endregion
 
-#region Callbacks
+#region Functions
 	void HandleSwitchWeapon()
 	{
 		currentWeaponIndex++;
@@ -50,14 +45,14 @@ public class WeaponManager : MonoBehaviour
 		SwitchWeapon(currentWeaponIndex);
 	}
 
-	void HandleFire()
+	void Shoot()
 	{
 		iWeapon.Shoot();
 	}
-#endregion
 
 	void SwitchWeapon(int index)
 	{
 		iWeapon = launchers[index];
 	}
+#endregion
 }
