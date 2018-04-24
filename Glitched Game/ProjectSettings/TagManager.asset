@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ReadyText
   - DefaultBullet
+  - SpawnPoints
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour {
     private float spawnRate;
 
     // Player Wait Time before next wave
-    private WaitForSeconds waitTime = new WaitForSeconds(15f);
+    private WaitForSeconds waitTime = new WaitForSeconds(5f);
 
     // Minimum and maximum Spawn addition
     private int minAddSpawn;
@@ -35,7 +35,9 @@ public class EnemySpawner : MonoBehaviour {
         minAddSpawn = 3;
         maxAddSpawn = 6;
 
-        canSpawn = true;
+        StartCoroutine(IncreaseSpawn());
+
+        //canSpawn = true;
 
     }
     private void Update()
@@ -85,11 +87,12 @@ public class EnemySpawner : MonoBehaviour {
     // Spawn Enemy Randomly
     void SpawnEnemy()
     {
-       
+        GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
+        obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
     }
 
-    // Randomize Enemy Type
+  
   
 
     int RandomizeSpawnSlot()

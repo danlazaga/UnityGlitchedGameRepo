@@ -9,8 +9,6 @@ public class EnemyStateController : StateController
     public Transform player;
     public Transform gate;
 
-    // public GameObject boss;
-
     // testing bool if boss has shield
     public BossStateController Boss { get; set; }
 
