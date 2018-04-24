@@ -9,7 +9,7 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
 
-	[SerializeField] float maxHealth = 3;
+	[SerializeField] float maxHealth = 100;
 	[SyncVar(hook = "OnHealthChanged")] float health;
 #endregion
 
@@ -45,11 +45,11 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	[ClientRpc]
 	void RpcTakeDamage(bool died)
 	{
-		//Insert hit display effect
-		// if (isLocalPlayer)
-		// {
-
-		// }
+		// Insert hit display effect
+		if (isLocalPlayer)
+		{
+			PlayerHUD.Instance.FlashDamageEffect();
+		}
 
 		if (died)
 			OnDied();

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
+	[SerializeField] UIFader damageImage;
 	[SerializeField] Text healthValue;
 	[SerializeField] GameObject healthValueObj;
 	[SerializeField] GameObject mobileControllerObj;
@@ -51,6 +52,11 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void SetHealth(float value)
 	{
 		healthValue.text = string.Format(stringFormat, value);
+	}
+
+	public void FlashDamageEffect()
+	{
+		damageImage.Flash();
 	}
 
 }
