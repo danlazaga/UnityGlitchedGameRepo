@@ -7,6 +7,8 @@ TagManager:
   - ReadyText
   - DefaultBullet
   - SpawnPoints
+  - Enemy
+  - Gate
   layers:
   - Default
   - TransparentFX
