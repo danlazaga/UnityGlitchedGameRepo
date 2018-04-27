@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class DefaultLauncher : WeaponLauncher, IWeapon
+public class DefaultLauncher : WeaponLauncher
 {
 	[Header ("Rail Gun Properties")]
 	[SerializeField] float weaponRange;
@@ -10,7 +10,7 @@ public class DefaultLauncher : WeaponLauncher, IWeapon
 	[SerializeField] Camera fpsCam;
 	[SerializeField] WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
-	public void Shoot()
+	public override void Shoot()
 	{
 		CmdShoot();
 		Debug.Log("Default Launcher");
@@ -43,10 +43,10 @@ public class DefaultLauncher : WeaponLauncher, IWeapon
 	[ClientRpc]
 	void RpcProcessShotEffects(bool playImpact, Vector3 point)
 	{
-		turretEffects.PlayShotEffects();
+		weaponEffects.PlayShotEffects();
 
 		if (playImpact)
-			turretEffects.PlayImpactEffect(point);
+			weaponEffects.PlayImpactEffect(point);
 	}
 
 	[ClientRpc]
