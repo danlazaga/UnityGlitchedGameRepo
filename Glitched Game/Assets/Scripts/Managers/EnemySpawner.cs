@@ -27,9 +27,14 @@ public class EnemySpawner : MonoBehaviour {
     private int minAddSpawn;
     private int maxAddSpawn;
 
+    private GameObject player;
+    private GameObject gate;
+
   
     private void Start()
     {
+        
+
         maxWaveAmount = 10;
         maxSpawnRate = 3.5f;
 
@@ -89,6 +94,7 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
+        
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
     }

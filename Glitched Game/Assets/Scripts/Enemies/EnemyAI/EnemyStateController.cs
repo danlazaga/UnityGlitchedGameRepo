@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class EnemyStateController : StateController
 {
-    [Header("Targets")]
-    public Transform player;
-    public Transform gate;
+    public Transform player{get;set;}
+    public Transform gate{get;set;}
 
     // testing bool if boss has shield
     public BossStateController Boss { get; set; }
 
 
-    private void OnEnable()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        gate = GameObject.FindGameObjectWithTag("Gate").transform;
-    }
+    //private void OnEnable()
+    //{
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
+        //gate = GameObject.FindGameObjectWithTag("Gate").transform;
+   // }
+
+
+
 
     private void Start()
     {
@@ -29,4 +31,12 @@ public class EnemyStateController : StateController
     {
         FSM.StateUpdate();      
     }
+
+    public void SetTargets(Transform player, Transform gate)
+    {
+        this.player = player;
+        this.gate =  gate;
+    }
+
+
 }
