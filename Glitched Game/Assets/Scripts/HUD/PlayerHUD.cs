@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
+	[SerializeField] RecticleAnimation recticleAnimation; 
 	[SerializeField] UIFader damageImage;
 	[SerializeField] Text healthValue;
 	[SerializeField] GameObject healthValueObj;
@@ -59,4 +60,9 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		damageImage.Flash();
 	}
 
+	public void PlayRecticle()
+	{
+		recticleAnimation.RecticlePlay();
+	}
 }
+

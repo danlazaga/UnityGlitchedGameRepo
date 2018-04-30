@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 224235224417562598}
   - component: {fileID: 222232106489968608}
   - component: {fileID: 114157332549112252}
+  - component: {fileID: 95285381885172934}
+  - component: {fileID: 114768440799357272}
   m_Layer: 0
   m_Name: Reticule
   m_TagString: Untagged
@@ -99,6 +101,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95285381885172934
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302289466023066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b9d13d12f380c34cad4fbda7879cd50, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114157332549112252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,15 +130,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2ef26bce1984586409dd829ff75a534f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -218,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741cc9883cb63224b825647569906163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recticleAnimation: {fileID: 114768440799357272}
   damageImage: {fileID: 114950932180117198}
   healthValue: {fileID: 114546647955481212}
   healthValueObj: {fileID: 1633705390706896}
@@ -256,6 +276,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Health:'
+--- !u!114 &114768440799357272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302289466023066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5953b8c2adb95c4790a34b97a231dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticleAnimator: {fileID: 95285381885172934}
 --- !u!114 &114950932180117198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,8 +363,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 84.48, y: 84.48}
+  m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!224 &224356359663690798
 RectTransform:
   m_ObjectHideFlags: 1
