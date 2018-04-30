@@ -8,5 +8,5 @@ public abstract class WeaponLauncher : NetworkBehaviour , IWeapon
 	[SerializeField] protected WeaponEffects weaponEffects;
 	[SerializeField] protected Transform firePoint;
 
-    public virtual void Shoot(){ }
+    public abstract void Shoot();
 }

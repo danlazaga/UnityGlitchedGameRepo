@@ -10,8 +10,8 @@ public class TurretController : MonoBehaviour
     [SerializeField] Transform turret;
     [Space(10)]
     [SerializeField] TurretLookAt turretLook;
-    public event Action OnFire = delegate { };
-    public event Action OnSwitchWeapon = delegate { };
+    public event Action onFire = delegate { };
+    public event Action onSwitchWeaon = delegate { };
 #endregion
 
 #region Unity Methods
@@ -28,7 +28,6 @@ public class TurretController : MonoBehaviour
     void Update()
     {
         RotateTurret();
-        GetButtonInput();
     }
 #endregion
 
@@ -37,17 +36,16 @@ public class TurretController : MonoBehaviour
         turretLook.LookRotation(transform, turret);
     }
 
-    void GetButtonInput()
+    void Input()
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-        { 
-            if(OnFire != null) OnFire();
+        {
+            if(onFire != null) onFire();
         }
 
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
-            if (OnSwitchWeapon != null)OnSwitchWeapon();
+            if(onSwitchWeaon != null) onSwitchWeaon();
         }
     }
-
 }

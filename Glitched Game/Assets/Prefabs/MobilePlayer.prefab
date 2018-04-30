@@ -369,9 +369,8 @@ MonoBehaviour:
   turretLook:
     XSensitivity: 2
     YSensitivity: 2
-    xRotRange:
-      minValue: -10
-      maxValue: 30
+    xMinRot: -10
+    xMaxRot: 30
 --- !u!114 &114193788409543530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 100
 --- !u!114 &114278280479294252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,17 +443,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114610959906462610}
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onToggleLocal:
     m_PersistentCalls:
@@ -472,6 +460,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1497364101052454}
         m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114610959906462610}
+        m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

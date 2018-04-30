@@ -8,7 +8,8 @@ public class TurretLookAt
 {
 	public float XSensitivity = 2f;
 	public float YSensitivity = 2f;
-	public RangedFloat xRotRange;
+	public float xMinRot;
+	public float xMaxRot;
 	Quaternion baseRot;
 	Quaternion turretTargetRot;
 
@@ -41,7 +42,7 @@ public class TurretLookAt
 
 		float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
 
-		angleX = Mathf.Clamp(angleX, xRotRange.minValue, xRotRange.maxValue);
+		angleX = Mathf.Clamp(angleX, xMinRot, xMaxRot);
 
 		q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
 
