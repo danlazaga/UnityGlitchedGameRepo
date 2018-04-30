@@ -6,16 +6,17 @@ public class EnemySpawner : MonoBehaviour {
 
     public Transform[] spawnLocations;
 
-    private bool canSpawn;
+    private bool canSpawn = false;
 
+    [Header("Spawn Properties")]
     // maximum wave amount
-    public int maxWaveAmount;
+    [SerializeField]public int maxWaveAmount;
 
     // current wave amount
     private int waveAmount = 0;
 
     // maximum spawn interval
-    private float maxSpawnRate;
+    [SerializeField]private float maxSpawnRate;
     // current spawn rate
     private float spawnRate;
 
@@ -41,7 +42,7 @@ public class EnemySpawner : MonoBehaviour {
 
     }
     private void Update()
-    {
+    { 
         StartSpawn();
     }
 
@@ -91,9 +92,6 @@ public class EnemySpawner : MonoBehaviour {
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
     }
-
-  
-  
 
     int RandomizeSpawnSlot()
     {
