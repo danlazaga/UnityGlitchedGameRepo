@@ -48,11 +48,11 @@ public class TurretWeaponManager : MonoBehaviour
 		iWeapon.Shoot();
 	}
 
-#region Functions
+
 
 	void SwitchWeapon(int index)
 	{
 		iWeapon = launchers[index];
 	}
-#endregion
+
 }

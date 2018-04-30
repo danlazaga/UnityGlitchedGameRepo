@@ -28,6 +28,7 @@ public class TurretController : MonoBehaviour
     void Update()
     {
         RotateTurret();
+        InputButtons();
     }
 #endregion
 
@@ -36,16 +37,16 @@ public class TurretController : MonoBehaviour
         turretLook.LookRotation(transform, turret);
     }
 
-    void Input()
+    void InputButtons()
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-            if(onFire != null) onFire();
+            if (onFire != null)onFire();
         }
 
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
-            if(onSwitchWeaon != null) onSwitchWeaon();
+            if (onSwitchWeaon != null)onSwitchWeaon();
         }
     }
 }
