@@ -46,6 +46,7 @@ public class TurretWeaponManager : MonoBehaviour
 	void HandleFire()
 	{
 		iWeapon.Shoot();
+		PlayerHUD.Instance.PlayRecticle();
 	}
 
 
