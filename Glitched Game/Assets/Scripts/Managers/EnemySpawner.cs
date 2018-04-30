@@ -33,7 +33,8 @@ public class EnemySpawner : MonoBehaviour {
   
     private void Start()
     {
-        
+      
+        gate = GameObject.FindGameObjectWithTag("Gate");
 
         maxWaveAmount = 10;
         maxSpawnRate = 3.5f;
@@ -94,7 +95,8 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
     }

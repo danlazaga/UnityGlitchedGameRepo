@@ -11,16 +11,6 @@ public class EnemyStateController : StateController
     // testing bool if boss has shield
     public BossStateController Boss { get; set; }
 
-
-    //private void OnEnable()
-    //{
-        //player = GameObject.FindGameObjectWithTag("Player").transform;
-        //gate = GameObject.FindGameObjectWithTag("Gate").transform;
-   // }
-
-
-
-
     private void Start()
     {
         Boss = FindObjectOfType<BossStateController>();
