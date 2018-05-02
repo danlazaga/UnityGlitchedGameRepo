@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
 {
+    float attackRange;
     
-
     public EnemyChasePState(EnemyStateController controller) : base(controller)
     {
-        
+        attackRange = 0.8f;
     }
 
     public void OnStateEnter()
@@ -20,6 +20,8 @@ public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
         }
 
         Debug.Log("Chasing PLayer");
+
+        controller.Animator.SetTrigger(Animator.StringToHash("Walk"));
         
     }
 
@@ -30,7 +32,7 @@ public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
 
     public void OnUpdate()
     {
-        if(CheckDistance(controller.transform, controller.player) <= 5f) // attack Range
+        if(CheckDistance(controller.transform, controller.player) <= attackRange) 
         {
             controller.FSM.ChangeState(new EnemyAttackState(controller, controller.player.transform));
         }

@@ -21,40 +21,34 @@ public class EnemySpawner : MonoBehaviour {
     private float spawnRate;
 
     // Player Wait Time before next wave
-    private WaitForSeconds waitTime = new WaitForSeconds(5f);
+    private WaitForSeconds waitTime = new WaitForSeconds(10f);
 
     // Minimum and maximum Spawn addition
     private int minAddSpawn;
     private int maxAddSpawn;
-
-    private GameObject player;
+    
     private GameObject gate;
 
-  
     private void Start()
     {
-      
         gate = GameObject.FindGameObjectWithTag("Gate");
 
-        maxWaveAmount = 10;
-        maxSpawnRate = 3.5f;
+        maxWaveAmount = 3;
+        maxSpawnRate = 10f;
 
-        minAddSpawn = 3;
-        maxAddSpawn = 6;
+        minAddSpawn = 1;
+        maxAddSpawn = 3;
 
-        StartCoroutine(IncreaseSpawn());
-
-        //canSpawn = true;
-
+        GameManager.Instance.StartGame += OnStartSpawn;
+       
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.StartGame -= OnStartSpawn;
+    }
+
     private void Update()
-    { 
-        StartSpawn();
-    }
-
-
-    //For Spawning
-    void StartSpawn()
     {
         if (canSpawn)
         {
@@ -75,7 +69,14 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
+    
+    void OnStartSpawn()
+    {
+        StartCoroutine(IncreaseSpawn());
+    }
 
+
+    
 
     IEnumerator IncreaseSpawn()
     {
@@ -90,12 +91,11 @@ public class EnemySpawner : MonoBehaviour {
         canSpawn = true;
     }
 
-
     // Spawn Enemy Randomly
     void SpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-        player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
@@ -103,7 +103,7 @@ public class EnemySpawner : MonoBehaviour {
 
     int RandomizeSpawnSlot()
     {
-        int spot = Random.Range(0, spawnLocations.Length);
-        return spot;
+        int slot = Random.Range(0, spawnLocations.Length);
+        return slot;
     }
 }

@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, IState
 {
+    float attackRange;
+
     public EnemyChaseGateState(EnemyStateController controller) : base(controller)
     {
-
+        attackRange = 0.8f;
     }
 
     public void OnStateEnter()
@@ -17,7 +19,9 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
         {
             controller.NavAgent.SetDestination(controller.gate.position);
         }
-       
+
+        controller.Animator.SetTrigger(Animator.StringToHash("Walk"));
+
     }
 
     public void OnStateExit()
@@ -27,7 +31,7 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public void OnUpdate()
     {
-        if (CheckDistance(controller.transform, controller.gate) <= 2f) // attack Range
+        if (CheckDistance(controller.transform, controller.gate) <= attackRange ) // attack Range
         {
             controller.FSM.ChangeState(new EnemyAttackState(controller, controller.gate.transform));
         }

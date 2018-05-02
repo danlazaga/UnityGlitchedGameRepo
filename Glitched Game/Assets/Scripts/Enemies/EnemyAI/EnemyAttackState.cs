@@ -16,6 +16,8 @@ public class EnemyAttackState :CustomConstructor<EnemyStateController>, IState
     {
         Debug.Log("Enemy Attacking");
         controller.NavAgent.isStopped = true;
+
+        controller.Animator.SetTrigger(Animator.StringToHash("Attack"));
     }
 
     public void OnStateExit()

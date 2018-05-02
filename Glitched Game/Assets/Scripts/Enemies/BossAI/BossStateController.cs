@@ -10,8 +10,9 @@ public class BossStateController : StateController
     public float maxIdleTime;
     public bool idleMode;
 
-    // attack counter
+    //attack counter
     public int attacks;
+
     //attack pool/max index
     public int maxAttacks;
     public bool hasShield;
@@ -51,7 +52,6 @@ public class BossStateController : StateController
 
     void UnlockLaserAttack()
     {
-        // onLaserAttack = true;
         Debug.Log("Unlock Laser Attack");
         maxAttacks = 3;
         bossHealth.UnlockLaser -= UnlockLaserAttack;
@@ -62,6 +62,6 @@ public class BossStateController : StateController
         Debug.Log("Unlock Laser Attack");
         maxAttacks = 4;
         bossHealth.UnlockMissile -= UnlockMissileAttack;
-
     }
+
 }

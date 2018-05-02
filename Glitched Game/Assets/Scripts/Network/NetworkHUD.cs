@@ -27,6 +27,7 @@ public class NetworkHUD : MonoBehaviour
 	public void OnStartHost()
 	{
 		networkManager.StartHost();
+        GameManager.Instance.OnStartGame();
 	}
 
 	public void OnClientJoin()

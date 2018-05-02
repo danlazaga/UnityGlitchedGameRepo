@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class EnemyStateController : StateController
 {
@@ -17,7 +18,6 @@ public class EnemyStateController : StateController
         FSM.ChangeState(new EnemyChasePState(this));
     }
 
-
     public override void Update()
     {
         FSM.StateUpdate();      
@@ -28,6 +28,5 @@ public class EnemyStateController : StateController
         this.player = player;
         this.gate =  gate;
     }
-
 
 }
