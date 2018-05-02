@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4900083248730084}
   - component: {fileID: 114181812848465232}
+  - component: {fileID: 114859759672652014}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -69,14 +70,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4378368862363578}
   - component: {fileID: 114797184036088332}
+  - component: {fileID: 114717810366348574}
   - component: {fileID: 23191952187378904}
   - component: {fileID: 33947254141166124}
   - component: {fileID: 114695199143410126}
   - component: {fileID: 114105938196739398}
-  - component: {fileID: 114717810366348574}
   - component: {fileID: 114270081202997954}
-  m_Layer: 0
-  m_Name: '[CameraRig]'
+  m_Layer: 8
+  m_Name: HTCPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4166313483165822
 Transform:
   m_ObjectHideFlags: 1
@@ -728,7 +729,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468412176499490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
   m_Name: 
@@ -817,7 +818,7 @@ MonoBehaviour:
     i14: 174
     i15: 193
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114545948883297692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -890,7 +891,18 @@ MonoBehaviour:
     m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onToggleLocal:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1909605457403418}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onToggleRemote:
     m_PersistentCalls:
@@ -911,6 +923,24 @@ MonoBehaviour:
   right: {fileID: 1434766568387320}
   objects: []
   assignAllBeforeIdentified: 0
+--- !u!114 &114859759672652014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1047450092811102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!114 &114980293090556728
 MonoBehaviour:
   m_ObjectHideFlags: 1
