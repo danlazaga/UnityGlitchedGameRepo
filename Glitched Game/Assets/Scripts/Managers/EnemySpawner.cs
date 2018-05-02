@@ -26,12 +26,13 @@ public class EnemySpawner : MonoBehaviour {
     // Minimum and maximum Spawn addition
     private int minAddSpawn;
     private int maxAddSpawn;
-    
+
+    private GameObject player;
     private GameObject gate;
 
     private void Start()
     {
-        gate = GameObject.FindGameObjectWithTag("Gate");
+       
 
         maxWaveAmount = 3;
         maxSpawnRate = 10f;
@@ -41,11 +42,6 @@ public class EnemySpawner : MonoBehaviour {
 
         GameManager.Instance.StartGame += OnStartSpawn;
        
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.StartGame -= OnStartSpawn;
     }
 
     private void Update()
@@ -69,18 +65,24 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
-    
-    void OnStartSpawn()
+    private void OnDestroy()
     {
-        StartCoroutine(IncreaseSpawn());
+        GameManager.Instance.StartGame -= OnStartSpawn;
     }
 
 
-    
+    void OnStartSpawn()
+    {
+        gate = GameObject.FindGameObjectWithTag("Gate");
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        StartCoroutine(IncreaseSpawn());
+
+    }
+
 
     IEnumerator IncreaseSpawn()
     {
-        
         int amount = Random.Range(minAddSpawn, maxAddSpawn);
         maxWaveAmount += amount;
 
@@ -95,7 +97,7 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+      
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 

@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4614909905190886}
   - component: {fileID: 33773845056911714}
   - component: {fileID: 23302411724688648}
+  - component: {fileID: 65300984603812952}
   m_Layer: 0
   m_Name: Sword_V8
   m_TagString: Untagged
@@ -692,6 +693,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468412176499490}
   m_Mesh: {fileID: 0}
+--- !u!65 &65300984603812952
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483924667753910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.032122154, y: 0.13380583, z: 0.9796424}
+  m_Center: {x: -0.0000000037252903, y: -0.0010190159, z: 0.38574076}
 --- !u!81 &81004159090828908
 AudioListener:
   m_ObjectHideFlags: 1

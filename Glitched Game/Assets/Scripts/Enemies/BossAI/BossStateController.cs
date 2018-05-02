@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class BossStateController : StateController
 {
+    //public delegate void OnShield();
+    //public event OnShield ShieldMode;
+
+
     [Header("Testing Variables")]
     public float idleTime;
     public float maxIdleTime;
@@ -64,4 +68,11 @@ public class BossStateController : StateController
         bossHealth.UnlockMissile -= UnlockMissileAttack;
     }
 
+    //public void OnShieldEvent()
+    //{
+    //    if(ShieldMode != null)
+    //    {
+    //        ShieldMode();
+    //    }
+    //}
 }
