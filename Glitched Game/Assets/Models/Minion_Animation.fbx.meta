@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 60243a022a98f194fa1af8f74e51b929
+timeCreated: 1525245735
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Minion_Arm_1_L
+    100004: Minion_Arm_1_R
+    100006: Minion_Arm_2_L
+    100008: Minion_Arm_2_R
+    100010: Minion_Foot_L
+    100012: Minion_Foot_L_end
+    100014: Minion_Foot_R
+    100016: Minion_Foot_R_end
+    100018: Minion_Hand2
+    100020: Minion_Hand_L
+    100022: Minion_Hand_L_end
+    100024: Minion_Hand_R
+    100026: Minion_Hand_R_end
+    100028: Minion_Head
+    100030: Minion_Head_end
+    100032: Minion_Hip
+    100034: Minion_IK_L
+    100036: Minion_IK_R
+    100038: Minion_Leg_1_L
+    100040: Minion_Leg_1_R
+    100042: Minion_Leg_2_L
+    100044: Minion_Leg_2_R
+    100046: Minion_Neck
+    100048: Minion_Pole_L
+    100050: Minion_Pole_L_end
+    100052: Minion_Pole_R
+    100054: Minion_Pole_R_end
+    100056: Minion_Rig
+    100058: Minion_Shoulder_L
+    100060: Minion_Shoulder_R
+    100062: Minion_Spine_1
+    100064: Minion_Spine_2
+    100066: Minion_Spine_3
+    100068: Root
+    400000: //RootNode
+    400002: Minion_Arm_1_L
+    400004: Minion_Arm_1_R
+    400006: Minion_Arm_2_L
+    400008: Minion_Arm_2_R
+    400010: Minion_Foot_L
+    400012: Minion_Foot_L_end
+    400014: Minion_Foot_R
+    400016: Minion_Foot_R_end
+    400018: Minion_Hand2
+    400020: Minion_Hand_L
+    400022: Minion_Hand_L_end
+    400024: Minion_Hand_R
+    400026: Minion_Hand_R_end
+    400028: Minion_Head
+    400030: Minion_Head_end
+    400032: Minion_Hip
+    400034: Minion_IK_L
+    400036: Minion_IK_R
+    400038: Minion_Leg_1_L
+    400040: Minion_Leg_1_R
+    400042: Minion_Leg_2_L
+    400044: Minion_Leg_2_R
+    400046: Minion_Neck
+    400048: Minion_Pole_L
+    400050: Minion_Pole_L_end
+    400052: Minion_Pole_R
+    400054: Minion_Pole_R_end
+    400056: Minion_Rig
+    400058: Minion_Shoulder_L
+    400060: Minion_Shoulder_R
+    400062: Minion_Spine_1
+    400064: Minion_Spine_2
+    400066: Minion_Spine_3
+    400068: Root
+    2100000: No Name
+    4300000: Minion_Hand2
+    7400000: Minion_Rig|Attack
+    7400002: Minion_Rig|Death
+    7400004: Minion_Rig|Idle
+    7400006: Minion_Rig|Tpose
+    7400008: Minion_Rig|Walk
+    9500000: //RootNode
+    13700000: Minion_Hand2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
