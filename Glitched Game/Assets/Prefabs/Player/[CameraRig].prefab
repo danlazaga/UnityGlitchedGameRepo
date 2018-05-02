@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0323d4dd9d4584afc40dea83edc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMesh: {fileID: 0}
+  playerMesh: {fileID: 23191952187378904}
   onToggleShared:
     m_PersistentCalls:
       m_Calls:

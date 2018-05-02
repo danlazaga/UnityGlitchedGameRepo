@@ -17,6 +17,8 @@ public class EnemyStateController : StateController
         FSM.ChangeState(new EnemyChasePState(this));
     }
 
+    
+
     public override void Update()
     {
         FSM.StateUpdate();      
