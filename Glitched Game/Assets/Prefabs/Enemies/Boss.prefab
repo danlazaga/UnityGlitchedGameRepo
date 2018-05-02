@@ -26,7 +26,9 @@ GameObject:
   - component: {fileID: 195045575713744440}
   - component: {fileID: 114341248565783086}
   - component: {fileID: 114514735278204044}
-  m_Layer: 0
+  - component: {fileID: 114656868950418390}
+  - component: {fileID: 114153999487075582}
+  m_Layer: 9
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347754561840556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.68, y: 3.67, z: 14.55}
+  m_LocalPosition: {x: -0.65, y: 3.67, z: 14.55}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4643975342877742}
@@ -276,6 +278,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114153999487075582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347754561840556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 35
+    i1: 46
+    i2: 137
+    i3: 100
+    i4: 197
+    i5: 99
+    i6: 49
+    i7: 4
+    i8: 91
+    i9: 139
+    i10: 201
+    i11: 1
+    i12: 190
+    i13: 134
+    i14: 249
+    i15: 160
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114341248565783086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,6 +366,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &114656868950418390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347754561840556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!136 &136000393185735684
 CapsuleCollider:
   m_ObjectHideFlags: 1
