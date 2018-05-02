@@ -18,12 +18,15 @@ ModelImporter:
     400008: pCube29
     400010: polySurface3
     2100000: lambert1
+    2100002: lambert1.001
     2300000: Gun_Base
     2300002: Gun_Piece_1
     2300004: Gun_Trigger
+    2300006: //RootNode
     3300000: Gun_Base
     3300002: Gun_Piece_1
     3300004: Gun_Trigger
+    3300006: //RootNode
     4300000: Gun_Piece_1
     4300002: Gun_Base
     4300004: Gun_Trigger
