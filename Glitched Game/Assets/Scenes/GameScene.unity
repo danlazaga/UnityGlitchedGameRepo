@@ -619,6 +619,26 @@ Transform:
   m_PrefabParentObject: {fileID: 4308061944624732, guid: 0dee8d20d5dd80241a73d2e5255890ee,
     type: 2}
   m_PrefabInternal: {fileID: 78829042}
+--- !u!1 &1324823112 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1923260858616892, guid: af400ecdca10d48428c3a2611b41c1df,
+    type: 2}
+  m_PrefabInternal: {fileID: 1211486084}
+--- !u!54 &1324823113
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1324823112}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1438249577
 Prefab:
   m_ObjectHideFlags: 0
@@ -766,6 +786,10 @@ Prefab:
     - target: {fileID: 1083346796275426, guid: 2ab6bf50f829c7c48951b2e461a27d12, type: 2}
       propertyPath: m_TagString
       value: Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097842494208054, guid: 2ab6bf50f829c7c48951b2e461a27d12, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ab6bf50f829c7c48951b2e461a27d12, type: 2}

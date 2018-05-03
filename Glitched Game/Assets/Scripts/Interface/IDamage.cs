@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IDamage
 {
-    void OnTriggerEnter(Collider other);
-
+   void OnTriggerEnter(Collider other);
+  
+   
     void OnHitEffect();
 }

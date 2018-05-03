@@ -84,7 +84,7 @@ public class EnemySpawner : NetworkBehaviour
         yield return waitTime;
 
         Debug.Log("Resume, New Wave Amount: " + maxWaveAmount);
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("MainCamera");
         canSpawn = true;
     }
 

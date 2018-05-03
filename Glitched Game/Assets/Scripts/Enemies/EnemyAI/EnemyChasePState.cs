@@ -9,7 +9,7 @@ public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
     
     public EnemyChasePState(EnemyStateController controller) : base(controller)
     {
-        attackRange = 0.8f;
+        attackRange = 2.8f;
     }
 
     public void OnStateEnter()

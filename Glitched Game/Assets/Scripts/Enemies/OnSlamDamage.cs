@@ -6,12 +6,11 @@ using UnityEngine;
 
 
 
-public class OnSlamDamage : MonoBehaviour, IDamage
-{
+public class OnSlamDamage : MonoBehaviour{
     [SerializeField] private float slamDamage;
 
 
-    private const int PLAYER_MASK = 8;
+    private const int PLAYER_MASK = 9;
 
     public void OnHitEffect()
     {
@@ -19,8 +18,5 @@ public class OnSlamDamage : MonoBehaviour, IDamage
         throw new NotImplementedException();
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        throw new NotImplementedException();
-    }
+  
 }
