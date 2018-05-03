@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemySpawner : NetworkBehaviour
+{
 
     public Transform[] spawnLocations;
 
@@ -10,13 +12,13 @@ public class EnemySpawner : MonoBehaviour {
 
     [Header("Spawn Properties")]
     // maximum wave amount
-    [SerializeField]public int maxWaveAmount;
+    [SerializeField] public int maxWaveAmount;
 
     // current wave amount
     private int waveAmount = 0;
 
     // maximum spawn interval
-    [SerializeField]private float maxSpawnRate;
+    [SerializeField] private float maxSpawnRate;
     // current spawn rate
     private float spawnRate;
 
@@ -30,18 +32,15 @@ public class EnemySpawner : MonoBehaviour {
     private GameObject player;
     private GameObject gate;
 
-    private void Start()
+    public override void OnStartServer()
     {
-       
-
         maxWaveAmount = 3;
         maxSpawnRate = 10f;
 
         minAddSpawn = 1;
         maxAddSpawn = 3;
 
-        GameManager.Instance.StartGame += OnStartSpawn;
-       
+        OnStartSpawn();
     }
 
     private void Update()
@@ -65,21 +64,13 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
-    private void OnDestroy()
-    {
-        GameManager.Instance.StartGame -= OnStartSpawn;
-    }
-
-
     void OnStartSpawn()
     {
         gate = GameObject.FindGameObjectWithTag("Gate");
-        
 
         StartCoroutine(IncreaseSpawn());
 
     }
-
 
     IEnumerator IncreaseSpawn()
     {
@@ -97,7 +88,7 @@ public class EnemySpawner : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-      
+
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
