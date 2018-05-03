@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (onStartGame != null)
         {
-            StartGame();
+            onStartGame();
         }
     }
 
