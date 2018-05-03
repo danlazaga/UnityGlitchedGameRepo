@@ -10,7 +10,9 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	[SerializeField] RecticleAnimation recticleAnimation; 
 	[SerializeField] UIFader damageImage;
 	[SerializeField] Text healthValue;
+	[SerializeField] RectTransform healthBar;
 	[SerializeField] GameObject healthValueObj;
+	[SerializeField] GameObject healthBarObj;
 	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] Image reticule;
 	string stringFormat = "{0:#,###0}";
@@ -33,9 +35,11 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public override	void Reset()
 	{
 		base.Reset();
-
+		recticleAnimation = GameObject.Find("Reticule").GetComponent<RecticleAnimation>();
+		damageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
 		reticule = GameObject.Find("Reticule").GetComponent<Image>();
 		healthValue = GameObject.Find("HealthValue").GetComponent<Text>();
+		healthBar = GameObject.Find("HealthForegound").GetComponent<RectTransform>();
 	}
 
 #endregion
@@ -44,6 +48,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	{
 		reticule.enabled = true;
 		healthValueObj.SetActive(true);
+		healthBarObj.SetActive(true);
 		 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileControllerObj.SetActive(true);
@@ -53,6 +58,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void SetHealth(float value)
 	{
 		healthValue.text = string.Format(stringFormat, value);
+		healthBar.sizeDelta = new Vector2 (value, healthBar.sizeDelta.y);
 	}
 
 	public void FlashDamageEffect()
