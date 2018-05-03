@@ -23,6 +23,7 @@ public class GunHeatIndicator : MonoBehaviour
 
     private void HandleHUD(float value)
     {
+		var newValue =  (value / iGunHeatHandler.MaxHeat) * 100f;
         HeatBar.fillAmount = value;
     }
 }

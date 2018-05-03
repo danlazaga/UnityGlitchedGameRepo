@@ -71,7 +71,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 		}
 	}
 
-	public float CurrentHeat
+	float CurrentHeat
 	{
 		get { return currentHeat; }
 
