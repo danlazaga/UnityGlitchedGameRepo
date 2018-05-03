@@ -17,11 +17,11 @@ public class NetworkHUD : MonoBehaviour
 		ipInput.onEndEdit.AddListener(onEndEditIP);
 		
 
-// #if UNITY_ANDROID || UNITY_IOS
-// 		hudVive.SetActive(false);
-// #else 
-// 		hudMobile.SetActive(false);
-// #endif
+#if UNITY_ANDROID || UNITY_IOS
+		hudVive.SetActive(false);
+#else 
+		hudMobile.SetActive(false);
+#endif
 	}
 
 	public void OnStartHost()

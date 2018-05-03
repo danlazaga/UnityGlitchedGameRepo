@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : NetworkBehaviour
 {
     public Transform[] spawnLocations;
     private bool canSpawn = false;
@@ -48,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
             spawnRate += Time.deltaTime;
             if (spawnRate >= maxSpawnRate)
             {
-                SpawnEnemy();
+                CmdSpawnEnemy();
                 spawnRate = 0;
             }
             if (waveAmount >= maxWaveAmount)
@@ -88,13 +89,15 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Spawn Enemy Randomly
-    void SpawnEnemy()
+    [Command]
+    void CmdSpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
 
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
-        obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
 
+        NetworkServer.Spawn(obj);
+        obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
     }
 
     int RandomizeSpawnSlot()
