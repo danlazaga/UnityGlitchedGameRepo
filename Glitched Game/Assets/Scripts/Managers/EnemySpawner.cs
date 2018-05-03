@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
     public Transform[] spawnLocations;
-
     private bool canSpawn = false;
 
     [Header("Spawn Properties")]
     // maximum wave amount
-    [SerializeField] public int maxWaveAmount;
+    public int maxWaveAmount;
 
     // current wave amount
     private int waveAmount = 0;
@@ -34,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 #region Unity Methods
     private void Awake()
     {
-        maxWaveAmount = 3;
+        maxWaveAmount = 5;
         maxSpawnRate = 10f;
 
         minAddSpawn = 1;
