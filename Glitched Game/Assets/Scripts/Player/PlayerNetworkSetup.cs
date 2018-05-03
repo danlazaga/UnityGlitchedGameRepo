@@ -29,6 +29,7 @@ public class PlayerNetworkSetup : NetworkBehaviour
 	public override void OnStartLocalPlayer()
 	{
 		playerMesh.material.color = Color.green;
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 	}
 
 #endregion
