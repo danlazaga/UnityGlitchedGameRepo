@@ -27,7 +27,7 @@ public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
 
     public void OnStateExit()
     {
-        Debug.Log("Exit Player Chase state");
+        
     }
 
     public void OnUpdate()

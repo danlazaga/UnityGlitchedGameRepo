@@ -74,7 +74,7 @@ public class EnemySpawner : MonoBehaviour {
     void OnStartSpawn()
     {
         gate = GameObject.FindGameObjectWithTag("Gate");
-        player = GameObject.FindGameObjectWithTag("Player");
+        
 
         StartCoroutine(IncreaseSpawn());
 
@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
         yield return waitTime;
 
         Debug.Log("Resume, New Wave Amount: " + maxWaveAmount);
-
+        player = GameObject.FindGameObjectWithTag("Player");
         canSpawn = true;
     }
 

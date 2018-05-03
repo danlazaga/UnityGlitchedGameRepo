@@ -26,12 +26,12 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public void OnStateExit()
     {
-        Debug.Log("Exiting Gate Chase State");
+       
     }
 
     public void OnUpdate()
     {
-        if (CheckDistance(controller.transform, controller.gate) <= attackRange ) // attack Range
+        if (CheckDistance(controller.transform, controller.gate) <= attackRange ) 
         {
             controller.FSM.ChangeState(new EnemyAttackState(controller, controller.gate.transform));
         }

@@ -22,7 +22,7 @@ public class EnemyAttackState :CustomConstructor<EnemyStateController>, IState
 
     public void OnStateExit()
     {
-        Debug.Log("Exiting Attack State");
+        
         controller.NavAgent.isStopped = false;
     }
 
