@@ -2,29 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-
-    public static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+public class GameManager : Singleton<GameManager>
+{
 
     public delegate void OnGameStart();
-    public event OnGameStart StartGame;
-
+    public event OnGameStart onStartGame;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void OnStartGame()
+    public void StartGame()
     {
-        if(StartGame != null)
+        if (onStartGame != null)
         {
             StartGame();
         }

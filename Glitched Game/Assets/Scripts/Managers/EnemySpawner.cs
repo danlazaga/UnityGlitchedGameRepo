@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class EnemySpawner : NetworkBehaviour
+public class EnemySpawner : MonoBehaviour
 {
 
     public Transform[] spawnLocations;
@@ -32,7 +31,8 @@ public class EnemySpawner : NetworkBehaviour
     private GameObject player;
     private GameObject gate;
 
-    public override void OnStartServer()
+#region Unity Methods
+    private void OnEnable()
     {
         maxWaveAmount = 3;
         maxSpawnRate = 10f;
@@ -40,7 +40,7 @@ public class EnemySpawner : NetworkBehaviour
         minAddSpawn = 1;
         maxAddSpawn = 3;
 
-        OnStartSpawn();
+        GameManager.Instance.onStartGame += HandleStartSpawn;
     }
 
     private void Update()
@@ -64,12 +64,17 @@ public class EnemySpawner : NetworkBehaviour
         }
     }
 
-    void OnStartSpawn()
+    private void OnDisable()
+    {
+        GameManager.Instance.onStartGame -= HandleStartSpawn;
+    }
+#endregion
+
+    void HandleStartSpawn()
     {
         gate = GameObject.FindGameObjectWithTag("Gate");
 
         StartCoroutine(IncreaseSpawn());
-
     }
 
     IEnumerator IncreaseSpawn()
