@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject gate;
 
 #region Unity Methods
-    private void OnEnable()
+    private void Awake()
     {
         maxWaveAmount = 3;
         maxSpawnRate = 10f;
@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         GameManager.Instance.onStartGame -= HandleStartSpawn;
     }

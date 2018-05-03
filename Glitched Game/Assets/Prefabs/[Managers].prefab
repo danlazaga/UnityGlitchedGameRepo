@@ -67,7 +67,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4968492732047790}
   - component: {fileID: 114746467831841328}
-  - component: {fileID: 114334182315000714}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -154,38 +153,6 @@ MonoBehaviour:
     amountToPool: 10
     shouldExpand: 1
   pooledObjects: []
---- !u!114 &114334182315000714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1976348016854202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 160
-    i1: 75
-    i2: 14
-    i3: 5
-    i4: 185
-    i5: 91
-    i6: 253
-    i7: 164
-    i8: 202
-    i9: 249
-    i10: 70
-    i11: 174
-    i12: 66
-    i13: 239
-    i14: 41
-    i15: 116
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114510544194813322
 MonoBehaviour:
   m_ObjectHideFlags: 1
