@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GunHeatIndicator : MonoBehaviour
 {
-	[SerializeField] Image HeatBar;
+	[SerializeField] Slider HeatBar;
 	IGunHeatHandler iGunHeatHandler;
 
 	private void OnEnable()
 	{
-		iGunHeatHandler = GetComponent<IGunHeatHandler>();
+		iGunHeatHandler = GetComponentInParent<IGunHeatHandler>();
 
 		iGunHeatHandler.OnHeatChange += HandleHUD;
 	}
@@ -23,7 +21,6 @@ public class GunHeatIndicator : MonoBehaviour
 
     private void HandleHUD(float value)
     {
-		var newValue =  (value / iGunHeatHandler.MaxHeat) * 100f;
-        HeatBar.fillAmount = value;
+        HeatBar.value = value;
     }
 }

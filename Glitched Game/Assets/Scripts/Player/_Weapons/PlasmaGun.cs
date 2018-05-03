@@ -9,21 +9,34 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 #region Variables
 	//[SerializeField] WeaponEffects weaponEffects;
+	[SerializeField] GameObject gunHolder;
 	[Space (10)]
 	[SerializeField] float maxHeat = 10f;
 	[SerializeField] float coolRate = 1.1f;
 	[SerializeField] float coolDownTime = 8f;
 	float currentHeat;
 	bool canFire = true;
+
+	SteamVR_TrackedController controller;
+	SteamVR_TrackedObject trackedObject;
 #endregion
 
 #region Unity Methods
-	private void OnEnable()
+	private void Start()
 	{
-
+		controller = gunHolder.GetComponent<SteamVR_TrackedController>();
+		trackedObject = gunHolder.GetComponent<SteamVR_TrackedObject>();
+		
 	}
 
-	private void Update()
+	private void OnEnable()
+	{
+		controller.TriggerClicked += HandleShoot;
+	}
+
+
+
+    private void Update()
 	{
 		CurrentHeat -= Time.deltaTime * coolRate;
 
@@ -36,14 +49,20 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 	private void OnDisable()
 	{
-
+		controller.TriggerClicked -= HandleShoot;
 	}
 #endregion
 
-	void HandleShoot()
+   	private void HandleShoot(object sender, ClickedEventArgs e)
+    {
+		Shoot();
+    }
+
+	void Shoot()
 	{
 		if (canFire)
 		{
+			SteamVR_Controller.Input((int)trackedObject.index).TriggerHapticPulse(3999);
 			CurrentHeat += 3;
 		}
 
@@ -80,7 +99,10 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 			if (currentHeat != value)
 			{
 				currentHeat = value;
-				OnHeatChange(currentHeat);
+				if(OnHeatChange != null)
+				{
+					OnHeatChange(currentHeat);
+				}
 			}
 		}
 	}
