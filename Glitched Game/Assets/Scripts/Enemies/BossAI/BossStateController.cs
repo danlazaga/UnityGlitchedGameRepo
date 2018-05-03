@@ -8,7 +8,6 @@ public class BossStateController : StateController
     //public delegate void OnShield();
     //public event OnShield ShieldMode;
 
-
     [Header("Testing Variables")]
     public float idleTime;
     public float maxIdleTime;
@@ -20,15 +19,17 @@ public class BossStateController : StateController
     //attack pool/max index
     public int maxAttacks;
     public bool hasShield;
- 
+
     // Attacks
     public GameObject laserAttack;
     public GameObject bulletRain;
 
     private BossHealth bossHealth;
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
+
         bossHealth = GetComponent<BossHealth>();
 
         bossHealth.UnlockDoubleSlam += UnlockDoubleSlamAttack;
@@ -39,19 +40,25 @@ public class BossStateController : StateController
         FSM.ChangeState(new BossDisableState(this));
     }
 
+    private void OnDestroy()
+    {
+        bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
+        bossHealth.UnlockLaser -= UnlockLaserAttack;
+        bossHealth.UnlockMissile -= UnlockMissileAttack;
+    }
+
     public override void Update()
     {
         FSM.StateUpdate();
     }
 
-   
     void UnlockDoubleSlamAttack()
     {
         //onDoubleSlam = true; 
         Debug.Log("Unlock DoubleSlam");
         maxAttacks = 2;
         bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
-       
+
     }
 
     void UnlockLaserAttack()

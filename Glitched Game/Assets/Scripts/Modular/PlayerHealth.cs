@@ -6,11 +6,11 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 {
 
 #region Variables
+	[SerializeField] float maxHealth = 100;
+	[SyncVar(hook = "OnHealthChanged")] float health;
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
 	public event Action OnDied = delegate { };
 
-	[SerializeField] float maxHealth = 100;
-	[SyncVar(hook = "OnHealthChanged")] float health;
 #endregion
 
 #region Unity Methods
@@ -35,8 +35,6 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 
 		health -= amount;
 
-		OnHPPctChanged(health);
-
 		died = health <= 0;
 
 		RpcTakeDamage(died);
@@ -45,6 +43,8 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	[ClientRpc]
 	void RpcTakeDamage(bool died)
 	{
+		OnHPPctChanged(health);
+
 		// Insert hit display effect
 		if (isLocalPlayer)
 		{
@@ -58,6 +58,7 @@ public class PlayerHealth : NetworkBehaviour, IHealth
 	void OnHealthChanged(float value)
 	{
 		health = value;
+
 		if (isLocalPlayer)
 			PlayerHUD.Instance.SetHealth(value);
 	}

@@ -1,42 +1,46 @@
-﻿
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BossHealth : MonoBehaviour, IHealth
+public class BossHealth : NetworkBehaviour, IHealth
 {
-
-    #region Variables
+    
+#region Variables
     public float maxHealth = 100f;
-    private float health;
+    [SyncVar] float health;
 
-
-	public event Action<float> OnHPPctChanged = delegate(float f) { };
-	public event Action OnDied = delegate { };
-
+    public event Action<float> OnHPPctChanged = delegate(float f) { };
+    public event Action OnDied = delegate { };
 
     public delegate void OnHitHPCheck();
-
     public event OnHitHPCheck UnlockDoubleSlam;
     public event OnHitHPCheck UnlockLaser;
     public event OnHitHPCheck UnlockMissile;
 
-    #endregion
-
-    #region Unity Methods
-    private void Start()
-	{
-        health = maxHealth;
-	}
 #endregion
 
-	public void TakeDamage(float damage)
-	{
-		
+#region Unity Methods
+    [ServerCallback]
+    private void OnEnable()
+    {
+        health = maxHealth;
+    }
+#endregion
+
+    [Server]
+    public void TakeDamage(float damage)
+    {
+        if (damage <= 0)
+        {
+            throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + damage);
+        }
+
+        if (health <= 0)
+        {
+            return;
+        }
 
         health -= damage;
-
 
         if (health <= (maxHealth * 0.6))
         {
@@ -54,17 +58,23 @@ public class BossHealth : MonoBehaviour, IHealth
             }
         }
 
-        if(health <= (maxHealth * 0.4))
+        if (health <= (maxHealth * 0.4))
         {
-            if(UnlockMissile != null)
+            if (UnlockMissile != null)
             {
                 UnlockMissile();
             }
         }
 
-
         if (health <= 0)
-			OnDied();
+            OnDied();
 
-	}
+        RpcTakeDamage();
+    }
+
+    [ClientRpc]
+    void RpcTakeDamage()
+    {
+        OnHPPctChanged(health);
+    }
 }
