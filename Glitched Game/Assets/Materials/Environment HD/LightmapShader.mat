@@ -10,7 +10,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: ac6854fcaf9c1fb41b0de0727d3d7ce2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -27,15 +27,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientMovingLightIntensity: 10.5
-    - _AmbientPanSpeed: 0.376
-    - _ArchMovingLightIntensity: 9.1
-    - _ArchPanSpeed: 0.441
+    - _AmbientMovingLightIntensity: 9.4
+    - _AmbientPanSpeed: 0.513
+    - _ArchMovingLightIntensity: 20
+    - _ArchPanSpeed: 1
     - _Gloss: 0.8
     - _Metallic: 0
-    - _StaticLightIntensity: 8.9
+    - _StaticLightIntensity: 37.2
     m_Colors:
-    - _AmbientTint: {r: 0.9614604, g: 1, b: 0.30147058, a: 1}
-    - _ArchTint: {r: 1, g: 0.25735295, b: 0.25735295, a: 1}
+    - _AmbientTint: {r: 0.30147052, g: 0.8265719, b: 1, a: 1}
+    - _ArchTint: {r: 0.95253587, g: 0.1397059, b: 1, a: 1}
     - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    - _StaticTint: {r: 0.74264705, g: 1, b: 0.755071, a: 1}
+    - _StaticTint: {r: 0.102941155, g: 0.8515212, b: 1, a: 1}

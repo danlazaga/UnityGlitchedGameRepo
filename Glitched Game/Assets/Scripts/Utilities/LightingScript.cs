@@ -9,13 +9,15 @@ public class LightingScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		thisRenderer = GetComponent<Renderer>();
+		InvokeRepeating("UpdateGI", 0, 0.05f);
 		//DynamicGI.updateThreshold = 0;
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void UpdateGI () {
 		
-		thisRenderer.UpdateGIMaterials();
+		//thisRenderer.UpdateGIMaterials();
+		RendererExtensions.UpdateGIMaterials(thisRenderer);
 	}
 }
