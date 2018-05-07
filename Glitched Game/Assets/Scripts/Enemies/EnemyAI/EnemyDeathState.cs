@@ -13,15 +13,16 @@ public class EnemyDeathState : CustomConstructor<EnemyStateController>, IState
     public void OnStateEnter()
     {
         controller.NavAgent.isStopped = true;
+        controller.Animator.SetTrigger(Animator.StringToHash("Death"));
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+       
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+       
     }
 }

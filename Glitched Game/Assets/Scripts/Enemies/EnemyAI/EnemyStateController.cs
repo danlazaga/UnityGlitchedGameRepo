@@ -16,6 +16,11 @@ public class EnemyStateController : StateController
     {
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
+
+        if(GetComponent<IHealthHandler>() != null)
+        {
+            GetComponent<IHealthHandler>().OnDied += MobDeath;
+        }
     }
 
     public override void Update()
@@ -27,6 +32,11 @@ public class EnemyStateController : StateController
     {
         this.player = player;
         this.gate =  gate;
+    }
+
+    void MobDeath()
+    {
+        FSM.ChangeState(new EnemyDeathState(this));
     }
 
 }

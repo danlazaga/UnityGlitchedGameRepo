@@ -28,6 +28,12 @@ public static class ExtensionMethods
         actor.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
     }
 
+    public static void SetToDisable(this GameObject obj, int delay)
+    {
+        obj.SetActive(false);
+        
+    }
+
     public static T AddComponent<T>(this Component component)where T : Component
     {
         return component.gameObject.AddComponent<T>();
