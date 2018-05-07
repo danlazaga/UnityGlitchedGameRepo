@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: fe40e305d179501409f98c41a153d67f
+timeCreated: 1525695363
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone_Arm_1_L
+    100004: Bone_Arm_1_R
+    100006: Bone_Arm_2_L
+    100008: Bone_Arm_2_R
+    100010: Bone_Cover_L
+    100012: Bone_Cover_L_end
+    100014: Bone_Cover_R
+    100016: Bone_Cover_R_end
+    100018: Bone_Hand_L
+    100020: Bone_Hand_L_end
+    100022: Bone_Hand_R
+    100024: Bone_Hand_R_end
+    100026: Bone_Head
+    100028: Bone_Hip
+    100030: Bone_Jaw
+    100032: Bone_Jaw_end
+    100034: Bone_Neck_1
+    100036: Bone_Neck_2
+    100038: Bone_Shoulder_L
+    100040: Bone_Shoulder_R
+    100042: Bone_Spine_1
+    100044: Bone_Spine_2
+    100046: Bone_Spine_3
+    100048: Bone_Wire_1_1
+    100050: Bone_Wire_1_2
+    100052: Bone_Wire_1_3
+    100054: Bone_Wire_1_4
+    100056: Bone_Wire_1_5
+    100058: Bone_Wire_1_5_end
+    100060: Bone_Wire_2_1
+    100062: Bone_Wire_2_2
+    100064: Bone_Wire_2_3
+    100066: Bone_Wire_2_4
+    100068: Bone_Wire_2_5
+    100070: Bone_Wire_2_5_end
+    100072: Bone_Wire_3_1
+    100074: Bone_Wire_3_2
+    100076: Bone_Wire_3_3
+    100078: Bone_Wire_3_4
+    100080: Bone_Wire_3_5
+    100082: Bone_Wire_3_5_end
+    100084: Bone_Wire_4_1
+    100086: Bone_Wire_4_2
+    100088: Bone_Wire_4_3
+    100090: Bone_Wire_4_4
+    100092: Bone_Wire_4_5
+    100094: Bone_Wire_4_6
+    100096: Bone_Wire_4_7
+    100098: Bone_Wire_4_7_end
+    100100: Bone_Wire_5_1
+    100102: Bone_Wire_5_2
+    100104: Bone_Wire_5_3
+    100106: Bone_Wire_5_4
+    100108: Bone_Wire_5_5
+    100110: Bone_Wire_5_6
+    100112: Bone_Wire_5_7
+    100114: Bone_Wire_5_7_end
+    100116: //RootNode
+    100118: Hair-L
+    100120: Hair-L.001
+    100122: Hair-L.002
+    100124: Hair-L.002_end
+    100126: Hair-R
+    100128: Hair-R.001
+    100130: Hair-R.002
+    100132: Hair-R.002_end
+    100134: Hair-Top
+    100136: Hair-Top.001
+    100138: Hair-Top.002
+    100140: Hair-Top.002_end
+    100142: LP_Boss
+    400000: Armature
+    400002: Bone_Arm_1_L
+    400004: Bone_Arm_1_R
+    400006: Bone_Arm_2_L
+    400008: Bone_Arm_2_R
+    400010: Bone_Cover_L
+    400012: Bone_Cover_L_end
+    400014: Bone_Cover_R
+    400016: Bone_Cover_R_end
+    400018: Bone_Hand_L
+    400020: Bone_Hand_L_end
+    400022: Bone_Hand_R
+    400024: Bone_Hand_R_end
+    400026: Bone_Head
+    400028: Bone_Hip
+    400030: Bone_Jaw
+    400032: Bone_Jaw_end
+    400034: Bone_Neck_1
+    400036: Bone_Neck_2
+    400038: Bone_Shoulder_L
+    400040: Bone_Shoulder_R
+    400042: Bone_Spine_1
+    400044: Bone_Spine_2
+    400046: Bone_Spine_3
+    400048: Bone_Wire_1_1
+    400050: Bone_Wire_1_2
+    400052: Bone_Wire_1_3
+    400054: Bone_Wire_1_4
+    400056: Bone_Wire_1_5
+    400058: Bone_Wire_1_5_end
+    400060: Bone_Wire_2_1
+    400062: Bone_Wire_2_2
+    400064: Bone_Wire_2_3
+    400066: Bone_Wire_2_4
+    400068: Bone_Wire_2_5
+    400070: Bone_Wire_2_5_end
+    400072: Bone_Wire_3_1
+    400074: Bone_Wire_3_2
+    400076: Bone_Wire_3_3
+    400078: Bone_Wire_3_4
+    400080: Bone_Wire_3_5
+    400082: Bone_Wire_3_5_end
+    400084: Bone_Wire_4_1
+    400086: Bone_Wire_4_2
+    400088: Bone_Wire_4_3
+    400090: Bone_Wire_4_4
+    400092: Bone_Wire_4_5
+    400094: Bone_Wire_4_6
+    400096: Bone_Wire_4_7
+    400098: Bone_Wire_4_7_end
+    400100: Bone_Wire_5_1
+    400102: Bone_Wire_5_2
+    400104: Bone_Wire_5_3
+    400106: Bone_Wire_5_4
+    400108: Bone_Wire_5_5
+    400110: Bone_Wire_5_6
+    400112: Bone_Wire_5_7
+    400114: Bone_Wire_5_7_end
+    400116: //RootNode
+    400118: Hair-L
+    400120: Hair-L.001
+    400122: Hair-L.002
+    400124: Hair-L.002_end
+    400126: Hair-R
+    400128: Hair-R.001
+    400130: Hair-R.002
+    400132: Hair-R.002_end
+    400134: Hair-Top
+    400136: Hair-Top.001
+    400138: Hair-Top.002
+    400140: Hair-Top.002_end
+    400142: LP_Boss
+    2100000: BossMat
+    2100002: EyeMat
+    2100004: HairMat
+    4300000: LP_Boss
+    7400000: Armature|Action
+    7400002: Armature|Attack1
+    7400004: Armature|Attack2
+    7400006: Armature|Attack3
+    7400008: Armature|Attack4
+    7400010: Armature|Attack5
+    7400012: Armature|Death
+    7400014: Armature|Idle
+    7400016: Armature|Shield
+    9500000: //RootNode
+    13700000: LP_Boss
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

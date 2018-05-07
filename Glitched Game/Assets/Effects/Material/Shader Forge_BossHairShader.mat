@@ -18,14 +18,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _PackedTexture:
         m_Texture: {fileID: 2800000, guid: 6f4dc5f76b3133c429d9a2eb6481a9cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ColorIntensity: 2.72
-    - _VertexAnimationIntensity: 0.14
-    - _VertexAnimationMask: 0.074
-    - _XPanSpeed: 0.29
+    - _ColorIntensity: 1.79
+    - _TexurePanning: -0.43
+    - _VertexAnimationIntensity: 0.16
+    - _VertexAnimationMask: 0
+    - _XPanSpeed: 0.31
     m_Colors:
     - _TintColor: {r: 1, g: 0, b: 0, a: 1}
