@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 /// <summary>
 /// Generic Health
 /// </summary>
-public class Health : NetworkBehaviour, IHealth
+public class Health : NetworkBehaviour, IHealthHandler
 {
 
 #region Variables

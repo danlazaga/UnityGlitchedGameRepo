@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerHealth : NetworkBehaviour, IHealth
+public class PlayerHealth : NetworkBehaviour, IHealthHandler
 {
 
 #region Variables

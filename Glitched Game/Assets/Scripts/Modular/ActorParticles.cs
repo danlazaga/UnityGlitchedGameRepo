@@ -9,9 +9,9 @@ public class ActorParticles : MonoBehaviour
 #region Unity Methods
 	private void Awake()
 	{
-		if (GetComponent<IHealth>()!= null)
+		if (GetComponent<IHealthHandler>()!= null)
 		{
-			GetComponent<IHealth>().OnDied += HandleNPCDied;
+			GetComponent<IHealthHandler>().OnDied += HandleNPCDied;
 		}
 	}
 #endregion

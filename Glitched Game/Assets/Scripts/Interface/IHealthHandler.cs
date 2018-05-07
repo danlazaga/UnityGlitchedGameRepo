@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public interface IHealth
+public interface IHealthHandler
 {
 	event Action<float> OnHPPctChanged;
 	event Action OnDied;
