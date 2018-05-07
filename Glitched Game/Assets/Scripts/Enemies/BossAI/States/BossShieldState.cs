@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class BossShieldState : CustomConstructor<BossStateController>, IState
 {
+    // if shield has Health, just do event
     float shieldTime;
     float maxShieldTime;
-
-
 
     public BossShieldState(BossStateController controller) : base(controller)
     {
@@ -21,11 +20,13 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     {
         controller.hasShield = true;
         controller.attacks = 0;
+        controller.Animator.SetBool(Animator.StringToHash("Shield"), true);
         Debug.Log("Shield Active");
     }
 
     public void OnStateExit()
     {
+        controller.Animator.SetBool(Animator.StringToHash("Shield"), true);
         controller.hasShield = false;
     }
 

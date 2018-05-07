@@ -7,34 +7,38 @@ using UnityEngine;
 /// </summary>
 public class BossIdleState : CustomConstructor<BossStateController>, IState
 {
+    public float idleTime;
+    public float maxIdleTime;
+    public bool idleMode;
+
     public BossIdleState(BossStateController controller) : base(controller)
     {
+
     }
 
     public void OnStateEnter()
     {
-        controller.idleMode = true;
-        //Debug.Log("Idling");
+       idleMode = true;
+        
     }
 
     public void OnStateExit()
     {
-        controller.idleMode = false;
-        controller.idleTime = 0;
+        idleMode = false;
+        idleTime = 0;
     }
 
     public void OnUpdate()
     {
 
-       if(controller.idleMode)
+       if(idleMode)
         {
-            controller.idleTime += Time.deltaTime;
-            if(controller.idleTime >= controller.maxIdleTime)
+            idleTime += Time.deltaTime;
+            if(idleTime >= maxIdleTime)
             {
-                controller.idleMode = false;
+               
                 SelectAction(Randomize(0, controller.maxAttacks));
-              
-                controller.idleTime = 0;
+               
             }
         }
     }
@@ -45,23 +49,23 @@ public class BossIdleState : CustomConstructor<BossStateController>, IState
         switch(attackType)
         {
             case 0:
-                //Debug.Log("Selected Left Slam Attack");
+                
                 controller.FSM.ChangeState(new BossLeftSlamState(controller));
                 break;
             case 1:
-                //Debug.Log("Right Slam Attack");
+                
                 controller.FSM.ChangeState(new BossRightSlamState(controller));
                 break;
             case 2:
-                //Debug.Log("Double Slam Attack");
+                
                 controller.FSM.ChangeState(new BossDoubleSlamState(controller));
                 break;
             case 3:
-                //Debug.Log("Laser Attack");
+                
                 controller.FSM.ChangeState(new BossLaserState(controller));
                 break;
             case 4:
-                Debug.Log("Bullet Rain Attack");
+                
                 controller.FSM.ChangeState(new BossBulletRainState(controller));
                 break;
           

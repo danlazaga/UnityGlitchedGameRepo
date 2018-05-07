@@ -7,20 +7,22 @@ public class BossBulletRainState : CustomConstructor<BossStateController>, IStat
 {
     public BossBulletRainState(BossStateController controller) : base(controller)
     {
+
     }
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.Animator.SetBool("Missile", true);
+
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        controller.Animator.SetBool("Missile", false);
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        
     }
 }

@@ -8,11 +8,11 @@ public class BossStateController : StateController
     //public delegate void OnShield();
     //public event OnShield ShieldMode;
 
-    [Header("Testing Variables")]
-    public float idleTime;
-    public float maxIdleTime;
-    public bool idleMode;
+    public delegate void LaunchMissile(Transform target);
+    public delegate void LaunchLaser();
 
+   
+ 
     //attack counter
     public int attacks;
 
@@ -54,7 +54,7 @@ public class BossStateController : StateController
 
     void UnlockDoubleSlamAttack()
     {
-        //onDoubleSlam = true; 
+        
         Debug.Log("Unlock DoubleSlam");
         maxAttacks = 2;
         bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
