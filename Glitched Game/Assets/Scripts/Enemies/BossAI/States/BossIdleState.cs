@@ -13,12 +13,14 @@ public class BossIdleState : CustomConstructor<BossStateController>, IState
 
     public BossIdleState(BossStateController controller) : base(controller)
     {
-
+        idleMode = true;
+        maxIdleTime = 10;
+        idleTime = 0;
     }
 
     public void OnStateEnter()
     {
-       idleMode = true;
+       
         
     }
 
