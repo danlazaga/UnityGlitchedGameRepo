@@ -490,10 +490,10 @@ GameObject:
   - component: {fileID: 114067305735150576}
   - component: {fileID: 114165619022400118}
   - component: {fileID: 114718814563635756}
-  - component: {fileID: 114992228183173056}
   - component: {fileID: 65383933334533550}
   - component: {fileID: 114734046951875802}
   - component: {fileID: 54412832097367408}
+  - component: {fileID: 114127268710104582}
   m_Layer: 9
   m_Name: Mob_Enemy
   m_TagString: Enemy
@@ -1099,6 +1099,19 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
+--- !u!114 &114127268710104582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923260858616892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9221545c6b504da9f05886295c541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gate: {fileID: 0}
 --- !u!114 &114165619022400118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1164,17 +1177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
---- !u!114 &114992228183173056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1923260858616892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc9221545c6b504da9f05886295c541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137118538461591266
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -6,8 +6,8 @@ using UnityEngine.Networking;
 
 public class EnemyStateController : StateController
 {
-    public Transform player{get;set;}
-    public Transform gate{get;set;}
+    public Transform player;
+    public Transform gate;
 
     // testing bool if boss has shield
     public BossStateController Boss { get; set; }
