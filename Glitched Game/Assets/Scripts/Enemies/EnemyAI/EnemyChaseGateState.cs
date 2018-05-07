@@ -14,7 +14,7 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public void OnStateEnter()
     {
-        Debug.Log("Approaching Gate");
+       
         if(controller.gate != null)
         {
             controller.NavAgent.SetDestination(controller.gate.position);

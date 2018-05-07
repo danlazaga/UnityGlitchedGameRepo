@@ -19,7 +19,7 @@ public class EnemyChasePState :CustomConstructor<EnemyStateController>, IState
             controller.NavAgent.SetDestination(controller.player.position);
         }
 
-        Debug.Log("Chasing PLayer");
+      
 
         controller.Animator.SetTrigger(Animator.StringToHash("Walk"));
         

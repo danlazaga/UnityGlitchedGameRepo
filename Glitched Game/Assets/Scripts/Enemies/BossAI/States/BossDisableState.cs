@@ -19,7 +19,7 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
 
         disabled = true;
         disableTime = 0;
-        maxDisableTime = 5f;
+        maxDisableTime = 50f;
     }
 
     public void OnStateEnter()
@@ -41,10 +41,8 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
             disableTime += Time.deltaTime;
             if(disableTime > maxDisableTime)
             {
-                Debug.Log("ROBOT ACTIVATED");
+                Debug.Log("Boss ACTIVATED");
                
-                disabled = false;
-                disableTime = 0;
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
         }

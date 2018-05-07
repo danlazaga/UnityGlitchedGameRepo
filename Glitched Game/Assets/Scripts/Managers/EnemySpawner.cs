@@ -93,7 +93,6 @@ public class EnemySpawner : NetworkBehaviour
     void CmdSpawnEnemy()
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
 
         NetworkServer.Spawn(obj);
