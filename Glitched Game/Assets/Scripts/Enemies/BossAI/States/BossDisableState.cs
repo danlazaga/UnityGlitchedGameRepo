@@ -12,14 +12,12 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
     private float maxDisableTime;
     private float disableTime;
 
-
-
     public BossDisableState(BossStateController controller) : base(controller)
     {
 
         disabled = true;
         disableTime = 0;
-        maxDisableTime = 50f;
+        maxDisableTime = 20f;
     }
 
     public void OnStateEnter()
