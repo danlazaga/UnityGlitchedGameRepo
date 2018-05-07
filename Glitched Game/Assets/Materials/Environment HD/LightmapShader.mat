@@ -33,7 +33,7 @@ Material:
     - _ArchPanSpeed: 0.153
     - _Gloss: 0.8
     - _Metallic: 0
-    - _StaticLightIntensity: 50
+    - _StaticLightIntensity: 30.7
     m_Colors:
     - _AmbientTint: {r: 0.49264705, g: 0.87403643, b: 1, a: 1}
     - _ArchTint: {r: 0.95253587, g: 0.1397059, b: 1, a: 1}
