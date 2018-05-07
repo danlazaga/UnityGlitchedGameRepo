@@ -30,7 +30,7 @@ public class DefaultLauncher : WeaponLauncher
 
 		if (result)
 		{
-			var enemy = hit.transform.GetComponent<IHealth>();
+			var enemy = hit.transform.GetComponent<IHealthHandler>();
 
 			if (enemy != null)
 				enemy.TakeDamage(1);
