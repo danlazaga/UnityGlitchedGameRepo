@@ -843,7 +843,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 291147feafe4410459996addcdbebb00, type: 3}
+  - {fileID: 2100000, guid: 38916f2a7bc7e4845917923e943d6f85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1281,13 +1281,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 0.91
-  time: 0.1
+  time: 0.13
   alwaysUp: 0
   minDistance: 0
   timeTransitionSpeed: 0
   desiredTime: 0
-  startColor: {r: 1, g: 1, b: 1, a: 1}
-  endColor: {r: 1, g: 1, b: 1, a: 0}
+  startColor: {r: 0, g: 0.25517225, b: 1, a: 1}
+  endColor: {r: 1, g: 0, b: 0.93103504, a: 0}
 --- !u!114 &114545948883297692
 MonoBehaviour:
   m_ObjectHideFlags: 1
