@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 public class EnemyStateController : StateController
 {
 
-     private NavMeshAgent navAgent;
+    private NavMeshAgent navAgent;
     public NavMeshAgent NavAgent
     {
         get
@@ -44,7 +44,8 @@ public class EnemyStateController : StateController
 
     public override void Update()
     {
-        FSM.StateUpdate();      
+        if(player != null && gate != null)
+            FSM.StateUpdate();      
     }
 
     public void SetTargets(Transform player, Transform gate)
@@ -60,7 +61,7 @@ public class EnemyStateController : StateController
 
     public void SetToDestroy()
     {
-        gameObject.SetActive(false);
+        ObjectPool.Instance.ReturnToPool(this.gameObject);
     }
 
 }
