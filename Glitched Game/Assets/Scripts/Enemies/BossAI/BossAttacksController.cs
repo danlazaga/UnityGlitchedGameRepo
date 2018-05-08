@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class BossAttacksController: MonoBehaviour  {
+public class BossAttacksController: NetworkBehaviour  {
 
     //public delegate void LaunchMissile(Transform target);
     //public delegate void LaunchLaser();
@@ -55,13 +55,14 @@ public class BossAttacksController: MonoBehaviour  {
         bossHealth.UnlockMissile -= UnlockMissileAttack;
     }
 
-
-    public void LaunchMissile()
+    [Command]
+    public void CmdLaunchMissile()
     {
         // Missile SetActive
     }
 
-    public void LaunchLaser()
+    [Command]
+    public void CmdLaunchLaser()
     {
         //Laser SetActive
     }

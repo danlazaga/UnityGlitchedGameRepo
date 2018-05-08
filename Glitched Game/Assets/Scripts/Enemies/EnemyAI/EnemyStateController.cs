@@ -22,10 +22,10 @@ public class EnemyStateController : StateController
             navAgent = value;
         }
     }
-    public Transform player;
-    public Transform gate;
+    public Transform player{get;set;}
+    public Transform gate{get;set;}
 
-    // testing bool if boss has shield
+ 
     public BossStateController Boss { get; set; }
 
     private void Start()
