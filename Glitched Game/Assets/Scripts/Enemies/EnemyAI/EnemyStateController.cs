@@ -9,8 +9,8 @@ using UnityEngine.Networking;
 public class EnemyStateController : StateController
 {
 
-    private NavMeshAgent navAgent;
-     public NavMeshAgent NavAgent
+     private NavMeshAgent navAgent;
+    public NavMeshAgent NavAgent
     {
         get
         {
@@ -28,7 +28,7 @@ public class EnemyStateController : StateController
  
     public BossStateController Boss { get; set; }
 
-    private void Start()
+    private void OnEnable()
     {
         navAgent = GetComponent<NavMeshAgent>();
         Boss = FindObjectOfType<BossStateController>();
@@ -38,6 +38,8 @@ public class EnemyStateController : StateController
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
         }
+
+        Animator.Play("Mob_Idle");
     }
 
     public override void Update()
@@ -54,6 +56,11 @@ public class EnemyStateController : StateController
     void MobDeath()
     {
         FSM.ChangeState(new EnemyDeathState(this));
+    }
+
+    public void SetToDestroy()
+    {
+        gameObject.SetActive(false);
     }
 
 }
