@@ -2,10 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyStateController : StateController
 {
+
+    private NavMeshAgent navAgent;
+     public NavMeshAgent NavAgent
+    {
+        get
+        {
+            return navAgent;
+        }
+
+        set
+        {
+            navAgent = value;
+        }
+    }
     public Transform player;
     public Transform gate;
 
@@ -14,6 +30,7 @@ public class EnemyStateController : StateController
 
     private void Start()
     {
+        navAgent = GetComponent<NavMeshAgent>();
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
 

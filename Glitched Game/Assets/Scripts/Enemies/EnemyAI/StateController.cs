@@ -31,27 +31,13 @@ public abstract class CustomConstructor<T>
     }
 }
 
-[RequireComponent(typeof(NavMeshAgent))]
+
 public abstract class StateController : MonoBehaviour {
 
     public AIStateMachine FSM;
-    private NavMeshAgent navAgent;
+    
     private Animator _animator;
-    private NetworkAnimator netAnimator;
-
-    public NavMeshAgent NavAgent
-    {
-        get
-        {
-            return navAgent;
-        }
-
-        set
-        {
-            navAgent = value;
-        }
-    }
-
+   
     public Animator Animator
     {
         get
@@ -65,24 +51,12 @@ public abstract class StateController : MonoBehaviour {
         }
     }
 
-    public NetworkAnimator NetAnimator
-    {
-        get
-        {
-            return netAnimator;
-        }
-
-        set
-        {
-            netAnimator = value;
-        }
-    }
 
     public virtual void Awake()
     {
-        navAgent = GetComponent<NavMeshAgent>();
+       
         _animator = GetComponent<Animator>();
-        netAnimator = GetComponent<NetworkAnimator>();
+      
 
         FSM = new AIStateMachine(this);
     }
