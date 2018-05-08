@@ -27,15 +27,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientMovingLightIntensity: 10.6
+    - _AmbientMovingLightIntensity: 13.55
     - _AmbientPanSpeed: 0.513
-    - _ArchMovingLightIntensity: 8.8
+    - _ArchMovingLightIntensity: 15.27
     - _ArchPanSpeed: 0.153
     - _Gloss: 0.8
     - _Metallic: 0
-    - _StaticLightIntensity: 30.7
+    - _StaticLightIntensity: 42.1
     m_Colors:
-    - _AmbientTint: {r: 0.49264705, g: 0.87403643, b: 1, a: 1}
-    - _ArchTint: {r: 0.95253587, g: 0.1397059, b: 1, a: 1}
+    - _AmbientTint: {r: 1, g: 0.49264705, b: 0.49264705, a: 1}
+    - _ArchTint: {r: 1, g: 0, b: 0, a: 1}
     - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    - _StaticTint: {r: 0.102941155, g: 0.8515212, b: 1, a: 1}
+    - _StaticTint: {r: 1, g: 0.68627447, b: 0.68627447, a: 1}

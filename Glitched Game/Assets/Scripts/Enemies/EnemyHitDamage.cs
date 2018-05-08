@@ -13,7 +13,14 @@ public class EnemyHitDamage : MonoBehaviour {
         if(other.gameObject.layer == PLAYER_MASK)
         {
             Debug.Log("Player Hit");
-            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+
+            PlayerHealth myHealth = other.GetComponentInParent<PlayerHealth>();
+            Debug.Log(myHealth);
+            if(myHealth != null)
+            {
+                myHealth.TakeDamage(damage);
+            }
+
         }
     }
 }

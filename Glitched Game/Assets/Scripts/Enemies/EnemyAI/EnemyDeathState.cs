@@ -12,6 +12,7 @@ public class EnemyDeathState : CustomConstructor<EnemyStateController>, IState
 
     public void OnStateEnter()
     {
+        controller.GetComponent<Collider>().enabled = false;
         controller.NavAgent.isStopped = true;
         controller.Animator.SetTrigger(Animator.StringToHash("Death"));
     }

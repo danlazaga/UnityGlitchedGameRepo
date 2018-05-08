@@ -22,10 +22,9 @@ public class EnemyStateController : StateController
             navAgent = value;
         }
     }
-    public Transform player{get;set;}
-    public Transform gate{get;set;}
+    public Transform player { get; set; }
+    public Transform gate { get; set; }
 
- 
     public BossStateController Boss { get; set; }
 
     private void OnEnable()
@@ -34,24 +33,25 @@ public class EnemyStateController : StateController
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
 
-        if(GetComponent<IHealthHandler>() != null)
+        if (GetComponent<IHealthHandler>()!= null)
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
         }
 
         Animator.Play("Mob_Idle");
+        GetComponent<Collider>().enabled = true;
     }
 
     public override void Update()
     {
-        if(player != null && gate != null)
-            FSM.StateUpdate();      
+        if (player != null && gate != null)
+            FSM.StateUpdate();
     }
 
     public void SetTargets(Transform player, Transform gate)
     {
         this.player = player;
-        this.gate =  gate;
+        this.gate = gate;
     }
 
     void MobDeath()

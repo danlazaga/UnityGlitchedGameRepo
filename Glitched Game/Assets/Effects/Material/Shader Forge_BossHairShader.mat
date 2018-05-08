@@ -28,10 +28,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColorIntensity: 1.79
-    - _TexurePanning: -0.43
-    - _VertexAnimationIntensity: 0.16
-    - _VertexAnimationMask: 0
+    - _TexurePanning: -0.09
+    - _VertexAnimationIntensity: 0.1
+    - _VertexAnimationMask: 0.17
     - _VertexNoiseIntensity: 0
-    - _XPanSpeed: 0.72
+    - _XPanSpeed: 0.41
     m_Colors:
     - _TintColor: {r: 1, g: 0, b: 0, a: 1}

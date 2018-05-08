@@ -8,35 +8,27 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	public event Action<float> OnHeatChange;
 
 #region Variables
-	//[SerializeField] WeaponEffects weaponEffects;
-	[SerializeField] GameObject gunHolder;
-	[Space (10)]
+	[SerializeField] LayerMask layer;
+	[SerializeField] Transform firePoint;
+	[SerializeField] GunEffects weaponEffects;
+	[SerializeField] SteamVR_TrackedController controller;
+	[Space(10)]
+	[SerializeField] float weaponRange = 20f;
 	[SerializeField] float maxHeat = 10f;
 	[SerializeField] float coolRate = 1.1f;
 	[SerializeField] float coolDownTime = 8f;
 	float currentHeat;
 	bool canFire = true;
-
-	SteamVR_TrackedController controller;
-	SteamVR_TrackedObject trackedObject;
 #endregion
 
 #region Unity Methods
-	private void Start()
-	{
-		controller = gunHolder.GetComponent<SteamVR_TrackedController>();
-		trackedObject = gunHolder.GetComponent<SteamVR_TrackedObject>();
-		
-	}
 
-	private void OnEnable()
+	private void Awake()
 	{
 		controller.TriggerClicked += HandleShoot;
 	}
 
-
-
-    private void Update()
+	private void Update()
 	{
 		CurrentHeat -= Time.deltaTime * coolRate;
 
@@ -45,32 +37,62 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 			CurrentHeat = 0f;
 			canFire = true;
 		}
+
 	}
 
-	private void OnDisable()
+	private void OnDestroy()
 	{
 		controller.TriggerClicked -= HandleShoot;
 	}
 #endregion
 
-   	private void HandleShoot(object sender, ClickedEventArgs e)
-    {
+	private void HandleShoot(object sender, ClickedEventArgs e)
+	{
 		Shoot();
-    }
+	}
 
 	void Shoot()
 	{
 		if (canFire)
 		{
-			SteamVR_Controller.Input((int)trackedObject.index).TriggerHapticPulse(3999);
-			CurrentHeat += 3;
+
 		}
+
+		RaycastHit hit;
+
+		Ray ray = new Ray(firePoint.position, firePoint.forward);
+
+		Debug.DrawRay(firePoint.position, firePoint.forward * weaponRange, Color.green);
+
+		bool result = Physics.Raycast(ray, out hit, weaponRange, layer);
+
+		if (result)
+		{
+			var enemy = hit.transform.GetComponent<IHealthHandler>();
+
+			if (enemy != null)
+			{
+				enemy.TakeDamage(100f);
+			}
+		}
+
+		CurrentHeat += 3;
+
+		ProcessShotEffects(result, hit.point);
 
 		if (CurrentHeat >= MaxHeat)
 		{
 			CurrentHeat = MaxHeat;
 			StartCoroutine(InvokeCoolDown());
 		}
+	}
+
+	void ProcessShotEffects(bool playImpact, Vector3 point)
+	{
+		weaponEffects.PlayShotEffects();
+
+		if (playImpact)
+			weaponEffects.PlayImpactEffect(point);
 	}
 
 	IEnumerator InvokeCoolDown()
@@ -99,7 +121,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 			if (currentHeat != value)
 			{
 				currentHeat = value;
-				if(OnHeatChange != null)
+				if (OnHeatChange != null)
 				{
 					OnHeatChange(currentHeat);
 				}

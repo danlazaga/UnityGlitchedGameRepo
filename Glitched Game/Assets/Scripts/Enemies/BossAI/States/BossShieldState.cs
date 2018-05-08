@@ -26,7 +26,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
 
     public void OnStateExit()
     {
-        controller.Animator.SetBool(Animator.StringToHash("Shield"), true);
+        controller.Animator.SetBool(Animator.StringToHash("Shield"), false);
         controller.hasShield = false;
     }
 
