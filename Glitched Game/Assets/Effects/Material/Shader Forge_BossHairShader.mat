@@ -31,6 +31,7 @@ Material:
     - _TexurePanning: -0.43
     - _VertexAnimationIntensity: 0.16
     - _VertexAnimationMask: 0
-    - _XPanSpeed: 0.31
+    - _VertexNoiseIntensity: 0
+    - _XPanSpeed: 0.72
     m_Colors:
     - _TintColor: {r: 1, g: 0, b: 0, a: 1}
