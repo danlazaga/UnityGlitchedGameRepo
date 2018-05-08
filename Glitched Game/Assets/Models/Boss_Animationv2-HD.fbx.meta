@@ -77,6 +77,19 @@ ModelImporter:
     100138: Hair-Top.002
     100140: Hair-Top.002_end
     100142: LP_Boss
+    100144: Bone_Cover_L_end_end
+    100146: Bone_Cover_R_end_end
+    100148: Bone_Hand_L_end_end
+    100150: Bone_Hand_R_end_end
+    100152: Bone_Jaw_end_end
+    100154: Bone_Wire_1_5_end_end
+    100156: Bone_Wire_2_5_end_end
+    100158: Bone_Wire_3_5_end_end
+    100160: Bone_Wire_4_7_end_end
+    100162: Bone_Wire_5_7_end_end
+    100164: Hair-L.002_end_end
+    100166: Hair-R.002_end_end
+    100168: Hair-Top.002_end_end
     400000: Armature
     400002: Bone_Arm_1_L
     400004: Bone_Arm_1_R
@@ -149,6 +162,19 @@ ModelImporter:
     400138: Hair-Top.002
     400140: Hair-Top.002_end
     400142: LP_Boss
+    400144: Bone_Cover_L_end_end
+    400146: Bone_Cover_R_end_end
+    400148: Bone_Hand_L_end_end
+    400150: Bone_Hand_R_end_end
+    400152: Bone_Jaw_end_end
+    400154: Bone_Wire_1_5_end_end
+    400156: Bone_Wire_2_5_end_end
+    400158: Bone_Wire_3_5_end_end
+    400160: Bone_Wire_4_7_end_end
+    400162: Bone_Wire_5_7_end_end
+    400164: Hair-L.002_end_end
+    400166: Hair-R.002_end_end
+    400168: Hair-Top.002_end_end
     2100000: BossMat
     2100002: EyeMat
     2100004: HairMat
@@ -162,6 +188,15 @@ ModelImporter:
     7400012: Armature|Death
     7400014: Armature|Idle
     7400016: Armature|Shield
+    7400018: Armature|Armature|Armature|Action|Armature|Action
+    7400020: Armature|Armature|Armature|Attack1|Armature|Attack1
+    7400022: Armature|Armature|Armature|Attack2|Armature|Attack2
+    7400024: Armature|Armature|Armature|Attack3|Armature|Attack3
+    7400026: Armature|Armature|Armature|Attack4|Armature|Attack4
+    7400028: Armature|Armature|Armature|Attack5|Armature|Attack5
+    7400030: Armature|Armature|Armature|Death|Armature|Death
+    7400032: Armature|Armature|Armature|Idle|Armature|Idle
+    7400034: Armature|Armature|Armature|Shield|Armature|Shield
     9500000: //RootNode
     13700000: LP_Boss
   externalObjects: {}
