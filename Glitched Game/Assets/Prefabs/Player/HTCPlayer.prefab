@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 114270081202997954}
   - component: {fileID: 23191952187378904}
   - component: {fileID: 33947254141166124}
+  - component: {fileID: 65557516464661128}
   m_Layer: 8
   m_Name: HTCPlayer
   m_TagString: Player
@@ -195,7 +196,7 @@ GameObject:
   - component: {fileID: 20847562912013548}
   - component: {fileID: 124967083126645946}
   - component: {fileID: 114226116262135514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera (eye)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -263,7 +264,7 @@ GameObject:
   - component: {fileID: 4397621353167640}
   - component: {fileID: 81004159090828908}
   - component: {fileID: 114231991683274888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera (ears)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +315,7 @@ GameObject:
   - component: {fileID: 20437710316994406}
   - component: {fileID: 114980293090556728}
   - component: {fileID: 92908157352107322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera (head)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -807,6 +808,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -0.0000000037252903, y: -0.0010190159, z: 0.38574076}
+--- !u!65 &65557516464661128
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468412176499490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.63, z: 0}
 --- !u!81 &81004159090828908
 AudioListener:
   m_ObjectHideFlags: 1
