@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4906423725377166}
   - component: {fileID: 137118538461591266}
+  - component: {fileID: 114318683346095484}
   m_Layer: 0
   m_Name: Minion_Hand2
   m_TagString: Untagged
@@ -1158,6 +1159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &114318683346095484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390352876784834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e088eb6e6ba497848ab0a713bf75b705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rendererActor: {fileID: 137118538461591266}
 --- !u!114 &114718814563635756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1228,7 +1241,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 53b40cfa838a1d2419c745b254949ba6, type: 2}
+  - {fileID: 2100000, guid: 10c019083c8963f45a65d55105e1ee80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
