@@ -10,7 +10,7 @@ public class EnemyStateController : StateController
 {
 
     private NavMeshAgent navAgent;
-     public NavMeshAgent NavAgent
+    public NavMeshAgent NavAgent
     {
         get
         {
@@ -28,7 +28,7 @@ public class EnemyStateController : StateController
  
     public BossStateController Boss { get; set; }
 
-    private void Start()
+    private void OnEnable()
     {
         navAgent = GetComponent<NavMeshAgent>();
         Boss = FindObjectOfType<BossStateController>();
@@ -38,11 +38,14 @@ public class EnemyStateController : StateController
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
         }
+
+        Animator.Play("Mob_Idle");
     }
 
     public override void Update()
     {
-        FSM.StateUpdate();      
+        if(player != null && gate != null)
+            FSM.StateUpdate();      
     }
 
     public void SetTargets(Transform player, Transform gate)
@@ -54,6 +57,11 @@ public class EnemyStateController : StateController
     void MobDeath()
     {
         FSM.ChangeState(new EnemyDeathState(this));
+    }
+
+    public void SetToDestroy()
+    {
+        ObjectPool.Instance.ReturnToPool(this.gameObject);
     }
 
 }
