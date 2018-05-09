@@ -13,6 +13,7 @@ public class ModifiedNetworkManager : NetworkManager
 {
 	[Space(10)]
 	[SerializeField] GameObject[] characters;
+	[SerializeField] NetworkSpawnPosition networkSpawnPosition;
 	[HideInInspector] public int chosenCharacter = 0;
 
 	private static ModifiedNetworkManager instance;
@@ -65,7 +66,8 @@ public class ModifiedNetworkManager : NetworkManager
 		Debug.Log("server add with message " + selectedClass);
 
 		GameObject player;
-		Transform startPos = GetStartPosition();
+		//Transform startPos = GetStartPosition();
+		Transform startPos = networkSpawnPosition.GetSpawnPositions();
 
 		if (startPos != null)
 		{

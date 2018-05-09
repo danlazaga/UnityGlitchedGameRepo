@@ -31,7 +31,7 @@ public class EnemySpawner : NetworkBehaviour
     private GameObject gate;
 
 #region Unity Methods
-    private void Awake()
+    public override void OnStartServer()
     {
         maxWaveAmount = 5;
         maxSpawnRate = 10f;
@@ -39,11 +39,14 @@ public class EnemySpawner : NetworkBehaviour
         minAddSpawn = 1;
         maxAddSpawn = 3;
 
-        GameManager.Instance.onStartGame += HandleStartSpawn;
+        HandleStartSpawn();
     }
 
     private void Update()
     {
+        if(!isServer) 
+            return;
+
         if (canSpawn)
         {
             spawnRate += Time.deltaTime;
@@ -61,11 +64,6 @@ public class EnemySpawner : NetworkBehaviour
             }
 
         }
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.onStartGame -= HandleStartSpawn;
     }
 #endregion
 
