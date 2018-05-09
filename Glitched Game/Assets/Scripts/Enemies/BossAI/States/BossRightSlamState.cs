@@ -48,11 +48,17 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         if (startAttack)
         {
-            attackDuration -= Time.deltaTime;
-            if (attackDuration <= 0)
+            //attackDuration -= Time.deltaTime;
+            //if (attackDuration <= 0)
+            //{
+            //    controller.FSM.ChangeState(new BossIdleState(controller));
+            //}
+
+            if(controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
+
         }
     }
 
