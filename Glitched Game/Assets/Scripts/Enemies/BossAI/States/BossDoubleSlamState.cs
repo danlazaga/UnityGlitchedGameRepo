@@ -13,6 +13,7 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
     {
         controller.attacks++;
         controller.Animator.SetBool(Animator.StringToHash("DoubleSlam"), true);
+        Debug.Log("Double Slam");
     }
 
     public void OnStateExit()

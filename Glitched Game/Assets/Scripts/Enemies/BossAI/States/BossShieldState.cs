@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossShieldState : CustomConstructor<BossStateController>, IState
 {
-    // if shield has Health, just do event
+    //testing variables
     float shieldTime;
     float maxShieldTime;
 
@@ -33,12 +33,12 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
        if(controller.hasShield)
-        {
+       {
             shieldTime += Time.deltaTime;
             if(shieldTime >= maxShieldTime)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
-        }
+       }
     }
 }

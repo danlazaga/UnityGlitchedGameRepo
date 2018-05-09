@@ -10,6 +10,7 @@ public class BossAttacksController: NetworkBehaviour  {
 
     [SerializeField] private GameObject missile;
     [SerializeField] private GameObject laser;
+    [SerializeField] private GameObject shield;
 
     private BossStateController stateController;
     private BossHealth bossHealth;
