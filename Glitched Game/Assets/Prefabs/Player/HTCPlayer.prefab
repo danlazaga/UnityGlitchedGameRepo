@@ -1696,12 +1696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0522eaef74d984591c060d05a095c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderThickness: 0.15
-  wireframeHeight: 2
+  borderThickness: 0.19
+  wireframeHeight: 2.5
   drawWireframeWhenSelectedOnly: 0
   drawInGame: 1
   size: 0
-  color: {r: 0.038927335, g: 0.29411763, b: 0.29411763, a: 1}
+  color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
   - {x: 1.2499999, y: 0.01, z: -1.1}
   - {x: -1.2499999, y: 0.01, z: -1.1}
