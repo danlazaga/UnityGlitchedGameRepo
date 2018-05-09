@@ -14,7 +14,7 @@ public class EnemyHitDamage : MonoBehaviour {
         {
             Debug.Log("Player Hit");
 
-            PlayerHealth myHealth = other.GetComponentInParent<PlayerHealth>();
+            PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
             Debug.Log(myHealth);
             if(myHealth != null)
             {

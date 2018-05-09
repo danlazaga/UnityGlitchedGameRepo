@@ -8,7 +8,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState,
     float attackDuration;
     bool startAttack;
 
-    public BossLeftSlamState(BossStateController controller) : base(controller)
+    public BossLeftSlamState(BossStateController controller): base(controller)
     {
         attackDuration = 5f;
         startAttack = true;
@@ -37,21 +37,26 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState,
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            controller.FSM.ChangeState(new BossShieldState(controller));
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                Debug.Log("Animation Done");
+                //controller.FSM.ChangeState(new BossShieldState(controller));
+            }
+
         }
-        
+
     }
 
     public void CheckCurrentAttackDuration()
     {
-       // if current attack duration is over go back to idle
-       if(startAttack)
-       {
+        // if current attack duration is over go back to idle
+        if (startAttack)
+        {
             attackDuration -= Time.deltaTime;
-            if(attackDuration <= 0)
+            if (attackDuration <= 0)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
-       }
+        }
     }
 }
