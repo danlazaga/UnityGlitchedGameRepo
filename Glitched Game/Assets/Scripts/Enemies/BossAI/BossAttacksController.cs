@@ -66,4 +66,10 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         //Laser SetActive
     }
+
+    [Command]
+    public void CmdSpawnShield()
+    {
+        // Set shield to active
+    }
 }

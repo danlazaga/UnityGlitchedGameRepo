@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRightSlamState : CustomConstructor<BossStateController>, IState, IStateAttacks
+public class BossRightSlamState : CustomConstructor<BossStateController>, IState
 {
 
-    float attackDuration;
-    bool startAttack;
+  
 
     public BossRightSlamState(BossStateController controller) : base(controller)
     {
-        attackDuration = 5f;
-        startAttack = true;
+       
+        
     }
 
    
@@ -32,7 +31,7 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-        CheckCurrentAttackDuration();
+      
     }
 
     public void CheckAttackSequence()
@@ -41,25 +40,15 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
         {
             controller.FSM.ChangeState(new BossShieldState(controller));
         }
-       
-    }
-
-    public void CheckCurrentAttackDuration()
-    {
-        if (startAttack)
+        else
         {
-            //attackDuration -= Time.deltaTime;
-            //if (attackDuration <= 0)
-            //{
-            //    controller.FSM.ChangeState(new BossIdleState(controller));
-            //}
-
-            if(controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
-
         }
+       
     }
 
+   
 }

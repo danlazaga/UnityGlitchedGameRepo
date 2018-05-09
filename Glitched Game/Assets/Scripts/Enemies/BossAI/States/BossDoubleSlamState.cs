@@ -12,23 +12,33 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
     public void OnStateEnter()
     {
         controller.attacks++;
-        Debug.Log("Double Slam");
+        controller.Animator.SetBool(Animator.StringToHash("DoubleSlam"), true);
     }
 
     public void OnStateExit()
     {
-        
+        controller.Animator.SetBool(Animator.StringToHash("DoubleSlam"), false);
     }
 
     public void OnUpdate()
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            controller.FSM.ChangeState(new BossShieldState(controller));
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            {
+                controller.FSM.ChangeState(new BossShieldState(controller));
+            }
+          
         }
         else
         {
-            controller.FSM.ChangeState(new BossIdleState(controller));
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            {
+                controller.FSM.ChangeState(new BossIdleState(controller));
+            }
         }
+
+       
+
     }
 }
