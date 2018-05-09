@@ -35,7 +35,7 @@ Material:
     - _Metallic: 0
     - _StaticLightIntensity: 12.7
     m_Colors:
-    - _AmbientTint: {r: 1, g: 0.49264705, b: 0.49264705, a: 1}
-    - _ArchTint: {r: 1, g: 0, b: 0, a: 1}
+    - _AmbientTint: {r: 0.49264705, g: 0.95801216, b: 1, a: 1}
+    - _ArchTint: {r: 1, g: 0.051470578, b: 0.97383386, a: 1}
     - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    - _StaticTint: {r: 1, g: 0.68627447, b: 0.68627447, a: 1}
+    - _StaticTint: {r: 0.6862744, g: 0.9221095, b: 1, a: 1}
