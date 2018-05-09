@@ -6,10 +6,10 @@ public class AttackStateBehaviour : StateMachineBehaviour {
 
     private bool isDurationDone;
 
-    private float atkDuration;
-    private float currentDuration = 0;
+    //private float atkDuration;
+    //private float currentDuration = 0;
 
-    bool onStart;
+    //bool onStart;
 
     public bool IsDurationDone
     {
@@ -25,34 +25,29 @@ public class AttackStateBehaviour : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      
-        atkDuration = stateInfo.length;
-        onStart = true;
+        isDurationDone = false;
+        if(isDurationDone)
+        {
+            isDurationDone = false;
+        }
+       
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(onStart)
+        //Debug.Log(stateInfo.normalizedTime);
+        if(stateInfo.normalizedTime > 1)
         {
-
-            currentDuration += Time.deltaTime;
-            if(currentDuration >= atkDuration)
-            {
-                isDurationDone = true;
-               
-            }
-
+            isDurationDone = true;
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-        currentDuration = 0;
-        onStart = false;
-        Debug.Log(isDurationDone);
-        //isDurationDone = false;
+      
+        
 
 	}
 
