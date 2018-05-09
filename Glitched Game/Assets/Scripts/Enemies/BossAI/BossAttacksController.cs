@@ -10,6 +10,7 @@ public class BossAttacksController: NetworkBehaviour  {
 
     [SerializeField] private GameObject missile;
     [SerializeField] private GameObject laser;
+    [SerializeField] private GameObject shield;
 
     private BossStateController stateController;
     private BossHealth bossHealth;
@@ -65,5 +66,11 @@ public class BossAttacksController: NetworkBehaviour  {
     public void CmdLaunchLaser()
     {
         //Laser SetActive
+    }
+
+    [Command]
+    public void CmdSpawnShield()
+    {
+        // Set shield to active
     }
 }
