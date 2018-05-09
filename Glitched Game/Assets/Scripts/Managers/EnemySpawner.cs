@@ -31,7 +31,7 @@ public class EnemySpawner : NetworkBehaviour
     private GameObject gate;
 
 #region Unity Methods
-    private void Awake()
+    public override void OnStartServer()
     {
         maxWaveAmount = 5;
         maxSpawnRate = 10f;
