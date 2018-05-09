@@ -25,7 +25,6 @@ public class BossStateController : StateController
     }
 
   
-
     public override void Update()
     {
         FSM.StateUpdate();

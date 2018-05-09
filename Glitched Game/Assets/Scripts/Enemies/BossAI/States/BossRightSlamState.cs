@@ -6,8 +6,6 @@ using UnityEngine;
 public class BossRightSlamState : CustomConstructor<BossStateController>, IState
 {
 
-  
-
     public BossRightSlamState(BossStateController controller) : base(controller)
     {
        
@@ -19,7 +17,8 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         controller.attacks++;
         controller.Animator.SetBool(Animator.StringToHash("RightSlam"), true);
-        Debug.Log("RightSlamAttack");
+
+       
 
     }
     public void OnStateExit()
@@ -38,16 +37,21 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            controller.FSM.ChangeState(new BossShieldState(controller));
+            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            {
+                controller.FSM.ChangeState(new BossShieldState(controller));
+            }
+
         }
         else
         {
-            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
             {
+                Debug.Log(controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone);
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
         }
-       
+
     }
 
    

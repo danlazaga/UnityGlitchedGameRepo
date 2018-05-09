@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 {
+
    
 
     public BossLeftSlamState(BossStateController controller): base(controller)
     {
-       
+      
     }
 
     public void OnStateEnter()
@@ -28,18 +29,22 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-       
+        
     }
 
     public void CheckAttackSequence()
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            controller.FSM.ChangeState(new BossShieldState(controller));
+            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            {
+                controller.FSM.ChangeState(new BossShieldState(controller));
+            }
+
         }
         else
         {
-            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
