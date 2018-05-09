@@ -489,15 +489,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4679505443156782}
   - component: {fileID: 95967821271166200}
+  - component: {fileID: 65383933334533550}
+  - component: {fileID: 54412832097367408}
   - component: {fileID: 195306567385352070}
+  - component: {fileID: 114734046951875802}
+  - component: {fileID: 114127268710104582}
+  - component: {fileID: 114895875426981420}
   - component: {fileID: 114067305735150576}
   - component: {fileID: 114165619022400118}
   - component: {fileID: 114718814563635756}
-  - component: {fileID: 65383933334533550}
-  - component: {fileID: 114734046951875802}
-  - component: {fileID: 54412832097367408}
-  - component: {fileID: 114127268710104582}
-  - component: {fileID: 114895875426981420}
   m_Layer: 9
   m_Name: Mob_Enemy
   m_TagString: Enemy
@@ -1201,7 +1201,7 @@ MonoBehaviour:
     i13: 65
     i14: 193
     i15: 223
-  m_ServerOnly: 0
+  m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
 --- !u!114 &114734046951875802
 MonoBehaviour:
