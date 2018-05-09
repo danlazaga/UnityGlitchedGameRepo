@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: eef0a1472ecb5a541adda9f4bebbfc77
+timeCreated: 1525802415
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _node_4443: {fileID: 2800000, guid: 402e1f347349a254d8add4cc5e3d6ae0, type: 3}
+  - _OpacityClipMask: {fileID: 2800000, guid: 39cc3c0df2da2684bb96bb7e878ef46d, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
