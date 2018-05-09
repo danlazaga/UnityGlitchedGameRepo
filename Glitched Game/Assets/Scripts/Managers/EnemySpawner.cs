@@ -94,12 +94,11 @@ public class EnemySpawner : NetworkBehaviour
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
 
-        
         obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
 
-        NetworkServer.Spawn(obj);
         obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
-        
+
+        NetworkServer.Spawn(obj);
     }
 
     int RandomizeSpawnSlot()
