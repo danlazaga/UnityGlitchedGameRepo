@@ -14,8 +14,8 @@ public class GunEffects : MonoBehaviour
 	public void PlayShotEffects()
 	{
 		Debug.Log("Player Shot Effects");
-		muzzleFlash.Stop(true);
-		muzzleFlash.Play(true);
+		// muzzleFlash.Stop(true);
+		// muzzleFlash.Play(true);
 
 		// SoundManager.Instance.PlayShot(weaponAudio);
 	}
