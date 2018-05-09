@@ -14,6 +14,10 @@ public class ShieldBreakerLauncher : WeaponLauncher
 	[Command]
 	void CmdShoot()
 	{
+		var obj = ObjectPool.Instance.GetPooledObject("DefaultBullet");
+		obj.SetActive(true);
+		obj.transform.position = firePoint.position;
+		NetworkServer.Spawn(obj);
 		RpcProcessShotEffects();
 	}
 
