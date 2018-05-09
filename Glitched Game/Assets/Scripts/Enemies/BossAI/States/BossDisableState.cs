@@ -17,7 +17,7 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
 
         disabled = true;
         disableTime = 0;
-        maxDisableTime = 20f;
+        maxDisableTime = 5f;
     }
 
     public void OnStateEnter()

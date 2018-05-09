@@ -17,7 +17,7 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         controller.attacks++;
         controller.Animator.SetBool(Animator.StringToHash("RightSlam"), true);
-
+        Debug.Log("RightSlam");
        
 
     }
@@ -30,10 +30,11 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-      
+       
+
     }
 
-    public void CheckAttackSequence()
+    void CheckAttackSequence()
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
@@ -47,12 +48,11 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
         {
             if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
             {
-                Debug.Log(controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone);
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
         }
 
     }
 
-   
+
 }

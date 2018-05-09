@@ -12,10 +12,8 @@ public class EnemyHitDamage : MonoBehaviour {
     {
         if(other.gameObject.layer == PLAYER_MASK)
         {
-            Debug.Log("Player Hit");
-
+            
             PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
-            Debug.Log(myHealth);
             if(myHealth != null)
             {
                 myHealth.TakeDamage(damage);
