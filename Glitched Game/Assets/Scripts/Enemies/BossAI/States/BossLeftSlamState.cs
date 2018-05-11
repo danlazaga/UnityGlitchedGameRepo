@@ -29,14 +29,14 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-        Debug.Log(controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone);
+        Debug.Log(controller.Animator.GetBehaviour<LeftSlamBehaviour>().IsDurationDone);
     }
 
     public void CheckAttackSequence()
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            if (controller.Animator.GetBehaviour<LeftSlamBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossShieldState(controller));
             }
@@ -44,7 +44,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
         }
         else
         {
-            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            if (controller.Animator.GetBehaviour<LeftSlamBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }

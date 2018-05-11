@@ -25,7 +25,7 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
                 controller.FSM.ChangeState(new BossShieldState(controller));
             }
@@ -33,7 +33,7 @@ public class BossDoubleSlamState : CustomConstructor<BossStateController>, IStat
         }
         else
         {
-            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >1)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }
