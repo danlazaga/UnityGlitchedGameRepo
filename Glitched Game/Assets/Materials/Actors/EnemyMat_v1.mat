@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EnemyMat_v1
+  m_Shader: {fileID: 4800000, guid: f7d304f72420a744eaf437c8b996f071, type: 3}
+  m_ShaderKeywords: _NODE_9581_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DamageNoiseTex:
+        m_Texture: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMaps:
+        m_Texture: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: ea27c133265bdcb40a65a0b25ecd70e6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 61d687ff60e527f49836193096195ca8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 2800000, guid: ad4d155eeb40b0243b626a9b5b19af87, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: ddb0d502a41ab9b4c9de7fee938edc75, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 2800000, guid: edfc42f1cb2677b40b7df2296641d810, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4422:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlbedoIntensity: 1.05
+    - _DamageorStun: 0
+    - _EmissionIntensity: 0.59
+    - _FresnelValue: 1.98
+    - _Gloss: 0
+    - _GlossIntensity: 1
+    - _Gloss_copy: 1
+    - _GlowToggle: 0
+    - _Metallic: 0
+    - _MetallicIntensity: 1
+    - _Metallic_copy: 0.9846796
+    - _NoiseIntensity: 2.582609
+    - _NoisePanSpeed: 1.014065
+    - _OcclusionIntensity: 1
+    - _node_9581: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DamageColor: {r: 1, g: 0.19852936, b: 0.19852936, a: 1}
+    - _StunColor: {r: 0.98864096, g: 1, b: 0.17647055, a: 1}
