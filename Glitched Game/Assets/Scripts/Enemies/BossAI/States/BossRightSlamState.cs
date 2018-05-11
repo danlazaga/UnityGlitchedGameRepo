@@ -38,7 +38,7 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            if (controller.Animator.GetBehaviour<RightSlamBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossShieldState(controller));
             }
@@ -46,7 +46,7 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
         }
         else
         {
-            if (controller.Animator.GetBehaviour<AttackStateBehaviour>().IsDurationDone)
+            if (controller.Animator.GetBehaviour<RightSlamBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }

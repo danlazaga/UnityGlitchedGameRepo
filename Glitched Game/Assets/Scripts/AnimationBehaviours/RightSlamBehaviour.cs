@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackStateBehaviour : StateMachineBehaviour {
+public class RightSlamBehaviour : StateMachineBehaviour {
 
     private bool isDurationDone;
 
