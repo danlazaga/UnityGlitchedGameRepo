@@ -852,19 +852,71 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 65338212273280412, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65413218201719328, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2037218143 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000690612635804, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2037218142}
+--- !u!1 &2037218144 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1749554123090636, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2037218142}
+--- !u!114 &2037218145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037218143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48167bf673465ad419fb278c6421bbb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserDamage: 0
+--- !u!64 &2037218146
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037218143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a4b797b5d0efbb34ab95797437598c08, type: 3}
+--- !u!114 &2037218147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037218144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48167bf673465ad419fb278c6421bbb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserDamage: 0
+--- !u!64 &2037218148
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037218144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a4b797b5d0efbb34ab95797437598c08, type: 3}
 --- !u!1 &2051526733
 GameObject:
   m_ObjectHideFlags: 0
