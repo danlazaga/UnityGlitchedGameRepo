@@ -8,6 +8,9 @@ public class BossAttacksController: NetworkBehaviour  {
     //public delegate void LaunchMissile(Transform target);
     //public delegate void LaunchLaser();
 
+    //[SerializeField] private Collider leftSlamAttack;
+    //[SerializeField] private Collider rightSlamAttack;
+    //[SerializeField] private Collider doubleSlamAttack;
     [SerializeField] private GameObject missile;
     [SerializeField] private GameObject laser;
     [SerializeField] private GameObject shield;
@@ -33,6 +36,7 @@ public class BossAttacksController: NetworkBehaviour  {
         bossHealth.UnlockMissile -= UnlockMissileAttack;
     }
 
+#region UnlockAttacks
     void UnlockDoubleSlamAttack()
     {
 
@@ -55,7 +59,10 @@ public class BossAttacksController: NetworkBehaviour  {
         stateController.maxAttacks = 4;
         bossHealth.UnlockMissile -= UnlockMissileAttack;
     }
+    #endregion
 
+
+#region SpawnAttacks
     [Command]
     public void CmdLaunchMissile()
     {
@@ -76,5 +83,28 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         // Set shield to active
         shield.SetActive(true);
+    }
+
+
+#endregion
+    public void UnLaunchMissile()
+    {
+        // Missile SetActive
+        missile.SetActive(false);
+    }
+
+ 
+    public void UnLaunchLaser()
+    {
+        //Laser SetActive
+        laser.SetActive(false);
+
+    }
+
+   
+    public void DeSpawnShield()
+    {
+        // Set shield to active
+        shield.SetActive(false);
     }
 }
