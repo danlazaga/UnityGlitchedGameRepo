@@ -77,4 +77,12 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
     {
         OnHPPctChanged(health);
     }
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Jump"))
+        {
+            TakeDamage(10);
+        }
+    }
 }

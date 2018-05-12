@@ -68,6 +68,7 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         //Laser SetActive
         laser.SetActive(true);
+        
     }
 
     [Command]
