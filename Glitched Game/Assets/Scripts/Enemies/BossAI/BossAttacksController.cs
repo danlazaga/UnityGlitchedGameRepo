@@ -60,17 +60,20 @@ public class BossAttacksController: NetworkBehaviour  {
     public void CmdLaunchMissile()
     {
         // Missile SetActive
+        missile.SetActive(true);
     }
 
     [Command]
     public void CmdLaunchLaser()
     {
         //Laser SetActive
+        laser.SetActive(true);
     }
 
     [Command]
     public void CmdSpawnShield()
     {
         // Set shield to active
+        shield.SetActive(true);
     }
 }
