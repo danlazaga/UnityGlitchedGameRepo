@@ -3526,6 +3526,116 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Armature/Bone_Spine_1/Bone_Spine_2/Bone_Spine_3/Bone_Neck_1/Bone_Neck_2/Bone_Head/Hair-Top/Hair-Top.001/Hair-Top.002
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -0.304, y: 0, z: -5.345}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 2.04
+        value: {x: -0.325, y: 0, z: -5.35}
+        inSlope: {x: -0.021428568, y: 0, z: -0.0051021576}
+        outSlope: {x: -0.021428568, y: 0, z: -0.0051021576}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 3.92
+        value: {x: -0.559, y: 0, z: -7.646}
+        inSlope: {x: -0.17723213, y: 0, z: -1.992857}
+        outSlope: {x: -0.17723213, y: 0, z: -1.992857}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.28
+        value: {x: -0.722, y: 0.033, z: -9.814}
+        inSlope: {x: -0.5038461, y: 0, z: -7.000001}
+        outSlope: {x: -0.5038461, y: 0, z: -7.000001}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.44
+        value: {x: -0.821, y: 0.012988342, z: -11.286}
+        inSlope: {x: -1.2464297, y: -0.117857255, z: -10.503581}
+        outSlope: {x: -1.2464297, y: -0.117857255, z: -10.503581}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.56
+        value: {x: -1.071, y: 0, z: -12.755}
+        inSlope: {x: -0.56805575, y: 0, z: -0.61110944}
+        outSlope: {x: -0.56805575, y: 0, z: -0.61110944}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 5.16
+        value: {x: -1.23, y: 3.31, z: -12.865}
+        inSlope: {x: 0, y: 4.388889, z: -0.3055546}
+        outSlope: {x: 0, y: 4.388889, z: -0.3055546}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 6
+        value: {x: -1.04, y: 6.32, z: -13.623}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Effects/LaserExplosionLeft
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.716, y: 0, z: -5.524}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 2.04
+        value: {x: 0.71906626, y: 0, z: -5.51}
+        inSlope: {x: 0.0031288182, y: 0, z: 0}
+        outSlope: {x: 0.0031288182, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 3.92
+        value: {x: 0.772, y: 0, z: -7.885}
+        inSlope: {x: 0.09452455, y: 0, z: -1.9107139}
+        outSlope: {x: 0.09452455, y: 0, z: -1.9107139}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.28
+        value: {x: 1, y: 0, z: -9.79}
+        inSlope: {x: 0.6214286, y: 0, z: -6.848215}
+        outSlope: {x: 0.6214286, y: 0, z: -6.848215}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.48
+        value: {x: 1.12, y: 0, z: -11.72}
+        inSlope: {x: 0, y: 0, z: -10.732154}
+        outSlope: {x: 0, y: 0, z: -10.732154}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 4.56
+        value: {x: 1.007, y: 0, z: -12.795}
+        inSlope: {x: -0.3088236, y: 0, z: 0}
+        outSlope: {x: -0.3088236, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 5.16
+        value: {x: 0.91, y: 3.31, z: -12.795}
+        inSlope: {x: 0, y: 4.320139, z: 0}
+        outSlope: {x: 0, y: 4.320139, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 6
+        value: {x: 1.064, y: 6.221, z: -13.53}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Effects/LaserExplosionRight
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -5506,6 +5616,62 @@ AnimationClip:
     path: Effects/LaserMarkMesh Dark (1)
     classID: 1
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 2.04
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 6.32
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Effects/LaserExplosionLeft
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 2.04
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 6.32
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Effects/LaserExplosionRight
+    classID: 1
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 25
   m_WrapMode: 0
@@ -5523,6 +5689,20 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2385335317
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2216395667
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2656772836
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -5803,6 +5983,20 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 4180307298
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2216395667
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2656772836
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -25957,6 +26151,410 @@ AnimationClip:
     attribute: m_IsActive
     path: Effects/LaserMarkMesh Dark (1)
     classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.304
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: -0.325
+        inSlope: -0.021428568
+        outSlope: -0.021428568
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: -0.559
+        inSlope: -0.17723213
+        outSlope: -0.17723213
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: -0.722
+        inSlope: -0.5038461
+        outSlope: -0.5038461
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.44
+        value: -0.821
+        inSlope: -1.2464297
+        outSlope: -1.2464297
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: -1.071
+        inSlope: -0.56805575
+        outSlope: -0.56805575
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: -1.23
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: -1.04
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Effects/LaserExplosionLeft
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: 0.033
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.44
+        value: 0.012988342
+        inSlope: -0.117857255
+        outSlope: -0.117857255
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: 3.31
+        inSlope: 4.388889
+        outSlope: 4.388889
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: 6.32
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Effects/LaserExplosionLeft
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -5.345
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: -5.35
+        inSlope: -0.0051021576
+        outSlope: -0.0051021576
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: -7.646
+        inSlope: -1.992857
+        outSlope: -1.992857
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: -9.814
+        inSlope: -7.000001
+        outSlope: -7.000001
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.44
+        value: -11.286
+        inSlope: -10.503581
+        outSlope: -10.503581
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: -12.755
+        inSlope: -0.61110944
+        outSlope: -0.61110944
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: -12.865
+        inSlope: -0.3055546
+        outSlope: -0.3055546
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: -13.623
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Effects/LaserExplosionLeft
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 2.04
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 6.32
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Effects/LaserExplosionLeft
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 2.04
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 6.32
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Effects/LaserExplosionRight
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.716
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: 0.71906626
+        inSlope: 0.0031288182
+        outSlope: 0.0031288182
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: 0.772
+        inSlope: 0.09452455
+        outSlope: 0.09452455
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: 1
+        inSlope: 0.6214286
+        outSlope: 0.6214286
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.48
+        value: 1.12
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: 1.007
+        inSlope: -0.3088236
+        outSlope: -0.3088236
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: 0.91
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: 1.064
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Effects/LaserExplosionRight
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.48
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: 3.31
+        inSlope: 4.320139
+        outSlope: 4.320139
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: 6.221
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Effects/LaserExplosionRight
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -5.524
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.04
+        value: -5.51
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.92
+        value: -7.885
+        inSlope: -1.9107139
+        outSlope: -1.9107139
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.28
+        value: -9.79
+        inSlope: -6.848215
+        outSlope: -6.848215
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.48
+        value: -11.72
+        inSlope: -10.732154
+        outSlope: -10.732154
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 4.56
+        value: -12.795
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 5.16
+        value: -12.795
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 6
+        value: -13.53
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Effects/LaserExplosionRight
+    classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
