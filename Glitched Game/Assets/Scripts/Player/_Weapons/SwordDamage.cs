@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SwordDamage : MonoBehaviour
 {
     private const int ENEMY_MASK = 9;
+    private const int ENEMYARMS_MASK = 11;
     [SerializeField] private SwordEffects swordEffects;
     [SerializeField] private float damage;
 
@@ -21,6 +23,17 @@ public class SwordDamage : MonoBehaviour
                 swordEffects.PlayImpact();
             }
 
+        }
+        else if(other.gameObject.layer == ENEMYARMS_MASK)
+        {
+            Debug.Log("Hit Boss");
+
+            var boss = other.GetComponent<BossHitReceiver>();
+            if(boss != null)
+            {
+                boss.ReceiveDamage(damage);
+                swordEffects.PlayImpact();
+            }
         }
     }
 }

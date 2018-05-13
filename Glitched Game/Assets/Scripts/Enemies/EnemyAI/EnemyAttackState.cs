@@ -61,5 +61,10 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
                 controller.FSM.ChangeState(new EnemyChasePState(controller));
             
         }
+
+        //if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)
+        //{
+        //    controller.FSM.ChangeState(new EnemyWalkBackState(controller));
+        //}
     }
 }

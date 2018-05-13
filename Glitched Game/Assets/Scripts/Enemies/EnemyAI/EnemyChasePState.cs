@@ -9,7 +9,7 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
 
     public EnemyChasePState(EnemyStateController controller): base(controller)
     {
-        attackRange = 2.5f;
+        attackRange = 2.0f;
     }
 
     public void OnStateEnter()
@@ -40,6 +40,8 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
         {
             controller.FSM.ChangeState(new EnemyChaseGateState(controller));
         }
+
+       
 
     }
 

@@ -12,16 +12,22 @@ public class EnemyWalkBackState : CustomConstructor<EnemyStateController>, IStat
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        Vector3 backPos = Vector3.back * 20f;
+
+        controller.NavAgent.SetDestination(backPos);
+
+        //controller.NavAgent.updateRotation = false;
+        controller.Animator.SetBool(Animator.StringToHash("WalkBackwards"), true);
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+        //controller.NavAgent.updateRotation = true;
+        controller.Animator.SetBool(Animator.StringToHash("WalkBackwards"), false);
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+      
     }
 }

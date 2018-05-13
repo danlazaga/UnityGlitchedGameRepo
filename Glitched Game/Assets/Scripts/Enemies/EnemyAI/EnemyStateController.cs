@@ -42,18 +42,19 @@ public class EnemyStateController : StateController
         GetComponent<Collider>().enabled = true;
     }
 
-    public override void Update()
-    {
-        if (player != null && gate != null)
-            FSM.StateUpdate();
-    }
-
     public void SetTargets(Transform player, Transform gate)
     {
         this.player = player;
         this.gate = gate;
     }
 
+    public override void Update()
+    {
+        if (player != null && gate != null)
+            FSM.StateUpdate();
+    }
+
+   
     void MobDeath()
     {
         FSM.ChangeState(new EnemyDeathState(this));

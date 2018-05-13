@@ -101,7 +101,7 @@ public class BossAttacksController: NetworkBehaviour  {
 
     }
 
-   
+   // remove after testing
     public void DeSpawnShield()
     {
         // Set shield to active

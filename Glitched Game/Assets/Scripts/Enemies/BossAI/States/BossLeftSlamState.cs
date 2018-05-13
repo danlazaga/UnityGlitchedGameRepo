@@ -29,7 +29,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-        Debug.Log(controller.Animator.GetBehaviour<LeftSlamBehaviour>().IsDurationDone);
+      
     }
 
     public void CheckAttackSequence()

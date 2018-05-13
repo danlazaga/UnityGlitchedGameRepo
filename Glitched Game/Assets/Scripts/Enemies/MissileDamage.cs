@@ -19,7 +19,15 @@ public class MissileDamage : MonoBehaviour {
     {
         if(other.gameObject.layer == 9)
         {
+            if (other.gameObject.layer == 9)
+            {
+                PlayerHealth health = other.GetComponent<PlayerHealth>();
 
+                if (health != null)
+                {
+                    health.TakeDamage(missileDamage);
+                }
+            }
         }
     }
 

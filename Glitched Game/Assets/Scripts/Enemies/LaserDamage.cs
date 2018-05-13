@@ -12,7 +12,12 @@ public class LaserDamage : MonoBehaviour {
     {
         if (other.gameObject.layer == 9)
         {
+            PlayerHealth health = other.GetComponent<PlayerHealth>();
 
+            if(health != null)
+            {
+                health.TakeDamage(laserDamage);
+            }
         }
     }
 }
