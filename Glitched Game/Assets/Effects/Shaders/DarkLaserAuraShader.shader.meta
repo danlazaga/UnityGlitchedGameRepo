@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5b415dbefae6b9546a37f6178f5f191b
+timeCreated: 1526198477
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _VertexExtrudeTex: {fileID: 2800000, guid: d0bf94bd8e1bcad4ea235302da6d22c3, type: 3}
+  - _Mask: {fileID: 2800000, guid: 44d0cc60b012b7f4e9136cd8a765fb2d, type: 3}
+  - _AdditiveVertexTex: {fileID: 2800000, guid: d651bd147d8b33545a57ad385790b02b,
+      type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
