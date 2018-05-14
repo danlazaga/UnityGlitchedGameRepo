@@ -10,13 +10,14 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
     public EnemyAttackState(EnemyStateController controller, Transform target): base(controller)
     {
         _target = target;
-        attackRange = 2.5f;
+        attackRange = 3.0f;
     }
 
     public void OnStateEnter()
     {
         controller.NavAgent.isStopped = true;
         controller.Animator.SetTrigger(Animator.StringToHash("Attack"));
+        Debug.Log(_target);
     }
 
     public void OnStateExit()
@@ -55,14 +56,17 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
 
     private void CheckAttackRange()
     {
-        if (CheckDistance(controller.transform, _target) > attackRange)
+       
+        if (_target == controller.player)
         {
-            if(_target == controller.player)
+            if (CheckDistance(controller.transform, _target) > attackRange + 1.5f)
+            {
+                Debug.Log("Engaging");
                 controller.FSM.ChangeState(new EnemyChasePState(controller));
-            
-        }
 
-        //if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)
+            }
+        }
+        //if (controller.Animator.GetBehaviour<EnemyAttackBehaviour>().IsDurationDone && _target == controller.player)
         //{
         //    controller.FSM.ChangeState(new EnemyWalkBackState(controller));
         //}

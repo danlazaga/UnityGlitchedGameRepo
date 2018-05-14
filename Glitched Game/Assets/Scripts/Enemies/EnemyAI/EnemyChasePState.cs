@@ -9,7 +9,7 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
 
     public EnemyChasePState(EnemyStateController controller): base(controller)
     {
-        attackRange = 2.0f;
+        attackRange = 3.0f;
     }
 
     public void OnStateEnter()
@@ -31,7 +31,7 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
     {
 
         controller.NavAgent.SetDestination(controller.player.position);
-        if (CheckDistance(controller.transform, controller.player)<= attackRange)
+        if (CheckDistance(controller.transform, controller.player) <= attackRange)
         {
             controller.FSM.ChangeState(new EnemyAttackState(controller, controller.player));
         }

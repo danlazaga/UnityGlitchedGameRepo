@@ -15,7 +15,7 @@ public abstract class CustomConstructor<T>
 
     public float CheckDistance(Transform obj, Transform player)
     {
-        float distance = (obj.position - player.position).magnitude;
+        float distance = Vector3.Distance(obj.transform.position, player.transform.position);
         return distance;
     }
 

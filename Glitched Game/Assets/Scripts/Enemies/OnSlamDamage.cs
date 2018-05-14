@@ -7,7 +7,7 @@ public class OnSlamDamage : MonoBehaviour{
 
     [SerializeField] private float slamDamage;
 
-    private const int PLAYER_MASK = 9;
+    private const int PLAYER_MASK = 8;
 
     public void OnHitEffect()
     {

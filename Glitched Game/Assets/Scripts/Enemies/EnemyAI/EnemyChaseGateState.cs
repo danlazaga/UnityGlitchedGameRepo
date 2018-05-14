@@ -26,7 +26,7 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public void OnStateExit()
     {
-       
+        controller.NavAgent.SetDestination(controller.player.position);
     }
 
     public void OnUpdate()
