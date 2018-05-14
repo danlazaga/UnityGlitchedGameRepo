@@ -526,6 +526,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1251384176781034, guid: 4782e93b70d15b94683b03594e37e05c, type: 2}
+      propertyPath: m_TagString
+      value: PlayAreas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995297622600102, guid: 4782e93b70d15b94683b03594e37e05c, type: 2}
+      propertyPath: m_TagString
+      value: PlayAreas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583643702160258, guid: 4782e93b70d15b94683b03594e37e05c, type: 2}
+      propertyPath: m_TagString
+      value: PlayAreas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009638455840996, guid: 4782e93b70d15b94683b03594e37e05c, type: 2}
+      propertyPath: m_TagString
+      value: PlayAreas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4782e93b70d15b94683b03594e37e05c, type: 2}
   m_IsPrefabParent: 0

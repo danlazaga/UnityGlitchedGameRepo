@@ -8,6 +8,7 @@ TagManager:
   - Gate
   - Enemy_Explosion
   - DefaultBullet
+  - PlayAreas
   layers:
   - Default
   - TransparentFX

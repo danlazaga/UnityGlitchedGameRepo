@@ -8,10 +8,21 @@ public class MissileDamage : MonoBehaviour {
 
     private const int PLAYER_MASK = 9;
     private Vector3 startPos;
+    private GameObject[] targets;
+
+    private Transform target;
+    private bool hasTarget;
+
 
     private void OnEnable()
     {
         startPos = this.transform.position;
+        targets = GameObject.FindGameObjectsWithTag("PlayAreas");
+        int x = Random.Range(0, targets.Length);
+        target = targets[x].transform;
+        hasTarget = true;
+
+
     }
 
 
