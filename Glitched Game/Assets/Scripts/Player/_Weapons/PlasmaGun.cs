@@ -17,6 +17,8 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	[SerializeField] float maxHeat = 10f;
 	[SerializeField] float coolRate = 1.1f;
 	[SerializeField] float coolDownTime = 8f;
+    [SerializeField] float gunDamage = 100f;
+    [SerializeField] float stunDuration = 1f;
 	float currentHeat;
 	bool canFire = true;
 #endregion
@@ -72,7 +74,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 			if (enemy != null)
 			{
-				enemy.TakeDamage(100f);
+				enemy.TakeDamage(gunDamage);
 			}
 		}
 

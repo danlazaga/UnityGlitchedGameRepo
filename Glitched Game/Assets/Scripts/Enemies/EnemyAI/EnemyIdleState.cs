@@ -5,23 +5,31 @@ using UnityEngine;
 
 public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
 {
-    public EnemyIdleState(EnemyStateController controller) : base(controller)
-    {
+    float stunDuration;
 
+    public EnemyIdleState(EnemyStateController controller, float stunDuration) : base(controller)
+    {
+        this.stunDuration = stunDuration;
     }
 
     public void OnStateEnter()
     {
         Debug.Log("Enter Idle");
+        controller.Animator.SetBool(Animator.StringToHash("Idle"), true);
     }
 
     public void OnStateExit()
     {
+        controller.Animator.SetBool(Animator.StringToHash("Idle"), false);
         Debug.Log("Exit Idle");
     }
 
     public void OnUpdate()
     {
-        
+        stunDuration -= Time.deltaTime;
+        if(stunDuration <=  0)
+        {
+            controller.FSM.ChangeState(new EnemyChasePState(controller));
+        }
     }
 }

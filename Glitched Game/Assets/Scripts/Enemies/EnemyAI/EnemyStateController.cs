@@ -33,12 +33,17 @@ public class EnemyStateController : StateController
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
 
-        if (GetComponent<IHealthHandler>()!= null)
+        if (GetComponent<IHealthHandler>() != null)
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
         }
 
-        Animator.Play("Mob_Idle");
+        if(GetComponent<IStunHandler>() != null)
+        {
+            GetComponent<IStunHandler>().OnStun += MobStun;
+        }
+
+       
         GetComponent<Collider>().enabled = true;
     }
 
@@ -56,7 +61,7 @@ public class EnemyStateController : StateController
 
     void MobStun(float duration)
     {
-        FSM.ChangeState(new EnemyIdleState(this));
+        FSM.ChangeState(new EnemyIdleState(this, duration));
     }
    
     void MobDeath()
