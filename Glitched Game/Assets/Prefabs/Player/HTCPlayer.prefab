@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4992541568111914}
   - component: {fileID: 95636247165459794}
-  - component: {fileID: 114485523253525862}
+  - component: {fileID: 114612151714352414}
   m_Layer: 0
   m_Name: Gun_V3
   m_TagString: Untagged
@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1512837578071808
 GameObject:
   m_ObjectHideFlags: 1
@@ -509,6 +509,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4595509449819220}
+  - component: {fileID: 114651597377884940}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -1763,20 +1764,6 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
---- !u!114 &114485523253525862
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377358468772644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf2beb14ad4ed240b28a43efcf6e57a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 198389880168079566}
-  impactFlash: {fileID: 198553917627771364}
-  weaponAudio: {fileID: 0}
 --- !u!114 &114512392542846568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1813,6 +1800,41 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114612151714352414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377358468772644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1600fd8f0c2b34060a57ea8eb9dfd826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 2560
+  firePoint: {fileID: 4595509449819220}
+  weaponEffects: {fileID: 114651597377884940}
+  controller: {fileID: 114447109171585838}
+  weaponRange: 20
+  maxHeat: 10
+  coolRate: 1.1
+  coolDownTime: 8
+--- !u!114 &114651597377884940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680439336377994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf2beb14ad4ed240b28a43efcf6e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 198389880168079566}
+  impactFlash: {fileID: 198553917627771364}
+  weaponAudio: {fileID: 0}
 --- !u!114 &114695199143410126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1831,14 +1853,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.2500001, y: 0.01, z: -1.2}
-  - {x: -1.2500001, y: 0.01, z: -1.2}
-  - {x: -1.2500001, y: 0.01, z: 1.2}
-  - {x: 1.2500001, y: 0.01, z: 1.2}
-  - {x: 1.44, y: 0.01, z: -1.3900001}
-  - {x: -1.44, y: 0.01, z: -1.3900001}
-  - {x: -1.44, y: 0.01, z: 1.3900001}
-  - {x: 1.44, y: 0.01, z: 1.3900001}
+  - {x: 1.9499993, y: 0.01, z: -1.8499993}
+  - {x: -1.9499993, y: 0.01, z: -1.8499993}
+  - {x: -1.9499993, y: 0.01, z: 1.8499993}
+  - {x: 1.9499993, y: 0.01, z: 1.8499993}
+  - {x: 2.1399994, y: 0.01, z: -2.0399992}
+  - {x: -2.1399994, y: 0.01, z: -2.0399992}
+  - {x: -2.1399994, y: 0.01, z: 2.0399992}
+  - {x: 2.1399994, y: 0.01, z: 2.0399992}
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12486,7 +12508,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1090955025
+  randomSeed: 1500893508
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15940,7 +15962,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 823703369
+  randomSeed: 370921970
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -22758,7 +22780,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1312223391
+  randomSeed: 228192407
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -26212,7 +26234,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 157965746
+  randomSeed: 1616846990
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -29624,7 +29646,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2111397808
+  randomSeed: 600609913
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -33036,7 +33058,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -218540418
+  randomSeed: -1078382210
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -36484,7 +36506,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -934079276
+  randomSeed: -725311819
   InitialModule:
     serializedVersion: 3
     enabled: 1
