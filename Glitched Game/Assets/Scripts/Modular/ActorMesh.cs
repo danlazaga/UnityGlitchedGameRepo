@@ -20,7 +20,7 @@ public class ActorMesh : MonoBehaviour
 
 		if (GetComponentInParent<IStunHandler>()!= null)
 		{
-			GetComponent<IStunHandler>().OnStun += HandleStunMesh;
+			GetComponentInParent<IStunHandler>().OnStun += HandleStunMesh;
 		}
 	}
 
