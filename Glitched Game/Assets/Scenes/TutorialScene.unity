@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6632d480ad88ee48b421e2ad0115792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viveGameObject: {fileID: 1468412176499490, guid: 6e69cfc786d6a3143afc5ff892bdaec1,
+  viveGameObject: {fileID: 1468412176499490, guid: 37084153f2005ea4296f26ab7a99a80a,
     type: 2}
   mobileGameObject: {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1,
     type: 2}
