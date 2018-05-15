@@ -1795,12 +1795,14 @@ MonoBehaviour:
   controllerLeft: {fileID: 1047450092811102}
   firePoint: {fileID: 4595509449819220}
   weaponEffects: {fileID: 114651597377884940}
-  weaponRange: 20
-  maxHeat: 10
-  coolRate: 1.1
-  coolDownTime: 8
-  gunDamage: 100
-  stunDuration: 1
+  plasmaGunProperties:
+    weaponRange: 20
+    gunDamage: 100
+    stunDuration: 1
+  gunHeatProperties:
+    maxHeat: 10
+    coolRate: 1.1
+    coolDownTime: 8
 --- !u!114 &114651597377884940
 MonoBehaviour:
   m_ObjectHideFlags: 1
