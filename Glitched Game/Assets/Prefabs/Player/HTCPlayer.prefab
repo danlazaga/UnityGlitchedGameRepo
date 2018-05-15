@@ -1605,8 +1605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
-  origin: {fileID: 4166313483165822}
+  index: -1
+  origin: {fileID: 0}
 --- !u!114 &114181812848465232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,8 +1618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 1
-  origin: {fileID: 4900083248730084}
+  index: -1
+  origin: {fileID: 0}
 --- !u!114 &114231991683274888
 MonoBehaviour:
   m_ObjectHideFlags: 1
