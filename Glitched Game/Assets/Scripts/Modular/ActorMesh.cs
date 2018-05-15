@@ -18,10 +18,10 @@ public class ActorMesh : MonoBehaviour
 			GetComponentInParent<IHealthHandler>().OnHPPctChanged += HandleHitMesh;
 		}
 
-		// if (GetComponentInParent<IStunHandler>()!= null)
-		// {
-		// 	GetComponent<IStunHandler>().OnStun += HandleStunMesh;
-		// }
+		if (GetComponentInParent<IStunHandler>()!= null)
+		{
+			GetComponent<IStunHandler>().OnStun += HandleStunMesh;
+		}
 	}
 
 	private void OnDisable()
@@ -36,7 +36,7 @@ public class ActorMesh : MonoBehaviour
 
 	private void HandleStunMesh(float value)
 	{
-
+		Debug.Log("Play Stun Mesh");
 	}
 
 	IEnumerator PlayHitMesh()

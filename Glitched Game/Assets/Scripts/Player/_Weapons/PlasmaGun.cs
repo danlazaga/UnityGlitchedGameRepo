@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public struct PlasmaGunProperties
+{
+	public float weaponRange;
+	public float gunDamage ;
+	public float stunDuration;
+}
+
 public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 {
 	public event Action<float> OnHeatChange;
@@ -14,13 +22,10 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	[SerializeField] Transform firePoint;
 	[SerializeField] GunEffects weaponEffects;
 
+	[Header("Gun Properties")]
+	[SerializeField] PlasmaGunProperties plasmaGunProperties;
 	[Space(10)]
-	[SerializeField] float weaponRange = 20f;
-	[SerializeField] float maxHeat = 10f;
-	[SerializeField] float coolRate = 1.1f;
-	[SerializeField] float coolDownTime = 8f;
-    [SerializeField] float gunDamage = 100f;
-    [SerializeField] float stunDuration = 1f;
+	[SerializeField] GunHeatProperties gunHeatProperties;
 	float currentHeat;
 	bool canFire = true;
 
@@ -31,6 +36,16 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 #region Unity Methods
 
+	private void Reset()
+	{
+		gunHeatProperties.maxHeat = 10f;
+		gunHeatProperties.coolRate = 1.1f;
+		gunHeatProperties.coolDownTime = 8f;
+		plasmaGunProperties.weaponRange = 20f;
+		plasmaGunProperties.gunDamage = 100f;
+		plasmaGunProperties.stunDuration = 1f;
+	}
+
 	private void Awake()
 	{
 		controller = controllerLeft.GetComponent<SteamVR_TrackedController>();
@@ -40,7 +55,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 	private void Update()
 	{
-		CurrentHeat -= Time.deltaTime * coolRate;
+		CurrentHeat -= Time.deltaTime * gunHeatProperties.coolRate;
 
 		if (CurrentHeat <= 0)
 		{
@@ -70,19 +85,26 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 		RaycastHit hit;
 		Ray ray = new Ray(firePoint.position, firePoint.forward);
-		Debug.DrawRay(firePoint.position, firePoint.forward * weaponRange, Color.green);
-		bool result = Physics.Raycast(ray, out hit, weaponRange, layer);
+		Debug.DrawRay(firePoint.position, firePoint.forward * plasmaGunProperties.weaponRange, Color.green);
+		bool result = Physics.Raycast(ray, out hit, plasmaGunProperties.weaponRange, layer);
 
 		device = SteamVR_Controller.Input((int)trackedObj.index);
 		device.TriggerHapticPulse(500);
 
 		if (result)
 		{
-			var enemy = hit.transform.GetComponent<IHealthHandler>();
+			var enemyHealth = hit.transform.GetComponent<IHealthHandler>();
 
-			if (enemy != null)
+			if (enemyHealth != null)
 			{
-				enemy.TakeDamage(gunDamage);
+				enemyHealth.TakeDamage(plasmaGunProperties.gunDamage);
+			}
+
+			var enemyStun = hit.transform.GetComponent<IStunHandler>();
+
+			if (enemyStun != null)
+			{
+				enemyStun.TakeStun(plasmaGunProperties.stunDuration);
 			}
 		}
 
@@ -108,17 +130,17 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	IEnumerator InvokeCoolDown()
 	{
 		canFire = false;
-		yield return new WaitForSeconds(coolDownTime);
+		yield return new WaitForSeconds(gunHeatProperties.coolDownTime);
 		canFire = true;
 	}
 
 	public float MaxHeat
 	{
-		get { return maxHeat; }
+		get { return gunHeatProperties.maxHeat; }
 
 		set
 		{
-			maxHeat = value;
+			gunHeatProperties.maxHeat = value;
 		}
 	}
 

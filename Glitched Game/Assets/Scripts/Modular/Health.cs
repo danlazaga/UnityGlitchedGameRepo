@@ -5,23 +5,18 @@ using UnityEngine.Networking;
 /// <summary>
 /// Generic Health
 /// </summary>
-public class Health : NetworkBehaviour, IHealthHandler, IStunHandler
+public class Health : NetworkBehaviour, IHealthHandler
 {
 
 #region Variables
     public float maxHealth = 100f;
     [SyncVar] float health;
 
-    
-    WaitForSeconds stunDuration = new WaitForSeconds(1f);
-
-
     public event Action<float> OnHPPctChanged = delegate(float f) { };
     public event Action OnDied = delegate { };
-    public event Action<float> OnStun;
-    #endregion
+#endregion
 
-    #region Unity Methods
+#region Unity Methods
     [ServerCallback]
     private void OnEnable()
     {
@@ -54,10 +49,5 @@ public class Health : NetworkBehaviour, IHealthHandler, IStunHandler
     void RpcTakeDamage()
     {
         OnHPPctChanged(health);
-    }
-
-    public void TakeStun(float duration)
-    {
-        
     }
 }
