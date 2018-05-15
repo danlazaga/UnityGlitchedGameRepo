@@ -16,13 +16,13 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
     public void OnStateEnter()
     {
         controller.NavAgent.isStopped = true;
-        controller.Animator.SetTrigger(Animator.StringToHash("Attack"));
-        Debug.Log(_target);
+        controller.Animator.SetBool(Animator.StringToHash("Attack"), true);
+        //Debug.Log(_target);
     }
 
     public void OnStateExit()
     {
-
+        controller.Animator.SetBool(Animator.StringToHash("Attack"), false);
         controller.NavAgent.isStopped = false;
     }
 

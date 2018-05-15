@@ -54,6 +54,10 @@ public class EnemyStateController : StateController
             FSM.StateUpdate();
     }
 
+    void MobStun(float duration)
+    {
+        FSM.ChangeState(new EnemyIdleState(this));
+    }
    
     void MobDeath()
     {

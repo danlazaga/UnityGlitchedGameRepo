@@ -28,6 +28,9 @@ public class EnemyWalkBackState : CustomConstructor<EnemyStateController>, IStat
 
     public void OnUpdate()
     {
-      
+        if(controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            return;
+        }
     }
 }

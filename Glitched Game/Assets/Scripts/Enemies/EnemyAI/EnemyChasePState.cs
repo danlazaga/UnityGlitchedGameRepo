@@ -18,13 +18,13 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
         {
             controller.NavAgent.SetDestination(controller.player.position);
         }
-        controller.Animator.SetTrigger(Animator.StringToHash("Walk"));
+        controller.Animator.SetBool(Animator.StringToHash("Walk"), true);
 
     }
 
     public void OnStateExit()
     {
-
+        controller.Animator.SetBool(Animator.StringToHash("Walk"), false);
     }
 
     public void OnUpdate()

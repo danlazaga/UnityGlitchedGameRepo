@@ -20,13 +20,14 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
             controller.NavAgent.SetDestination(controller.gate.position);
         }
 
-        controller.Animator.SetTrigger(Animator.StringToHash("Walk"));
+        controller.Animator.SetBool(Animator.StringToHash("Walk"), true);
 
     }
 
     public void OnStateExit()
     {
-        controller.NavAgent.SetDestination(controller.player.position);
+        controller.Animator.SetBool(Animator.StringToHash("Walk"), false);
+        //controller.NavAgent.SetDestination(controller.player.position);
     }
 
     public void OnUpdate()
