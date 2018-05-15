@@ -6,8 +6,6 @@ using UnityEngine;
 public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 {
 
-   
-
     public BossLeftSlamState(BossStateController controller): base(controller)
     {
       

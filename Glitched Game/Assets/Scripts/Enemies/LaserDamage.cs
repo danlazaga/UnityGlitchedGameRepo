@@ -6,11 +6,11 @@ public class LaserDamage : MonoBehaviour {
 
     [SerializeField] private float laserDamage;
 
-    private const int PLAYER_MASK = 9;
+    private const int PLAYER_MASK = 8;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 8)
         {
             PlayerHealth health = other.GetComponent<PlayerHealth>();
 

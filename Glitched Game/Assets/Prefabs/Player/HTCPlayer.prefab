@@ -532,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1710399986130702
 GameObject:
   m_ObjectHideFlags: 1
@@ -631,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1890846953268740
 GameObject:
   m_ObjectHideFlags: 1
@@ -1796,12 +1796,14 @@ MonoBehaviour:
   controllerLeft: {fileID: 1047450092811102}
   firePoint: {fileID: 4595509449819220}
   weaponEffects: {fileID: 114651597377884940}
-  weaponRange: 20
-  maxHeat: 10
-  coolRate: 1.1
-  coolDownTime: 8
-  gunDamage: 100
-  stunDuration: 1
+  plasmaGunProperties:
+    weaponRange: 20
+    gunDamage: 100
+    stunDuration: 1
+  gunHeatProperties:
+    maxHeat: 10
+    coolRate: 1.1
+    coolDownTime: 8
 --- !u!114 &114651597377884940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1834,14 +1836,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.3, y: 0.01, z: -1.2999998}
-  - {x: -1.3, y: 0.01, z: -1.2999998}
-  - {x: -1.3, y: 0.01, z: 1.2999998}
-  - {x: 1.3, y: 0.01, z: 1.2999998}
-  - {x: 1.49, y: 0.01, z: -1.4899998}
-  - {x: -1.49, y: 0.01, z: -1.4899998}
-  - {x: -1.49, y: 0.01, z: 1.4899998}
-  - {x: 1.49, y: 0.01, z: 1.4899998}
+  - {x: 1.4000001, y: 0.01, z: -1.25}
+  - {x: -1.4000001, y: 0.01, z: -1.25}
+  - {x: -1.4000001, y: 0.01, z: 1.25}
+  - {x: 1.4000001, y: 0.01, z: 1.25}
+  - {x: 1.5900002, y: 0.01, z: -1.44}
+  - {x: -1.5900002, y: 0.01, z: -1.44}
+  - {x: -1.5900002, y: 0.01, z: 1.44}
+  - {x: 1.5900002, y: 0.01, z: 1.44}
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1

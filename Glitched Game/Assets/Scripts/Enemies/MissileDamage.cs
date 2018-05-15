@@ -7,24 +7,7 @@ public class MissileDamage : MonoBehaviour {
     [SerializeField] private float missileDamage;
 
     private const int PLAYER_MASK = 9;
-    private Vector3 startPos;
-    private GameObject[] targets;
-
-    private Transform target;
-    private bool hasTarget;
-
-
-    private void OnEnable()
-    {
-        startPos = this.transform.position;
-        targets = GameObject.FindGameObjectsWithTag("PlayAreas");
-        int x = Random.Range(0, targets.Length);
-        target = targets[x].transform;
-        hasTarget = true;
-
-
-    }
-
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,8 +25,5 @@ public class MissileDamage : MonoBehaviour {
         }
     }
 
-    private void OnDisable()
-    {
-        this.transform.position = startPos;
-    }
+  
 }
