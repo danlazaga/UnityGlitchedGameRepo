@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 114797184036088332}
   - component: {fileID: 114695199143410126}
   - component: {fileID: 114105938196739398}
-  - component: {fileID: 114162040710226304}
   - component: {fileID: 114270081202997954}
   - component: {fileID: 23191952187378904}
   - component: {fileID: 33947254141166124}
@@ -856,7 +855,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468412176499490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.55, z: -6.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4900083248730084}
@@ -1606,29 +1605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: -1
+  index: 2
   origin: {fileID: 0}
---- !u!114 &114162040710226304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1468412176499490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1600fd8f0c2b34060a57ea8eb9dfd826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 512
-  firePoint: {fileID: 0}
-  weaponEffects: {fileID: 0}
-  controller: {fileID: 114447109171585838}
-  weaponRange: 20
-  maxHeat: 10
-  coolRate: 1.1
-  coolDownTime: 8
 --- !u!114 &114181812848465232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1640,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: -1
+  index: 1
   origin: {fileID: 0}
 --- !u!114 &114231991683274888
 MonoBehaviour:
@@ -1814,9 +1792,9 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 2560
+  controllerLeft: {fileID: 1047450092811102}
   firePoint: {fileID: 4595509449819220}
   weaponEffects: {fileID: 114651597377884940}
-  controller: {fileID: 114447109171585838}
   weaponRange: 20
   maxHeat: 10
   coolRate: 1.1

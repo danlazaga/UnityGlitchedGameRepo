@@ -9,9 +9,11 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 #region Variables
 	[SerializeField] LayerMask layer;
+	[SerializeField] GameObject controllerLeft;
+	[Space(10)]
 	[SerializeField] Transform firePoint;
 	[SerializeField] GunEffects weaponEffects;
-	[SerializeField] SteamVR_TrackedController controller;
+
 	[Space(10)]
 	[SerializeField] float weaponRange = 20f;
 	[SerializeField] float maxHeat = 10f;
@@ -19,13 +21,19 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	[SerializeField] float coolDownTime = 8f;
 	float currentHeat;
 	bool canFire = true;
+
+	SteamVR_TrackedController controller;
+	SteamVR_TrackedObject trackedObj;
+	SteamVR_Controller.Device device;
 #endregion
 
 #region Unity Methods
 
 	private void Awake()
 	{
+		controller = controllerLeft.GetComponent<SteamVR_TrackedController>();
 		controller.TriggerClicked += HandleShoot;
+		trackedObj = controllerLeft.GetComponent<SteamVR_TrackedObject>();
 	}
 
 	private void Update()
@@ -59,12 +67,12 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 		}
 
 		RaycastHit hit;
-
 		Ray ray = new Ray(firePoint.position, firePoint.forward);
-
 		Debug.DrawRay(firePoint.position, firePoint.forward * weaponRange, Color.green);
-
 		bool result = Physics.Raycast(ray, out hit, weaponRange, layer);
+
+		device = SteamVR_Controller.Input((int)trackedObj.index);
+		device.TriggerHapticPulse(500);
 
 		if (result)
 		{
