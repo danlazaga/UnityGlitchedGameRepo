@@ -20,11 +20,6 @@ public class TurretController : MonoBehaviour
         turretLook.Init(transform, turret);
     }
 
-    void Start()
-    {
-        PlayerHUD.Instance.Initialize();
-    }
-
     void Update()
     {
         RotateTurret();

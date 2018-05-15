@@ -24,6 +24,8 @@ public class PlayerNetworkSetup : NetworkBehaviour
 		mainCamera = Camera.main.gameObject;
 
 		EnablePlayer();
+
+		PlayerHUD.Instance.Initialize();
 	}
 
 	public override void OnStartLocalPlayer()

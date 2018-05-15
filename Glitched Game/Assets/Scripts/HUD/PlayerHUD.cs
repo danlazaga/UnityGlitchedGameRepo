@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
-	[SerializeField] RecticleAnimation recticleAnimation; 
+
 	[SerializeField] UIFader damageImage;
-	[SerializeField] Text healthValue;
+	[Header("Mobile HUD Properties")]
+	[SerializeField] RecticleAnimation recticleAnimation;
 	[SerializeField] Image healthBar;
-	[SerializeField] GameObject healthValueObj;
-	[SerializeField] GameObject healthBarObj;
+	[Space(10)]
 	[SerializeField] GameObject mobileControllerObj;
-	[SerializeField] Image reticule;
-	string stringFormat = "{0:#,###0}";
+	[SerializeField] GameObject mobilePlayerHUD;
 #endregion
 
 #region Unity Methods
@@ -32,13 +31,11 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		}
 	}
 
-	public override	void Reset()
+	public override void Reset()
 	{
 		base.Reset();
 		recticleAnimation = GameObject.Find("Reticule").GetComponent<RecticleAnimation>();
 		damageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
-		reticule = GameObject.Find("Reticule").GetComponent<Image>();
-		healthValue = GameObject.Find("HealthValue").GetComponent<Text>();
 		healthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
 	}
 
@@ -46,20 +43,21 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	public void Initialize()
 	{
-		reticule.enabled = true;
-		healthValueObj.SetActive(true);
-		healthBarObj.SetActive(true);
-		 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileControllerObj.SetActive(true);
+		mobilePlayerHUD.SetActive(true);
 #endif
 	}
 
-	public void SetHealth(float value)
+	public void SetGateHealth(float value)
 	{
-		float lerpedValue = (((value - 0) * 1/100) + 0);
+		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
 		healthBar.fillAmount = lerpedValue;
-		healthValue.text = string.Format(stringFormat, value);
+	}
+
+	public void SetHTCHealth(float value)
+	{
+		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
 	}
 
 	public void FlashDamageEffect()
@@ -72,4 +70,3 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		recticleAnimation.RecticlePlay();
 	}
 }
-
