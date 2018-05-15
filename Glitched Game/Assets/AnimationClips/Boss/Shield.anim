@@ -3509,14 +3509,32 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.32
+        time: 1.28
         value: 0.176
-        inSlope: 0.79464287
-        outSlope: 0.79464287
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.68
-        value: 0.445
+        time: 1.64
+        value: 0.137
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.8
+        value: 0.558
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.6
+        value: 0.207
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.04
+        value: 0.368
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3545,12 +3563,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.68
         value: -0.065
-        inSlope: 0.08292683
-        outSlope: 0.08292683
+        inSlope: 0.08292684
+        outSlope: 0.08292684
         tangentMode: 136
       - serializedVersion: 2
         time: 1.96
-        value: 0.954
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3558,6 +3576,28 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Test
+    path: Shield
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.88
+        value: 3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: material._ColorIntensity
     path: Shield
     classID: 23
     script: {fileID: 0}
@@ -3621,6 +3661,13 @@ AnimationClip:
     - serializedVersion: 2
       path: 423614430
       attribute: 2238226729
+      script: {fileID: 0}
+      typeID: 23
+      customType: 22
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 423614430
+      attribute: 2283520324
       script: {fileID: 0}
       typeID: 23
       customType: 22
@@ -18131,14 +18178,32 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.32
+        time: 1.28
         value: 0.176
-        inSlope: 0.79464287
-        outSlope: 0.79464287
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.68
-        value: 0.445
+        time: 1.64
+        value: 0.137
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.8
+        value: 0.558
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 2.6
+        value: 0.207
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 3.04
+        value: 0.368
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -18167,12 +18232,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.68
         value: -0.065
-        inSlope: 0.08292683
-        outSlope: 0.08292683
+        inSlope: 0.08292684
+        outSlope: 0.08292684
         tangentMode: 136
       - serializedVersion: 2
         time: 1.96
-        value: 0.954
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -18180,6 +18245,28 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Test
+    path: Shield
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.88
+        value: 3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: material._ColorIntensity
     path: Shield
     classID: 23
     script: {fileID: 0}
@@ -22345,11 +22432,4 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events:
-  - time: 0.84
-    functionName: CmdSpawnShield
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

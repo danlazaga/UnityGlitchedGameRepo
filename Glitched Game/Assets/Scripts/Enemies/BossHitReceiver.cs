@@ -9,6 +9,7 @@ public class BossHitReceiver : MonoBehaviour {
 
     public void ReceiveDamage(float damage)
     {
-        bossHealth.TakeDamage(damage);
+        if(bossHealth != null)
+            bossHealth.TakeDamage(damage);
     }
 }
