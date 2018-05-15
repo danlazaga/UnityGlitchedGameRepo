@@ -26,10 +26,10 @@ public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
 
     public void OnUpdate()
     {
-        stunDuration -= Time.deltaTime;
-        if(stunDuration <=  0)
-        {
-            controller.FSM.ChangeState(new EnemyChasePState(controller));
-        }
+        //stunDuration -= Time.deltaTime;
+        //if(stunDuration <=  0)
+        //{
+        //    controller.FSM.ChangeState(new EnemyChasePState(controller));
+        //}
     }
 }

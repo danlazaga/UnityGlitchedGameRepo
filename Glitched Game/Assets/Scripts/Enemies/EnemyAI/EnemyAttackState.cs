@@ -10,7 +10,7 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
     public EnemyAttackState(EnemyStateController controller, Transform target): base(controller)
     {
         _target = target;
-        attackRange = 3.0f;
+        attackRange = 2.0f;
     }
 
     public void OnStateEnter()
@@ -59,7 +59,7 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
        
         if (_target == controller.player)
         {
-            if (CheckDistance(controller.transform, _target) > attackRange + 1.5f)
+            if (CheckDistance(controller.transform, _target) > attackRange + 0.5f)
             {
                 Debug.Log("Engaging");
                 controller.FSM.ChangeState(new EnemyChasePState(controller));
