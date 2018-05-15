@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  origin: {fileID: 0}
+  origin: {fileID: 4166313483165822}
 --- !u!114 &114181812848465232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
-  origin: {fileID: 0}
+  origin: {fileID: 4900083248730084}
 --- !u!114 &114231991683274888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1799,6 +1799,8 @@ MonoBehaviour:
   maxHeat: 10
   coolRate: 1.1
   coolDownTime: 8
+  gunDamage: 100
+  stunDuration: 1
 --- !u!114 &114651597377884940
 MonoBehaviour:
   m_ObjectHideFlags: 1

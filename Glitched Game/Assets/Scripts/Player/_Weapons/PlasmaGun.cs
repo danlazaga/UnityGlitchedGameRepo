@@ -19,8 +19,8 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	[SerializeField] float maxHeat = 10f;
 	[SerializeField] float coolRate = 1.1f;
 	[SerializeField] float coolDownTime = 8f;
-    [SerializeField] float gunDamage = 100f;
-    [SerializeField] float stunDuration = 1f;
+	[SerializeField] float gunDamage = 100f;
+	[SerializeField] float stunDuration = 1f;
 	float currentHeat;
 	bool canFire = true;
 
@@ -78,11 +78,18 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 		if (result)
 		{
-			var enemy = hit.transform.GetComponent<IHealthHandler>();
+			var enemyHealth = hit.transform.GetComponent<IHealthHandler>();
 
-			if (enemy != null)
+			if (enemyHealth != null)
 			{
-				enemy.TakeDamage(gunDamage);
+				enemyHealth.TakeDamage(gunDamage);
+			}
+
+			var enemyStun = hit.transform.GetComponent<IStunHandler>();
+
+			if(enemyStun != null)
+			{
+				enemyStun.TakeStun(stunDuration);
 			}
 		}
 

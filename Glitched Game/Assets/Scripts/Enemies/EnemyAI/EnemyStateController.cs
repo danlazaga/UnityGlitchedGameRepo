@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyStateController : StateController
+public class EnemyStateController : StateController, IStunHandler
 {
 
     private NavMeshAgent navAgent;
@@ -24,8 +24,8 @@ public class EnemyStateController : StateController
     }
     public Transform player { get; set; }
     public Transform gate { get; set; }
-
     public BossStateController Boss { get; set; }
+    public event Action<float> OnStun;
 
     private void OnEnable()
     {
@@ -33,17 +33,11 @@ public class EnemyStateController : StateController
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
 
-        if (GetComponent<IHealthHandler>() != null)
+        if (GetComponent<IHealthHandler>()!= null)
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
         }
 
-        if(GetComponent<IStunHandler>() != null)
-        {
-            GetComponent<IStunHandler>().OnStun += MobStun;
-        }
-
-       
         GetComponent<Collider>().enabled = true;
     }
 
@@ -59,11 +53,16 @@ public class EnemyStateController : StateController
             FSM.StateUpdate();
     }
 
-    void MobStun(float duration)
+    public void TakeStun(float duration)
     {
-        FSM.ChangeState(new EnemyIdleState(this, duration));
+        StartCoroutine(MobStun(duration));
+
+        if(OnStun != null)
+        {
+            OnStun(duration);
+        }
     }
-   
+
     void MobDeath()
     {
         FSM.ChangeState(new EnemyDeathState(this));
@@ -74,4 +73,10 @@ public class EnemyStateController : StateController
         ObjectPool.Instance.ReturnToPool(this.gameObject);
     }
 
+    IEnumerator MobStun(float duration)
+    {
+        FSM.ChangeState(new EnemyIdleState(this));
+        yield return new WaitForSeconds(duration);
+        FSM.ChangeState(new EnemyChasePState(this));
+    }
 }
