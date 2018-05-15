@@ -13,7 +13,7 @@ public class GunEffects : MonoBehaviour
 
 	public void PlayShotEffects()
 	{
-		Debug.Log("Player Shot Effects");
+		//Debug.Log("Player Shot Effects");
 		 muzzleFlash.Stop(true);
 		 muzzleFlash.Play(true);
 
@@ -22,7 +22,7 @@ public class GunEffects : MonoBehaviour
 
 	public void PlayImpactEffect(Vector3 point)
 	{
-		Debug.Log("Player Impact Effect");
+		//Debug.Log("Player Impact Effect");
 		impactFlash.transform.position = point;
 		impactFlash.Stop();
 		impactFlash.Play();

@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 4614909905190886}
   - component: {fileID: 33773845056911714}
   - component: {fileID: 23302411724688648}
+  - component: {fileID: 114901086047725800}
   - component: {fileID: 114744936409397832}
   - component: {fileID: 54471357038892692}
   - component: {fileID: 65377517084071980}
@@ -314,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1512837578071808
 GameObject:
   m_ObjectHideFlags: 1
@@ -1799,6 +1800,8 @@ MonoBehaviour:
   maxHeat: 10
   coolRate: 1.1
   coolDownTime: 8
+  gunDamage: 100
+  stunDuration: 1
 --- !u!114 &114651597377884940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1831,14 +1834,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.9499993, y: 0.01, z: -1.8499993}
-  - {x: -1.9499993, y: 0.01, z: -1.8499993}
-  - {x: -1.9499993, y: 0.01, z: 1.8499993}
-  - {x: 1.9499993, y: 0.01, z: 1.8499993}
-  - {x: 2.1399994, y: 0.01, z: -2.0399992}
-  - {x: -2.1399994, y: 0.01, z: -2.0399992}
-  - {x: -2.1399994, y: 0.01, z: 2.0399992}
-  - {x: 2.1399994, y: 0.01, z: 2.0399992}
+  - {x: 1.3, y: 0.01, z: -1.2999998}
+  - {x: -1.3, y: 0.01, z: -1.2999998}
+  - {x: -1.3, y: 0.01, z: 1.2999998}
+  - {x: 1.3, y: 0.01, z: 1.2999998}
+  - {x: 1.49, y: 0.01, z: -1.4899998}
+  - {x: -1.49, y: 0.01, z: -1.4899998}
+  - {x: -1.49, y: 0.01, z: 1.4899998}
+  - {x: 1.49, y: 0.01, z: 1.4899998}
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2024,6 +2027,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114901086047725800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483924667753910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d0c84bde7955d4b8ac8f5e15ab6a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 65377517084071980}
+  rightController: {fileID: 1434766568387320}
 --- !u!114 &114980293090556728
 MonoBehaviour:
   m_ObjectHideFlags: 1

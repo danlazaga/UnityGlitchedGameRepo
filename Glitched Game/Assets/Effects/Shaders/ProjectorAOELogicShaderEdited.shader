@@ -6,34 +6,33 @@
 Shader "Shader Forge/ProjectorAOELogicShaderEdited" {
     Properties {
         _node_8850 ("node_8850", Range(0, 2)) = 2
-        _ShadowTex ("MainTex", 2D) = "white" {}
+        _ShadowTex ("node_4443", 2D) = "white" {}
         _OpacityClipMask ("OpacityClipMask", 2D) = "white" {}
         _DissolveAmount ("DissolveAmount", Range(0, 1)) = 1
         _TempValue ("TempValue", Range(0, 1)) = 1
     }
     SubShader {
         Tags {
-            //"IgnoreProjector"="True"
+            "IgnoreProjector"="True"
             "Queue"="Transparent"
-            //"RenderType"="Transparent"
+            "RenderType"="Transparent"
         }
         Pass {
-           // Name "FORWARD"
+            Name "FORWARD"
             Tags {
-                "Queue"="Transparent"
+                "LightMode"="ForwardBase"
             }
             Blend One One
-            Offset -1, -1
             ZWrite Off
             
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-           // #define UNITY_PASS_FORWARDBASE
+            #define UNITY_PASS_FORWARDBASE
             #include "UnityCG.cginc"
-           // #pragma multi_compile_fwdbase
-           // #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 2.0
+            #pragma multi_compile_fwdbase
+            #pragma only_renderers d3d9 d3d11 glcore gles 
+            #pragma target 3.0
             uniform float _node_8850;
             uniform sampler2D _ShadowTex; uniform float4 _ShadowTex_ST;
             uniform sampler2D _OpacityClipMask; uniform float4 _OpacityClipMask_ST;
@@ -49,29 +48,20 @@ Shader "Shader Forge/ProjectorAOELogicShaderEdited" {
                 float2 uv0 : TEXCOORD0;
                 float4 vertexColor : COLOR;
             };
-
-            float4x4 unity_Projector;
-			float4x4 unity_ProjectorClip;
-
-            VertexOutput vert (VertexInput v, float4 vertex :POSITION) {
+            VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
                 o.vertexColor = v.vertexColor;
                 o.pos = UnityObjectToClipPos( v.vertex );
-                o.uv0 = mul (unity_Projector, vertex);
                 return o;
             }
-            float4 frag(VertexOutput i) : SV_TARGET {
+            float4 frag(VertexOutput i) : COLOR {
 ////// Lighting:
 ////// Emissive:
-                float4 node_17 =  tex2Dproj (_ShadowTex, UNITY_PROJ_COORD(i.texcoord0));
+                float4 node_17 = tex2D(_ShadowTex,TRANSFORM_TEX(i.uv0, _ShadowTex));
                 float4 _OpacityClipMask_var = tex2D(_OpacityClipMask,TRANSFORM_TEX(i.uv0, _OpacityClipMask));
-                float node_5378 = (1.0 - ceil((_OpacityClipMask_var.r+(_DissolveAmount*1.0009+-1.0))));
-                float3 node_9610 = (node_17.rgb*i.vertexColor.rgb*_TempValue*_node_8850*node_5378);
-                float3 emissive = node_9610;
+                float3 emissive = (node_17.rgb*i.vertexColor.rgb*_TempValue*_node_8850*(1.0 - ceil((_OpacityClipMask_var.r+(_DissolveAmount*1.0009+-1.0)))));
                 float3 finalColor = emissive;
-
-
                 return fixed4(finalColor,1);
             }
             ENDCG

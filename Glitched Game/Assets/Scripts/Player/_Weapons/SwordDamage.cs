@@ -16,6 +16,7 @@ public class SwordDamage : MonoBehaviour
         {
             Debug.Log("Hit");
             var enemy = other.GetComponent<IHealthHandler>();
+            
 
             if (enemy != null)
             {
