@@ -5788,6 +5788,28 @@ AnimationClip:
     path: Armature/Bone_Spine_1/Bone_Spine_2/Bone_Spine_3/Bone_Shoulder_L/Bone_Arm_1_L/Bone_Arm_2_L/Bone_Hand_L
     classID: 65
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 3.7916667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: LeftSlamAttack/SlamSmoke (1)
+    classID: 1
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 24
   m_WrapMode: 0
@@ -6025,6 +6047,13 @@ AnimationClip:
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 65
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 588606744
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
@@ -29108,6 +29137,28 @@ AnimationClip:
     attribute: m_Enabled
     path: Armature/Bone_Spine_1/Bone_Spine_2/Bone_Spine_3/Bone_Shoulder_L/Bone_Arm_1_L/Bone_Arm_2_L/Bone_Hand_L
     classID: 65
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      - serializedVersion: 2
+        time: 3.7916667
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: LeftSlamAttack/SlamSmoke (1)
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
