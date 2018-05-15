@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
-	[SerializeField] RecticleAnimation recticleAnimation;
+
 	[SerializeField] UIFader damageImage;
+	[Header("Mobile HUD Properties")]
+	[SerializeField] RecticleAnimation recticleAnimation;
 	[SerializeField] Image healthBar;
-	[SerializeField] Image reticule;
 	[Space(10)]
 	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] GameObject mobilePlayerHUD;
@@ -35,7 +36,6 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		base.Reset();
 		recticleAnimation = GameObject.Find("Reticule").GetComponent<RecticleAnimation>();
 		damageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
-		reticule = GameObject.Find("Reticule").GetComponent<Image>();
 		healthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
 	}
 
@@ -44,7 +44,6 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void Initialize()
 	{
 #if UNITY_ANDROID || UNITY_IOS
-		reticule.enabled = true;
 		mobileControllerObj.SetActive(true);
 		mobilePlayerHUD.SetActive(true);
 #endif
