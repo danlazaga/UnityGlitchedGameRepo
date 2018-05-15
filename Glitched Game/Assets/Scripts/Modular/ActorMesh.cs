@@ -36,7 +36,7 @@ public class ActorMesh : MonoBehaviour
 
 	private void HandleStunMesh(float value)
 	{
-
+		Debug.Log("Play Stun Mesh");
 	}
 
 	IEnumerator PlayHitMesh()
