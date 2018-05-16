@@ -16,6 +16,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	[Space(10)]
 	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] GameObject mobilePlayerHUD;
+	[SerializeField] GameObject htcHUD;
 #endregion
 
 #region Unity Methods
@@ -48,6 +49,8 @@ public class PlayerHUD : Singleton<PlayerHUD>
 #if UNITY_ANDROID || UNITY_IOS
 		mobileControllerObj.SetActive(true);
 		mobilePlayerHUD.SetActive(true);
+#else
+		htcHUD.SetActive(true);
 #endif
 	}
 
