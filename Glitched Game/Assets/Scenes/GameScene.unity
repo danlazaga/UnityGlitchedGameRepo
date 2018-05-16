@@ -275,12 +275,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -847,48 +849,6 @@ MonoBehaviour:
   mobileControllerObj: {fileID: 439892055}
   mobilePlayerHUD: {fileID: 840480029}
   htcHUD: {fileID: 1779257574}
---- !u!1001 &528962095
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.469
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -8.342
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185942485863880, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &530852357
 GameObject:
   m_ObjectHideFlags: 0
