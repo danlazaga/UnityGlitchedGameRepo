@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3074779283
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: mobilematerials
+      Dependencies: {}

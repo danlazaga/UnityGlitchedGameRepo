@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Refraction:
-        m_Texture: {fileID: 2800000, guid: 58492df4e36b65f43b8816bcc4fd49c7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1a376e23917bdf14390e1519cf0031ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

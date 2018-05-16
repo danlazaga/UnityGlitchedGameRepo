@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 1370369863
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 883745e0ebfd9d747dd5fabba16afb4d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6f165f44e4778b6c9d85e7a145a54cb1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Materials/Environment SD/GateMat-mobile.mat
+- Assets/Materials/Environment SD/MainBuildingMat-mobile.mat
+- Assets/Materials/Environment SD/FrontBuildingShader-mobile.mat
+- Assets/Materials/Environment SD/PipeMat-mobile.mat
+- Assets/Materials/Environment SD/PipeMat-mobilr.mat
+- Assets/Materials/Environment SD/TunnelMat-mobile.mat
+- Assets/Materials/Environment SD/TunnelArchMat-mobile.mat
+- Assets/Materials/Environment SD/PropMap-mobile.mat
+- Assets/Materials/Environment SD/FloorMat-mobile.mat
+- Assets/Materials/Environment SD/LightmapShader-mobile.mat
+Dependencies: []
