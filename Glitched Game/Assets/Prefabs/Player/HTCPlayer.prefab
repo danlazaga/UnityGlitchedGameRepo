@@ -532,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1710399986130702
 GameObject:
   m_ObjectHideFlags: 1
@@ -631,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1890846953268740
 GameObject:
   m_ObjectHideFlags: 1
@@ -1837,14 +1837,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.4000001, y: 0.01, z: -1.25}
-  - {x: -1.4000001, y: 0.01, z: -1.25}
-  - {x: -1.4000001, y: 0.01, z: 1.25}
-  - {x: 1.4000001, y: 0.01, z: 1.25}
-  - {x: 1.5900002, y: 0.01, z: -1.44}
-  - {x: -1.5900002, y: 0.01, z: -1.44}
-  - {x: -1.5900002, y: 0.01, z: 1.44}
-  - {x: 1.5900002, y: 0.01, z: 1.44}
+  - {x: 1.4499998, y: 0.01, z: -1.0500002}
+  - {x: -1.4499998, y: 0.01, z: -1.0500002}
+  - {x: -1.4499998, y: 0.01, z: 1.0500002}
+  - {x: 1.4499998, y: 0.01, z: 1.0500002}
+  - {x: 1.6399999, y: 0.01, z: -1.2400002}
+  - {x: -1.6399999, y: 0.01, z: -1.2400002}
+  - {x: -1.6399999, y: 0.01, z: 1.2400002}
+  - {x: 1.6399999, y: 0.01, z: 1.2400002}
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1

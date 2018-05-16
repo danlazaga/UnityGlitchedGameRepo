@@ -1,18 +1,35 @@
 fileFormatVersion: 2
-guid: 463f31b93cc162143b051bfe1ebedf35
-timeCreated: 1526412833
+guid: 108b64f214498464db60d9c29a96d862
+timeCreated: 1526455366
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: lambert1.002
-    2100002: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Screw_MainHull01_Split03.002
+    100000: polySurface2
+    100002: polySurface4
+    100004: polySurface8
+    100006: polySurface9
+    100008: Turret
+    100010: //RootNode
+    400000: polySurface2
+    400002: polySurface4
+    400004: polySurface8
+    400006: polySurface9
+    400008: Turret
+    400010: //RootNode
+    2100000: lambert1
+    2300000: polySurface2
+    2300002: polySurface4
+    2300004: polySurface8
+    2300006: polySurface9
+    3300000: polySurface2
+    3300002: polySurface4
+    3300004: polySurface8
+    3300006: polySurface9
+    4300000: polySurface2
     4300002: polySurface8
+    4300004: polySurface4
+    4300006: polySurface9
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -44,16 +61,16 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
-    importVisibility: 0
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
