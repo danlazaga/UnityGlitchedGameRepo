@@ -2835,6 +2835,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2061510522}
   - component: {fileID: 2061510523}
+  - component: {fileID: 2061510525}
+  - component: {fileID: 2061510524}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Gate
@@ -2870,6 +2872,51 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.63, z: 2.14}
   m_Center: {x: 0.3, y: 0, z: 0}
+--- !u!114 &2061510524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061510521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHTCPlayer: 0
+  maxHealth: 100
+--- !u!114 &2061510525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061510521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 42
+    i1: 182
+    i2: 191
+    i3: 80
+    i4: 248
+    i5: 41
+    i6: 199
+    i7: 196
+    i8: 137
+    i9: 81
+    i10: 178
+    i11: 228
+    i12: 97
+    i13: 162
+    i14: 125
+    i15: 18
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &2096360144
 GameObject:
   m_ObjectHideFlags: 0

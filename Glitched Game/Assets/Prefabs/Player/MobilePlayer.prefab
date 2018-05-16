@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 4185942485863880}
   - component: {fileID: 135478239955136348}
   - component: {fileID: 114558835153011430}
-  - component: {fileID: 114193788409543530}
   - component: {fileID: 114144131091456370}
   - component: {fileID: 114610959906462610}
   - component: {fileID: 114711589183252620}
@@ -547,19 +546,6 @@ MonoBehaviour:
     YSensitivity: 2
     xMinRot: -10
     xMaxRot: 30
---- !u!114 &114193788409543530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1990055828389964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHTCPlayer: 0
-  maxHealth: 100
 --- !u!114 &114278280479294252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,18 +594,7 @@ MonoBehaviour:
   playerMesh: {fileID: 23614288263233146}
   onToggleShared:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114193788409543530}
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: ToggleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   onToggleLocal:
     m_PersistentCalls:
