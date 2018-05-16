@@ -31,11 +31,16 @@ public class BossBulletRainState : CustomConstructor<BossStateController>, IStat
     {
         if (controller.attacks >= controller.maxAttacks + 2)
         {
-            controller.FSM.ChangeState(new BossShieldState(controller));
+            if (controller.Animator.GetBehaviour<MissileStateBehaviour>().IsDurationDone)
+            {
+                controller.FSM.ChangeState(new BossShieldState(controller));
+            }
+            
+
         }
         else
         {
-            if (controller.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.Animator.GetCurrentAnimatorStateInfo(0).length)
+            if (controller.Animator.GetBehaviour<MissileStateBehaviour>().IsDurationDone)
             {
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }

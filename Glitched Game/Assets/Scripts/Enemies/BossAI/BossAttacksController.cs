@@ -5,14 +5,9 @@ using UnityEngine.Networking;
 
 public class BossAttacksController: NetworkBehaviour  {
 
-    //public delegate void LaunchMissile(Transform target);
-    //public delegate void LaunchLaser();
-
-    //[SerializeField] private Collider leftSlamAttack;
-    //[SerializeField] private Collider rightSlamAttack;
-    //[SerializeField] private Collider doubleSlamAttack;
+  
     [SerializeField] private GameObject missile;
-    [SerializeField] private GameObject laser;
+   
     [SerializeField] private GameObject shield;
 
     private BossStateController stateController;
@@ -70,13 +65,7 @@ public class BossAttacksController: NetworkBehaviour  {
         missile.SetActive(true);
     }
 
-    [Command]
-    public void CmdLaunchLaser()
-    {
-        //Laser SetActive
-        laser.SetActive(true);
-        
-    }
+   
 
     [Command]
     public void CmdSpawnShield()
@@ -91,14 +80,6 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         // Missile SetActive
         missile.SetActive(false);
-    }
-
- 
-    public void UnLaunchLaser()
-    {
-        //Laser SetActive
-        laser.SetActive(false);
-
     }
 
    // remove after testing
