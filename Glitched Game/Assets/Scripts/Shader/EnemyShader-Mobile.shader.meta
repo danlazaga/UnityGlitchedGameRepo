@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: cee828d37aafc6640a4fde9edad82121
+timeCreated: 1526410375
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _DamageNoiseTex: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
+  - _MainTex: {fileID: 2800000, guid: aac1974d0be6af048831585a3f0eff2b, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
