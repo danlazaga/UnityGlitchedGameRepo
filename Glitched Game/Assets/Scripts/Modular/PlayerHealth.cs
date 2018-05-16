@@ -21,6 +21,11 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	{
 		health = maxHealth;
 	}
+
+	public override void OnStartClient()
+	{
+		OnHealthChanged(health);
+	}
 #endregion
 
 	[Server]
