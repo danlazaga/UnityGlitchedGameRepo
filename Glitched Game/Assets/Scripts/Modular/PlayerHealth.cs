@@ -7,7 +7,6 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 
 #region Variables
 	[SerializeField] bool isHTCPlayer;
-	[SerializeField] bool isMobilePlayer;
 	[SerializeField] float maxHealth = 100;
 	[SyncVar(hook = "OnHealthChanged")] float health;
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
@@ -61,17 +60,13 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	{
 		health = value;
 
-		if (!isHTCPlayer || !isMobilePlayer)
+		if (!isHTCPlayer)
 		{
 			PlayerHUD.Instance.SetGateHealth(value);
 		}
-		else if (!isMobilePlayer)
+		else 
 		{
 			PlayerHUD.Instance.SetHTCHealth(value);
-		}
-		else
-		{
-			PlayerHUD.Instance.SetMobileHealth(value);
 		}
 	}
 }
