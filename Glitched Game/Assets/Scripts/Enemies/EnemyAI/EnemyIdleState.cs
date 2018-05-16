@@ -7,9 +7,9 @@ public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
 {
     float stunDuration;
 
-    public EnemyIdleState(EnemyStateController controller) : base(controller)
+    public EnemyIdleState(EnemyStateController controller, float stunDuration) : base(controller)
     {
-    
+        this.stunDuration = stunDuration;
     }
 
     public void OnStateEnter()
@@ -26,10 +26,10 @@ public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
 
     public void OnUpdate()
     {
-        //stunDuration -= Time.deltaTime;
-        //if(stunDuration <=  0)
-        //{
-        //    controller.FSM.ChangeState(new EnemyChasePState(controller));
-        //}
+        stunDuration -= Time.deltaTime;
+        if (stunDuration <= 0)
+        {
+            controller.FSM.ChangeState(new EnemyChasePState(controller));
+        }
     }
 }
