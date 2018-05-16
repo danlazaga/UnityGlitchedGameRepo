@@ -12,6 +12,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	[Header("Mobile HUD Properties")]
 	[SerializeField] RecticleAnimation recticleAnimation;
 	[SerializeField] Image healthBar;
+	[SerializeField] Image htcHealthBar;
 	[Space(10)]
 	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] GameObject mobilePlayerHUD;
@@ -37,6 +38,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		recticleAnimation = GameObject.Find("Reticule").GetComponent<RecticleAnimation>();
 		damageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
 		healthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
+		htcHealthBar = GameObject.Find("HTCHealthBar").GetComponent<Image>();
 	}
 
 #endregion
@@ -58,6 +60,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void SetHTCHealth(float value)
 	{
 		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
+		htcHealthBar.fillAmount = lerpedValue;
 	}
 
 	public void FlashDamageEffect()

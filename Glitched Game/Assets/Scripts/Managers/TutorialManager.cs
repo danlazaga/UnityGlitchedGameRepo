@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutoriaManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour
 {
-	[SerializeField] Camera mainCamera;
+	[SerializeField] GameObject mainCamera;
 	[SerializeField] GameObject viveGameObject;
 	[SerializeField] GameObject mobileGameObject;
 	[SerializeField] Transform startPos;
-	[SerializeField] GameObject enemySpawner;
+	[SerializeField] Transform mobileStartPos;
 
 	void Awake() 
 	{
@@ -16,7 +16,10 @@ public class TutoriaManager : MonoBehaviour
 		Instantiate(viveGameObject, startPos.position, startPos.rotation);
 		viveGameObject.SetActive(true);	
 // #elif UNITY_ANDROID || UNITY_IOS
-// 		Instantiate(mobileGameObject, startPos.position, startPos.rotation);	
+// 		Instantiate(mobileGameObject, startPos.position, startPos.rotation);
+//		mobileGameObject.SetActive(true);	
 // #endif
+		mainCamera = Camera.main.gameObject;
+		mainCamera.SetActive(false);
 	}
 }
