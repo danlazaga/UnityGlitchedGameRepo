@@ -24,7 +24,8 @@ Material:
         m_Offset: {x: 0.29, y: 0}
     m_Floats:
     - _Amplitude: 0.026
-    - _BumpAmt: 198
+    - _BumpAmt: 256
     - _Cutoff: 0.5
     - _Frequency: 27
+    - _Opacity: 0.929
     m_Colors: []

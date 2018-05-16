@@ -6,13 +6,14 @@ Shader "FX/Glass/Stained BumpDistort" {
 Properties {
 	_BumpAmt  ("Distortion", range (0,256)) = 10
 	//_MainTex ("Tint Color (RGB)", 2D) = "white" {}
+	_Opacity ("Opacity", range(0,1)) = 0.5
 	_BumpMap ("Normalmap", 2D) = "bump" {}
 }
 
 Category {
 
 	// We must be transparent, so other objects are drawn before this one.
-	Tags { "Queue"="Transparent" "RenderType"="Opaque" }
+	Tags { "Queue"="Transparent" "RenderType"="Transparent" }
 
 
 	SubShader {
@@ -29,7 +30,7 @@ Category {
 		Pass {
 			Name "BASE"
 			Tags { "LightMode" = "Always" }
-			Blend One One
+			Blend SrcAlpha OneMinusSrcAlpha
 			Cull Off
 			
 			
@@ -69,6 +70,7 @@ v2f vert (appdata_t v)
 
 sampler2D _GrabTexture;
 float4 _GrabTexture_TexelSize;
+float _Opacity;
 sampler2D _BumpMap;
 //sampler2D _MainTex;
 
@@ -91,7 +93,7 @@ half4 frag (v2f i) : SV_Target
 	//half4 tint = tex2D(_MainTex, i.uvmain);
 	//col *= tint;
 	//UNITY_APPLY_FOG(i.fogCoord, col);
-	return col;
+	return fixed4(col.rgb,_Opacity); 
 }
 ENDCG
 		}
