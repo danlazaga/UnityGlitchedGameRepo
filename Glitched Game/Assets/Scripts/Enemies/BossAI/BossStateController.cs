@@ -31,7 +31,7 @@ public class BossStateController : StateController
     }
 
 
-    public override void Update()
+    public override void HandleUpdate()
     {
         FSM.StateUpdate();
     }

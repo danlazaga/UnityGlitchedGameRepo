@@ -20,12 +20,23 @@ public class TurretController : MonoBehaviour
         turretLook.Init(transform, turret);
     }
 
-    void Update()
+    private void Start()
+    {
+        UpdateManager.Instance.toUpdate += HandleUpdate;
+    }
+
+    private void OnDestroy()
+    {
+        UpdateManager.Instance.toUpdate -= HandleUpdate;
+    }
+
+#endregion
+
+    void HandleUpdate()
     {
         RotateTurret();
         InputButtons();
     }
-#endregion
 
     void RotateTurret()
     {

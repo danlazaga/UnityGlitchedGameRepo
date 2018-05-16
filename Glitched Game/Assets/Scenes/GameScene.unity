@@ -328,48 +328,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0dee8d20d5dd80241a73d2e5255890ee, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &171349650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 171349651}
-  - component: {fileID: 171349652}
-  m_Layer: 0
-  m_Name: AssetBundleLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &171349651
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 171349650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1025938408}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &171349652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 171349650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10de11fd85a6e0048817c8fb5fcd417b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assetBundleName: mobilematerials
-  assetBundle: {fileID: 0}
 --- !u!114 &311866041 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114442704770305396, guid: 4fae5f123cf6f6a488acbb1a5561639c,
@@ -693,6 +651,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &362933457 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1125270624916284, guid: a04b0e05b95bfda4caf946ae42ef2974,
+    type: 2}
+  m_PrefabInternal: {fileID: 362933456}
+--- !u!114 &362933458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362933457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc9d492c3083c84891e3c113815607c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439892055 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1310084080995242, guid: 84169cb8ffd15244785c5320cfd87d43,
@@ -1653,11 +1627,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -2.4390001, z: 0}
---- !u!4 &1025938408 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4937484519212618, guid: a04b0e05b95bfda4caf946ae42ef2974,
-    type: 2}
-  m_PrefabInternal: {fileID: 362933456}
 --- !u!1 &1036748436
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine;
 public struct PlasmaGunProperties
 {
 	public float weaponRange;
-	public float gunDamage ;
+	public float gunDamage;
 	public float stunDuration;
 }
 
@@ -53,8 +53,21 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 		trackedObj = controllerLeft.GetComponent<SteamVR_TrackedObject>();
 	}
 
-	private void Update()
+	private void Start()
 	{
+		UpdateManager.Instance.toUpdate += HandleUpdate;
+	}
+
+	private void OnDestroy()
+	{
+		UpdateManager.Instance.toUpdate -= HandleUpdate;
+		controller.TriggerClicked -= HandleShoot;
+	}
+#endregion
+
+	private void HandleUpdate()
+	{
+		// Debug.Log("Plasma Gun");
 		CurrentHeat -= Time.deltaTime * gunHeatProperties.coolRate;
 
 		if (CurrentHeat <= 0)
@@ -64,12 +77,6 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 		}
 
 	}
-
-	private void OnDestroy()
-	{
-		controller.TriggerClicked -= HandleShoot;
-	}
-#endregion
 
 	private void HandleShoot(object sender, ClickedEventArgs e)
 	{
