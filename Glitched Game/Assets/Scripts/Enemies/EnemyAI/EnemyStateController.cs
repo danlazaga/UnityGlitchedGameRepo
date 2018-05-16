@@ -55,9 +55,9 @@ public class EnemyStateController : StateController, IStunHandler
 
     public void TakeStun(float duration)
     {
-        StartCoroutine(MobStun(duration));
-
-        if(OnStun != null)
+        //StartCoroutine(MobStun(duration));
+        FSM.ChangeState(new EnemyIdleState(this, duration));
+        if (OnStun != null)
         {
             OnStun(duration);
         }
@@ -73,10 +73,10 @@ public class EnemyStateController : StateController, IStunHandler
         ObjectPool.Instance.ReturnToPool(this.gameObject);
     }
 
-    IEnumerator MobStun(float duration)
-    {
-        FSM.ChangeState(new EnemyIdleState(this));
-        yield return new WaitForSeconds(duration);
-        FSM.ChangeState(new EnemyChasePState(this));
-    }
+    //IEnumerator MobStun(float duration)
+    //{
+    //    FSM.ChangeState(new EnemyIdleState(this));
+    //    yield return new WaitForSeconds(duration);
+    //    FSM.ChangeState(new EnemyChasePState(this));
+    //}
 }

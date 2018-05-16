@@ -12,7 +12,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     public BossShieldState(BossStateController controller) : base(controller)
     {
         shieldTime = 0;
-        maxShieldTime = 10f;
+        maxShieldTime = 15f;
 
     }
 
