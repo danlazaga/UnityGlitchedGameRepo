@@ -15,6 +15,7 @@ public class ShieldBreakerLauncher : WeaponLauncher
 	void CmdShoot()
 	{
 		RpcProcessShotEffects();
+		
 	}
 
 	[ClientRpc]

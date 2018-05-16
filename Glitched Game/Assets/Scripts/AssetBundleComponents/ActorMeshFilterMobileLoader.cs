@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-
+#if UNITY_ANDROID
 public class ActorMeshFilterMobileLoader : MonoBehaviour {
 
     public string assetBundleName;
@@ -73,3 +73,4 @@ public class ActorMeshFilterMobileLoader : MonoBehaviour {
 	}
 
 }
+#endif

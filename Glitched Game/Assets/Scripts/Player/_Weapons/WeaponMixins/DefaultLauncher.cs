@@ -6,6 +6,8 @@ public class DefaultLauncher : WeaponLauncher
 {
 	[Header("Rail Gun Properties")]
 	[SerializeField] float weaponRange;
+
+	[SerializeField] float weaponDamage;
 	[SerializeField] LineRenderer laserLine;
 	[SerializeField] Camera fpsCam;
 	[SerializeField] WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
@@ -33,7 +35,7 @@ public class DefaultLauncher : WeaponLauncher
 			var enemy = hit.transform.GetComponent<IHealthHandler>();
 
 			if (enemy != null)
-				enemy.TakeDamage(1);
+				enemy.TakeDamage(weaponDamage);
 		}
 
 		RpcDrawLine(result, rayOrigin, hit.point);

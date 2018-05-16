@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponEffects: {fileID: 114061761806993388}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 4765463410232814}
 --- !u!114 &114558835153011430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -684,6 +684,7 @@ MonoBehaviour:
   weaponEffects: {fileID: 114061761806993388}
   firePoint: {fileID: 0}
   weaponRange: 25
+  weaponDamage: 0
   laserLine: {fileID: 120577967106254828}
   fpsCam: {fileID: 20333173544638174}
 --- !u!114 &114913872411899952
@@ -885,7 +886,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1804857742
+  randomSeed: -1519226646
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4339,7 +4340,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 94393846
+  randomSeed: 534625484
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18023,7 +18024,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -70548977
+  randomSeed: 119418943
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+#if UNITY_ANDROID
 public class AssetBundleLoadManager : Singleton<AssetBundleLoadManager>
 {
 
@@ -15,3 +16,4 @@ public class AssetBundleLoadManager : Singleton<AssetBundleLoadManager>
 		assetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, assetBundleName));
 	}
 }
+#endif
