@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileAttackBehaviour : MonoBehaviour
+public class MissileBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileBehaviour : StateMachineBehaviour {
+public class MissileStateBehaviour : StateMachineBehaviour {
 
     private bool isDurationDone;
 
