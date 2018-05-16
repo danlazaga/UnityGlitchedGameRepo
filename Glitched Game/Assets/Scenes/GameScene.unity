@@ -275,12 +275,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -1147,6 +1149,46 @@ Prefab:
     - target: {fileID: 4384081757078616, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114142066991800420, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: maxHealth
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979193735270636, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: slamDamage
+      value: 417
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855703445938072, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: slamDamage
+      value: 417
+      objectReference: {fileID: 0}
+    - target: {fileID: 114242591057646388, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: slamDamage
+      value: 577
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429239313567390, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: laserDamage
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 114937755471451570, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: laserDamage
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 114552154714333856, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: missileDamage
+      value: 625
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680445418782756, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: maxHealth
+      value: 25000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
@@ -2976,8 +3018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHTCPlayer: 0
-  maxHealth: 100
+  isHTCPlayer: 1
+  maxHealth: 10000
 --- !u!114 &2061510525
 MonoBehaviour:
   m_ObjectHideFlags: 0

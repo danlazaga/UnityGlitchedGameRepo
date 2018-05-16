@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29533e8244c4bff46a84a341595b389a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 0.91
+  height: 0.82
   time: 0.16
   alwaysUp: 0
   minDistance: 0
@@ -1581,7 +1581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHTCPlayer: 1
-  isMobilePlayer: 0
   maxHealth: 100
 --- !u!114 &114122469499552598
 MonoBehaviour:
@@ -1756,8 +1755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29533e8244c4bff46a84a341595b389a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 0.91
-  time: 0.16
+  height: 0.78
+  time: 0.1
   alwaysUp: 0
   minDistance: 0
   timeTransitionSpeed: 0
@@ -1838,14 +1837,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.4499998, y: 0.01, z: -1.0500002}
-  - {x: -1.4499998, y: 0.01, z: -1.0500002}
-  - {x: -1.4499998, y: 0.01, z: 1.0500002}
-  - {x: 1.4499998, y: 0.01, z: 1.0500002}
-  - {x: 1.6399999, y: 0.01, z: -1.2400002}
-  - {x: -1.6399999, y: 0.01, z: -1.2400002}
-  - {x: -1.6399999, y: 0.01, z: 1.2400002}
-  - {x: 1.6399999, y: 0.01, z: 1.2400002}
+  - {x: 0.5, y: 0.01, z: -0.50000006}
+  - {x: -0.5, y: 0.01, z: -0.50000006}
+  - {x: -0.5, y: 0.01, z: 0.50000006}
+  - {x: 0.5, y: 0.01, z: 0.50000006}
+  - {x: 0.69, y: 0.01, z: -0.69000006}
+  - {x: -0.69, y: 0.01, z: -0.69000006}
+  - {x: -0.69, y: 0.01, z: 0.69000006}
+  - {x: 0.69, y: 0.01, z: 0.69000006}
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1

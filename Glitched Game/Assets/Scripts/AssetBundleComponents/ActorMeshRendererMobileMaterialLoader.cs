@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+#if UNITY_ANDROID
 public class ActorMeshRendererMobileMaterialLoader : MonoBehaviour
 {
 	MeshRenderer meshRenderer;
@@ -64,3 +65,4 @@ public class ActorMeshRendererMobileMaterialLoader : MonoBehaviour
 	}
 
 }
+#endif
