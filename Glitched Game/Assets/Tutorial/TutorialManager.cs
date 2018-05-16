@@ -6,9 +6,10 @@ public class TutorialManager : MonoBehaviour
 {
 	[SerializeField] GameObject mainCamera;
 	[SerializeField] GameObject viveGameObject;
-	[SerializeField] GameObject mobileGameObject;
+	//[SerializeField] GameObject mobileGameObject;
+	[SerializeField] GameObject boss;
 	[SerializeField] Transform startPos;
-	[SerializeField] Transform mobileStartPos;
+	//[SerializeField] Transform mobileStartPos;
 
 	void Awake() 
 	{
@@ -21,5 +22,6 @@ public class TutorialManager : MonoBehaviour
 // #endif
 		mainCamera = Camera.main.gameObject;
 		mainCamera.SetActive(false);
+		boss.GetComponent<TutorialBossAi>().changeState = true;
 	}
 }

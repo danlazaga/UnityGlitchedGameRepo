@@ -16713,10 +16713,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageImage: {fileID: 1438249583}
   recticleAnimation: {fileID: 1438249584}
-  healthBar: {fileID: 1438249581}
+  gateHealthBar: {fileID: 0}
   htcHealthBar: {fileID: 0}
+  mobileHealthBar: {fileID: 0}
   mobileControllerObj: {fileID: 439892055}
   mobilePlayerHUD: {fileID: 840480029}
+  htcHUD: {fileID: 0}
 --- !u!1 &526556899
 GameObject:
   m_ObjectHideFlags: 0
@@ -16807,6 +16809,7 @@ Transform:
   - {fileID: 542243822}
   - {fileID: 905160498}
   - {fileID: 296787851}
+  - {fileID: 1605546339}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20800,7 +20803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c562972d823d1e34f953f1a37e91e0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: {fileID: 1785111756}
+  bossHealth: {fileID: 0}
 --- !u!54 &650265705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28934,10 +28937,8 @@ MonoBehaviour:
   mainCamera: {fileID: 738000895}
   viveGameObject: {fileID: 1468412176499490, guid: 2254131a63dd4814684805850bfb6700,
     type: 2}
-  mobileGameObject: {fileID: 1990055828389964, guid: 00c7dfd8070aed34186b3ee325d54469,
-    type: 2}
+  boss: {fileID: 1785111754}
   startPos: {fileID: 1290582192}
-  mobileStartPos: {fileID: 1664330377}
 --- !u!1 &854182534
 GameObject:
   m_ObjectHideFlags: 0
@@ -29643,7 +29644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c562972d823d1e34f953f1a37e91e0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: {fileID: 1785111756}
+  bossHealth: {fileID: 0}
 --- !u!54 &997168251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59584,6 +59585,34 @@ Transform:
   m_Father: {fileID: 209490502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 9.806322, y: -178.63565, z: -169.19228}
+--- !u!1 &1605546338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1605546339}
+  m_Layer: 0
+  m_Name: LookAt
+  m_TagString: LookAt
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1605546339
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605546338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.317, y: 0.594, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 526556903}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614158347
 GameObject:
   m_ObjectHideFlags: 0
@@ -67259,11 +67288,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1785111755}
   - component: {fileID: 1785111762}
-  - component: {fileID: 1785111761}
-  - component: {fileID: 1785111760}
-  - component: {fileID: 1785111759}
-  - component: {fileID: 1785111758}
-  - component: {fileID: 1785111757}
   - component: {fileID: 1785111756}
   m_Layer: 9
   m_Name: Boss_Animationv2-HD
@@ -67300,119 +67324,20 @@ Transform:
 --- !u!114 &1785111756
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114142066991800420, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1785111754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d4e655543884de78a2f0797c3a0610, type: 3}
+  m_Script: {fileID: 11500000, guid: 99e0ecc48faab0248b4bf5e6b2f2339a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
---- !u!114 &1785111757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114983230309155544, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785111754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 1785111762}
-  m_ParameterSendBits: 127
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
---- !u!114 &1785111758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114536007943910166, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785111754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 134
-    i1: 180
-    i2: 59
-    i3: 27
-    i4: 89
-    i5: 158
-    i6: 149
-    i7: 52
-    i8: 90
-    i9: 23
-    i10: 233
-    i11: 208
-    i12: 192
-    i13: 213
-    i14: 46
-    i15: 26
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &1785111759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114743281927095846, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785111754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
---- !u!114 &1785111760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114782876070845902, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785111754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30174a57401a2e745be94ee7691ba78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missile: {fileID: 740395147}
-  laser: {fileID: 1092461235}
-  shield: {fileID: 1164849360}
---- !u!114 &1785111761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114547930682664784, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785111754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b1200296553e1468312623d64c450f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shieldHealth: {fileID: 25993255}
+  attack: 0
+  maxAttacks: 3
+  curState: 0
+  anim: {fileID: 1785111762}
+  changeState: 0
+  lookAtObj: {fileID: 0}
 --- !u!95 &1785111762
 Animator:
   serializedVersion: 3

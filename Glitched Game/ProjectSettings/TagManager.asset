@@ -9,6 +9,7 @@ TagManager:
   - Enemy_Explosion
   - DefaultBullet
   - PlayAreas
+  - LookAt
   layers:
   - Default
   - TransparentFX

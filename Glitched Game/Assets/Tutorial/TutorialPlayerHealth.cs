@@ -42,7 +42,7 @@ public class TutorialPlayerHealth : MonoBehaviour, IHealthHandler
 		OnHealthChanged(health);
 
 		// Insert hit display effect
-		PlayerHUD.Instance.FlashDamageEffect();
+		//PlayerHUD.Instance.MobileFlashDamageEffect();
 
 		if (died)
 			OnDied();

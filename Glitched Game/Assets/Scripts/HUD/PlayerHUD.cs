@@ -7,13 +7,16 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
-
-	[SerializeField] UIFader damageImage;
-	[Header("Mobile HUD Properties")]
-	[SerializeField] RecticleAnimation recticleAnimation;
-	[SerializeField] Image gateHealthBar;
+	[Header("HTC HUD Properties")]
+	[SerializeField] UIFader htcDamageImage;
+	[SerializeField] Image htcGateHealthBar;
 	[SerializeField] Image htcHealthBar;
-	[SerializeField] Image mobileHealthBar; 
+
+	[Header("Mobile HUD Properties")]
+	[SerializeField] UIFader mobileDamageImage;
+	[SerializeField] RecticleAnimation recticleAnimation;
+	[SerializeField] Image mobileGateHealthBar;
+	[SerializeField] Image mobileHtcHealthBar;
 	[Space(10)]
 	[SerializeField] GameObject mobileControllerObj;
 	[SerializeField] GameObject mobilePlayerHUD;
@@ -38,9 +41,9 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	{
 		base.Reset();
 		recticleAnimation = GameObject.Find("Reticule").GetComponent<RecticleAnimation>();
-		damageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
-		gateHealthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
-		htcHealthBar = GameObject.Find("HTCHealthBar").GetComponent<Image>();
+		mobileDamageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
+		mobileGateHealthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
+		mobileHtcHealthBar = GameObject.Find("HTCHealthBar").GetComponent<Image>();
 	}
 
 #endregion
@@ -58,24 +61,34 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void SetGateHealth(float value)
 	{
 		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
-		gateHealthBar.fillAmount = lerpedValue;
+
+#if UNITY_ANDROID || UNITY_IOS
+		mobileGateHealthBar.fillAmount = lerpedValue;
+#else
+		htcGateHealthBar.fillAmount = lerpedValue;
+#endif
 	}
 
 	public void SetHTCHealth(float value)
 	{
 		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
-		htcHealthBar.fillAmount = lerpedValue;
-	}
+	
 
-	public void SetMobileHealth(float value)
-	{
-		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
-		mobileHealthBar.fillAmount = lerpedValue;
+#if UNITY_ANDROID || UNITY_IOS
+		mobileHtcHealthBar.fillAmount = lerpedValue;
+#else
+		htcHealthBar.fillAmount = lerpedValue;
+#endif
+
 	}
 
 	public void FlashDamageEffect()
 	{
-		damageImage.Flash();
+#if UNITY_ANDROID || UNITY_IOS
+		mobileDamageImage.Flash();
+#else
+		htcDamageImage.Flash();
+#endif
 	}
 
 	public void PlayRecticle()

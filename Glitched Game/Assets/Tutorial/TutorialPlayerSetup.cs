@@ -13,18 +13,9 @@ public class TutorialPlayerSetup : MonoBehaviour
 
 	void Start()
 	{
-		EnableRightHand();
+		rightHand.SetActive(true);
+		leftHand.SetActive(true);
 	}
 
 #endregion
-
-	void EnableRightHand()
-	{
-		rightHand.SetActive(true);
-	}
-
-	void EnableLeftHand()
-	{
-		leftHand.SetActive(true);
-	}
 }

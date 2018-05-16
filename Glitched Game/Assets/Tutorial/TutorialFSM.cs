@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialFSM : MonoBehaviour {
+public class TutorialFSM : MonoBehaviour
+{
+	protected GameObject playerPos;
+	public int attack;
+	public int maxAttacks;
 
-	// Use this for initialization
-	void Start () {
-		
+	protected virtual void Initialize() { }
+	protected virtual void FSMUpdate() { }
+
+	void Start()
+	{
+		Initialize();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void Update()
+	{
+		FSMUpdate();		
 	}
 }
