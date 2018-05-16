@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -28,7 +28,6 @@ public class ActorSkinnedMeshMobileMaterialLoader : MonoBehaviour {
 	}
 	IEnumerator LoadMaterialsFromBundle()
 	{
-		var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, assetBundleName));
 
 		float startTime = Time.realtimeSinceStartup;
 		//char[] instanceString= {'(','M','a','t','e','r','i','a','l',')'};
@@ -49,7 +48,7 @@ public class ActorSkinnedMeshMobileMaterialLoader : MonoBehaviour {
 		for(int j = 0; j < skinnedMeshMaterialsName.Count; j++)
 		{
 			//AssetBundleLoadAssetOperation request = AssetBundleManager.LoadAssetAsync(bundle, convertedMaterialName[j], typeof(Material));
-			var request= myLoadedAssetBundle.LoadAsset<Material>( convertedMaterialName[j]);
+			var request= AssetBundleLoadManager.Instance.assetBundle.LoadAsset<Material>( convertedMaterialName[j]);
 			if (request == null)
 				yield break;
 			
