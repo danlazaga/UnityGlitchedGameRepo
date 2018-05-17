@@ -15,6 +15,8 @@ public class BossStateController : StateController
     public int maxAttacks { get; set; }
     public bool hasShield { get; set; }
 
+    public bool testMode;
+
     public ShieldHealth ShieldHealth
     {
         get
@@ -29,10 +31,11 @@ public class BossStateController : StateController
         base.Awake();
 
         maxAttacks = 1;
+        if (testMode)
+            maxAttacks = 4;
+
         FSM.ChangeState(new BossDisableState(this));
-
         shieldHealth.OnDied += ReturnToIdle;
-
         if(GetComponent<IHealthHandler>() != null)
             GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
     }

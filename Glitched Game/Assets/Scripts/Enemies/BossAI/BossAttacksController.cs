@@ -18,6 +18,10 @@ public class BossAttacksController: NetworkBehaviour  {
         stateController = GetComponent<BossStateController>();
         bossHealth = GetComponent<BossHealth>();
 
+        if(stateController.testMode)
+        {
+            return;
+        }
         bossHealth.UnlockDoubleSlam += UnlockDoubleSlamAttack;
         bossHealth.UnlockLaser += UnlockLaserAttack;
         bossHealth.UnlockMissile += UnlockMissileAttack;
