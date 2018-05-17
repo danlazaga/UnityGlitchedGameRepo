@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d0fff20bdd5ac154d866212a3a5741a8
+timeCreated: 1526552817
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {fileID: 2800000, guid: 61d687ff60e527f49836193096195ca8, type: 3}
+  - _DamageNoiseTex: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
+  - _Emission: {fileID: 2800000, guid: ea27c133265bdcb40a65a0b25ecd70e6, type: 3}
+  - _NormalMap: {fileID: 2800000, guid: ddb0d502a41ab9b4c9de7fee938edc75, type: 3}
+  - _Occlusion: {fileID: 2800000, guid: edfc42f1cb2677b40b7df2296641d810, type: 3}
+  - _MetallicMap: {fileID: 2800000, guid: ad4d155eeb40b0243b626a9b5b19af87, type: 3}
+  - _node_7077: {fileID: 2800000, guid: bbe85db2f82fe604084455e03c6794c3, type: 3}
+  - _node_4382: {fileID: 2800000, guid: 271f5ee3273dd7f4fae6e204d4f8c4bf, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
