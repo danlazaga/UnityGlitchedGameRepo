@@ -10,7 +10,7 @@ public class GameOverScene : MonoBehaviour
 
     public void LoadMenu()
     {
-        
+		SceneManager.LoadSceneAsync ("GameScene");
     }
 
 }

@@ -6,8 +6,6 @@ using UnityEngine.Networking;
 public class BossAttacksController: NetworkBehaviour  {
 
   
-    [SerializeField] private GameObject missile;
-   
     [SerializeField] private GameObject shield;
 
     private BossStateController stateController;
@@ -62,12 +60,12 @@ public class BossAttacksController: NetworkBehaviour  {
 
 
 #region SpawnAttacks
-    [Command]
-    public void CmdLaunchMissile()
-    {
-        // Missile SetActive
-        missile.SetActive(true);
-    }
+    //[Command]
+    //public void CmdLaunchMissile()
+    //{
+    //    // Missile SetActive
+    //    missile.SetActive(true);
+    //}
 
    
 
