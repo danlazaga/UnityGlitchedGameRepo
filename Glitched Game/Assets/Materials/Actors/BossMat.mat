@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BossMat
-  m_Shader: {fileID: 4800000, guid: f7d304f72420a744eaf437c8b996f071, type: 3}
+  m_Shader: {fileID: 4800000, guid: d0fff20bdd5ac154d866212a3a5741a8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -91,7 +91,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlbedoIntensity: 1.89
+    - _AlbedoIntensity: 1.42
     - _BumpScale: 1
     - _ColorIntensity: 0
     - _Cutoff: 0.5
@@ -99,7 +99,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DissolveAmount: 1.5
     - _DstBlend: 0
-    - _EmissionIntensity: 0.431
+    - _EmissionIntensity: 1
     - _FresnelValue: 0.43
     - _Gloss: 0.8
     - _GlossIntensity: 1
@@ -108,11 +108,12 @@ Material:
     - _GlossyReflections: 1
     - _GlowToggle: 0
     - _Metallic: 0
-    - _MetallicIntensity: 0.11
+    - _MetallicIntensity: 1
     - _Mode: 0
     - _NoiseIntensity: 2.582609
     - _NoisePanSpeed: 1.014065
-    - _OcclusionIntensity: 3.66
+    - _NormalIntensity: 1
+    - _OcclusionIntensity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
