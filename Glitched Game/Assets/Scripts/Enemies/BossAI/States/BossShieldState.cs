@@ -12,7 +12,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     public BossShieldState(BossStateController controller) : base(controller)
     {
         shieldTime = 0;
-        maxShieldTime = 15f;
+        maxShieldTime = 25f;
 
     }
 
@@ -27,6 +27,9 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
     public void OnStateExit()
     {
         controller.Animator.SetBool(Animator.StringToHash("Shield"), false);
+
+        //play testing only
+        controller.ShieldHealth.gameObject.SetActive(false);
         controller.hasShield = false;
     }
 

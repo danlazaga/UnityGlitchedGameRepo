@@ -15,6 +15,15 @@ public class BossStateController : StateController
     public int maxAttacks { get; set; }
     public bool hasShield { get; set; }
 
+    public ShieldHealth ShieldHealth
+    {
+        get
+        {
+            return shieldHealth;
+        }
+
+    }
+
     public override void Awake()
     {
         base.Awake();
@@ -24,12 +33,14 @@ public class BossStateController : StateController
 
         shieldHealth.OnDied += ReturnToIdle;
 
-        GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
+        if(GetComponent<IHealthHandler>() != null)
+            GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
     }
 
     private void OnDestroy()
     {
         shieldHealth.OnDied -= ReturnToIdle;
+        GetComponent<IHealthHandler>().OnDied -= HandleBossDeath;
     }
 
 
