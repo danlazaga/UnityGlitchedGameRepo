@@ -11,14 +11,14 @@ public class NetworkSpawnPosition : MonoBehaviour
 	public Transform GetSpawnPositions()
 	{
 		// first remove any dead transforms
-		// if (spawnPositions.Count > 0)
-		// {
-		// 	for (int i = spawnPositions.Count - 1; i >= 0; i--)
-		// 	{
-		// 		if (spawnPositions[i] == null)
-		// 			spawnPositions.RemoveAt(i);
-		// 	}
-		// }
+		if (spawnPositions.Count > 0)
+		{
+			for (int i = spawnPositions.Count - 1; i >= 0; i--)
+			{
+				if (spawnPositions[i] == null)
+					spawnPositions.RemoveAt(i);
+			}
+		}
 
 		// if (ModifiedNetworkManager.Instance.playerSpawnMethod == PlayerSpawnMethod.Random && spawnPositions.Count > 0)
 		// {
