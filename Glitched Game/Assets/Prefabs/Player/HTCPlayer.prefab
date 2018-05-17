@@ -232,10 +232,10 @@ GameObject:
   - component: {fileID: 114717810366348574}
   - component: {fileID: 114797184036088332}
   - component: {fileID: 114695199143410126}
-  - component: {fileID: 114105938196739398}
   - component: {fileID: 114270081202997954}
   - component: {fileID: 23191952187378904}
   - component: {fileID: 33947254141166124}
+  - component: {fileID: 114711173077034084}
   m_Layer: 8
   m_Name: HTCPlayer
   m_TagString: Player
@@ -412,7 +412,8 @@ GameObject:
   - component: {fileID: 20847562912013548}
   - component: {fileID: 124967083126645946}
   - component: {fileID: 65596691602401784}
-  - component: {fileID: 114122469499552598}
+  - component: {fileID: 54277913978923462}
+  - component: {fileID: 114971188199322040}
   m_Layer: 8
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -1451,6 +1452,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468412176499490}
   m_Mesh: {fileID: 0}
+--- !u!54 &54277913978923462
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591768434058962}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54471357038892692
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1569,33 +1585,6 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
---- !u!114 &114105938196739398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1468412176499490}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHTCPlayer: 1
-  maxHealth: 100
---- !u!114 &114122469499552598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1591768434058962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4363282566083696}
-  _ears: {fileID: 4397621353167640}
-  wireframe: 0
 --- !u!114 &114130311963946452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1799,7 +1788,7 @@ MonoBehaviour:
   weaponEffects: {fileID: 114651597377884940}
   plasmaGunProperties:
     weaponRange: 20
-    gunDamage: 100
+    gunDamage: 120
     stunDuration: 1
   gunHeatProperties:
     maxHeat: 10
@@ -1845,6 +1834,19 @@ MonoBehaviour:
   - {x: -0.69, y: 0.01, z: -0.69000006}
   - {x: -0.69, y: 0.01, z: 0.69000006}
   - {x: 0.69, y: 0.01, z: 0.69000006}
+--- !u!114 &114711173077034084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468412176499490}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHTCPlayer: 1
+  maxHealth: 100
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1860,7 +1862,7 @@ MonoBehaviour:
   onToggleShared:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114105938196739398}
+      - m_Target: {fileID: 114711173077034084}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -1925,7 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordEffects: {fileID: 114839888824936340}
-  damage: 100
+  damage: 1650
 --- !u!114 &114797184036088332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2043,6 +2045,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 65377517084071980}
   rightController: {fileID: 1434766568387320}
+--- !u!114 &114971188199322040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591768434058962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4363282566083696}
+  _ears: {fileID: 4397621353167640}
+  wireframe: 0
 --- !u!114 &114980293090556728
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ public class GateHealth : NetworkBehaviour  {
     void OnEnable()
     {
         health = maxHealth;
+		OnDied += OnDeath;
     }
 
     public override void OnStartClient()
@@ -69,5 +70,11 @@ public class GateHealth : NetworkBehaviour  {
 
         
     }
+
+	void OnDeath()
+	{
+		Debug.Log ("Gate Destroyed");
+		GameManager.Instance.GameOverScreen();
+	}
 }
 

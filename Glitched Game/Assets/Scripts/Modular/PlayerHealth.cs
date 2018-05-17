@@ -6,7 +6,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 {
 
 #region Variables
-	[SerializeField] bool isHTCPlayer;
+	//[SerializeField] bool isHTCPlayer;
 	[SerializeField] float maxHealth = 100;
 	[SyncVar(hook = "OnHealthChanged")] float health;
 	public event Action<float> OnHPPctChanged = delegate(float f) { };
@@ -20,6 +20,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	void OnEnable()
 	{
 		health = maxHealth;
+		OnDied += OnDeath;
 	}
 
 	public override void OnStartClient()
@@ -64,14 +65,14 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	void OnHealthChanged(float value)
 	{
 		health = value;
+		PlayerHUD.Instance.SetHTCHealth(value);
 
-		if (!isHTCPlayer)
-		{
-			PlayerHUD.Instance.SetGateHealth(value);
-		}
-		else 
-		{
-			PlayerHUD.Instance.SetHTCHealth(value);
-		}
+
+	}
+
+	void OnDeath()
+	{
+		Debug.Log ("Player Death");
+		GameManager.Instance.GameOverScreen();
 	}
 }

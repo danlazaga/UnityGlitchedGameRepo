@@ -18,10 +18,16 @@ public class OnSlamDamage : MonoBehaviour{
     {
         if(other.gameObject.layer == PLAYER_MASK)
         {
-            if(other.GetComponent<IHealthHandler>() != null)
-            {
-                other.GetComponent<IHealthHandler>().TakeDamage(slamDamage);
-            }
+//            if(other.GetComponent<IHealthHandler>() != null)
+//            {
+//                other.GetComponent<IHealthHandler>().TakeDamage(slamDamage);
+//            }			
+			PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
+			if(myHealth != null)
+			{
+				myHealth.TakeDamage(slamDamage);
+			}
+
         }
     }
 

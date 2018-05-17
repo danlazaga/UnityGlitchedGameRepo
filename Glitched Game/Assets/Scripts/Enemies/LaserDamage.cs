@@ -10,14 +10,13 @@ public class LaserDamage : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8)
+		if (other.gameObject.layer == PLAYER_MASK)
         {
-            PlayerHealth health = other.GetComponent<PlayerHealth>();
-
-            if(health != null)
-            {
-                health.TakeDamage(laserDamage);
-            }
+			PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
+			if(myHealth != null)
+			{
+				myHealth.TakeDamage(laserDamage);
+			}
         }
     }
 }
