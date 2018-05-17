@@ -36,6 +36,12 @@ public class BossStateController : StateController
         FSM.StateUpdate();
     }
 
+
+    public void HandleBossDeath()
+    {
+        FSM.ChangeState(new BossDeathState(this));
+    }
+
     // return to idle if shield Breaks
     public void ReturnToIdle()
     {

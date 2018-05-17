@@ -741,13 +741,15 @@ GameObject:
   - component: {fileID: 4706020632450170}
   - component: {fileID: 33337119166009018}
   - component: {fileID: 23005110562789776}
+  - component: {fileID: 114467293815027922}
+  - component: {fileID: 114137469800622282}
   m_Layer: 0
   m_Name: Missile-R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1334745253047614
 GameObject:
   m_ObjectHideFlags: 1
@@ -901,13 +903,15 @@ GameObject:
   - component: {fileID: 4066568062188674}
   - component: {fileID: 33021407445049514}
   - component: {fileID: 23393851860127060}
+  - component: {fileID: 114885910320376884}
+  - component: {fileID: 114611265566699288}
   m_Layer: 0
   m_Name: Missile-L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1416137662474516
 GameObject:
   m_ObjectHideFlags: 1
@@ -5091,6 +5095,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114137469800622282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1329931492853198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3c4fd1c677dc44abe4848c58c08eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 0}
 --- !u!114 &114142066991800420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5102,7 +5118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d4e655543884de78a2f0797c3a0610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 100000
 --- !u!114 &114242591057646388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5114,7 +5130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff68f6e2fc0be41a6bfd1825c3b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slamDamage: 50
+  slamDamage: 577
 --- !u!114 &114429239313567390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5126,7 +5142,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48167bf673465ad419fb278c6421bbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserDamage: 50
+  laserDamage: 340
+--- !u!114 &114467293815027922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1329931492853198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b4cee08e57dfd4682daa8950b7bd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileDamage: 0
 --- !u!114 &114536007943910166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5182,7 +5210,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b4cee08e57dfd4682daa8950b7bd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDamage: 0
+  missileDamage: 625
+--- !u!114 &114611265566699288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412960134913528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3c4fd1c677dc44abe4848c58c08eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 0}
 --- !u!114 &114680445418782756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5194,7 +5234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd22449300500b4eaad982ad9dce9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 25000
 --- !u!114 &114743281927095846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5228,7 +5268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 1274351638861584}
-  laser: {fileID: 1976211449500946}
   shield: {fileID: 1912428747440694}
 --- !u!114 &114855703445938072
 MonoBehaviour:
@@ -5241,7 +5280,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff68f6e2fc0be41a6bfd1825c3b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slamDamage: 50
+  slamDamage: 417
+--- !u!114 &114885910320376884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412960134913528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b4cee08e57dfd4682daa8950b7bd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileDamage: 0
 --- !u!114 &114890179372617780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5277,7 +5328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48167bf673465ad419fb278c6421bbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserDamage: 50
+  laserDamage: 340
 --- !u!114 &114979193735270636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5289,7 +5340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff68f6e2fc0be41a6bfd1825c3b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slamDamage: 50
+  slamDamage: 417
 --- !u!114 &114983230309155544
 MonoBehaviour:
   m_ObjectHideFlags: 1
