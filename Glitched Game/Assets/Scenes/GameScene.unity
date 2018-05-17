@@ -1584,6 +1584,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1412960134913528, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329931492853198, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467293815027922, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: missileDamage
+      value: 625
+      objectReference: {fileID: 0}
+    - target: {fileID: 114885910320376884, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+        type: 2}
+      propertyPath: missileDamage
+      value: 625
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
   m_IsPrefabParent: 0

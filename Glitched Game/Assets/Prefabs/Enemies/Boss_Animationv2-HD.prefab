@@ -749,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1334745253047614
 GameObject:
   m_ObjectHideFlags: 1
@@ -911,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1416137662474516
 GameObject:
   m_ObjectHideFlags: 1
@@ -5154,7 +5154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b4cee08e57dfd4682daa8950b7bd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDamage: 0
+  missileDamage: 625
 --- !u!114 &114536007943910166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5292,7 +5292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b4cee08e57dfd4682daa8950b7bd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDamage: 0
+  missileDamage: 625
 --- !u!114 &114890179372617780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5386,7 +5386,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bf674ebcaf407d944a25dfa6e857aeeb, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 116bbfb702659734eb1cc4a8f4a44ba2, type: 2}
   - {fileID: 2100000, guid: 045142b5aa52b904d98a4bb7c5d70128, type: 2}
   m_StaticBatchInfo:

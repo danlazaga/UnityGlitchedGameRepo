@@ -23,6 +23,8 @@ public class BossStateController : StateController
         FSM.ChangeState(new BossDisableState(this));
 
         shieldHealth.OnDied += ReturnToIdle;
+
+        GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
     }
 
     private void OnDestroy()
