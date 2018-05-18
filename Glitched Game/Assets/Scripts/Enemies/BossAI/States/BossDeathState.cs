@@ -11,16 +11,16 @@ public class BossDeathState : CustomConstructor<BossStateController>, IState
 
     public void OnStateEnter()
     {
-        throw new NotImplementedException();
+        controller.Animator.SetTrigger("Death");
     }
 
     public void OnStateExit()
     {
-        throw new NotImplementedException();
+       
     }
 
     public void OnUpdate()
     {
-        throw new NotImplementedException();
+        
     }
 }

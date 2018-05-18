@@ -14,17 +14,29 @@ public class SwordBehaviour : MonoBehaviour
 	{
 		trackedObject = rightController.GetComponent<SteamVR_TrackedObject>();
 	}
-	// Update is called once per frame
-	void Update()
+
+	private void Start()
 	{
+		UpdateManager.Instance.toUpdate += HandleUpdate;
+	}
+
+	private void OnDestroy()
+	{
+		UpdateManager.Instance.toUpdate -= HandleUpdate;
+	}
+
+	// Update is called once per frame
+	void HandleUpdate()
+	{
+		// Debug.Log("Sword Behaviour");
 		device = SteamVR_Controller.Input((int)trackedObject.index);
 		var velocity = device.velocity.magnitude;
 
-		if(velocity > 2f)
+		if (velocity > 2f)
 		{
 			hitBox.enabled = true;
 		}
-		else if(velocity < 2f)
+		else if (velocity < 2f)
 		{
 			hitBox.enabled = false;
 		}

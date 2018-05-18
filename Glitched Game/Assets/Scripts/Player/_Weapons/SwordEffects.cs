@@ -14,8 +14,19 @@ public class SwordEffects : MonoBehaviour
 		impactParticles.Play();
 	}
 
-	void Update()
+	private void Start()
 	{
+		UpdateManager.Instance.toUpdate += HandleUpdate;
+	}
+
+	private void OnDestroy()
+	{
+		UpdateManager.Instance.toUpdate -= HandleUpdate;
+	}
+
+	void HandleUpdate()
+	{
+		// Debug.Log("Sword Effects");
 		weaponTrail.Iterate(Time.time);
 		refractionTrail.Iterate(Time.time);
 		weaponTrail.UpdateTrail(Time.time, 0f);

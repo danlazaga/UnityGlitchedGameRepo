@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -24,6 +25,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
     private void OnEnable()
     {
         health = maxHealth;
+        OnDied += SetToDestroy;
     }
 #endregion
 
@@ -82,7 +84,22 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
     {
         if(Input.GetButtonDown("Jump"))
         {
-            TakeDamage(10);
+            TakeDamage(100);
         }
     }
+
+    void SetToDestroy()
+    {
+        StartCoroutine(OnDeathEvent());
+    }
+
+    IEnumerator OnDeathEvent()
+    {
+        yield return new WaitForSeconds(10.0f);
+
+        // open victory screen
+		GameManager.Instance.GameOverScreen();
+    }
+
+    
 }

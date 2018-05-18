@@ -6,8 +6,6 @@ using UnityEngine.Networking;
 public class BossAttacksController: NetworkBehaviour  {
 
   
-    [SerializeField] private GameObject missile;
-   
     [SerializeField] private GameObject shield;
 
     private BossStateController stateController;
@@ -18,6 +16,10 @@ public class BossAttacksController: NetworkBehaviour  {
         stateController = GetComponent<BossStateController>();
         bossHealth = GetComponent<BossHealth>();
 
+        if(stateController.testMode)
+        {
+            return;
+        }
         bossHealth.UnlockDoubleSlam += UnlockDoubleSlamAttack;
         bossHealth.UnlockLaser += UnlockLaserAttack;
         bossHealth.UnlockMissile += UnlockMissileAttack;
@@ -58,12 +60,12 @@ public class BossAttacksController: NetworkBehaviour  {
 
 
 #region SpawnAttacks
-    [Command]
-    public void CmdLaunchMissile()
-    {
-        // Missile SetActive
-        missile.SetActive(true);
-    }
+    //[Command]
+    //public void CmdLaunchMissile()
+    //{
+    //    // Missile SetActive
+    //    missile.SetActive(true);
+    //}
 
    
 
@@ -76,12 +78,7 @@ public class BossAttacksController: NetworkBehaviour  {
 
 
 #endregion
-    public void UnLaunchMissile()
-    {
-        // Missile SetActive
-        missile.SetActive(false);
-    }
-
+   
    // remove after testing
     public void DeSpawnShield()
     {

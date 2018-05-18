@@ -19,8 +19,6 @@ public class ShieldHealth :NetworkBehaviour , IHealthHandler
         OnDied += OnShieldDestroy;
     }
 
-
-
     [Server]
     public void TakeDamage(float amount)
     {

@@ -41,13 +41,14 @@ public class EnemyStateController : StateController, IStunHandler
         GetComponent<Collider>().enabled = true;
     }
 
+
     public void SetTargets(Transform player, Transform gate)
     {
         this.player = player;
         this.gate = gate;
     }
 
-    public override void Update()
+    public override void HandleUpdate()
     {
         if (player != null && gate != null)
             FSM.StateUpdate();

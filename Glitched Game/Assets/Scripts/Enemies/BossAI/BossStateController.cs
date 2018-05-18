@@ -15,25 +15,47 @@ public class BossStateController : StateController
     public int maxAttacks { get; set; }
     public bool hasShield { get; set; }
 
+    public bool testMode;
+
+    public ShieldHealth ShieldHealth
+    {
+        get
+        {
+            return shieldHealth;
+        }
+
+    }
+
     public override void Awake()
     {
         base.Awake();
 
         maxAttacks = 1;
-        FSM.ChangeState(new BossDisableState(this));
+        if (testMode)
+            maxAttacks = 4;
 
+        FSM.ChangeState(new BossDisableState(this));
         shieldHealth.OnDied += ReturnToIdle;
+        if(GetComponent<IHealthHandler>() != null)
+            GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
     }
 
     private void OnDestroy()
     {
         shieldHealth.OnDied -= ReturnToIdle;
+        GetComponent<IHealthHandler>().OnDied -= HandleBossDeath;
     }
 
 
-    public override void Update()
+    public override void HandleUpdate()
     {
         FSM.StateUpdate();
+    }
+
+
+    public void HandleBossDeath()
+    {
+        FSM.ChangeState(new BossDeathState(this));
     }
 
     // return to idle if shield Breaks
