@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1370369863
+CRC: 973557985
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 883745e0ebfd9d747dd5fabba16afb4d
+    Hash: c86daf65a6f6641c5ecdf68a45f769f4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6f165f44e4778b6c9d85e7a145a54cb1
@@ -17,13 +17,18 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Materials/Environment SD/GateMat-mobile.mat
+- Assets/Materials/Actors SD/Shader Forge_BossHairShader-mobile.mat
 - Assets/Materials/Environment SD/MainBuildingMat-mobile.mat
+- Assets/Materials/Actors SD/TurretBody-mobile.mat
 - Assets/Materials/Environment SD/FrontBuildingShader-mobile.mat
 - Assets/Materials/Environment SD/PipeMat-mobile.mat
 - Assets/Materials/Environment SD/PipeMat-mobilr.mat
 - Assets/Materials/Environment SD/TunnelMat-mobile.mat
 - Assets/Materials/Environment SD/TunnelArchMat-mobile.mat
+- Assets/Materials/Actors SD/BossEyeShader-mobile.mat
 - Assets/Materials/Environment SD/PropMap-mobile.mat
+- Assets/Materials/Actors SD/BossMat-mobile.mat
+- Assets/Materials/Actors SD/EnemyMat_v1-mobile.mat
 - Assets/Materials/Environment SD/FloorMat-mobile.mat
 - Assets/Materials/Environment SD/LightmapShader-mobile.mat
 Dependencies: []
