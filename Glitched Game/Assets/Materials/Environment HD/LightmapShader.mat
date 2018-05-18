@@ -30,7 +30,7 @@ Material:
     - _AmbientMovingLightIntensity: 0.5
     - _AmbientPanSpeed: 0.3
     - _ArchMovingLightIntensity: 2.2
-    - _ArchPanSpeed: 0.2
+    - _ArchPanSpeed: 0.136
     - _Gloss: 0.8
     - _Metallic: 0
     - _StaticLightIntensity: 8.6
