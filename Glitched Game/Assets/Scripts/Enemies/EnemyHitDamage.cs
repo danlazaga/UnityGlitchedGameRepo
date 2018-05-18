@@ -6,7 +6,7 @@ public class EnemyHitDamage : MonoBehaviour {
 
     [SerializeField] private float damage;
 
-    private const int PLAYER_MASK = 9;
+    private const int PLAYER_MASK = 8;
 
     private void OnTriggerEnter(Collider other)
     {

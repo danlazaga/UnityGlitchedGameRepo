@@ -12,6 +12,7 @@ public class LaserDamage : MonoBehaviour {
     {
 		if (other.gameObject.layer == PLAYER_MASK)
         {
+            Debug.Log("isHit");
 			PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
 			if(myHealth != null)
 			{

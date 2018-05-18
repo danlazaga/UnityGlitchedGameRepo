@@ -39,6 +39,7 @@ public class EnemyStateController : StateController, IStunHandler
         }
 
         GetComponent<Collider>().enabled = true;
+    
     }
 
 

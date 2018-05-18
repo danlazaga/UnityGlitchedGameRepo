@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
+public class EnemyIdleState : CustomConstructor<EnemyStateController>, IState
 {
     float stunDuration;
 
-    public EnemyIdleState(EnemyStateController controller, float stunDuration) : base(controller)
+    public EnemyIdleState(EnemyStateController controller, float stunDuration): base(controller)
     {
         this.stunDuration = stunDuration;
     }
@@ -15,12 +15,14 @@ public class EnemyIdleState: CustomConstructor<EnemyStateController>, IState
     public void OnStateEnter()
     {
         Debug.Log("Enter Idle");
+        controller.NavAgent.isStopped = true;
         controller.Animator.SetBool(Animator.StringToHash("Idle"), true);
     }
 
     public void OnStateExit()
     {
         controller.Animator.SetBool(Animator.StringToHash("Idle"), false);
+        controller.NavAgent.isStopped = false;
         Debug.Log("Exit Idle");
     }
 

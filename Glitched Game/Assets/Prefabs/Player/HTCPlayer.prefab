@@ -733,7 +733,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434766568387320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543096983012388}
@@ -1504,7 +1504,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Size: {x: 0.5, y: 2.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65857413497408320
 BoxCollider:
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   plasmaGunProperties:
     weaponRange: 20
     gunDamage: 120
-    stunDuration: 1
+    stunDuration: 2
   gunHeatProperties:
     maxHeat: 10
     coolRate: 1.1
@@ -1826,14 +1826,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 0.5, y: 0.01, z: -0.50000006}
-  - {x: -0.5, y: 0.01, z: -0.50000006}
-  - {x: -0.5, y: 0.01, z: 0.50000006}
-  - {x: 0.5, y: 0.01, z: 0.50000006}
-  - {x: 0.69, y: 0.01, z: -0.69000006}
-  - {x: -0.69, y: 0.01, z: -0.69000006}
-  - {x: -0.69, y: 0.01, z: 0.69000006}
-  - {x: 0.69, y: 0.01, z: 0.69000006}
+  - {x: 1.3499999, y: 0.01, z: -1.0000002}
+  - {x: -1.3499999, y: 0.01, z: -1.0000002}
+  - {x: -1.3499999, y: 0.01, z: 1.0000002}
+  - {x: 1.3499999, y: 0.01, z: 1.0000002}
+  - {x: 1.54, y: 0.01, z: -1.1900003}
+  - {x: -1.54, y: 0.01, z: -1.1900003}
+  - {x: -1.54, y: 0.01, z: 1.1900003}
+  - {x: 1.54, y: 0.01, z: 1.1900003}
 --- !u!114 &114711173077034084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1845,8 +1845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9774046ba510c9a45b804f78f6410f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHTCPlayer: 1
-  maxHealth: 100
+  maxHealth: 7500
 --- !u!114 &114717810366348574
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,7 +14,7 @@ public class BossIdleState : CustomConstructor<BossStateController>, IState
     public BossIdleState(BossStateController controller) : base(controller)
     {
         idleMode = true;
-        maxIdleTime = 5f;
+        maxIdleTime = 3f;
         idleTime = 0;
     }
 

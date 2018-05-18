@@ -66,7 +66,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	{
 		health = value;
 		PlayerHUD.Instance.SetHTCHealth(value);
-
+		
 
 	}
 

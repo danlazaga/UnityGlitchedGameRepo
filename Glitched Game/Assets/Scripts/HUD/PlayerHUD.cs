@@ -72,27 +72,28 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void SetHTCHealth(float value)
 	{
 		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
-	
 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileHtcHealthBar.fillAmount = lerpedValue;
 #else
-		htcHealthBar.fillAmount = lerpedValue;
+		htcHealthBar.fillAmount = (value / 7500); //Mathf.Clamp01(value); //lerpedValue;
+		// Debug.Log(value / 7500);
+		// Debug.Log(htcHealthBar.fillAmount);
 #endif
 
-	}
+}
 
-	public void FlashDamageEffect()
-	{
+public void FlashDamageEffect()
+{
 #if UNITY_ANDROID || UNITY_IOS
-		mobileDamageImage.Flash();
+	mobileDamageImage.Flash();
 #else
-		htcDamageImage.Flash();
+	htcDamageImage.Flash();
 #endif
-	}
+}
 
-	public void PlayRecticle()
-	{
-		recticleAnimation.RecticlePlay();
-	}
+public void PlayRecticle()
+{
+	recticleAnimation.RecticlePlay();
+}
 }

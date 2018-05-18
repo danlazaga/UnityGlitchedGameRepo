@@ -34,10 +34,10 @@ public class EnemySpawner : NetworkBehaviour
     public override void OnStartServer()
     {
         maxWaveAmount = 5;
-        maxSpawnRate = 10f;
+        maxSpawnRate = 5f;
 
-        minAddSpawn = 1;
-        maxAddSpawn = 3;
+        minAddSpawn = 4;
+        maxAddSpawn = 9;
 
         HandleStartSpawn();
     }
