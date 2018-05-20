@@ -27,13 +27,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientMovingLightIntensity: 0.5
+    - _AmbientMovingLightIntensity: 4.4
     - _AmbientPanSpeed: 0.3
-    - _ArchMovingLightIntensity: 2.2
+    - _ArchMovingLightIntensity: 2.9
     - _ArchPanSpeed: 0.136
     - _Gloss: 0.8
     - _Metallic: 0
-    - _StaticLightIntensity: 4.7
+    - _StaticLightIntensity: 28.7
     m_Colors:
     - _AmbientTint: {r: 0.49264705, g: 0.95801216, b: 1, a: 1}
     - _ArchTint: {r: 1, g: 0.051470578, b: 0.97383386, a: 1}
