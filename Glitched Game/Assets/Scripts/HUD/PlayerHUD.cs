@@ -62,10 +62,12 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	public void SetGateHealth(float value)
 	{
+		float lerpedValue = (((value - 0)* 1 / 10000)+ 0);
+
 #if UNITY_ANDROID || UNITY_IOS
-		mobileGateHealthBar.fillAmount = (value / 10000);
+		mobileGateHealthBar.fillAmount = lerpedValue;
 #else
-		htcGateHealthBar.fillAmount = (value / 10000);
+		htcGateHealthBar.fillAmount = lerpedValue;
 #endif
 	}
 

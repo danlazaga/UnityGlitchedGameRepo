@@ -1,37 +1,34 @@
-﻿using System.Collections;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class GateHealth : NetworkBehaviour  {
-
-   
+public class GateHealth : NetworkBehaviour, IHealthHandler
+{
 
     [SerializeField] float maxHealth = 100;
     [SyncVar(hook = "OnHealthChanged")] float health;
-    public event Action<float> OnHPPctChanged = delegate (float f) { };
+    public event Action<float> OnHPPctChanged = delegate(float f) { };
     public event Action OnDied = delegate { };
 
-
-
-    #region Unity Methods
+#region Unity Methods
 
     [ServerCallback]
     void OnEnable()
     {
         health = maxHealth;
-		OnDied += OnDeath;
+        OnDied += OnDeath;
     }
 
     public override void OnStartClient()
     {
         OnHealthChanged(health);
     }
-    #endregion
+#endregion
 
     [Server]
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
         bool died = false;
 
@@ -39,13 +36,15 @@ public class GateHealth : NetworkBehaviour  {
             throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
 
         if (health <= 0)
-            return;
+            return died;
 
         health -= amount;
 
         died = health <= 0;
 
         RpcTakeDamage(died);
+
+        return died;
     }
 
     [ClientRpc]
@@ -54,10 +53,7 @@ public class GateHealth : NetworkBehaviour  {
         OnHPPctChanged(health);
 
         // Insert hit display effect
-        if (isLocalPlayer)
-        {
-            PlayerHUD.Instance.FlashDamageEffect();
-        }
+        PlayerHUD.Instance.FlashDamageEffect();
 
         if (died)
             OnDied();
@@ -68,13 +64,11 @@ public class GateHealth : NetworkBehaviour  {
         health = value;
         PlayerHUD.Instance.SetGateHealth(value);
 
-        
     }
 
-	void OnDeath()
-	{
-		Debug.Log ("Gate Destroyed");
-		GameManager.Instance.GameOverScreen();
-	}
+    void OnDeath()
+    {
+        Debug.Log("Gate Destroyed");
+        GameManager.Instance.GameOverScreen();
+    }
 }
-
