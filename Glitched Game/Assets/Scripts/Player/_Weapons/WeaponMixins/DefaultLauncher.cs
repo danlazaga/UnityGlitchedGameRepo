@@ -13,6 +13,12 @@ public class DefaultLauncher : WeaponLauncher
 	[SyncVar(hook = "OnScoreChanged")] int score;
 	WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
+	[ServerCallback]
+	void OnEnable()
+	{
+		score = 0;
+	}
+
 	public override void Shoot()
 	{
 		CmdShoot();
