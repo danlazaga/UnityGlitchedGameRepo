@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +14,8 @@ public class EnemyIdleState : CustomConstructor<EnemyStateController>, IState
 
     public void OnStateEnter()
     {
-        Debug.Log("Enter Idle");
+        Debug.Log("Enter Idle/Stun");
+        int random = Random.Range(0,4);
         controller.NavAgent.isStopped = true;
         controller.Animator.SetBool(Animator.StringToHash("Idle"), true);
     }

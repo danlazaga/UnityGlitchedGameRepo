@@ -37,11 +37,21 @@ public class ActorMesh : MonoBehaviour
 	private void HandleStunMesh(float value)
 	{
 		Debug.Log("Play Stun Mesh");
+		StartCoroutine(StunHitMesh());
+
 	}
 
 	IEnumerator PlayHitMesh()
 	{
 		rendererActor.material.SetFloat(materialHit, 0);
+		rendererActor.material.SetFloat(materialGlow, 1);
+		yield return delay1;
+		rendererActor.material.SetFloat(materialGlow, 0);
+	}
+
+	IEnumerator StunHitMesh()
+	{
+		rendererActor.material.SetFloat(materialHit, 1);
 		rendererActor.material.SetFloat(materialGlow, 1);
 		yield return delay1;
 		rendererActor.material.SetFloat(materialGlow, 0);
