@@ -632,7 +632,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1038539673024452, guid: d1e69a2556e3a2444bf0f87e2d903ca1, type: 2}
+  - {fileID: 0}
   - {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -690,8 +690,9 @@ MonoBehaviour:
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   characters:
-  - {fileID: 1038539673024452, guid: d1e69a2556e3a2444bf0f87e2d903ca1, type: 2}
+  - {fileID: 0}
   - {fileID: 1990055828389964, guid: 06452bb08d5c8194598155c20d5b89f1, type: 2}
+  networkSpawnPosition: {fileID: 0}
   chosenCharacter: 0
 --- !u!114 &114737957396378554
 MonoBehaviour:
