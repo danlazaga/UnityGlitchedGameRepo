@@ -62,7 +62,7 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	public void SetGateHealth(float value)
 	{
-		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
+		float lerpedValue = (((value - 0)* 1 / 10000)+ 0);
 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileGateHealthBar.fillAmount = lerpedValue;
@@ -73,12 +73,12 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	public void SetHTCHealth(float value)
 	{
-		float lerpedValue = (((value - 0)* 1 / 100)+ 0);
+		float lerpedValue = (((value - 0)* 1 / 7500)+ 0);
 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileHtcHealthBar.fillAmount = lerpedValue;
 #else
-		htcHealthBar.fillAmount = (value / 7500); //Mathf.Clamp01(value); //lerpedValue;
+		htcHealthBar.fillAmount = lerpedValue; //Mathf.Clamp01(value); //lerpedValue;
 		// Debug.Log(value / 7500);
 		// Debug.Log(htcHealthBar.fillAmount);
 #endif
