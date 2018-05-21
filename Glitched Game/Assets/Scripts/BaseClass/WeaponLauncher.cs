@@ -4,9 +4,10 @@ using UnityEngine.Networking;
 
 public abstract class WeaponLauncher : NetworkBehaviour, IWeapon
 {
-
+	[SerializeField] protected LayerMask layer;
 	[SerializeField] protected GunEffects weaponEffects;
 	[SerializeField] protected Transform firePoint;
-
+	
 	public abstract void Shoot();
+
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ShieldHealth :NetworkBehaviour , IHealthHandler
+public class ShieldHealth : NetworkBehaviour, IHealthHandler
 {
     [SerializeField] private float maxHealth;
-    [SyncVar]private float health;
+    [SyncVar] private float health;
 
     public event Action<float> OnHPPctChanged;
     public event Action OnDied;
@@ -20,16 +20,19 @@ public class ShieldHealth :NetworkBehaviour , IHealthHandler
     }
 
     [Server]
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
+        bool died = false;
 
         amount -= health;
-        if(health <= 0)
+        if (health <= 0)
         {
             OnDied();
         }
 
         RpcTakeDamage();
+        
+        return died;
     }
 
     [ClientRpc]

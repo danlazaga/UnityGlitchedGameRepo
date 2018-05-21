@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class BossHealth : NetworkBehaviour, IHealthHandler
 {
-    
+
 #region Variables
     public float maxHealth = 100f;
     [SyncVar] float health;
@@ -30,8 +30,10 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
 #endregion
 
     [Server]
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage)
     {
+        bool died = false;
+
         if (damage <= 0)
         {
             throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + damage);
@@ -39,7 +41,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
 
         if (health <= 0)
         {
-            return;
+            return died;
         }
 
         health -= damage;
@@ -72,6 +74,8 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
             OnDied();
 
         RpcTakeDamage();
+
+        return died;
     }
 
     [ClientRpc]
@@ -82,7 +86,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
 
     private void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             TakeDamage(100);
         }
@@ -98,8 +102,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
         yield return new WaitForSeconds(10.0f);
 
         // open victory screen
-		GameManager.Instance.GameOverScreen();
+        GameManager.Instance.GameOverScreen();
     }
 
-    
 }

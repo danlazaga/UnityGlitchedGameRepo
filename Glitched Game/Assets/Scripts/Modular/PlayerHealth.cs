@@ -30,7 +30,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 #endregion
 
 	[Server]
-	public void TakeDamage(float amount)
+	public bool TakeDamage(float amount)
 	{
 		bool died = false;
 
@@ -38,13 +38,15 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
 
 		if (health <= 0)
-			return;
+			return died;
 
 		health -= amount;
 
 		died = health <= 0;
 
 		RpcTakeDamage(died);
+
+		return died;
 	}
 
 	[ClientRpc]

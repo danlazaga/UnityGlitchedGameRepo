@@ -6,11 +6,10 @@ public class DefaultLauncher : WeaponLauncher
 {
 	[Header("Rail Gun Properties")]
 	[SerializeField] float weaponRange;
-
 	[SerializeField] float weaponDamage;
 	[SerializeField] LineRenderer laserLine;
 	[SerializeField] Camera fpsCam;
-	[SerializeField] WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
+	WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
 	public override void Shoot()
 	{
@@ -28,14 +27,22 @@ public class DefaultLauncher : WeaponLauncher
 
 		Debug.DrawRay(rayOrigin, fpsCam.transform.forward * weaponRange, Color.green, 0.07f);
 
-		bool result = Physics.Raycast(ray, out hit, weaponRange);
+		bool result = Physics.Raycast(ray, out hit, weaponRange, layer);
 
 		if (result)
 		{
 			var enemy = hit.transform.GetComponent<IHealthHandler>();
 
 			if (enemy != null)
-				enemy.TakeDamage(weaponDamage);
+			{
+				bool killShot = enemy.TakeDamage(weaponDamage);
+
+				if(killShot)
+				{
+					Debug.Log("Got Score");
+				}
+			}
+
 		}
 
 		RpcDrawLine(result, rayOrigin, hit.point);

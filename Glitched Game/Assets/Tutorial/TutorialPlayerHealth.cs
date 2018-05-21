@@ -19,7 +19,7 @@ public class TutorialPlayerHealth : MonoBehaviour, IHealthHandler
 		health = maxHealth;
 	}
 #endregion
-	public void TakeDamage(float amount)
+	public bool TakeDamage(float amount)
 	{
 		bool died = false;
 
@@ -27,13 +27,15 @@ public class TutorialPlayerHealth : MonoBehaviour, IHealthHandler
 			throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + amount);
 
 		if (health <= 0)
-			return;
+			return died;
 
 		health -= amount;
 
 		died = health <= 0;
 
 		RpcTakeDamage(died);
+
+		return died;
 	}
 
 	void RpcTakeDamage(bool died)
