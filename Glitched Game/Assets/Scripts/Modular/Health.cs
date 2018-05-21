@@ -14,6 +14,7 @@ public class Health : NetworkBehaviour, IHealthHandler
 
     public event Action<float> OnHPPctChanged = delegate(float f) { };
     public event Action OnDied = delegate { };
+
 #endregion
 
 #region Unity Methods
@@ -29,11 +30,6 @@ public class Health : NetworkBehaviour, IHealthHandler
     {
         bool died = false;
 
-        if (damage <= 0)
-        {
-            throw new ArgumentOutOfRangeException("Invalid Damage amount specified: " + damage);
-        }
-
         if (health <= 0)
         {
             return died;
@@ -41,17 +37,22 @@ public class Health : NetworkBehaviour, IHealthHandler
 
         health -= damage;
 
-        if (health <= 0)
-            OnDied();
-
-        RpcTakeDamage();
+        RpcTakeDamage(died);
 
         return died;
     }
 
     [ClientRpc]
-    void RpcTakeDamage()
+    void RpcTakeDamage(bool died)
     {
         OnHPPctChanged(health);
+
+        if (died)
+        {
+            if (OnDied != null)
+            {
+                OnDied();
+            }
+        }
     }
 }
