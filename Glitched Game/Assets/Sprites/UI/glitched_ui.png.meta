@@ -204,9 +204,9 @@ TextureImporter:
       name: GateHPForeground
       rect:
         serializedVersion: 2
-        x: 16
+        x: 33
         y: 1641
-        width: 363
+        width: 318
         height: 102
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -232,9 +232,9 @@ TextureImporter:
       name: PlayerLife_Foreground
       rect:
         serializedVersion: 2
-        x: 793
+        x: 823
         y: 1644
-        width: 363
+        width: 317
         height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
