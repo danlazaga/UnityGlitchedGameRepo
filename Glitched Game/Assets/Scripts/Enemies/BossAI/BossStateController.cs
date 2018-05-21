@@ -35,9 +35,14 @@ public class BossStateController : StateController
             maxAttacks = 4;
 
         FSM.ChangeState(new BossDisableState(this));
-        shieldHealth.OnDied += ReturnToIdle;
+
+        if(shieldHealth != null)
+            shieldHealth.OnDied += ReturnToIdle;
+
         if(GetComponent<IHealthHandler>() != null)
             GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
+
+        
     }
 
     private void OnDestroy()
@@ -62,6 +67,11 @@ public class BossStateController : StateController
     public void ReturnToIdle()
     {
         FSM.ChangeState(new BossIdleState(this));
+    }
+
+    public void ShieldMode()
+    {
+        FSM.ChangeState(new BossShieldState(this));
     }
 
   

@@ -30,7 +30,9 @@ public class EnemySpawner : NetworkBehaviour
     private GameObject player;
     private GameObject gate;
 
-#region Unity Methods
+   
+
+    #region Unity Methods
     public override void OnStartServer()
     {
         maxWaveAmount = 5;
@@ -104,4 +106,20 @@ public class EnemySpawner : NetworkBehaviour
         int slot = Random.Range(0, spawnLocations.Length);
         return slot;
     }
+
+
+    #region ShieldEvent
+    public void OnShieldSpawn()
+    {
+        StartCoroutine(SpawnMobs());
+    }
+
+    IEnumerator SpawnMobs()
+    {
+        yield break;
+
+    }
+
+    #endregion
+
 }
