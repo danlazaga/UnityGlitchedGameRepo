@@ -2,11 +2,10 @@
 // Uses a normal map to distort the image behind, and
 // an additional texture to tint the color.
 
-Shader "FX/Glass/Stained BumpDistort" {
+Shader "Custom/DistortShader" {
 Properties {
-	_BumpAmt  ("Distortion", range (0,256)) = 10
-	//_MainTex ("Tint Color (RGB)", 2D) = "white" {}
-	_Opacity ("Opacity", range(0,1)) = 0.5
+	_BumpAmt  ("Distortion", range (0,128)) = 10
+	_MainTex ("Tint Color (RGB)", 2D) = "white" {}
 	_BumpMap ("Normalmap", 2D) = "bump" {}
 }
 
@@ -30,14 +29,11 @@ Category {
 		Pass {
 			Name "BASE"
 			Tags { "LightMode" = "Always" }
-			Blend SrcAlpha OneMinusSrcAlpha
-			Cull Off
-			
 			
 CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
-//#pragma multi_compile_fog
+#pragma multi_compile_fog
 #include "UnityCG.cginc"
 
 struct appdata_t {
@@ -50,12 +46,12 @@ struct v2f {
 	float4 uvgrab : TEXCOORD0;
 	float2 uvbump : TEXCOORD1;
 	float2 uvmain : TEXCOORD2;
-	//UNITY_FOG_COORDS(3)
+	UNITY_FOG_COORDS(3)
 };
 
 float _BumpAmt;
 float4 _BumpMap_ST;
-//float4 _MainTex_ST;
+float4 _MainTex_ST;
 
 v2f vert (appdata_t v)
 {
@@ -63,16 +59,15 @@ v2f vert (appdata_t v)
 	o.vertex = UnityObjectToClipPos(v.vertex);
 	o.uvgrab = ComputeGrabScreenPos(o.vertex);
 	o.uvbump = TRANSFORM_TEX( v.texcoord, _BumpMap );
-//	o.uvmain = TRANSFORM_TEX( v.texcoord, _MainTex );
-	//UNITY_TRANSFER_FOG(o,o.vertex);
+	o.uvmain = TRANSFORM_TEX( v.texcoord, _MainTex );
+	UNITY_TRANSFER_FOG(o,o.vertex);
 	return o;
 }
 
 sampler2D _GrabTexture;
 float4 _GrabTexture_TexelSize;
-float _Opacity;
 sampler2D _BumpMap;
-//sampler2D _MainTex;
+sampler2D _MainTex;
 
 half4 frag (v2f i) : SV_Target
 {
@@ -90,10 +85,10 @@ half4 frag (v2f i) : SV_Target
 	#endif
 
 	half4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
-	//half4 tint = tex2D(_MainTex, i.uvmain);
-	//col *= tint;
-	//UNITY_APPLY_FOG(i.fogCoord, col);
-	return fixed4(col.rgb,_Opacity); 
+	half4 tint = tex2D(_MainTex, i.uvmain);
+	col *= tint;
+	UNITY_APPLY_FOG(i.fogCoord, col);
+	return col;
 }
 ENDCG
 		}
