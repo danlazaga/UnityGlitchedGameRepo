@@ -113,6 +113,14 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 			{
 				enemyStun.TakeStun(plasmaGunProperties.stunDuration);
 			}
+
+			// var actormesh = hit.transform.GetComponentInChildren<ActorMesh>();
+			// Debug.Log(actormesh);
+
+			// if (actormesh != null)
+			// {
+			// 	actormesh.HandleStunMesh(plasmaGunProperties.stunDuration);
+			// }
 		}
 
 		CurrentHeat += 3;

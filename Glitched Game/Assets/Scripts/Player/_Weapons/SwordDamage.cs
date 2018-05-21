@@ -14,7 +14,8 @@ public class SwordDamage : MonoBehaviour
     {
         if (other.gameObject.layer == ENEMY_MASK)
         {
-            Debug.Log("Hit");
+           
+            //other.GetComponent<Animator>().SetTrigger("Flinch1");
             var enemy = other.GetComponent<IHealthHandler>();
             
 
@@ -27,8 +28,7 @@ public class SwordDamage : MonoBehaviour
         }
         else if(other.gameObject.layer == ENEMYARMS_MASK)
         {
-            Debug.Log("Hit Boss");
-
+           
             var boss = other.GetComponent<BossHitReceiver>();
             if(boss != null)
             {

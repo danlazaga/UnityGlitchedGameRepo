@@ -6,7 +6,7 @@ using UnityEngine;
 public class ActorMesh : MonoBehaviour
 {
 	[SerializeField] Renderer rendererActor;
-	WaitForSeconds delay1 = new WaitForSeconds(0.7f);
+	WaitForSeconds delay1 = new WaitForSeconds(0.3f);
 
 	private readonly int materialGlow = Shader.PropertyToID("_GlowToggle");
 	private readonly int materialHit = Shader.PropertyToID("_DamageorStun");
@@ -31,18 +31,22 @@ public class ActorMesh : MonoBehaviour
 
 	private void HandleHitMesh(float value)
 	{
-		StartCoroutine(PlayHitMesh());
+		
+		if (value > 1000)
+			StartCoroutine(PlayHitMesh());
+
 	}
 
-	private void HandleStunMesh(float value)
+	public void HandleStunMesh(float value)
 	{
-		Debug.Log("Play Stun Mesh");
-		StartCoroutine(StunHitMesh());
+		if (value < 1000)
+			StartCoroutine(StunHitMesh());
 
 	}
 
 	IEnumerator PlayHitMesh()
 	{
+		
 		rendererActor.material.SetFloat(materialHit, 0);
 		rendererActor.material.SetFloat(materialGlow, 1);
 		yield return delay1;
