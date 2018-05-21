@@ -8,7 +8,7 @@ using System.IO;
 #if UNITY_ANDROID
 public class ActorSkinnedMeshMobileMaterialLoader : MonoBehaviour {
 	[SerializeField]SkinnedMeshRenderer skinnedMeshRenderer;
-	public string assetBundleName;
+	//public string assetBundleName;
 	[SerializeField] List<Material> skinnedMeshMaterials = new List<Material>();
 	[SerializeField] List<string> skinnedMeshMaterialsName = new List<string>();
 	

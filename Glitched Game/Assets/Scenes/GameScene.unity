@@ -630,6 +630,11 @@ Prefab:
       propertyPath: spawnLocations.Array.data[1]
       value: 
       objectReference: {fileID: 1251885882}
+    - target: {fileID: 114137936794482832, guid: a04b0e05b95bfda4caf946ae42ef2974,
+        type: 2}
+      propertyPath: assetBundleName
+      value: mobilematerials
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}
   m_IsPrefabParent: 0
@@ -1936,6 +1941,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1107617063 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1989795331903430, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1107617062}
+--- !u!114 &1107617064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107617063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7068780abdcc5b946a74bb386944416a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinnedMeshRenderer: {fileID: 0}
+  skinnedMeshMaterials: []
+  skinnedMeshMaterialsName: []
 --- !u!1 &1214888886
 GameObject:
   m_ObjectHideFlags: 0
