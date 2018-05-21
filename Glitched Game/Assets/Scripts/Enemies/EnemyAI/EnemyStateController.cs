@@ -71,14 +71,16 @@ public class EnemyStateController : StateController, IStunHandler
         FSM.ChangeState(new EnemyDeathState(this));
     }
 
-    public void DisablePlayer(float value)
+    void DisablePlayer(float value)
     {
         value = UnityEngine.Random.Range(1f, 2f);
-        Animator.SetFloat(Animator.StringToHash("Stun"), value);
-        if(navAgent.isStopped)
-        {
-            navAgent.isStopped = !navAgent.isStopped;
-        }
+      
+        if (value == 1)
+            Animator.SetTrigger(Animator.StringToHash("Flinch1"));
+        else if (value == 2)
+            Animator.SetTrigger(Animator.StringToHash("Flinch2"));
+
+        navAgent.isStopped = true;   
 
     }
 
@@ -86,6 +88,13 @@ public class EnemyStateController : StateController, IStunHandler
     public void SetToDestroy()
     {
         ObjectPool.Instance.ReturnToPool(this.gameObject);
+    }
+
+
+    public void EnableAgent()
+    {
+        navAgent.isStopped = false;
+
     }
 
     //IEnumerator MobStun(float duration)

@@ -36,10 +36,12 @@ public class EnemySpawner : NetworkBehaviour
     public override void OnStartServer()
     {
         maxWaveAmount = 5;
-        maxSpawnRate = 5f;
+        maxSpawnRate = 3f;
 
         minAddSpawn = 4;
         maxAddSpawn = 9;
+
+        GameManager.Instance.onForceSpawn += OnShieldSpawn;
 
         HandleStartSpawn();
     }
@@ -116,7 +118,16 @@ public class EnemySpawner : NetworkBehaviour
 
     IEnumerator SpawnMobs()
     {
-        yield break;
+        int wAmount = maxWaveAmount;
+        waveAmount = 0;
+        maxWaveAmount = 15;
+        maxSpawnRate = 1.1f;
+        canSpawn = true;
+
+        yield return new WaitForSeconds(15f);
+
+        maxSpawnRate = 3f;
+        maxWaveAmount = wAmount;
 
     }
 

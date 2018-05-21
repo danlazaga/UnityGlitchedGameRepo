@@ -15,16 +15,16 @@ public class EnemyIdleState : CustomConstructor<EnemyStateController>, IState
     public void OnStateEnter()
     {
         Debug.Log("Enter Idle/Stun");
-        int random = Random.Range(0,4);
+       
         controller.NavAgent.isStopped = true;
-        controller.Animator.SetBool(Animator.StringToHash("Idle"), true);
+        controller.Animator.SetTrigger(Animator.StringToHash("StunTrigger"));
     }
 
     public void OnStateExit()
     {
-        controller.Animator.SetBool(Animator.StringToHash("Idle"), false);
+        controller.Animator.SetTrigger(Animator.StringToHash("StunEnd"));
         controller.NavAgent.isStopped = false;
-        Debug.Log("Exit Idle");
+        Debug.Log("Exit Stun");
     }
 
     public void OnUpdate()
