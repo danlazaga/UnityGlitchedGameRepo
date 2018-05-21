@@ -768,7 +768,7 @@ MonoBehaviour:
   weaponEffects: {fileID: 114512241799806868}
   firePoint: {fileID: 4765463410232814}
   weaponRange: 25
-  weaponDamage: 100
+  weaponDamage: 4500
   laserLine: {fileID: 120598678394587300}
   fpsCam: {fileID: 20333173544638174}
 --- !u!114 &114913872411899952
