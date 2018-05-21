@@ -36,6 +36,7 @@ public class Health : NetworkBehaviour, IHealthHandler
         }
 
         health -= damage;
+        died = health <= 0;
 
         RpcTakeDamage(died);
 
