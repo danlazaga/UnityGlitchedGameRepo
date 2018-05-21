@@ -8,10 +8,12 @@ public class SwordEffects : MonoBehaviour
 	[SerializeField] WeaponTrail weaponTrail;
 	[SerializeField] WeaponTrail refractionTrail;
 	[SerializeField] ParticleSystem impactParticles;
+	[SerializeField] AudioSource impactSFX;
 
 	public void PlayImpact()
 	{
 		impactParticles.Play();
+		SoundManager.Instance.PlayShot(impactSFX);
 	}
 
 	private void Start()

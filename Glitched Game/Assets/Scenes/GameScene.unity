@@ -349,6 +349,10 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1097842494208054, guid: 2ab6bf50f829c7c48951b2e461a27d12, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ab6bf50f829c7c48951b2e461a27d12, type: 2}
   m_IsPrefabParent: 0
@@ -588,30 +592,9 @@ Prefab:
       propertyPath: spawnLocations.Array.data[1]
       value: 
       objectReference: {fileID: 1251885882}
-    - target: {fileID: 114137936794482832, guid: a04b0e05b95bfda4caf946ae42ef2974,
-        type: 2}
-      propertyPath: assetBundleName
-      value: mobilematerials
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &362933457 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1125270624916284, guid: a04b0e05b95bfda4caf946ae42ef2974,
-    type: 2}
-  m_PrefabInternal: {fileID: 362933456}
---- !u!114 &362933458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362933457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc9d492c3083c84891e3c113815607c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &439892055 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1310084080995242, guid: 84169cb8ffd15244785c5320cfd87d43,

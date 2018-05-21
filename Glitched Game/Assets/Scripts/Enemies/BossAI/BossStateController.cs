@@ -69,11 +69,7 @@ public class BossStateController : StateController
         FSM.ChangeState(new BossIdleState(this));
     }
 
-    public void ShieldMode()
-    {
-        FSM.ChangeState(new BossShieldState(this));
-    }
-
+ 
   
     //public void OnShieldEvent()
     //{

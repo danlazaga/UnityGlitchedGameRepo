@@ -17,7 +17,7 @@ public class GunEffects : MonoBehaviour
 		 muzzleFlash.Stop(true);
 		 muzzleFlash.Play(true);
 
-		// SoundManager.Instance.PlayShot(weaponAudio);
+		SoundManager.Instance.PlayShot(weaponAudio);
 	}
 
 	public void PlayImpactEffect(Vector3 point)
