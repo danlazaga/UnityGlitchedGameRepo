@@ -9,6 +9,8 @@ public class DefaultLauncher : WeaponLauncher
 	[SerializeField] float weaponDamage;
 	[SerializeField] LineRenderer laserLine;
 	[SerializeField] Camera fpsCam;
+
+	[SyncVar(hook = "OnScoreChanged")] int score;
 	WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
 	public override void Shoot()
@@ -37,9 +39,10 @@ public class DefaultLauncher : WeaponLauncher
 			{
 				bool killShot = enemy.TakeDamage(weaponDamage);
 
-				if(killShot)
+				if (killShot)
 				{
 					Debug.Log("Got Score");
+					score++;
 				}
 			}
 
@@ -80,5 +83,12 @@ public class DefaultLauncher : WeaponLauncher
 		laserLine.enabled = true;
 		yield return shotDuration;
 		laserLine.enabled = false;
+	}
+
+	void OnScoreChanged(int value)
+	{
+		score = value;
+		if (isLocalPlayer)
+			PlayerHUD.Instance.SetKills(value);
 	}
 }

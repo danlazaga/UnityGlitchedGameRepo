@@ -15,6 +15,8 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	[Header("Mobile HUD Properties")]
 	[SerializeField] UIFader mobileDamageImage;
 	[SerializeField] RecticleAnimation recticleAnimation;
+	[Space(10)]
+	[SerializeField] Text killCount;
 	[SerializeField] Image mobileGateHealthBar;
 	[SerializeField] Image mobileHtcHealthBar;
 	[Space(10)]
@@ -81,19 +83,25 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		// Debug.Log(htcHealthBar.fillAmount);
 #endif
 
-}
+	}
 
-public void FlashDamageEffect()
-{
+	public void FlashDamageEffect()
+	{
 #if UNITY_ANDROID || UNITY_IOS
-	mobileDamageImage.Flash();
+		mobileDamageImage.Flash();
 #else
-	htcDamageImage.Flash();
+		htcDamageImage.Flash();
 #endif
-}
+	}
 
-public void PlayRecticle()
-{
-	recticleAnimation.RecticlePlay();
-}
+	public void SetKills(int value)
+	{
+		string stringFormat = "{0:#,###0}";
+		killCount.text = string.Format(stringFormat, value);
+	}
+
+	public void PlayRecticle()
+	{
+		recticleAnimation.RecticlePlay();
+	}
 }
