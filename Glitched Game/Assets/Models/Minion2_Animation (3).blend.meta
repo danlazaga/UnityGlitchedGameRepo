@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f98c1820e1818ee4992175b9ba42b689
-timeCreated: 1526889755
+guid: 021dab57f17a60d42a6ecc3109a944bb
+timeCreated: 1526895107
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -67,13 +67,8 @@ ModelImporter:
     7400002: Attack1
     7400004: Attack2
     7400006: Attack3
-    7400008: Flinch
-    7400010: Flinch2
-    7400012: Idle
-    7400014: StunEnd
-    7400016: StunInitial
-    7400018: StunLoop
-    7400020: Walk
+    7400008: Idle
+    7400010: Walk
     9500000: //RootNode
     13700000: Minion_Hand2
   externalObjects: {}
