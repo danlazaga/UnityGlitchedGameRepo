@@ -36,6 +36,7 @@ public class EnemyStateController : StateController, IStunHandler
         if (GetComponent<IHealthHandler>()!= null)
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
+            GetComponent<IHealthHandler>().OnHPPctChanged += DisablePlayer;
         }
 
         GetComponent<Collider>().enabled = true;
@@ -70,6 +71,18 @@ public class EnemyStateController : StateController, IStunHandler
         FSM.ChangeState(new EnemyDeathState(this));
     }
 
+    public void DisablePlayer(float value)
+    {
+        value = UnityEngine.Random.Range(1f, 2f);
+        Animator.SetFloat(Animator.StringToHash("Stun"), value);
+        if(navAgent.isStopped)
+        {
+            navAgent.isStopped = !navAgent.isStopped;
+        }
+
+    }
+
+  
     public void SetToDestroy()
     {
         ObjectPool.Instance.ReturnToPool(this.gameObject);

@@ -6,14 +6,25 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
+
+    public delegate void OnForceSpawn();
+    public event OnForceSpawn onForceSpawn;
+
     public delegate void OnGameStart();
     public event OnGameStart onStartGame;
 
-   
 	public void GameOverScreen()
 	{
 		SceneManager.LoadSceneAsync ("GameOverScene");
 	}
+
+    public void ForceSpawn()
+    {
+        if(onForceSpawn != null)
+        {
+            onForceSpawn();
+        }
+    }
 
     public void StartGame()
     {
