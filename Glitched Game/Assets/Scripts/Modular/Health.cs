@@ -38,6 +38,7 @@ public class Health : NetworkBehaviour, IHealthHandler
         health -= damage;
         died = health <= 0;
 
+        OnHPPctChanged(damage); // changed for the meantime, need something to determine what weapon is                                 used to damage the enemy, in order to use right effect
         RpcTakeDamage(died);
 
         return died;
@@ -46,7 +47,7 @@ public class Health : NetworkBehaviour, IHealthHandler
     [ClientRpc]
     void RpcTakeDamage(bool died)
     {
-        OnHPPctChanged(health);
+        //OnHPPctChanged(health);
 
         if (died)
         {

@@ -36,13 +36,12 @@ public class EnemyStateController : StateController, IStunHandler
         if (GetComponent<IHealthHandler>()!= null)
         {
             GetComponent<IHealthHandler>().OnDied += MobDeath;
-            GetComponent<IHealthHandler>().OnHPPctChanged += DisablePlayer;
+            //GetComponent<IHealthHandler>().OnHPPctChanged += DisablePlayer;
         }
 
         GetComponent<Collider>().enabled = true;
-    
-    }
 
+    }
 
     public void SetTargets(Transform player, Transform gate)
     {
@@ -58,7 +57,7 @@ public class EnemyStateController : StateController, IStunHandler
 
     public void TakeStun(float duration)
     {
-        //StartCoroutine(MobStun(duration));
+        
         FSM.ChangeState(new EnemyIdleState(this, duration));
         if (OnStun != null)
         {
@@ -74,22 +73,14 @@ public class EnemyStateController : StateController, IStunHandler
     void DisablePlayer(float value)
     {
         value = UnityEngine.Random.Range(1f, 2f);
-      
-        if (value == 1)
-            Animator.SetTrigger(Animator.StringToHash("Flinch1"));
-        else if (value == 2)
-            Animator.SetTrigger(Animator.StringToHash("Flinch2"));
+       // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
 
-        navAgent.isStopped = true;   
+
+        
+
+        navAgent.isStopped = true;
 
     }
-
-  
-    public void SetToDestroy()
-    {
-        ObjectPool.Instance.ReturnToPool(this.gameObject);
-    }
-
 
     public void EnableAgent()
     {
