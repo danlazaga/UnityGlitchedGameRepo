@@ -15,7 +15,7 @@ public class ShieldHealth : NetworkBehaviour, IHealthHandler
     [ServerCallback]
     private void OnEnable()
     {
-        maxHealth = health;
+        health = maxHealth;
         OnDied += OnShieldDestroy;
     }
 
