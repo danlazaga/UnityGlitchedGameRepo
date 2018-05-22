@@ -82,7 +82,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 
 	IEnumerator GoToGameOver()
 	{
-		yield return new WaitForSeconds(5.5f);
+		yield return new WaitForSeconds(0.5f);
 		GameManager.Instance.GameOverScreen();
 	}
 

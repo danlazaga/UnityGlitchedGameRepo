@@ -14,6 +14,7 @@ public struct PlasmaGunProperties
 public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 {
 	public event Action<float> OnHeatChange;
+	public event Action<bool> OnOverHeat;
 
 #region Variables
 	[SerializeField] LayerMask layer;
@@ -27,7 +28,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 	[Space(10)]
 	[SerializeField] GunHeatProperties gunHeatProperties;
 	float currentHeat;
-	bool canFire = true;
+	bool canfire = true;
 
 	SteamVR_TrackedController controller;
 	SteamVR_TrackedObject trackedObj;
@@ -73,7 +74,7 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 		if (CurrentHeat <= 0)
 		{
 			CurrentHeat = 0f;
-			canFire = true;
+			Canfire = true;
 		}
 
 	}
@@ -85,53 +86,52 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 	void Shoot()
 	{
-		if (canFire)
+		if (Canfire)
 		{
+			RaycastHit hit;
+			Ray ray = new Ray(firePoint.position, firePoint.forward);
+			Debug.DrawRay(firePoint.position, firePoint.forward * plasmaGunProperties.weaponRange, Color.green);
+			bool result = Physics.Raycast(ray, out hit, plasmaGunProperties.weaponRange, layer);
 
-		}
+			device = SteamVR_Controller.Input((int)trackedObj.index);
+			device.TriggerHapticPulse(500);
 
-		RaycastHit hit;
-		Ray ray = new Ray(firePoint.position, firePoint.forward);
-		Debug.DrawRay(firePoint.position, firePoint.forward * plasmaGunProperties.weaponRange, Color.green);
-		bool result = Physics.Raycast(ray, out hit, plasmaGunProperties.weaponRange, layer);
-
-		device = SteamVR_Controller.Input((int)trackedObj.index);
-		device.TriggerHapticPulse(500);
-
-		if (result)
-		{
-			var enemyHealth = hit.transform.GetComponent<IHealthHandler>();
-
-			if (enemyHealth != null)
+			if (result)
 			{
-				enemyHealth.TakeDamage(plasmaGunProperties.gunDamage);
+				var enemyHealth = hit.transform.GetComponent<IHealthHandler>();
+
+				if (enemyHealth != null)
+				{
+					enemyHealth.TakeDamage(plasmaGunProperties.gunDamage);
+				}
+
+				var enemyStun = hit.transform.GetComponent<IStunHandler>();
+
+				if (enemyStun != null)
+				{
+					enemyStun.TakeStun(plasmaGunProperties.stunDuration);
+				}
+
+				// var actormesh = hit.transform.GetComponentInChildren<ActorMesh>();
+				// Debug.Log(actormesh);
+
+				// if (actormesh != null)
+				// {
+				// 	actormesh.HandleStunMesh(plasmaGunProperties.stunDuration);
+				// }
 			}
 
-			var enemyStun = hit.transform.GetComponent<IStunHandler>();
+			CurrentHeat += 3;
 
-			if (enemyStun != null)
+			ProcessShotEffects(result, hit.point);
+
+			if (CurrentHeat >= MaxHeat)
 			{
-				enemyStun.TakeStun(plasmaGunProperties.stunDuration);
+				CurrentHeat = MaxHeat;
+				StartCoroutine(InvokeCoolDown());
 			}
-
-			// var actormesh = hit.transform.GetComponentInChildren<ActorMesh>();
-			// Debug.Log(actormesh);
-
-			// if (actormesh != null)
-			// {
-			// 	actormesh.HandleStunMesh(plasmaGunProperties.stunDuration);
-			// }
 		}
 
-		CurrentHeat += 3;
-
-		ProcessShotEffects(result, hit.point);
-
-		if (CurrentHeat >= MaxHeat)
-		{
-			CurrentHeat = MaxHeat;
-			StartCoroutine(InvokeCoolDown());
-		}
 	}
 
 	void ProcessShotEffects(bool playImpact, Vector3 point)
@@ -144,9 +144,9 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 
 	IEnumerator InvokeCoolDown()
 	{
-		canFire = false;
+		Canfire = false;
 		yield return new WaitForSeconds(gunHeatProperties.coolDownTime);
-		canFire = true;
+		Canfire = true;
 	}
 
 	public float MaxHeat
@@ -171,6 +171,23 @@ public class PlasmaGun : MonoBehaviour, IGunHeatHandler
 				if (OnHeatChange != null)
 				{
 					OnHeatChange(currentHeat);
+				}
+			}
+		}
+	}
+
+	bool Canfire
+	{
+		get { return canfire; }
+
+		set
+		{
+			if (canfire != value)
+			{
+				canfire = value;
+				if (OnHeatChange != null)
+				{
+					OnOverHeat(canfire);
 				}
 			}
 		}
