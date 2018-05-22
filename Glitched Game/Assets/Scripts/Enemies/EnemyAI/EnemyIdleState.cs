@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,17 +13,18 @@ public class EnemyIdleState : CustomConstructor<EnemyStateController>, IState
 
     public void OnStateEnter()
     {
-        Debug.Log("Enter Idle/Stun");
-       
+        
+        controller.IsStunned = true;
         controller.NavAgent.isStopped = true;
         controller.Animator.SetTrigger(Animator.StringToHash("StunTrigger"));
     }
 
     public void OnStateExit()
     {
+        controller.IsStunned = false;
         controller.Animator.SetTrigger(Animator.StringToHash("StunEnd"));
         controller.NavAgent.isStopped = false;
-        Debug.Log("Exit Stun");
+        
     }
 
     public void OnUpdate()

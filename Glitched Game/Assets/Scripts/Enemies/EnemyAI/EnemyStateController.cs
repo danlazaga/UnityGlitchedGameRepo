@@ -25,7 +25,23 @@ public class EnemyStateController : StateController, IStunHandler
     public Transform player { get; set; }
     public Transform gate { get; set; }
     public BossStateController Boss { get; set; }
+
+    public bool IsStunned
+    {
+        get
+        {
+            return isStunned;
+        }
+
+        set
+        {
+            isStunned = value;
+        }
+    }
+
     public event Action<float> OnStun;
+
+    private bool isStunned;
 
     private void OnEnable()
     {
@@ -57,7 +73,11 @@ public class EnemyStateController : StateController, IStunHandler
 
     public void TakeStun(float duration)
     {
-        
+        if(isStunned)
+        {
+            return;
+        }   
+
         FSM.ChangeState(new EnemyIdleState(this, duration));
         if (OnStun != null)
         {
@@ -74,10 +94,6 @@ public class EnemyStateController : StateController, IStunHandler
     {
         value = UnityEngine.Random.Range(1f, 2f);
        // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
-
-
-        
-
         navAgent.isStopped = true;
 
     }
@@ -86,6 +102,11 @@ public class EnemyStateController : StateController, IStunHandler
     {
         navAgent.isStopped = false;
 
+    }
+
+    public void SetToDestroy()
+    {
+        ObjectPool.Instance.ReturnToPool(this.gameObject);
     }
 
     //IEnumerator MobStun(float duration)

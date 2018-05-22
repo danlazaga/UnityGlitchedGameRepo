@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissileBehaviour : MonoBehaviour
 {
     //[SerializeField] private Animator animator;
-    [SerializeField] private ParticleSystem effect;
+    //[SerializeField] private ParticleSystem effect;
 
     private Vector3 startPos;
     private GameObject[] targets;

@@ -124,7 +124,7 @@ public class EnemySpawner : NetworkBehaviour
         maxSpawnRate = 1.1f;
         canSpawn = true;
 
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(10f);
 
         maxSpawnRate = 3f;
         maxWaveAmount = wAmount;
