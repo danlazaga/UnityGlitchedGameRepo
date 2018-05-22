@@ -60,15 +60,7 @@ public class BossAttacksController: NetworkBehaviour  {
 
 
 #region SpawnAttacks
-    //[Command]
-    //public void CmdLaunchMissile()
-    //{
-    //    // Missile SetActive
-    //    missile.SetActive(true);
-    //}
-
    
-
     [Command]
     public void CmdSpawnShield()
     {
