@@ -74,6 +74,7 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         // Set shield to active
         shield.SetActive(true);
+        NetworkServer.Spawn(this.gameObject);
     }
 
 
@@ -84,5 +85,6 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         // Set shield to active
         shield.SetActive(false);
+        NetworkServer.UnSpawn(this.gameObject);
     }
 }
