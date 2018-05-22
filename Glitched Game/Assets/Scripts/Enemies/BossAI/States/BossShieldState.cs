@@ -21,6 +21,7 @@ public class BossShieldState : CustomConstructor<BossStateController>, IState
         controller.hasShield = true;
         controller.attacks = 0;
         controller.Animator.SetBool(Animator.StringToHash("Shield"), true);
+        GameManager.Instance.ForceSpawn();
         Debug.Log("Shield Active");
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -68,13 +69,21 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	{
 		health = value;
 		PlayerHUD.Instance.SetHTCHealth(value);
-		
 
 	}
 
 	void OnDeath()
 	{
-		Debug.Log ("Player Death");
+		Debug.Log("Player Death");
+
+		StartCoroutine(GoToGameOver());
+
+	}
+
+	IEnumerator GoToGameOver()
+	{
+		yield return new WaitForSeconds(5.5f);
 		GameManager.Instance.GameOverScreen();
 	}
+
 }
