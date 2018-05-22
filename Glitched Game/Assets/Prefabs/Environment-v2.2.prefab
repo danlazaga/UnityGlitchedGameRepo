@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 33304367897284510}
   - component: {fileID: 23581278744193436}
   - component: {fileID: 114020790429627862}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MainDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,11 +191,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4295854325398118}
+  - component: {fileID: 114178498732824274}
   - component: {fileID: 65643509498352180}
   - component: {fileID: 114894533026559828}
-  - component: {fileID: 114275499226335486}
   - component: {fileID: 54170482445477444}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gate
   m_TagString: Gate
   m_Icon: {fileID: 0}
@@ -807,6 +807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  assetBundleName: 
+  meshMaterials: []
+  meshMaterialsName: []
 --- !u!114 &114096989807855026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -818,6 +822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  assetBundleName: 
+  meshMaterials: []
+  meshMaterialsName: []
 --- !u!114 &114104060551137614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,7 +837,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114275499226335486
+  meshRenderer: {fileID: 0}
+  assetBundleName: 
+  meshMaterials: []
+  meshMaterialsName: []
+--- !u!114 &114178498732824274
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -863,6 +875,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  assetBundleName: 
+  meshMaterials: []
+  meshMaterialsName: []
 --- !u!114 &114653403244128006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,6 +890,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  assetBundleName: 
+  meshMaterials: []
+  meshMaterialsName: []
 --- !u!114 &114894533026559828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -905,7 +925,7 @@ MonoBehaviour:
     i14: 125
     i15: 18
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!220 &220848427911068074
 LightProbeGroup:
   m_ObjectHideFlags: 1
