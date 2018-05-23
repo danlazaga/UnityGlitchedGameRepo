@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class BossAttacksController: NetworkBehaviour  {
+public class BossAttacksController : NetworkBehaviour
+{
 
-  
-    [SerializeField] private GameObject shield;
+    [SerializeField] private GameObject shieldPrefab;
+
+    private GameObject shield;
 
     private BossStateController stateController;
     private BossHealth bossHealth;
@@ -15,8 +17,10 @@ public class BossAttacksController: NetworkBehaviour  {
     {
         stateController = GetComponent<BossStateController>();
         bossHealth = GetComponent<BossHealth>();
+        shield = Instantiate(shieldPrefab);
+        stateController.ShieldHealth = shield.GetComponent<ShieldHealth>();
 
-        if(stateController.testMode)
+        if (stateController.testMode)
         {
             return;
         }
@@ -24,13 +28,13 @@ public class BossAttacksController: NetworkBehaviour  {
         bossHealth.UnlockLaser += UnlockLaserAttack;
         bossHealth.UnlockMissile += UnlockMissileAttack;
 
-
     }
     private void OnDestroy()
     {
         bossHealth.UnlockDoubleSlam -= UnlockDoubleSlamAttack;
         bossHealth.UnlockLaser -= UnlockLaserAttack;
         bossHealth.UnlockMissile -= UnlockMissileAttack;
+
     }
 
 #region UnlockAttacks
@@ -56,11 +60,10 @@ public class BossAttacksController: NetworkBehaviour  {
         stateController.maxAttacks = 4;
         bossHealth.UnlockMissile -= UnlockMissileAttack;
     }
-    #endregion
-
+#endregion
 
 #region SpawnAttacks
-   
+
     [Command]
     public void CmdSpawnShield()
     {
@@ -69,10 +72,9 @@ public class BossAttacksController: NetworkBehaviour  {
         NetworkServer.Spawn(this.gameObject);
     }
 
-
 #endregion
-   
-   // remove after testing
+
+    // remove after testing
     public void DeSpawnShield()
     {
         // Set shield to active

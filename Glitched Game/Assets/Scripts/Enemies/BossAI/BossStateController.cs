@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BossStateController : StateController
 {
-    //public delegate void OnShield();
-    //public event OnShield ShieldMode;
+    // public delegate void OnShieldDestroy();
+    // public event OnShieldDestroy ShieldDestroy;
     [SerializeField] private ShieldHealth shieldHealth;
     //attack counter
     public int attacks { get; set; }
@@ -17,6 +17,8 @@ public class BossStateController : StateController
 
     public bool testMode;
 
+  
+
     public ShieldHealth ShieldHealth
     {
         get
@@ -24,6 +26,10 @@ public class BossStateController : StateController
             return shieldHealth;
         }
 
+        set
+        {
+            shieldHealth = value;
+        }
     }
 
     public override void Awake()
@@ -68,4 +74,13 @@ public class BossStateController : StateController
     {
         FSM.ChangeState(new BossIdleState(this));
     }
+
+    // public void OnShieldDestroyEvent()
+    // {
+    //     if(ShieldDestroy != null)
+    //     {
+    //         ShieldDestroy();
+    //     }
+    // }
+
 }

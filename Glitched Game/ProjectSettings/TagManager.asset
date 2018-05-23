@@ -10,6 +10,7 @@ TagManager:
   - DefaultBullet
   - PlayAreas
   - LookAt
+  - Shield
   layers:
   - Default
   - TransparentFX
