@@ -917,7 +917,7 @@ MonoBehaviour:
   turretLook:
     XSensitivity: 2
     YSensitivity: 2
-    xMinRot: -80
+    xMinRot: -100
     xMaxRot: 30
 --- !u!114 &114278280479294252
 MonoBehaviour:
