@@ -102,7 +102,19 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
         yield return new WaitForSeconds(10.0f);
 
         // open victory screen
-        GameManager.Instance.RpcGameOverScreen();
+        CmdGameOverScene();
+    }
+
+    [Command]
+    void CmdGameOverScene()
+    {
+        RpcGameOverScreen();
+    }
+
+    [ClientRpc]
+    void RpcGameOverScreen()
+    {
+        GameManager.Instance.GameOverSceme();
     }
 
 }

@@ -69,6 +69,17 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     void OnDeath()
     {
         Debug.Log("Gate Destroyed");
-        GameManager.Instance.RpcGameOverScreen();
+        CmdGameOverScene();
+    }
+
+    [Command]
+    void CmdGameOverScene()
+    {
+        RpcGameOverScreen();
+    }
+    [ClientRpc]
+    void RpcGameOverScreen()
+    {
+        GameManager.Instance.GameOverSceme();
     }
 }
