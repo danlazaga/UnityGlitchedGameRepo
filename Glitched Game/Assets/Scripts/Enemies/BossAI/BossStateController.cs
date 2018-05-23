@@ -7,7 +7,7 @@ public class BossStateController : StateController
 {
     // public delegate void OnShieldDestroy();
     // public event OnShieldDestroy ShieldDestroy;
-    [SerializeField] private ShieldHealth shieldHealth;
+   private ShieldHealth shieldHealth;
     //attack counter
     public int attacks { get; set; }
 
@@ -16,9 +16,6 @@ public class BossStateController : StateController
     public bool hasShield { get; set; }
 
     public bool testMode;
-
-  
-
     public ShieldHealth ShieldHealth
     {
         get

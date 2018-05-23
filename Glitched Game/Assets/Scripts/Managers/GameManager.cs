@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager :NetworkBehaviour
 {
-
+    public static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if(instance != null)
+            {
+                instance = FindObjectOfType<GameManager>();
+            }
+            return instance;
+        }
+    }
 
     public delegate void OnForceSpawn();
     public event OnForceSpawn onForceSpawn;
@@ -13,7 +25,8 @@ public class GameManager : Singleton<GameManager>
     public delegate void OnGameStart();
     public event OnGameStart onStartGame;
 
-	public void GameOverScreen()
+    [ClientRpc]
+	public void RpcGameOverScreen()
 	{
 		SceneManager.LoadSceneAsync ("GameOverScene");
 	}
