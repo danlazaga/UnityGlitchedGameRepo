@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 350259794
+CRC: 502086751
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8b026918ec97dbefa2077c4a13eb8b84
+    Hash: 2ef5a965fda11953802ec5473f3eafdd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6f165f44e4778b6c9d85e7a145a54cb1
@@ -22,7 +22,6 @@ Assets:
 - Assets/Materials/Actors SD/TurretBody-mobile.mat
 - Assets/Materials/Environment SD/FrontBuildingShader-mobile.mat
 - Assets/Materials/Environment SD/PipeMat-mobile.mat
-- Assets/Materials/Environment SD/PipeMat-mobilr.mat
 - Assets/Materials/Environment SD/TunnelMat-mobile.mat
 - Assets/Materials/Environment SD/TunnelArchMat-mobile.mat
 - Assets/Materials/Actors SD/BossEyeShader-mobile.mat

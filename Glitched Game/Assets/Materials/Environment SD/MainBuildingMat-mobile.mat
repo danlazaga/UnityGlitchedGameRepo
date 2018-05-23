@@ -107,6 +107,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TexTint: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor1: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _TintColor2: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _TintColor3: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _TintColor1: {r: 0.4600454, g: 0.6789636, b: 0.9338235, a: 1}
+    - _TintColor2: {r: 0.45882356, g: 0.6784314, b: 0.9333334, a: 1}
+    - _TintColor3: {r: 0.45882356, g: 0.6784314, b: 0.9333334, a: 1}
