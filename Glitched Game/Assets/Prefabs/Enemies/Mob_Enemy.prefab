@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 114067305735150576}
   - component: {fileID: 114165619022400118}
   - component: {fileID: 114718814563635756}
+  - component: {fileID: 114127742645184296}
   m_Layer: 9
   m_Name: Mob_Enemy
   m_TagString: Enemy
@@ -1201,6 +1202,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc9221545c6b504da9f05886295c541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114127742645184296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923260858616892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7068780abdcc5b946a74bb386944416a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinnedMeshRenderer: {fileID: 0}
+  skinnedMeshMaterials: []
+  skinnedMeshMaterialsName: []
 --- !u!114 &114165619022400118
 MonoBehaviour:
   m_ObjectHideFlags: 1
