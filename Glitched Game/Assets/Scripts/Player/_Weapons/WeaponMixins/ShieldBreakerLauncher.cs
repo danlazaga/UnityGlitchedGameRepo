@@ -5,10 +5,10 @@ using UnityEngine.Networking;
 
 public class ShieldBreakerLauncher : WeaponLauncher
 {
-	[Header("Rail Gun Properties")]
+	[Header("ShieldBreaker Gun Properties")]
 	[SerializeField] float weaponRange;
 	[SerializeField] float weaponDamage;
-	[SerializeField] LineRenderer laserLine;
+	[SerializeField] GameObject beam;
 	[SerializeField] Camera fpsCam;
 	WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 
@@ -54,24 +54,13 @@ public class ShieldBreakerLauncher : WeaponLauncher
 	[ClientRpc]
 	void RpcDrawLine(bool result, Vector3 origin, Vector3 hit)
 	{
-		laserLine.SetPosition(0, firePoint.position);
-
-		if (result)
-		{
-			laserLine.SetPosition(1, hit);
-		}
-		else
-		{
-			laserLine.SetPosition(1, origin + (fpsCam.transform.forward * weaponRange));
-		}
-
 		StartCoroutine(StartDrawLine());
 	}
 
 	private IEnumerator StartDrawLine()
 	{
-		laserLine.enabled = true;
+		beam.SetActive(true);
 		yield return shotDuration;
-		laserLine.enabled = false;
+		beam.SetActive(false);
 	}
 }

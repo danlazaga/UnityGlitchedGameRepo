@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
 public class ActorMeshFilterMobileLoader : MonoBehaviour {
 
     public string assetBundleName;
