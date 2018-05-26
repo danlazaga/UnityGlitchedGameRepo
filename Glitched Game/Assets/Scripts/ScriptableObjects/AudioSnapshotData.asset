@@ -11,8 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0359ea0c13fb1444fb748037da5f9a5b, type: 3}
   m_Name: AudioSnapshotData
   m_EditorClassIdentifier: 
-  titleScene: {fileID: 0}
-  bgm1: {fileID: 0}
-  bgm2: {fileID: 0}
-  bgm3: {fileID: 0}
-  bgm4: {fileID: 0}
+  titleScene: {fileID: 245557314043139164, guid: 80dbe300149224db5b3c7e20b5364e99,
+    type: 2}
+  bgm1: {fileID: 245457919159175112, guid: 80dbe300149224db5b3c7e20b5364e99, type: 2}

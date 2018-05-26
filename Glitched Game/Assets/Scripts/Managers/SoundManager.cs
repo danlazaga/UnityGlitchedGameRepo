@@ -8,8 +8,6 @@ public class AudioSourceProperties
 {
     public AudioSource menuSource;
     public AudioSource gameSceneOneSource;
-    public AudioSource gameSceneTwoSource;
-    public AudioSource gamescenThreeSource;
     public AudioSource uiAudioSource;
 }
 
@@ -41,9 +39,44 @@ public class SoundManager : Singleton<SoundManager>
 #endregion
 
 #region Functions
-    public void PlayBGM(int Scene)
+    public void PlayBGM(int scene)
     {
+        switch (scene)
+        {
+            case 0:
+                audioSnapshotProperties.TitleScene.TransitionTo(transitionIn);
+                break;
 
+            case 1:
+                audioSnapshotProperties.Bgm1.TransitionTo(transitionIn);
+                break;
+        }
+
+        StartCoroutine(ControlAudioSource(scene));
+    }
+
+    IEnumerator ControlAudioSource(int index)
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        switch (index)
+        {
+            case 0:
+                if (!audioSourceProperties.menuSource.isPlaying)
+                {
+                    audioSourceProperties.gameSceneOneSource.Stop();
+                    audioSourceProperties.menuSource.Play();
+                }
+                break;
+
+            case 1:
+                if (!audioSourceProperties.gameSceneOneSource.isPlaying)
+                {
+                    audioSourceProperties.menuSource.Stop();
+                    audioSourceProperties.gameSceneOneSource.Play();
+                }
+                break;
+        }
     }
 
     public void PlayShot(AudioSource source)
