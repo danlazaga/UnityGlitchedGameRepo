@@ -12,22 +12,14 @@ public class EnemyHitDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == PLAYER_MASK)
-        {
 
-            PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
-            if (myHealth != null)
-            {
-                myHealth.TakeDamage(damage);
-            }
-
-        }
-        else if (other.gameObject.layer == GATE_MASK)
+        if (other.gameObject.layer == PLAYER_MASK || other.gameObject.layer == GATE_MASK)
         {
-            if (GetComponent<IHealthHandler>()!= null)
+            var health = other.transform.GetComponentInParent<IHealthHandler>();
+            Debug.Log(health);
+            if (health != null)
             {
-                Debug.Log("HIT GATE");
-                GetComponent<IHealthHandler>().TakeDamage(damage);
+                health.TakeDamage(damage);
             }
         }
     }

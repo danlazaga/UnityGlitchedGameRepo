@@ -13,7 +13,7 @@ public class MissileDamage : MonoBehaviour {
     {
 		if (other.gameObject.layer == PLAYER_MASK)
 		{
-			PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
+			var myHealth = other.transform.GetComponentInParent<IHealthHandler>();
 			if(myHealth != null)
 			{
 				myHealth.TakeDamage(missileDamage);

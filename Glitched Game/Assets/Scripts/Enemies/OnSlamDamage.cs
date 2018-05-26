@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnSlamDamage : MonoBehaviour{
+public class OnSlamDamage : MonoBehaviour
+{
 
     [SerializeField] private float slamDamage;
 
@@ -16,20 +17,15 @@ public class OnSlamDamage : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == PLAYER_MASK)
+        if (other.gameObject.layer == PLAYER_MASK)
         {
-//            if(other.GetComponent<IHealthHandler>() != null)
-//            {
-//                other.GetComponent<IHealthHandler>().TakeDamage(slamDamage);
-//            }			
-			PlayerHealth myHealth = FindObjectOfType<PlayerHealth>();
-			if(myHealth != null)
-			{
-				myHealth.TakeDamage(slamDamage);
-			}
+            var myHealth = other.transform.GetComponentInParent<IHealthHandler>();
+            if (myHealth != null)
+            {
+                myHealth.TakeDamage(slamDamage);
+            }
 
         }
     }
-
 
 }
