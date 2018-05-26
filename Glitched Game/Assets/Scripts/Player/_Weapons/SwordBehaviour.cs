@@ -25,18 +25,20 @@ public class SwordBehaviour : MonoBehaviour
 		UpdateManager.Instance.toUpdate -= HandleUpdate;
 	}
 
+	public float Velocity { get; set; }
+
 	// Update is called once per frame
 	void HandleUpdate()
 	{
 		// Debug.Log("Sword Behaviour");
 		device = SteamVR_Controller.Input((int)trackedObject.index);
-		var velocity = device.velocity.magnitude;
+		Velocity = device.velocity.magnitude;
 
-		if (velocity > 2f)
+		if (Velocity > 2f)
 		{
 			hitBox.enabled = true;
 		}
-		else if (velocity < 2f)
+		else if (Velocity < 2f)
 		{
 			hitBox.enabled = false;
 		}

@@ -396,6 +396,16 @@ Prefab:
       propertyPath: spawnLocations.Array.data[1]
       value: 
       objectReference: {fileID: 1251885882}
+    - target: {fileID: 82939260679851476, guid: a04b0e05b95bfda4caf946ae42ef2974,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82683399528374314, guid: a04b0e05b95bfda4caf946ae42ef2974,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}
   m_IsPrefabParent: 0
