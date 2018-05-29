@@ -2079,22 +2079,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114782876070845902, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-        type: 2}
-      propertyPath: shield
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114014345773723476, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-        type: 2}
-      propertyPath: shieldHealth
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114782876070845902, guid: 86b43b1b599e95345a17e9d0c0d52e1a,
-        type: 2}
-      propertyPath: shieldPrefab
-      value: 
-      objectReference: {fileID: 1540225951179718, guid: 5f9a45530c71e5746ac32a6b1f88c1db,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b43b1b599e95345a17e9d0c0d52e1a, type: 2}
   m_IsPrefabParent: 0
@@ -2213,9 +2197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetBundleName: 
-  meshMaterials: []
-  meshMaterialsName: []
 --- !u!23 &2087663479
 MeshRenderer:
   m_ObjectHideFlags: 0

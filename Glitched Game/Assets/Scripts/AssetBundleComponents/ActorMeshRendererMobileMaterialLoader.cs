@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-#if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
+#if UNITY_ANDROID || UNITY_IOS// || UNITY_EDITOR
 public class ActorMeshRendererMobileMaterialLoader : MonoBehaviour
 {
 	MeshRenderer meshRenderer;
