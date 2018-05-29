@@ -9,7 +9,7 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public EnemyChaseGateState(EnemyStateController controller) : base(controller)
     {
-        attackRange = 2.0f;
+        attackRange = 2.3f;
     }
 
     public void OnStateEnter()
