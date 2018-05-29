@@ -19,6 +19,7 @@ public class NetworkHUD : MonoBehaviour
 	{
 		manager = GetComponent<ModifiedNetworkManager>();
 	}
+	
 	private void Start()
 	{
 		// #if UNITY_ANDROID || UNITY_IOS
@@ -66,7 +67,6 @@ public class NetworkHUD : MonoBehaviour
 	}
 
 #endregion
-
 
 	public void OnStartHost()
 	{

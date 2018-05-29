@@ -9,6 +9,6 @@ public class HTCHUDCameraSetter : MonoBehaviour
 
 	private void Start()
 	{
-		htcCanvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		htcCanvas.worldCamera = Camera.main;
 	}
 }
