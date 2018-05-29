@@ -822,6 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520373003}
   - component: {fileID: 520373004}
+  - component: {fileID: 520373005}
   m_Layer: 0
   m_Name: '[HUD]'
   m_TagString: Untagged
@@ -869,6 +870,20 @@ MonoBehaviour:
   mobileControllerObj: {fileID: 439892055}
   mobilePlayerHUD: {fileID: 840480029}
   htcHUD: {fileID: 1779257574}
+--- !u!114 &520373005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520373002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e17cb0302607a41b875a35f564547b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 64a5e1406458b41c2aa074f88a2ea5e7, type: 2}
+  musicSlider: {fileID: 1631501186}
+  soundFXSlider: {fileID: 1243830105}
 --- !u!1001 &522839607
 Prefab:
   m_ObjectHideFlags: 0
@@ -2160,12 +2175,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1116039085}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520373005}
+        m_MethodName: SetSoundEffectsVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1251885882 stripped
@@ -2666,12 +2692,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1643308712}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520373005}
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1634659089
@@ -3376,6 +3413,17 @@ MonoBehaviour:
       - m_Target: {fileID: 292400689}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 520373005}
+        m_MethodName: SaveValue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
