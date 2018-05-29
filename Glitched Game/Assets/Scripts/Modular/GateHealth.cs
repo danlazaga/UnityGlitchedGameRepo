@@ -23,12 +23,7 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
 
     public override void OnStartClient()
     {
-        OnHealthChanged(health);
-    }
-
-    public override void OnDeserialize(NetworkReader reader, bool initialState)
-    {
-        base.OnDeserialize(reader, initialState);
+        PlayerHUD.Instance.SetHTCHealth(health);
     }
 #endregion
 

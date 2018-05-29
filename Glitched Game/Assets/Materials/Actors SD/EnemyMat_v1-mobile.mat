@@ -107,5 +107,6 @@ Material:
     - _node_9581: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_copy: {r: 0.875, g: 0.875, b: 0.875, a: 1}
     - _DamageColor: {r: 1, g: 0.19852936, b: 0.19852936, a: 1}
     - _StunColor: {r: 0.98864096, g: 1, b: 0.17647055, a: 1}
