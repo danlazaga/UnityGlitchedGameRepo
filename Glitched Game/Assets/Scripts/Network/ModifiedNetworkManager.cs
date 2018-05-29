@@ -59,6 +59,16 @@ public class ModifiedNetworkManager : NetworkManager
 		ClientScene.AddPlayer(conn, 0, test);
 	}
 
+	public override void OnStopHost()
+	{
+		base.OnStopHost();
+	}
+
+	public override void OnStopClient()
+	{
+		base.OnStopClient();
+	}
+
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
 	{
 		NetworkMessage message = extraMessageReader.ReadMessage<NetworkMessage>();
