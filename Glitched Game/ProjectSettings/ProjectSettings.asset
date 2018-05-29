@@ -161,7 +161,7 @@ PlayerSettings:
     Android: com.iAC.GlitchedGame
     Standalone: unity.Valve.SteamVR
     Tizen: com.Company.ProductName
-    iOS: com.Company.ProductName
+    iOS: com.iACADEMY.GlitchedGame
     tvOS: com.Company.ProductName
   buildNumber:
     iOS: 0
@@ -285,7 +285,7 @@ PlayerSettings:
     m_Automatic: 0
   m_BuildTargetVRSettings:
   - m_BuildTarget: Android
-    m_Enabled: 1
+    m_Enabled: 0
     m_Devices:
     - Oculus
   - m_BuildTarget: Metro

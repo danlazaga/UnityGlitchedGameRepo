@@ -28,6 +28,11 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	{
 		OnHealthChanged(health);
 	}
+
+	public override void OnDeserialize(NetworkReader reader, bool initialState)
+	{
+		base.OnDeserialize(reader, initialState);
+	}
 #endregion
 
 	[Server]

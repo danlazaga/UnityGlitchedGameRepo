@@ -25,6 +25,11 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     {
         OnHealthChanged(health);
     }
+
+    public override void OnDeserialize(NetworkReader reader, bool initialState)
+    {
+        base.OnDeserialize(reader, initialState);
+    }
 #endregion
 
     [Server]
@@ -77,6 +82,7 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     {
         RpcGameOverScreen();
     }
+
     [ClientRpc]
     void RpcGameOverScreen()
     {
