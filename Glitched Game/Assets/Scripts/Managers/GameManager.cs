@@ -11,9 +11,15 @@ public class GameManager : Singleton<GameManager>
     public delegate void OnGameStart();
     public event OnGameStart onStartGame;
 
-    public void GameOverSceme()
+    public void GameOverScreen()
     {
-        SceneManager.LoadSceneAsync("GameOverScene");
+        StartCoroutine(InvokeGameOverScreen());
+    }
+
+    IEnumerator InvokeGameOverScreen()
+    {
+        yield return new WaitForSeconds(3f);
+        PlayerHUD.instance.ShowGameOverScreen();
     }
 
     public void ForceSpawn()

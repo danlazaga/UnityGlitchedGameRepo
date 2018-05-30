@@ -95,7 +95,7 @@ public class PlayerHealth : NetworkBehaviour, IHealthHandler
 	[ClientRpc]
 	void RpcGameOverScreen()
 	{
-		GameManager.Instance.GameOverSceme();
+		GameManager.Instance.GameOverScreen();
 	}
 
 }

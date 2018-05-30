@@ -81,6 +81,6 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     [ClientRpc]
     void RpcGameOverScreen()
     {
-        GameManager.Instance.GameOverSceme();
+        GameManager.Instance.GameOverScreen();
     }
 }

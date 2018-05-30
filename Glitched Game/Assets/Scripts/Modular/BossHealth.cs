@@ -114,7 +114,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
     [ClientRpc]
     void RpcGameOverScreen()
     {
-        GameManager.Instance.GameOverSceme();
+        GameManager.Instance.GameOverScreen();
     }
 
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
+	[SerializeField] GameObject gameOverScreen;
 	[Header("HTC HUD Properties")]
 	[SerializeField] UIFader htcDamageImage;
 	[SerializeField] Image htcGateHealthBar;
@@ -104,5 +105,10 @@ public class PlayerHUD : Singleton<PlayerHUD>
 	public void PlayRecticle()
 	{
 		recticleAnimation.RecticlePlay();
+	}
+
+	public void ShowGameOverScreen()
+	{
+		gameOverScreen.SetActive(true);
 	}
 }
