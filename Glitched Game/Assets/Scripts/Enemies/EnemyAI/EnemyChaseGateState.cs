@@ -15,9 +15,9 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
     public void OnStateEnter()
     {
        
-        if(controller.gate != null)
+        if(controller.GatePos != null)
         {
-            controller.NavAgent.SetDestination(controller.gate.position);
+            controller.NavAgent.SetDestination(controller.GatePos.position);
         }
 
         controller.Animator.SetBool(Animator.StringToHash("Walk"), true);
@@ -32,9 +32,9 @@ public class EnemyChaseGateState : CustomConstructor<EnemyStateController>, ISta
 
     public void OnUpdate()
     {
-        if (CheckDistance(controller.transform, controller.gate) <= attackRange ) 
+        if (CheckDistance(controller.transform, controller.GatePos) <= attackRange ) 
         {
-            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.gate.transform));
+            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.GatePos.transform));
         }
 
         if (!controller.Boss.hasShield)

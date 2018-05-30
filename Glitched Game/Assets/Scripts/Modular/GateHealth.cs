@@ -13,7 +13,6 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     public event Action OnDied = delegate { };
 
 #region Unity Methods
-
     [ServerCallback]
     void OnEnable()
     {
@@ -63,7 +62,6 @@ public class GateHealth : NetworkBehaviour, IHealthHandler
     {
         health = value;
         PlayerHUD.Instance.SetGateHealth(value);
-
     }
 
     void OnDeath()

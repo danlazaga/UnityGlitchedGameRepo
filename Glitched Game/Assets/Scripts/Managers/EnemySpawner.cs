@@ -27,12 +27,8 @@ public class EnemySpawner : NetworkBehaviour
     private int minAddSpawn;
     private int maxAddSpawn;
 
-    private GameObject player;
-    private GameObject gate;
 
-   
-
-    #region Unity Methods
+#region Unity Methods
     public override void OnStartServer()
     {
         maxWaveAmount = 5;
@@ -48,7 +44,7 @@ public class EnemySpawner : NetworkBehaviour
 
     private void Update()
     {
-        if(!isServer) 
+        if (!isServer)
             return;
 
         if (canSpawn)
@@ -73,8 +69,6 @@ public class EnemySpawner : NetworkBehaviour
 
     void HandleStartSpawn()
     {
-        gate = GameObject.FindGameObjectWithTag("Gate");
-
         StartCoroutine(IncreaseSpawn());
     }
 
@@ -86,7 +80,7 @@ public class EnemySpawner : NetworkBehaviour
         yield return waitTime;
 
         Debug.Log("Resume, New Wave Amount: " + maxWaveAmount);
-        player = GameObject.FindGameObjectWithTag("MainCamera");
+
         canSpawn = true;
     }
 
@@ -94,13 +88,8 @@ public class EnemySpawner : NetworkBehaviour
     [Command]
     void CmdSpawnEnemy()
     {
-        GameObject obj = ObjectPool.Instance.GetPooledObject("Enemy");
-
-        obj.GetComponent<EnemyStateController>().SetTargets(player.transform, gate.transform);
-
-        obj.SetTransformPoint(spawnLocations[RandomizeSpawnSlot()]);
-
-        NetworkServer.Spawn(obj);
+        GameObject obj = EnemyPool.Instance.GetFromPool(spawnLocations[RandomizeSpawnSlot()].position);
+        NetworkServer.Spawn(obj, EnemyPool.Instance.assetId);
     }
 
     int RandomizeSpawnSlot()
@@ -109,8 +98,7 @@ public class EnemySpawner : NetworkBehaviour
         return slot;
     }
 
-
-    #region ShieldEvent
+#region ShieldEvent
     public void OnShieldSpawn()
     {
         StartCoroutine(SpawnMobs());
@@ -131,6 +119,6 @@ public class EnemySpawner : NetworkBehaviour
 
     }
 
-    #endregion
+#endregion
 
 }

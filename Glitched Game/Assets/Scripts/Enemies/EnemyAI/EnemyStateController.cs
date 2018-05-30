@@ -9,42 +9,22 @@ using UnityEngine.Networking;
 public class EnemyStateController : StateController, IStunHandler
 {
 
-    private NavMeshAgent navAgent;
-    public NavMeshAgent NavAgent
-    {
-        get
-        {
-            return navAgent;
-        }
-
-        set
-        {
-            navAgent = value;
-        }
-    }
-    public Transform player { get; set; }
-    public Transform gate { get; set; }
-    public BossStateController Boss { get; set; }
-
-    public bool IsStunned
-    {
-        get
-        {
-            return isStunned;
-        }
-
-        set
-        {
-            isStunned = value;
-        }
-    }
-
     public event Action<float> OnStun;
 
+    private NavMeshAgent navAgent;
+    private GameObject playerPos;
+    private GameObject gatePos;
     private bool isStunned;
+    public NavMeshAgent NavAgent { get { return navAgent; } set { navAgent = value; } }
+    public Transform PlayerPos { get { return playerPos.transform; } set { } }
+    public Transform GatePos { get { return gatePos.transform; } set { } }
+    public BossStateController Boss { get; set; }
+    public bool IsStunned { get { return isStunned; } set { isStunned = value; } }
 
     private void OnEnable()
     {
+        gatePos = GameObject.FindGameObjectWithTag("Gate");
+        playerPos = GameObject.FindGameObjectWithTag("MainCamera");
         navAgent = GetComponent<NavMeshAgent>();
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
@@ -59,24 +39,18 @@ public class EnemyStateController : StateController, IStunHandler
 
     }
 
-    public void SetTargets(Transform player, Transform gate)
-    {
-        this.player = player;
-        this.gate = gate;
-    }
-
     public override void HandleUpdate()
     {
-        if (player != null && gate != null)
+        if (PlayerPos != null && GatePos != null)
             FSM.StateUpdate();
     }
 
     public void TakeStun(float duration)
     {
-        if(isStunned)
+        if (isStunned)
         {
             return;
-        }   
+        }
 
         FSM.ChangeState(new EnemyIdleState(this, duration));
         if (OnStun != null)
@@ -93,7 +67,7 @@ public class EnemyStateController : StateController, IStunHandler
     void DisablePlayer(float value)
     {
         value = UnityEngine.Random.Range(1f, 2f);
-       // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
+        // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
         navAgent.isStopped = true;
 
     }
@@ -106,7 +80,7 @@ public class EnemyStateController : StateController, IStunHandler
 
     public void SetToDestroy()
     {
-        ObjectPool.Instance.ReturnToPool(this.gameObject);
+        EnemyPool.Instance.UnSpawnObject(this.gameObject);
     }
 
     //IEnumerator MobStun(float duration)

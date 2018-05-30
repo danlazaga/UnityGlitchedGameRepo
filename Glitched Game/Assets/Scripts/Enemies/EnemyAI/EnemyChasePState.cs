@@ -14,9 +14,9 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
 
     public void OnStateEnter()
     {
-        if (controller.player != null)
+        if (controller.PlayerPos != null)
         {
-            controller.NavAgent.SetDestination(controller.player.position);
+            controller.NavAgent.SetDestination(controller.PlayerPos.position);
         }
         controller.Animator.SetBool(Animator.StringToHash("Walk"), true);
 
@@ -30,10 +30,10 @@ public class EnemyChasePState : CustomConstructor<EnemyStateController>, IState
     public void OnUpdate()
     {
 
-        controller.NavAgent.SetDestination(controller.player.position);
-        if (CheckDistance(controller.transform, controller.player) <= attackRange)
+        controller.NavAgent.SetDestination(controller.PlayerPos.position);
+        if (CheckDistance(controller.transform, controller.PlayerPos) <= attackRange)
         {
-            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.player));
+            controller.FSM.ChangeState(new EnemyAttackState(controller, controller.PlayerPos));
         }
 
         if (controller.Boss.hasShield)

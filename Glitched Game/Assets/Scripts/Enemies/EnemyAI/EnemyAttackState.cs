@@ -44,11 +44,11 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
 
     private void CheckTargets()
     {
-        if (controller.Boss.hasShield && _target == controller.player)
+        if (controller.Boss.hasShield && _target == controller.PlayerPos)
         {
             controller.FSM.ChangeState(new EnemyChaseGateState(controller));
         }
-        else if (!controller.Boss.hasShield && _target == controller.gate)
+        else if (!controller.Boss.hasShield && _target == controller.GatePos)
         {
             controller.FSM.ChangeState(new EnemyChasePState(controller));
         }
@@ -57,7 +57,7 @@ public class EnemyAttackState : CustomConstructor<EnemyStateController>, IState
     private void CheckAttackRange()
     {
        
-        if (_target == controller.player)
+        if (_target == controller.PlayerPos)
         {
             if (CheckDistance(controller.transform, _target) > attackRange + 0.5f)
             {
