@@ -74,6 +74,7 @@ public class ModifiedNetworkManager : NetworkManager
 	public override void OnStopClient()
 	{
 		base.OnStopClient();
+		toggleStopHost.Invoke(false);
 	}
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
