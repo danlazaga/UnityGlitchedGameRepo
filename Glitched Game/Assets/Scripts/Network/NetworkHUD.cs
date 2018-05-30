@@ -41,6 +41,7 @@ public class NetworkHUD : MonoBehaviour
 				hudMobile.SetActive(true);
 #else 
 				hudMobile.SetActive(false);
+				hudVive.SetActive(true);
 #endif
 			}
 			else

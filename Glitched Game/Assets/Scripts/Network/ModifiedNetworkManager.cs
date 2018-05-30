@@ -76,17 +76,16 @@ public class ModifiedNetworkManager : NetworkManager
 		Debug.Log("server add with message " + selectedClass);
 
 		GameObject player;
-		//Transform startPos = GetStartPosition();
-		Transform startPos = networkSpawnPosition.GetSpawnPositions();
 
-		if (startPos != null)
+		if (selectedClass == 0)
 		{
-			player = Instantiate(characters[selectedClass], startPos.position, startPos.rotation)as GameObject;
+			Transform startPos = networkSpawnPosition.GetHTCSpawnPositions();
+			player = Instantiate(characters[0], startPos.position, startPos.rotation)as GameObject;
 		}
 		else
 		{
-			player = Instantiate(characters[selectedClass], Vector3.zero, Quaternion.identity)as GameObject;
-
+			Transform startPos = networkSpawnPosition.GetSpawnPositions();
+			player = Instantiate(characters[selectedClass], startPos.position, startPos.rotation)as GameObject;
 		}
 
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
