@@ -61,14 +61,9 @@ public abstract class StateController : MonoBehaviour {
         FSM = new AIStateMachine(this);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        UpdateManager.Instance.toUpdate += HandleUpdate;
-    }
-
-    private void OnDisable()
-    {
-        UpdateManager.Instance.toUpdate -= HandleUpdate;
+        HandleUpdate();
     }
 
     public abstract void HandleUpdate();
