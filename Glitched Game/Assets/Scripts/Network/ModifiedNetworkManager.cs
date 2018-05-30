@@ -10,26 +10,19 @@ public class NetworkMessage : MessageBase
 	public int chosenClass;
 }
 
-[System.Serializable]
-public class ToggleStopHost : UnityEvent<bool> { }
-
 public class ModifiedNetworkManager : NetworkManager
 {
 	[Space(10)]
 	[SerializeField] GameObject[] characters;
 	[SerializeField] NetworkSpawnPosition networkSpawnPosition;
 	[HideInInspector] public int chosenCharacter = 0;
-	[Space(25)]
-	[SerializeField] ToggleStopHost toggleStopHost;
+	
+
+	public delegate void OnStopSession();
+	public event OnStopSession onStopSession;
 
 	private static ModifiedNetworkManager instance;
-	public static ModifiedNetworkManager Instance
-	{
-		get
-		{
-			return instance;
-		}
-	}
+	public static ModifiedNetworkManager Instance {	get	{ return instance;	} }
 
 #region Unity Methods
 	void Awake()
@@ -68,13 +61,14 @@ public class ModifiedNetworkManager : NetworkManager
 	public override void OnStopHost()
 	{
 		base.OnStopHost();
-		toggleStopHost.Invoke(false);
+		if (onStopSession != null) { onStopSession(); }
+
 	}
 
 	public override void OnStopClient()
 	{
 		base.OnStopClient();
-		toggleStopHost.Invoke(false);
+		if (onStopSession != null) { onStopSession(); }
 	}
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)

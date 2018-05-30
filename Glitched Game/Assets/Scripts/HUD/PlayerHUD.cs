@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
+	[SerializeField] GameObject mainCamObj;
 	[SerializeField] GameObject gameOverScreen;
 	[Header("HTC HUD Properties")]
 	[SerializeField] UIFader htcDamageImage;
@@ -40,6 +41,11 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		}
 	}
 
+	private void Start()
+	{
+		ModifiedNetworkManager.Instance.onStopSession += DeInitialize;
+	}
+
 	public override void Reset()
 	{
 		base.Reset();
@@ -47,6 +53,11 @@ public class PlayerHUD : Singleton<PlayerHUD>
 		mobileDamageImage = GameObject.Find("DamageImage").GetComponent<UIFader>();
 		mobileGateHealthBar = GameObject.Find("HealthForegound").GetComponent<Image>();
 		mobileHtcHealthBar = GameObject.Find("HTCHealthBar").GetComponent<Image>();
+	}
+
+	private void OnDestroy()
+	{
+		ModifiedNetworkManager.Instance.onStopSession -= DeInitialize;
 	}
 
 #endregion
@@ -59,6 +70,20 @@ public class PlayerHUD : Singleton<PlayerHUD>
 #else
 		htcHUD.SetActive(true);
 #endif
+	}
+
+	void DeInitialize()
+	{
+		mainCamObj.SetActive(true);
+
+#if UNITY_ANDROID || UNITY_IOS
+		mobileControllerObj.SetActive(false);
+		mobilePlayerHUD.SetActive(false);
+#else
+		htcHUD.SetActive(false);
+#endif
+
+		gameOverScreen.SetActive(false);
 	}
 
 	public void SetGateHealth(float value)
