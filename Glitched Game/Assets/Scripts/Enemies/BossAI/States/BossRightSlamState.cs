@@ -34,7 +34,6 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
 
     void CheckAttackSequence()
     {
-        if(controller == null) return;
 
         if (controller.attacks >= controller.maxAttacks + 2)
         {
