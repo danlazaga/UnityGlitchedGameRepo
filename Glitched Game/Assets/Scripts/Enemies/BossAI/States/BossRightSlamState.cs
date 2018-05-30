@@ -30,12 +30,12 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-       
-
     }
 
     void CheckAttackSequence()
     {
+        if(controller == null) return;
+
         if (controller.attacks >= controller.maxAttacks + 2)
         {
             if (controller.Animator.GetBehaviour<RightSlamBehaviour>().IsDurationDone)
