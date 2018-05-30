@@ -260,6 +260,16 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: -4.5400085
       objectReference: {fileID: 0}
+    - target: {fileID: 114735833088756202, guid: 84169cb8ffd15244785c5320cfd87d43,
+        type: 2}
+      propertyPath: horizontalAxisName
+      value: HorizontalM
+      objectReference: {fileID: 0}
+    - target: {fileID: 114735833088756202, guid: 84169cb8ffd15244785c5320cfd87d43,
+        type: 2}
+      propertyPath: verticalAxisName
+      value: VerticalM
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84169cb8ffd15244785c5320cfd87d43, type: 2}
   m_IsPrefabParent: 0

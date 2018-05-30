@@ -21,8 +21,8 @@ public class TurretLookAt
 
 	public void LookRotation(Transform baseTurret, Transform turret)
 	{
-		float yRot = CrossPlatformInputManager.GetAxis("Horizontal")* YSensitivity;
-		float xRot = CrossPlatformInputManager.GetAxis("Vertical")* XSensitivity;
+		float yRot = CrossPlatformInputManager.GetAxis("HorizontalM")* YSensitivity;
+		float xRot = CrossPlatformInputManager.GetAxis("VerticalM")* XSensitivity;
 
 		baseRot *= Quaternion.Euler(0f, yRot, 0f);
 		turretTargetRot *= Quaternion.Euler(-xRot, 0, 0f);
