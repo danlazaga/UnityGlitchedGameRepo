@@ -21,7 +21,7 @@ public class ObjectPool : Singleton<ObjectPool>
     [SerializeField] List<ObjectPoolItem> itemsToPool = new List<ObjectPoolItem>();
     [SerializeField] List<GameObject> pooledObjects = new List<GameObject>();
 
-    void Awake()
+    private void OnEnable()
     {
         if (string.IsNullOrEmpty(rootPoolName))
             rootPoolName = DefaultRootObjectPoolName;
