@@ -8,7 +8,7 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 
     public BossLeftSlamState(BossStateController controller): base(controller)
     {
-      
+
     }
 
     public void OnStateEnter()
@@ -27,11 +27,13 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
     public void OnUpdate()
     {
         CheckAttackSequence();
-      
+
     }
 
     public void CheckAttackSequence()
     {
+        if (controller == null)return;
+
         if (controller.attacks >= controller.maxAttacks + 2)
         {
             if (controller.Animator.GetBehaviour<LeftSlamBehaviour>().IsDurationDone)
@@ -50,5 +52,4 @@ public class BossLeftSlamState : CustomConstructor<BossStateController>, IState
 
     }
 
-   
 }
