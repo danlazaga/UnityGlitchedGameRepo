@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 //subclass for sending network messages
@@ -9,12 +10,17 @@ public class NetworkMessage : MessageBase
 	public int chosenClass;
 }
 
+[System.Serializable]
+public class ToggleStopHost : UnityEvent<bool> { }
+
 public class ModifiedNetworkManager : NetworkManager
 {
 	[Space(10)]
 	[SerializeField] GameObject[] characters;
 	[SerializeField] NetworkSpawnPosition networkSpawnPosition;
 	[HideInInspector] public int chosenCharacter = 0;
+	[Space(25)]
+	[SerializeField] ToggleStopHost toggleStopHost;
 
 	private static ModifiedNetworkManager instance;
 	public static ModifiedNetworkManager Instance
@@ -62,6 +68,7 @@ public class ModifiedNetworkManager : NetworkManager
 	public override void OnStopHost()
 	{
 		base.OnStopHost();
+		toggleStopHost.Invoke(false);
 	}
 
 	public override void OnStopClient()
