@@ -19,14 +19,9 @@ public class NetworkHUD : MonoBehaviour
 	{
 		manager = GetComponent<ModifiedNetworkManager>();
 	}
-	
+
 	private void Start()
 	{
-		// #if UNITY_ANDROID || UNITY_IOS
-		// 		hudVive.SetActive(false);
-		// #else 
-		// 		hudMobile.SetActive(false);
-		// #endif
 		SoundManager.Instance.PlayBGM(0);
 	}
 
@@ -39,9 +34,10 @@ public class NetworkHUD : MonoBehaviour
 		{
 			if (noConnection)
 			{
+				connectingPanel.SetActive(false);
+
 #if UNITY_ANDROID || UNITY_IOS
 				hudVive.SetActive(false);
-				connectingPanel.SetActive(false);
 				hudMobile.SetActive(true);
 #else 
 				hudMobile.SetActive(false);
@@ -57,9 +53,9 @@ public class NetworkHUD : MonoBehaviour
 
 		if (NetworkServer.active || manager.IsClientConnected())
 		{
+
 #if UNITY_ANDROID || UNITY_IOS
 			hudMobile.SetActive(false);
-			connectingPanel.SetActive(false);
 #else
 			hudVive.SetActive(false);
 #endif
