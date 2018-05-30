@@ -60,7 +60,6 @@ public class EnemyPool : Singleton<EnemyPool>
 	{
 		Debug.Log("Re-pooling GameObject " + spawned.name);
 		spawned.SetActive(false);
-		NetworkServer.UnSpawn(spawned);
 	}
 
 	GameObject CreateObject()

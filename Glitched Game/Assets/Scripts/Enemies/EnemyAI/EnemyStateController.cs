@@ -36,9 +36,16 @@ public class EnemyStateController : StateController, IStunHandler
         }
 
         GetComponent<Collider>().enabled = true;
-
     }
 
+    private void OnDisable()
+    {
+        if (GetComponent<IHealthHandler>()!= null)
+        {
+            GetComponent<IHealthHandler>().OnDied -= MobDeath;
+        }
+    }
+    
     public override void HandleUpdate()
     {
         if (PlayerPos != null && GatePos != null)
@@ -81,6 +88,7 @@ public class EnemyStateController : StateController, IStunHandler
     public void SetToDestroy()
     {
         EnemyPool.Instance.UnSpawnObject(this.gameObject);
+        NetworkServer.UnSpawn(this.gameObject);
     }
 
     //IEnumerator MobStun(float duration)
