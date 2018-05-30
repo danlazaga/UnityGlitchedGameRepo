@@ -53,6 +53,7 @@ public class NetworkHUD : MonoBehaviour
 
 		if (NetworkServer.active || manager.IsClientConnected())
 		{
+			connectingPanel.SetActive(false);
 
 #if UNITY_ANDROID || UNITY_IOS
 			hudMobile.SetActive(false);
