@@ -52,7 +52,7 @@ public class EnemySpawner : NetworkBehaviour
             spawnRate += Time.deltaTime;
             if (spawnRate >= maxSpawnRate)
             {
-                CmdSpawnEnemy();
+                SpawnEnemy();
                 spawnRate = 0;
             }
             if (waveAmount >= maxWaveAmount)
@@ -85,8 +85,7 @@ public class EnemySpawner : NetworkBehaviour
     }
 
     // Spawn Enemy Randomly
-    [Command]
-    void CmdSpawnEnemy()
+    void SpawnEnemy()
     {
         GameObject obj = EnemyPool.Instance.GetFromPool(spawnLocations[RandomizeSpawnSlot()].position);
         NetworkServer.Spawn(obj, EnemyPool.Instance.assetId);
