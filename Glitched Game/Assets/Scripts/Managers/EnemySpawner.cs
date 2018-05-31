@@ -27,7 +27,6 @@ public class EnemySpawner : NetworkBehaviour
     private int minAddSpawn;
     private int maxAddSpawn;
 
-
 #region Unity Methods
     public override void OnStartServer()
     {
@@ -64,6 +63,14 @@ public class EnemySpawner : NetworkBehaviour
             }
 
         }
+    }
+
+    private void OnDisable()
+    {
+        canSpawn = false;
+        spawnRate = 0;
+
+        GameManager.Instance.onForceSpawn -= OnShieldSpawn;
     }
 #endregion
 

@@ -7,7 +7,7 @@ public class BossStateController : StateController
 {
     // public delegate void OnShieldDestroy();
     // public event OnShieldDestroy ShieldDestroy;
-   private ShieldHealth shieldHealth;
+    private ShieldHealth shieldHealth;
     //attack counter
     public int attacks { get; set; }
 
@@ -37,15 +37,18 @@ public class BossStateController : StateController
         if (testMode)
             maxAttacks = 4;
 
-        FSM.ChangeState(new BossDisableState(this));
-
-        if(shieldHealth != null)
+        if (shieldHealth != null)
             shieldHealth.OnDied += ReturnToIdle;
 
-        if(GetComponent<IHealthHandler>() != null)
+        if (GetComponent<IHealthHandler>()!= null)
             GetComponent<IHealthHandler>().OnDied += HandleBossDeath;
 
-        
+    }
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        FSM.ChangeState(new BossDisableState(this));
     }
 
     private void OnDestroy()
@@ -54,12 +57,10 @@ public class BossStateController : StateController
         GetComponent<IHealthHandler>().OnDied -= HandleBossDeath;
     }
 
-
     public override void HandleUpdate()
     {
         FSM.StateUpdate();
     }
-
 
     public void HandleBossDeath()
     {
