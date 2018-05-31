@@ -20,7 +20,7 @@
  			skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
  			if (skinnedMeshRenderer != null)
  			{
- 				Debug.Log("success");
+ 				// Debug.Log("success");
  			}
  		}
  		StartCoroutine(LoadMaterialsFromBundle());

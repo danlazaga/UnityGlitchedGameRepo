@@ -21,8 +21,10 @@ public class EnemyStateController : StateController, IStunHandler
     public BossStateController Boss { get; set; }
     public bool IsStunned { get { return isStunned; } set { isStunned = value; } }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
+        
         gatePos = GameObject.FindGameObjectWithTag("Gate");
         playerPos = GameObject.FindGameObjectWithTag("MainCamera");
         navAgent = GetComponent<NavMeshAgent>();
@@ -38,8 +40,10 @@ public class EnemyStateController : StateController, IStunHandler
         GetComponent<Collider>().enabled = true;
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
+
         if (GetComponent<IHealthHandler>()!= null)
         {
             GetComponent<IHealthHandler>().OnDied -= MobDeath;

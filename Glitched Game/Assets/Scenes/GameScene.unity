@@ -921,7 +921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741cc9883cb63224b825647569906163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamObj: {fileID: 738000895}
   gameOverScreen: {fileID: 1315774962}
   htcDamageImage: {fileID: 1061906520}
   htcGateHealthBar: {fileID: 318682431}
@@ -1000,6 +999,11 @@ Prefab:
     - target: {fileID: 1303099000976260, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}
       propertyPath: m_Name
       value: EnemyPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832253844505460, guid: a04b0e05b95bfda4caf946ae42ef2974,
+        type: 2}
+      propertyPath: m_ServerOnly
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114203605359649374, guid: a04b0e05b95bfda4caf946ae42ef2974, type: 2}

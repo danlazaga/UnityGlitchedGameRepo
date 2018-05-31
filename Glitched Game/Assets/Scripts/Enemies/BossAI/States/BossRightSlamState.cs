@@ -15,7 +15,7 @@ public class BossRightSlamState : CustomConstructor<BossStateController>, IState
     {
         controller.attacks++;
         controller.Animator.SetBool(Animator.StringToHash("RightSlam"), true);
-        Debug.Log("RightSlam");
+        // Debug.Log("RightSlam");
 
     }
     public void OnStateExit()

@@ -16,7 +16,7 @@ public class EnemyHitDamage : MonoBehaviour
         if (other.gameObject.layer == PLAYER_MASK || other.gameObject.layer == GATE_MASK)
         {
             var health = other.transform.GetComponentInParent<IHealthHandler>();
-            Debug.Log(health);
+    
             if (health != null)
             {
                 health.TakeDamage(damage);

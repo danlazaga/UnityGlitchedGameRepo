@@ -9,8 +9,6 @@ public class PlayerNetworkSetup : NetworkBehaviour
 {
 #region Variables
 	GameObject mainCamera;
-	[SerializeField] MeshRenderer playerMesh;
-	[Space(25)]
 	[SerializeField] ToggleEvent onToggleShared;
 	[SerializeField] ToggleEvent onToggleLocal;
 	[SerializeField] ToggleEvent onToggleRemote;
@@ -28,9 +26,9 @@ public class PlayerNetworkSetup : NetworkBehaviour
 		PlayerHUD.Instance.Initialize();
 	}
 
-	public override void OnStartLocalPlayer()
+	void OnDisable()
 	{
-		playerMesh.material.color = Color.green;
+		DisablePlayer();
 	}
 
 #endregion

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PlayerHUD : Singleton<PlayerHUD>
 {
 #region Variables
-	[SerializeField] GameObject mainCamObj;
 	[SerializeField] GameObject gameOverScreen;
 	[Header("HTC HUD Properties")]
 	[SerializeField] UIFader htcDamageImage;
@@ -74,7 +73,6 @@ public class PlayerHUD : Singleton<PlayerHUD>
 
 	void DeInitialize()
 	{
-		mainCamObj.SetActive(true);
 
 #if UNITY_ANDROID || UNITY_IOS
 		mobileControllerObj.SetActive(false);

@@ -79,7 +79,7 @@ public class EnemySpawner : NetworkBehaviour
 
         yield return waitTime;
 
-        Debug.Log("Resume, New Wave Amount: " + maxWaveAmount);
+        // Debug.Log("Resume, New Wave Amount: " + maxWaveAmount);
 
         canSpawn = true;
     }

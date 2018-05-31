@@ -22,7 +22,7 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
 
     public void OnStateEnter()
     {
-        Debug.Log("DISABLED");
+        // Debug.Log("DISABLED");
         //play Animation
     }
 
@@ -39,7 +39,7 @@ public class BossDisableState : CustomConstructor<BossStateController>, IState
             disableTime += Time.deltaTime;
             if(disableTime > maxDisableTime)
             {
-                Debug.Log("Boss ACTIVATED");
+                // Debug.Log("Boss ACTIVATED");
                
                 controller.FSM.ChangeState(new BossIdleState(controller));
             }

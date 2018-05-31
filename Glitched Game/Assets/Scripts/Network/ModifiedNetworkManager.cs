@@ -75,7 +75,7 @@ public class ModifiedNetworkManager : NetworkManager
 	{
 		NetworkMessage message = extraMessageReader.ReadMessage<NetworkMessage>();
 		int selectedClass = message.chosenClass;
-		Debug.Log("server add with message " + selectedClass);
+		// Debug.Log("server add with message " + selectedClass);
 
 		GameObject player;
 
