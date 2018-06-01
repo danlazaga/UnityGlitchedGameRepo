@@ -4007,10 +4007,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12acb2425c48a244b6a4eb91ae926a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
   assetBundleName: 
   meshMaterials: []
   meshMaterialsName: []
+  meshRenderer: {fileID: 0}
 --- !u!23 &2087663479
 MeshRenderer:
   m_ObjectHideFlags: 0
