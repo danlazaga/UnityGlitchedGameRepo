@@ -8,11 +8,23 @@ public class NetworkSpawnPosition : MonoBehaviour
 	[SerializeField] List<Transform> spawnPositions = new List<Transform>();
 	[Space(10)]
 	[SerializeField] Transform spawnHTCPos;
+	[SerializeField] Transform spawnGatePos;
+	[SerializeField] Transform spawnBoss;
 	int playerSpawnIndex = 0;
 
 	public Transform GetHTCSpawnPositions()
 	{
 		return spawnHTCPos;
+	}
+
+	public Transform GetGateSpawnPosition()
+	{
+		return spawnGatePos;
+	}
+
+	public Transform GetBossSpawnPosition()
+	{
+		return spawnBoss;
 	}
 
 	public Transform GetSpawnPositions()

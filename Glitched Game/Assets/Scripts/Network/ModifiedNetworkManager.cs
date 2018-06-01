@@ -14,6 +14,8 @@ public class ModifiedNetworkManager : NetworkManager
 {
 	[Space(10)]
 	[SerializeField] GameObject[] characters;
+	[SerializeField] GameObject gateObj;
+	[SerializeField] GameObject bossObj;
 	[SerializeField] NetworkSpawnPosition networkSpawnPosition;
 	[HideInInspector] public int chosenCharacter = 0;
 	
@@ -39,7 +41,8 @@ public class ModifiedNetworkManager : NetworkManager
 
 	public override void OnStartHost()
 	{
-		base.OnStartHost();
+		base.OnStartHost();	
+		StartCoroutine(SpawnPositions());
 
 		Debug.Log("Host Started!");
 	}
@@ -81,7 +84,7 @@ public class ModifiedNetworkManager : NetworkManager
 
 		if (selectedClass == 0)
 		{
-			Transform startPos = networkSpawnPosition.GetHTCSpawnPositions();
+			Transform startPos = networkSpawnPosition.GetHTCSpawnPositions(); 
 			player = Instantiate(characters[0], startPos.position, startPos.rotation)as GameObject;
 		}
 		else
@@ -94,4 +97,18 @@ public class ModifiedNetworkManager : NetworkManager
 
 	}
 #endregion
+
+	IEnumerator SpawnPositions()
+	{
+		yield return new WaitForSeconds(0.2f);
+		Transform pos = networkSpawnPosition.GetBossSpawnPosition();
+		GameObject boss = Instantiate(bossObj, pos.position, pos.rotation);
+
+		yield return new WaitForSeconds(2.0f);
+		Transform gatePos = networkSpawnPosition.GetGateSpawnPosition();
+		GameObject gate = Instantiate(gateObj, gatePos.position, gatePos.rotation);
+
+		NetworkServer.Spawn(gate);
+		NetworkServer.Spawn(boss);
+	}
 }
