@@ -27,6 +27,7 @@ public class EnemyStateController : StateController, IStunHandler
         
         gatePos = GameObject.FindGameObjectWithTag("Gate");
         playerPos = GameObject.FindGameObjectWithTag("MainCamera");
+
         navAgent = GetComponent<NavMeshAgent>();
         Boss = FindObjectOfType<BossStateController>();
         FSM.ChangeState(new EnemyChasePState(this));
@@ -75,13 +76,13 @@ public class EnemyStateController : StateController, IStunHandler
         FSM.ChangeState(new EnemyDeathState(this));
     }
 
-    void DisablePlayer(float value)
-    {
-        value = UnityEngine.Random.Range(1f, 2f);
-        // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
-        navAgent.isStopped = true;
+    // void DisablePlayer(float value)
+    // {
+    //     value = UnityEngine.Random.Range(1f, 2f);
+    //     // Animator.SetTrigger(Animator.StringToHash("Flinch1"));
+    //     navAgent.isStopped = true;
 
-    }
+    // }
 
     public void EnableAgent()
     {

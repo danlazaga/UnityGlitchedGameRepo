@@ -46,7 +46,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
 
         health -= damage;
 
-        if (health <= (maxHealth * 0.6))
+        if (health <= (maxHealth * 0.75))
         {
             if (UnlockDoubleSlam != null)
             {
@@ -54,7 +54,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
             }
         }
 
-        if (health <= (maxHealth * 0.5))
+        if (health <= (maxHealth * 0.6))
         {
             if (UnlockLaser != null)
             {
@@ -62,7 +62,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
             }
         }
 
-        if (health <= (maxHealth * 0.4))
+        if (health <= (maxHealth * 0.5))
         {
             if (UnlockMissile != null)
             {
@@ -84,13 +84,7 @@ public class BossHealth : NetworkBehaviour, IHealthHandler
         OnHPPctChanged(health);
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            TakeDamage(100);
-        }
-    }
+   
 
     void SetToDestroy()
     {
