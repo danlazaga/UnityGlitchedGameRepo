@@ -20,10 +20,10 @@ Shader "Shader Forge/EnemyShader-Mobile" {
             "RenderType"="Opaque"
         }
         Pass {
-            Name "FORWARD"
-            Tags {
-                "LightMode"="ForwardBase"
-            }
+            // Name "FORWARD"
+            // Tags {
+            //     "LightMode"="ForwardBase"
+            // }
             
             
             CGPROGRAM
