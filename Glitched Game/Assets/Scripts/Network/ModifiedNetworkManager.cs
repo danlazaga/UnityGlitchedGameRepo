@@ -42,7 +42,6 @@ public class ModifiedNetworkManager : NetworkManager
 	public override void OnStartHost()
 	{
 		base.OnStartHost();	
-		StartCoroutine(SpawnPositions());
 
 		Debug.Log("Host Started!");
 	}
@@ -98,17 +97,17 @@ public class ModifiedNetworkManager : NetworkManager
 	}
 #endregion
 
-	IEnumerator SpawnPositions()
-	{
-		yield return new WaitForSeconds(0.2f);
-		Transform pos = networkSpawnPosition.GetBossSpawnPosition();
-		GameObject boss = Instantiate(bossObj, pos.position, pos.rotation);
+	// IEnumerator SpawnPositions()
+	// {
+	// 	yield return new WaitForSeconds(0.2f);
+	// 	Transform pos = networkSpawnPosition.GetBossSpawnPosition();
+	// 	GameObject boss = Instantiate(bossObj, pos.position, pos.rotation);
 
-		yield return new WaitForSeconds(2.0f);
-		Transform gatePos = networkSpawnPosition.GetGateSpawnPosition();
-		GameObject gate = Instantiate(gateObj, gatePos.position, gatePos.rotation);
+	// 	yield return new WaitForSeconds(2.0f);
+	// 	Transform gatePos = networkSpawnPosition.GetGateSpawnPosition();
+	// 	GameObject gate = Instantiate(gateObj, gatePos.position, gatePos.rotation);
 
-		NetworkServer.Spawn(gate);
-		NetworkServer.Spawn(boss);
-	}
+	// 	NetworkServer.Spawn(gate);
+	// 	NetworkServer.Spawn(boss);
+	// }
 }
